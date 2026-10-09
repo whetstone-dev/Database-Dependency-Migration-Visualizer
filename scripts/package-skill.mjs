@@ -21,6 +21,8 @@ const add = (name, source) => {
 for (const name of [
   "SKILL.md",
   "README.md",
+  "CONTRIBUTING.md",
+  "docs/roadmap.md",
   "LICENSE",
   "SECURITY.md",
   "THIRD_PARTY_NOTICES.md",
@@ -52,7 +54,8 @@ for (const folder of [
 }
 const receipt = {
   ...archive(join(out, "database-dependency-migration.skill"), payloads),
-  runtime: "node",
+  runtime: "none",
+  optional_toolkit_runtime: "node",
   creator_validation: "run installed creator validation separately",
   excluded: [
     "site",

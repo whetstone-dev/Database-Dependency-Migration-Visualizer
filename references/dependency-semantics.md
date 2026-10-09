@@ -1,6 +1,8 @@
 # Dependency semantics
 
-Every edge points from dependent/reference source to its target. Impact uses a cycle-safe breadth-first traversal of reverse edges and returns deterministic shortest edge paths. It excludes the root from its own dependents. It separates paths containing PARSED/INFERRED/UNKNOWN evidence from all-OBSERVED paths.
+Every edge points from dependent/reference source to its target. In a manual source review, cite each link and trace reverse paths from the changed object. Label unsupported links UNKNOWN; see [source analysis](source-analysis.md).
+
+Toolkit impact uses a cycle-safe breadth-first traversal of reverse edges and returns deterministic shortest edge paths. It excludes the root from its own dependents. It separates paths containing PARSED/INFERRED/UNKNOWN evidence from all-OBSERVED paths.
 
 `foreign_key` represents a relational constraint/relationship. Constraint nodes link to local and referenced key columns; a distinct local-column relationship to referenced columns allows column impact traversal. This does not mean a referencing row always exists or a foreign key carries an ERD cardinality guarantee.
 

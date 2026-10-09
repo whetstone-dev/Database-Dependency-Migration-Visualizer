@@ -25,6 +25,8 @@
     "agents",
     "templates",
     "README.md",
+    "CONTRIBUTING.md",
+    "docs/roadmap.md",
     "pnpm-lock.yaml",
     "LICENSE",
     "SECURITY.md",

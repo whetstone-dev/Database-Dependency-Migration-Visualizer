@@ -2,7 +2,7 @@
 
 Release only validated `main`. Version 0.1.0 is the first pre-1.0 contract; it does not claim production completeness. Version 0.2.0 adds webpage functionality. Version 0.3.0 replaces the Python toolkit with Node.js, adds web documentation and matches standalone reports to the webpage. Update package.json, SKILL.md metadata, site/package.json, pnpm-lock.yaml and CHANGELOG.md together. The webpage footer and static archive name read their version from package metadata. Preserve historical Python tags and evaluation evidence.
 
-Run formatting/static checks, all offline/browser tests, isolated live tests where available, fixture regeneration checks and npm/.skill install smoke checks. Record actual results and limitations. Inspect staged files for secrets and ignored output leakage.
+Run formatting/static checks, all offline/browser tests, isolated live tests where available, fixture regeneration checks and npm/.skill install smoke checks. Verify the no-runtime source-review workflow separately from optional toolkit installation; the skill package receipt declares `runtime: none` and `optional_toolkit_runtime: node`. Record actual results and limitations. Inspect staged files for secrets and ignored output leakage.
 
 Commits use `<gitmoji> <type>: <lowercase imperative subject>` with a separate explanatory body and no scopes. Create an annotated SemVer tag `v<version>` at the tested final main commit with release notes. Never move an existing release tag. The user supplied the Conventional Commits/Gitmoji guide on 2026-10-09.
 

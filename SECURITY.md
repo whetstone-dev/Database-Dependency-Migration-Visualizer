@@ -8,7 +8,7 @@ Use the repository's private vulnerability reporting option when available. Othe
 
 ## Trust boundaries
 
-The installed skill contains agent instructions and executable Node.js code. Review its source and dependencies before execution. Install the frozen production dependencies with `--ignore-scripts`. The Skills CLI installation copies the root skill directory, including development files and evaluations; the separate `.skill` archive has a narrower file allowlist.
+The installed skill contains agent instructions and an optional Node.js toolkit. Ordinary source reviews require no dependency installation or executable toolkit code. Review the toolkit's source and dependencies before choosing to run it; install with `--ignore-scripts`, using the frozen production path when reproducibility is required. The Skills CLI copies the root skill directory, including development files and evaluations; the separate `.skill` archive has a narrower file allowlist.
 
 The analyzer reads supplied SQL and catalog captures as data. It has no migration execution command or API. Live discovery requires an explicitly selected environment variable and read-only mode, uses fixed catalog queries, omits routine bodies and business rows, and hashes stored default-expression trees. Development fixture scripts execute shipped example SQL only in their own disposable cluster or explicitly configured CI fixture database.
 

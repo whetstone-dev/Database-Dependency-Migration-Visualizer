@@ -4,6 +4,8 @@ A separate Next.js 16.4 App Router website for the Agent Skill and Node.js toolk
 
 ## Development and build
 
+These requirements apply to website development. Normal agent skill use requires no Node.js, pnpm or website build; install the skill and point the agent at local sources. The website's installation and quickstart pages explain that default workflow and the optional toolkit separately.
+
 Use Node.js 22.18+ and pnpm 12.10.1. Run from the repository root:
 
 ```sh
