@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+Find npm in both official Windows and POSIX Node installation layouts during artifact installation checks. Resolve prerequisites before creating a temporary workspace. The first remote Linux CI run exposed this portability bug after all engine/browser/build checks passed.
+
+Pull the same PostgreSQL fixture releases from Docker Official Images on Amazon ECR Public, pinned to verified Linux amd64 manifest digests, after Docker Hub rate-limited the first matrix run. Preserve required check names and let all matrix versions complete independently. Main now requires a pull request, maintainer code-owner approval and passing CI checks for contributions.
+
+Mark generated evaluation viewers and rendered examples for GitHub Linguist. Retain the files and authored HTML templates while excluding generated output from source-language statistics.
+
 ## 0.3.2 - 2026-10-09
 
 Harden output writes against pre-created links and source overwrites, normalize target types before graph/library assessment, and escape imported Markdown fields. Live catalog capture 1.1.0 hashes stored default-expression trees without deparsing custom values; offline 1.0.0 captures retain their original query contracts. Cache query evidence fingerprints and reject unsupported connection routing parameters.
