@@ -1,0 +1,111 @@
+{
+  "version": "0.2.0",
+  "observed_on": "2026-10-09",
+  "base_commit": "2d26de1bd52b4849fb70fd1fd2ab78c8e2fc9b43",
+  "environment": {
+    "os": "Windows",
+    "python": "3.14.4",
+    "node": "24.15.0",
+    "browser": "Playwright 1.56.0 Chromium",
+    "postgresql": "18.3"
+  },
+  "skills_applied": [
+    "emil-design-eng",
+    "animate",
+    "apple-design",
+    "review-animations"
+  ],
+  "design_reference": "https://github.com/whetstone-dev/network-engineering/blob/main/web/src/components/Flow.tsx",
+  "checks": {
+    "pytest": {
+      "passed": 103,
+      "skipped_live_without_dsn": 2,
+      "seconds": 98.97,
+      "exit_code": 0
+    },
+    "site_browser_cases": 21,
+    "isolated_postgresql": {
+      "passed": 2,
+      "fixture_files_executed": 7,
+      "migration_proposals_executed": 0,
+      "cluster_stopped": true,
+      "exit_code": 0
+    },
+    "ruff_check": "passed",
+    "ruff_format": "passed",
+    "prettier": "passed",
+    "typescript_vite_build": "passed",
+    "creator_validators": "system and installed validators passed",
+    "example_regeneration": "three byte-identical bundles",
+    "independent_code_review": "approved after text-resize fix",
+    "independent_motion_review": "approved after keyboard and canvas fixes"
+  },
+  "browser_coverage": {
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "locales": [
+      "en",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "text_resize": "200%, labels inside nodes and nodes inside visible card",
+    "preferences": "persistent, system theme fallback, works without storage",
+    "trace_interaction": [
+      "hover",
+      "keyboard focus",
+      "touch"
+    ],
+    "flow": "pointer sequential replay, keyboard static completion, reduced-motion static",
+    "canvas": "no continuous idle, offscreen or coarse drawing",
+    "reports": "separate self-contained HTML, actual node counts, JSON export, review findings and phases",
+    "licenses": "all retained license bytes served"
+  },
+  "historical_creator_evaluation": {
+    "version": "0.1.0",
+    "repeated_for_webpage_revision": false,
+    "receipt": "validation-receipt.json",
+    "reason": "Analysis engine code changed only its release version; raw behavioral evaluation outputs remain frozen."
+  },
+  "packaging_receipts": "Local dist/v0.2.0 contains creator-package.log, skill-package.json, artifact-smoke.json and release-manifest.json. Static site receipt is dist/site-package.json.",
+  "limitations": [
+    "Standalone reports, CLI artifacts and Markdown documentation remain in English.",
+    "Theme preferences apply to the landing page.",
+    "Physical devices, Firefox and Safari were not tested.",
+    "Database/runtime coverage limitations are unchanged; see validation.md.",
+    "No remote CI, hosting deployment or publication was performed."
+  ],
+  "sha256": {
+    "pyproject.toml": "8d3530082056b0ad6e1499452586dfa6f80e04ad0f219fa3cd45e2a1666eb6e9",
+    "scripts/capture_site_screenshots.py": "83817265b0e00f6c087e3766ff786d72717742e622deb478b098d3ee7e065bcb",
+    "scripts/package_site.py": "079fc4657b237c517a896f4be9458ade7948153ac85abcf72e5648c4d49e3b18",
+    "site/index.html": "1bea8c5a60c0848d47e7fe91d984469fe8beba6cb374963cd3a51d3eebd1b8d3",
+    "site/package-lock.json": "74f167f1d03763375fa66b82fae761ee723d94078c38ef4f4197dda591c77fc7",
+    "site/package.json": "16535f82779f9d634a1ba26e5b48b06f21721c9e01d14fb6f64e5991666abc6b",
+    "site/src/App.tsx": "29d28cec7da8d50657317292a59db2afd99a7c49ee58920ccb027a0dd5172d52",
+    "site/src/components/AnalysisFlow.tsx": "0a2e0d0f8062261385c76f0b01f37488002d1f11183a925980a36273e5ff8687",
+    "site/src/components/Examples.tsx": "e00584ecd7c39540779aca1d966b1434f32ba69f10a1a142eaf8e1e3a734ea71",
+    "site/src/components/Icons.tsx": "dd6f1cbd0f881ae569a8b16ba7c7dc11905b0c593549a0033b59b8d786ab9648",
+    "site/src/components/ImpactStudy.tsx": "c62548cc40d47731dfb32375532fa4794d04982c6c84c9c7e576a30c0f32928b",
+    "site/src/components/Preferences.tsx": "f66241fdb4d92f5ada76c67ba32b09fa16213d9e9a5df89240f211b21a493c9e",
+    "site/src/components/react-bits/BlurText.tsx": "b00b1359d9212b61d4abc755c128ac209f7d80468db60095995da1dc6a74bdb3",
+    "site/src/components/react-bits/DotGrid.tsx": "3b35d33c6210bc64bd1c0d384a15ab03787226d7ebdf904eafab8d6d3eadbf88",
+    "site/src/components/react-bits/Magnet.tsx": "fa2b868b8a73dfab94df7ebe5f5e1b719c1422f8d023f53d1b8d3b5134f4118a",
+    "site/src/data/demos.json": "a49e18130df1b129fbd962d3ce9d14de47f560063380f0a5d3c409645ef92170",
+    "site/src/i18n.ts": "8bf7add3524459820fd5c8ba3b5de11a1b9ea15ca5aa66b0021d516462dd91de",
+    "site/src/main.tsx": "ffe8a72f7b36269925c2633c5329f2aaa34749f4c428aad8dabb9aa091315f26",
+    "site/src/styles.css": "7ffeb3288663d457fbceb0f352f8486b3130ded7c52baf28d91ef4ecc618996f",
+    "site/src/usePageMotion.ts": "a39343329cf041760b3a16546b0c4c1468882290eaade8c16e0c0bac1f48ee5d",
+    "site/src/useReducedMotion.ts": "78786caab01b8eb1fe125524d9d84f3a4edb87fab5d0e8032863dfe3e27f6063",
+    "site/src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+    "SKILL.md": "8d190a1d275e376df4bec1abda9f51f67a90e78327a526ad73a2923908225f46",
+    "src/dbdep/__init__.py": "c1797ed6c1bf5dfb731e57450eb304de2450732149f4feddacdbf279adf2958f",
+    "tests/test_site_browser.py": "dfdc40e7a797894b95612f3b2a0d83bfc47aa3340d75bb0dc5b73786beab9ee7"
+  }
+}

@@ -1,5 +1,7 @@
 # Validation evidence
 
+The table below preserves the original v0.1.0 validation and creator evaluation. The v0.2.0 webpage revision has a separate [validation receipt](webpage-validation.json) and [design/review record](webpage-redesign.md). Historical evaluation hashes and raw outputs have not been rewritten.
+
 Observed locally on 2026-10-09, Windows, Python 3.14.4, Node 24.15.0 and PostgreSQL 18.3. These results describe the local implementation, not remote CI or production behavior.
 
 | Check | Observed result |

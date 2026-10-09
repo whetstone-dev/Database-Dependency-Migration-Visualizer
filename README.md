@@ -24,7 +24,7 @@ Demo limitations: UUID mapping and production deployment require operational rev
 
 ## Skill webpage
 
-The [React webpage](site/README.md) presents the workflow, installation, evidence boundaries and all three interactive reports. GSAP handles scroll effects, Lenis smooth scrolling, and adapted React Bits components the heading, dot background and buttons. These are frontend libraries/components, rather than additional Agent Skills. Dependencies are pinned in `site/package-lock.json`; motion respects reduced-motion preferences.
+The [React webpage](site/README.md) explains the workflow, installation and evidence boundaries. Simple example cards open the three full interactive HTML reports separately. It includes persistent light/dark and ENG/ESP controls, an animated analysis flow, and source-backed traces that highlight on hover, focus or touch. GSAP, Lenis and adapted React Bits components supply the motion and pointer feedback. Dependencies are pinned in `site/package-lock.json`; motion respects reduced-motion preferences.
 
 ```sh
 cd site
@@ -33,7 +33,7 @@ npm run build
 npm run preview
 ```
 
-Open the localhost URL printed by Vite. [Desktop](site/screenshots/desktop.png) and [mobile](site/screenshots/mobile.png) screenshots come from the actual built page. The globally installed Emil Kowalski design-engineering skill was applied to both the report viewer and webpage. The website has no database connection or upload flow.
+Open the localhost URL printed by Vite. [Desktop](site/screenshots/desktop-hero.png), [dark mode](site/screenshots/desktop-dark-hero.png) and [Spanish mobile](site/screenshots/mobile-es-dark-hero.png) screenshots come from the built page. The redesign applies Emil Kowalski's design-engineering and Apple design skills. English is the default page language; reports and CLI artifacts remain in English. The website has no database connection or upload flow.
 
 ## Install
 
@@ -88,7 +88,7 @@ The CLI does not print/store the DSN. It uses fixed SELECTs, timeouts and repeat
 
 ## Implemented coverage and limits
 
-| Capability | v0.1.0 status |
+| Capability | v0.2.0 status |
 |---|---|
 | Canonical schema, deterministic IDs/order, referential/hash validation | Implemented and tested |
 | Common PostgreSQL DDL, quoted identifiers, composite keys, routine overload identity | Implemented; unsupported statements produce UNKNOWN |
