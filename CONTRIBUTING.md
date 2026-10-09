@@ -2,6 +2,14 @@
 
 Keep dependency claims grounded in source evidence, preserve explicit unknowns, and keep analysis separate from migration execution. Small changes should include the relevant verification and an explanation of their effect.
 
+## Submit a contribution
+
+Anyone can fork this public repository, create a branch in their fork, and open a pull request targeting `main`. Repository write access is not needed. Describe the problem, resulting behavior and checks performed, and follow the commit format below.
+
+The [code owners](.github/CODEOWNERS) are `@JoseDFlorez` and `@Juanfrxz`. A pull request requires an approval from at least one of them, passing required CI checks and resolved review conversations before merging. New changes invalidate earlier approvals. Maintainers also use pull requests; the author cannot approve their own request and the latest push needs another maintainer's approval.
+
+Public contributors can comment and submit reviews. Their approval does not replace the required code-owner approval. Keep vulnerabilities and private database artifacts out of public pull requests; follow [SECURITY.md](SECURITY.md).
+
 ## Before opening a pull request
 
 Use Node.js 22.18+ and pnpm 12.10.1 for the full workspace. The pinned Skills CLI install smoke needs Node.js 22.20+; current local checks use Node.js 24.
