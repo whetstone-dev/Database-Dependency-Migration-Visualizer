@@ -26,6 +26,9 @@ Thumbs.db
 *.log
 .vscode/
 node_modules/
+.pnpm-store/
+coverage/
+*.tsbuildinfo
 test-results/
 playwright-report/
 site/dist/
