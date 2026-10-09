@@ -85,7 +85,7 @@ export function demo(directory) {
     m,
     join(ex, "high-traffic/migrations/007.sql"),
     "18",
-    json(join(ex, "high-traffic/metadata.json")),
+    json(join(ex, "high-traffic/workload-profile.json")),
   );
   const c = bundle(
     join(directory, "high-traffic"),

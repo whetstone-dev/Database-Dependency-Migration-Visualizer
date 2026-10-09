@@ -284,7 +284,7 @@ const en: DocsCopy = {
             {
               label: "MIGRATION REVIEW REQUEST",
               value:
-                "Review examples/high-traffic/migrations/007.sql against the baseline model.\nOur runner wraps the file in one transaction. Use --transaction-mode single.\nTreat examples/high-traffic/metadata.json as user-supplied metadata.\nReport DDM findings, evidence, gaps, and a phased plan. Do not execute SQL.",
+                "Review examples/high-traffic/migrations/007.sql against the baseline model.\nOur runner wraps the file in one transaction. Use --transaction-mode single.\nTreat examples/high-traffic/workload-profile.json as user-supplied metadata.\nReport DDM findings, evidence, gaps, and a phased plan. Do not execute SQL.",
               copyLabel: "Copy review request",
             },
           ],
@@ -376,7 +376,7 @@ const en: DocsCopy = {
             {
               label: "REVIEW WITH A POLICY GATE",
               value:
-                "pnpm dbdep review --baseline out/schema.dbdep.json --migration examples/high-traffic/migrations/007.sql --transaction-mode single --metadata examples/high-traffic/metadata.json --out out/review --fail-on high --json",
+                "pnpm dbdep review --baseline out/schema.dbdep.json --migration examples/high-traffic/migrations/007.sql --transaction-mode single --metadata examples/high-traffic/workload-profile.json --out out/review --fail-on high --json",
               copyLabel: "Copy policy review command",
             },
           ],
@@ -745,7 +745,7 @@ const es: DocsCopy = {
             {
               label: "PETICIÓN DE REVISIÓN",
               value:
-                "Revisa examples/high-traffic/migrations/007.sql con el modelo base.\nNuestro ejecutor usa una transacción. Usa --transaction-mode single.\nTrata examples/high-traffic/metadata.json como metadatos del usuario.\nInforma reglas DDM, evidencia, límites y un plan por fases. No ejecutes SQL.",
+                "Revisa examples/high-traffic/migrations/007.sql con el modelo base.\nNuestro ejecutor usa una transacción. Usa --transaction-mode single.\nTrata examples/high-traffic/workload-profile.json como metadatos del usuario.\nInforma reglas DDM, evidencia, límites y un plan por fases. No ejecutes SQL.",
               copyLabel: "Copiar petición de revisión",
             },
           ],
@@ -837,7 +837,7 @@ const es: DocsCopy = {
             {
               label: "REVISIÓN CON POLÍTICA DE RIESGO",
               value:
-                "pnpm dbdep review --baseline out/schema.dbdep.json --migration examples/high-traffic/migrations/007.sql --transaction-mode single --metadata examples/high-traffic/metadata.json --out out/review --fail-on high --json",
+                "pnpm dbdep review --baseline out/schema.dbdep.json --migration examples/high-traffic/migrations/007.sql --transaction-mode single --metadata examples/high-traffic/workload-profile.json --out out/review --fail-on high --json",
               copyLabel: "Copiar revisión con política",
             },
           ],
