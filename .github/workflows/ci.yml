@@ -27,20 +27,32 @@ jobs:
       - run: pnpm package:site
       - run: pnpm smoke:artifacts
   catalog:
+    name: catalog (${{ matrix.postgres }})
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        postgres: ["14.20", "15.15", "16.11", "17.7", "18.1"]
+        include:
+          - postgres: "14.20"
+            image: public.ecr.aws/docker/library/postgres@sha256:cb97e0b577699fce91c96f0dc53ea312d1c7af5331519e9d52022c9e86db6687
+          - postgres: "15.15"
+            image: public.ecr.aws/docker/library/postgres@sha256:319d80173bac37dcf57c68cdae5040a054f8c0146d7521c663d3723cd09efb0b
+          - postgres: "16.11"
+            image: public.ecr.aws/docker/library/postgres@sha256:ed5a1fad193768f89265c7c297999bab9aa116e82142f6e38bc33b8587b2f2da
+          - postgres: "17.7"
+            image: public.ecr.aws/docker/library/postgres@sha256:030da09481c3876b71a7e49738a932e1c18c398201a1e4ccfdbff1e5a541215b
+          - postgres: "18.1"
+            image: public.ecr.aws/docker/library/postgres@sha256:2ccc3d98b960df5ed1ee2d32d3d5338a3c688cf899c0e951ce6d45fb07395abc
     services:
       postgres:
-        image: postgres:${{ matrix.postgres }}
+        image: ${{ matrix.image }}
         env:
           POSTGRES_USER: fixture_owner
           POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_DB: dbdep_examples
         ports: ["5432:5432"]
         options: >-
-          --health-cmd 'pg_isready -U fixture_owner -d dbdep_examples'
+          --health-cmd "pg_isready -U fixture_owner -d dbdep_examples"
           --health-interval 5s --health-timeout 5s --health-retries 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
