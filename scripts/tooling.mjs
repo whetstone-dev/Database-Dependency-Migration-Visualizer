@@ -5,6 +5,7 @@ import {
   writeFileSync,
   rmSync,
   realpathSync,
+  existsSync,
 } from "node:fs";
 import { dirname, join, resolve, relative, isAbsolute, sep } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -17,6 +18,15 @@ export const VERSION = JSON.parse(
 ).version;
 export const sha256 = (value) =>
   createHash("sha256").update(value).digest("hex");
+export function resolve_npm_cli(executable = process.execPath) {
+  const bin = dirname(executable);
+  for (const candidate of [
+    join(bin, "node_modules/npm/bin/npm-cli.js"),
+    join(bin, "../lib/node_modules/npm/bin/npm-cli.js"),
+  ])
+    if (existsSync(candidate)) return candidate;
+  throw new Error("Install Node with npm before running artifact smoke tests");
+}
 export function verify_built_docs(root, built) {
   for (const name of ["README.md", "SKILL.md"]) {
     if (
