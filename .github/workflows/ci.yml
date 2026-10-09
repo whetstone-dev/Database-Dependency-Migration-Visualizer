@@ -16,7 +16,7 @@ jobs:
       - run: pnpm build
       - run: pnpm test:browser
       - run: pnpm benchmark
-      - run: pnpm pack --pack-destination dist/v0.3.0
+      - run: pnpm pack --pack-destination dist/v0.3.1
       - run: pnpm package:skill
       - run: pnpm package:site
       - run: pnpm smoke:artifacts

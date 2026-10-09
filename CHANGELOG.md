@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 - 2026-10-09
+
+Rebuild the website documentation copies from the final README and skill instructions. Website packaging now rejects stale copies before writing an archive; fresh-install smoke checks require the package's exact version. Keep the v0.3.0 tag and artifacts as historical evidence, and record the corrected release separately. The dependency engine and canonical model contract are unchanged.
+
 ## 0.3.0 - 2026-10-09
 
 Replaced the full Python application, CLI, tests and support scripts with an independent Node.js toolkit and one frozen pnpm workspace. The engine uses PostgreSQL 18's WebAssembly parser, Ajv and pg, with the same canonical schema, command flags, evidence states and review-only boundary. Python commands and wheel packaging are superseded by Node commands and npm tarballs.

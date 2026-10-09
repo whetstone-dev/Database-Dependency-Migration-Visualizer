@@ -1,5 +1,7 @@
 # Node migration validation
 
+The corrected v0.3.1 release is recorded in [release-validation.json](release-validation.json). Its static website includes the final source documentation, and the packager rejects stale copies. The v0.3.0 receipt and tag remain historical evidence. A generated website data file has a local content hash but is intentionally absent from Git; current receipts identify generated and committed files separately.
+
 Version 0.3.0 replaces the Python engine, CLI, support scripts, automated tests and package metadata with Node.js ES modules and a single pnpm workspace. The canonical model stays at schema version 1.0.0. Historical v0.1.0/v0.2.0 records remain in their existing receipts and Git tags.
 
 The local environment is Windows, Node.js 24.15.0, pnpm 12.10.1, Chromium from Playwright 1.56.0, and native PostgreSQL 18.3. Node.js 22.18 is the declared minimum but was not tested locally. CI is configured for PostgreSQL 14.20, 15.15, 16.11, 17.7 and 18.1; remote CI has not run for this change.
@@ -9,16 +11,17 @@ Observed verification:
 | Check | Result |
 |---|---|
 | Frozen pnpm workspace installation | Passed |
-| Native engine and CLI suite | 99 passed; 2 isolated live tests skipped without a fixture DSN |
+| Native engine and CLI suite | 100 passed; 2 isolated live tests skipped without a fixture DSN |
 | Isolated PostgreSQL cluster | 2 live tests passed; seven shipped schema/diff fixture files execute; proposals never execute; cluster stopped and removed |
 | TypeScript and production webpage build | Passed |
-| Report, documentation and creator viewer browser suite | 51 passed in 59.1 seconds |
+| Report, documentation and creator viewer browser suite | 51 passed |
 | Curated fixture regeneration | 18 artifacts reproduce byte-for-byte |
 | Synthetic scale checks | 100, 1,000 and 5,000 objects remain complete; viewer renders at most 350 |
 | Skill creator frontmatter validators | System and installed creator both report valid |
 | Installed creator packager | Validates the clean Node skill stage; packaged member hashes match the Node release archive |
 | npm package and unpacked Agent Skill | Node-only installations outside the checkout generate and strictly validate all three demo models; skill installation uses the frozen production pnpm lockfile |
 | npm, skill and website reproducibility | All three archives reproduce byte-for-byte on a second local build |
+| Final website documentation | README and skill instructions match the final source bytes; stale copies fail before packaging |
 
 The engine implementer compared the full native output to the legacy Python output for five DDL fixtures and three ecommerce reviews before removing the old sources. Existing saved canonical models still validate. The analytics catalog's generated evidence changes because JavaScript serializes integer-valued estimates without Python's `.0`; the original authentic capture is unchanged. This is a reproducible representation change, not a newly observed database fact.
 

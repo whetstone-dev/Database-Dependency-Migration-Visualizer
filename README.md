@@ -86,7 +86,7 @@ The CLI does not print/store the DSN. It uses fixed SELECTs, timeouts and repeat
 
 ## Implemented coverage and limits
 
-| Capability | v0.3.0 status |
+| Capability | v0.3.1 status |
 |---|---|
 | Canonical schema, deterministic IDs/order, referential/hash validation | Implemented and tested |
 | Common PostgreSQL DDL, quoted identifiers, composite keys, routine overload identity | Implemented; unsupported statements produce UNKNOWN |
@@ -115,7 +115,7 @@ pnpm test:browser
 pnpm test:live
 pnpm benchmark
 pnpm verify:examples
-pnpm pack --pack-destination dist/v0.3.0
+pnpm pack --pack-destination dist/v0.3.1
 pnpm package:skill
 pnpm package:site
 pnpm smoke:artifacts
