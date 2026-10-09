@@ -1,9 +1,12 @@
 import { chromium } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 
 const url = process.env.DBDEP_SITE_URL ?? "http://127.0.0.1:4173";
-const directory = new URL("../screenshots/", import.meta.url);
+const directory = process.env.DBDEP_CAPTURE_DIR
+  ? resolve(process.env.DBDEP_CAPTURE_DIR)
+  : fileURLToPath(new URL("../screenshots/", import.meta.url));
 await mkdir(directory, { recursive: true });
 const browser = await chromium.launch();
 try {
@@ -14,7 +17,7 @@ try {
       height: 1000,
       locale: "en",
       theme: "light",
-      path: "#/docs",
+      path: "docs/",
     },
     {
       name: "docs-desktop-dark",
@@ -22,7 +25,7 @@ try {
       height: 1000,
       locale: "en",
       theme: "dark",
-      path: "#/docs",
+      path: "docs/",
     },
     {
       name: "docs-installation",
@@ -30,7 +33,7 @@ try {
       height: 1000,
       locale: "en",
       theme: "light",
-      path: "#/docs/installation",
+      path: "docs/installation/",
     },
     {
       name: "docs-mobile-es-dark",
@@ -38,7 +41,7 @@ try {
       height: 844,
       locale: "es",
       theme: "dark",
-      path: "#/docs",
+      path: "docs/",
     },
   ]) {
     const context = await browser.newContext({
@@ -52,8 +55,14 @@ try {
     }, capture);
     await page.goto(`${url}/${capture.path}`);
     await page.locator("#docs-heading").waitFor();
+    await page.waitForFunction(
+      ({ locale, theme }) =>
+        document.documentElement.lang === locale &&
+        document.documentElement.dataset.theme === theme,
+      capture,
+    );
     await page.evaluate(() => document.fonts.ready);
-    const output = fileURLToPath(new URL(`${capture.name}.png`, directory));
+    const output = resolve(directory, `${capture.name}.png`);
     await page.screenshot({ path: output, fullPage: true });
     console.log(output);
     await context.close();

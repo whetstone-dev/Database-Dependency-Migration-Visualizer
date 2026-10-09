@@ -1,6 +1,7 @@
 import data from "../data/demos.json";
 import type { Copy } from "../i18n";
 import { Arrow } from "./Icons";
+import { assetPath } from "../paths";
 
 export const repository =
   "https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer";
@@ -42,7 +43,7 @@ export function Examples({ c }: { c: Copy }) {
               <div className="example-actions">
                 <a
                   className="button button-secondary"
-                  href={`./demos/${demo.slug}/report.html`}
+                  href={assetPath(`demos/${demo.slug}/report.html`)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -2,7 +2,7 @@
 
 A PostgreSQL dependency and migration-review skill for AI coding agents, with an independent Node.js toolkit. Inspect a schema, trace downstream consumers, and review a proposed change using evidence from SQL files or supplied catalog snapshots. The toolkit never applies migrations.
 
-The versioned `*.dbdep.json` model is the source of truth for validation, findings, interactive HTML, Markdown, Mermaid and DOT. Its canonical contract is **1.0.0**. The current hardening work targets local **v0.3.2**; remote installation receives these changes after they are pushed. Local checks do not establish a published release, deployed website, or passing remote CI.
+The versioned `*.dbdep.json` model is the source of truth for validation, findings, interactive HTML, Markdown, Mermaid and DOT. Its canonical contract is **1.0.0**. The current package version is **v0.3.2**. Installing from the repository uses its current `main` source; release tags remain immutable. Local checks do not establish a deployed website or passing remote CI.
 
 ## What it does
 
@@ -141,14 +141,14 @@ Screenshots illustrate presentation. Tests and source evidence establish graph b
 
 ## Website and GitHub Pages
 
-The separate [React/Vite website](site/README.md) has bilingual documentation at `/#/docs`, source-backed examples, and links to full standalone reports. It has no upload flow or database connection.
+The separate [Next.js website](site/README.md) exports the home page and bilingual documentation at `/docs/` as static HTML. It retains source-backed examples and links to full standalone reports. It has no upload flow or database connection.
 
 ```sh
 pnpm build
 pnpm preview
 ```
 
-Open the localhost URL printed by Vite. GitHub Pages deployment is a manual workflow after review and publication; it publishes `site/dist`. Curated examples and copied documentation become public. Local `out/`, `tmp/` and evaluation directories are not deployed. Follow the [Pages setup and deployment guide](docs/github-pages.md). No live deployment is claimed here.
+Open the localhost URL printed by the preview. GitHub Pages deployment is a manual workflow after review and publication; it publishes `site/out`. The build uses the configured Pages base path, including a repository subdirectory. Existing `/#/docs` bookmarks redirect after JavaScript loads. Curated examples and copied documentation become public. Local `out/`, `tmp/` and evaluation directories are not deployed. Follow the [Pages setup and deployment guide](docs/github-pages.md). No live deployment is claimed here.
 
 ## Repository layout
 
@@ -162,7 +162,7 @@ Open the localhost URL printed by Vite. GitHub Pages deployment is a manual work
 | `assets/viewer/`                        | Offline report viewer and embedded licensed fonts                                     |
 | `examples/`                             | Curated inputs, authentic sanitized capture and generated reports                     |
 | `tests/`                                | Node, browser and isolated live regressions                                           |
-| `site/`                                 | Separate React/Vite website, documentation and license notices                        |
+| `site/`                                 | Next.js static website, documentation and license notices                             |
 | `evals/`, `docs/`                       | Frozen evaluation evidence, validation, security audit and maintenance guides         |
 
 ## Known limitations

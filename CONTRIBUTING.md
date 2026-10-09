@@ -25,7 +25,7 @@ pnpm test:browser
 pnpm audit --audit-level=low
 ```
 
-Build before browser tests; Playwright serves `site/dist` through the local preview. The Node tests run offline and skip live cases without a disposable fixture DSN. Run `pnpm test:live` when PostgreSQL tools are available. This creates, stops and removes its own loopback cluster; supply `--pg-bin <directory>` through `pnpm test:live --pg-bin <directory>` if needed. CI has separate disposable PostgreSQL services.
+Build before browser tests; Playwright serves the Next.js static export in `site/out` through the local preview. CI also rebuilds and tests under the repository's Pages path. See [the Pages guide](docs/github-pages.md) to reproduce that check locally. The Node tests run offline and skip live cases without a disposable fixture DSN. Run `pnpm test:live` when PostgreSQL tools are available. This creates, stops and removes its own loopback cluster; supply `--pg-bin <directory>` through `pnpm test:live --pg-bin <directory>` if needed. CI has separate disposable PostgreSQL services.
 
 Use `pnpm exec prettier --check` with the files you changed. Describe checks actually performed, skipped prerequisites, and unresolved limits. Do not treat local receipts or configured workflows as proof that remote CI passed.
 
@@ -116,3 +116,5 @@ Follow [SemVer](https://semver.org/) and [docs/releases.md](docs/releases.md). U
 Complete relevant checks and artifact/hash comparisons on final `main` before creating an annotated `v<version>` tag. Never move or replace an existing release tag. Local commit/tag creation, remote push, GitHub release assets, npm publication and Pages deployment are distinct actions; perform publication only when authorized.
 
 The [Pages workflow](.github/workflows/pages.yml) is manual-only. Review the curated public contents before running it, and follow [Pages setup](docs/github-pages.md). CI action references are pinned to commit SHAs; retain least-privilege permissions when changing workflows.
+
+Dependency upgrades are maintainer-initiated pull requests. This repository has no Dependabot update configuration or automatic security-fix PRs. Keep the frozen lockfile, install-script restrictions and vulnerability audit. Review proposed upgrades and combine related changes into one pull request.

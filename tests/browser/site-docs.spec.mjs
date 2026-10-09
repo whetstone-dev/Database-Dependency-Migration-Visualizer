@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const site = "http://127.0.0.1:4173";
+const site = process.env.DBDEP_SITE_URL ?? "http://127.0.0.1:4173";
 
 for (const width of [601, 700, 820, 1000, 1100]) {
   test(`Spanish documentation header stays usable at 200% text and ${width}px`, async ({
@@ -9,7 +9,7 @@ for (const width of [601, 700, 820, 1000, 1100]) {
     await page.setViewportSize({ width, height: 844 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.addInitScript(() => localStorage.setItem("dbdep-locale", "es"));
-    await page.goto(`${site}/#/docs`);
+    await page.goto(`${site}/docs/`);
     await page.evaluate(
       () => (document.documentElement.style.fontSize = "200%"),
     );
@@ -42,7 +42,7 @@ test("an oversized desktop documentation sidebar keeps keyboard-focused links in
   await page.setViewportSize({ width: 1440, height: 768 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.addInitScript(() => localStorage.setItem("dbdep-locale", "es"));
-  await page.goto(`${site}/#/docs/command-reference`);
+  await page.goto(`${site}/docs/command-reference/`);
   await page.evaluate(() => (document.documentElement.style.fontSize = "200%"));
   await page.evaluate(() => document.fonts.ready);
   await page.evaluate(() => window.scrollTo(0, 1500));
@@ -90,7 +90,9 @@ test("an oversized desktop documentation sidebar keeps keyboard-focused links in
 test("the skip link focuses the current documentation page without changing its route", async ({
   page,
 }) => {
-  await page.goto(`${site}/#/docs/installation`);
+  await page.goto(`${site}/docs/installation/`);
+  // The HTML is available before React installs the enhanced skip-link handler.
+  await expect(page.locator('[data-site-ready="true"]')).toHaveCount(1);
   await expect(
     page.getByRole("link", { name: "Skip to content" }),
   ).toBeVisible();
@@ -103,44 +105,28 @@ test("the skip link focuses the current documentation page without changing its 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Installation",
   );
-  await expect(page).toHaveURL(`${site}/#/docs/installation`);
+  await expect(page).toHaveURL(`${site}/docs/installation/`);
 });
 
 test("documentation index opens from the site and has seven usable topic cards", async ({
   page,
 }) => {
   await page.goto(site);
-  await page.evaluate(() => {
-    window.docsSample = null;
-    document.addEventListener("click", (event) => {
-      if (event.target.closest("a")?.getAttribute("href") !== "#/docs") return;
-      requestAnimationFrame(() => {
-        window.docsSample = {
-          focused: document.activeElement.id,
-          hash: location.hash,
-          smooth: document.documentElement.classList.contains("lenis"),
-        };
-      });
-    });
-  });
   const docs = page
     .locator("header")
     .getByRole("link", { name: "Docs", exact: true });
   await docs.focus();
   await page.keyboard.press("Enter");
-  await page.waitForFunction(() => window.docsSample !== null);
-  expect(await page.evaluate(() => window.docsSample)).toEqual({
-    focused: "docs-heading",
-    hash: "#/docs",
-    smooth: false,
-  });
-  await expect(page).toHaveURL(`${site}/#/docs`);
+  await expect(page).toHaveURL(`${site}/docs/`);
   await expect(
     page.getByRole("heading", { name: "Documentation", exact: true }),
   ).toBeFocused();
+  expect(
+    await page.locator("html").evaluate((el) => el.classList.contains("lenis")),
+  ).toBe(false);
   await expect(page.locator(".docs-card")).toHaveCount(7);
   await page.locator(".docs-card").filter({ hasText: "Installation" }).click();
-  await expect(page).toHaveURL(`${site}/#/docs/installation`);
+  await expect(page).toHaveURL(`${site}/docs/installation/`);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Installation",
   );
@@ -152,7 +138,7 @@ test("documentation index opens from the site and has seven usable topic cards",
 test("topic links support keyboard focus, direct reload, and browser history", async ({
   page,
 }) => {
-  await page.goto(`${site}/#/docs/quickstart`);
+  await page.goto(`${site}/docs/quickstart/`);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Quickstart",
   );
@@ -162,7 +148,7 @@ test("topic links support keyboard focus, direct reload, and browser history", a
   await confidence.focus();
   await page.keyboard.press("Enter");
   await expect(page.getByRole("heading", { level: 1 })).toBeFocused();
-  await expect(page).toHaveURL(`${site}/#/docs/confidence`);
+  await expect(page).toHaveURL(`${site}/docs/confidence/`);
   await page.reload();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Evidence and confidence",
@@ -184,7 +170,7 @@ test("topic links support keyboard focus, direct reload, and browser history", a
 test("confidence documentation distinguishes parser grammar, catalog context, and evidence states", async ({
   page,
 }) => {
-  await page.goto(`${site}/#/docs/confidence`);
+  await page.goto(`${site}/docs/confidence/`);
   const main = page.locator("main");
   await expect(main).toContainText("PostgreSQL 18 grammar");
   await expect(main).toContainText("PostgreSQL 14-18");
@@ -197,7 +183,7 @@ test("confidence documentation distinguishes parser grammar, catalog context, an
 test("command reference uses the Node CLI and preserves review policy meanings", async ({
   page,
 }) => {
-  await page.goto(`${site}/#/docs/command-reference`);
+  await page.goto(`${site}/docs/command-reference/`);
   const main = page.locator("main");
   await expect(main).toContainText("pnpm dbdep inspect");
   await expect(main).toContainText("node scripts/dbdep.mjs");
@@ -212,7 +198,7 @@ test("documentation has an accessible mobile contents control and keeps text wit
 }) => {
   await page.setViewportSize({ width: 320, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto(`${site}/#/docs`);
+  await page.goto(`${site}/docs/`);
   const contents = page.getByRole("button", { name: "Browse documentation" });
   await expect(contents).toHaveAttribute("aria-expanded", "false");
   await contents.click();
@@ -250,7 +236,7 @@ test("documentation has an accessible mobile contents control and keeps text wit
 test("documentation follows persistent Spanish and dark mode preferences", async ({
   page,
 }) => {
-  await page.goto(`${site}/#/docs/good-requests`);
+  await page.goto(`${site}/docs/good-requests/`);
   await page.getByRole("button", { name: "Español" }).click();
   await page.getByRole("button", { name: "Activar modo oscuro" }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
@@ -270,7 +256,7 @@ test("setup commands copy exactly and unknown topics provide a route back", asyn
   context,
 }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-  await page.goto(`${site}/#/docs/installation`);
+  await page.goto(`${site}/docs/installation/`);
   await page
     .getByRole("button", { name: "Copy installation commands" })
     .click();
@@ -280,10 +266,10 @@ test("setup commands copy exactly and unknown topics provide a route back", asyn
       "\n",
     ),
   ).toBe("pnpm install --frozen-lockfile\npnpm dbdep doctor --json");
-  await page.goto(`${site}/#/docs/not-a-topic`);
+  await page.goto(`${site}/docs/not-a-topic/`);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Page not found",
   );
   await page.getByRole("link", { name: "Back to documentation" }).click();
-  await expect(page).toHaveURL(`${site}/#/docs`);
+  await expect(page).toHaveURL(`${site}/docs/`);
 });

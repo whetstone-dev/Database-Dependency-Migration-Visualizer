@@ -77,13 +77,12 @@ const DotGrid: React.FC<DotGridProps> = ({
   style,
 }) => {
   const reduced = useReducedMotion();
-  const [finePointer, setFinePointer] = useState(
-    () => window.matchMedia("(hover: hover) and (pointer: fine)").matches,
-  );
+  const [finePointer, setFinePointer] = useState(false);
   const staticGrid = reduced || !finePointer;
   useEffect(() => {
     const query = window.matchMedia("(hover: hover) and (pointer: fine)");
     const update = () => setFinePointer(query.matches);
+    update();
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
   }, []);

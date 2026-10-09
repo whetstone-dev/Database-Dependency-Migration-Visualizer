@@ -1,5 +1,7 @@
 node_modules/
 dist/
+out/
+.next/
 public/demos/
 public/docs/
 src/data/demos.json

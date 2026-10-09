@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   docsCopies,
@@ -167,24 +168,26 @@ export function Documentation({
                 setExpanded(false);
             }}
           >
-            <a
-              href="#/docs"
+            <Link
+              href="/docs/"
+              scroll={false}
               className="docs-overview-link"
               aria-current={slug === "" ? "page" : undefined}
             >
               {d.overview}
-            </a>
+            </Link>
             {groups.map((group, groupIndex) => (
               <div className="docs-nav-group" key={groupIndex}>
                 <p className="mono">{d.groups[groupIndex]}</p>
                 {group.map((item) => (
-                  <a
-                    href={`#/docs/${item}`}
+                  <Link
+                    href={`/docs/${item}/`}
+                    scroll={false}
                     key={item}
                     aria-current={slug === item ? "page" : undefined}
                   >
                     {d.topics[item].title}
-                  </a>
+                  </Link>
                 ))}
               </div>
             ))}
@@ -193,7 +196,9 @@ export function Documentation({
       </aside>
       <main className="docs-main" id="main" tabIndex={-1}>
         <div className="docs-breadcrumb mono">
-          <a href="#/docs">{d.title}</a>
+          <Link href="/docs/" scroll={false}>
+            {d.title}
+          </Link>
           <span aria-hidden="true">/</span>
           <span>{topic?.title ?? d.overview}</span>
         </div>
@@ -212,7 +217,12 @@ export function Documentation({
             </div>
             <div className="docs-card-grid">
               {topicOrder.map((item, topicIndex) => (
-                <a className="docs-card" href={`#/docs/${item}`} key={item}>
+                <Link
+                  className="docs-card"
+                  href={`/docs/${item}/`}
+                  scroll={false}
+                  key={item}
+                >
                   <div className="docs-card-top">
                     <span
                       className="docs-topic-icon"
@@ -224,7 +234,7 @@ export function Documentation({
                   </div>
                   <h3>{d.topics[item].title}</h3>
                   <p>{d.topics[item].description}</p>
-                </a>
+                </Link>
               ))}
             </div>
             <aside className="docs-start">
@@ -232,10 +242,14 @@ export function Documentation({
                 <h2>{d.startTitle}</h2>
                 <p>{d.startBody}</p>
               </div>
-              <a className="text-link" href="#/docs/quickstart">
+              <Link
+                className="text-link"
+                href="/docs/quickstart/"
+                scroll={false}
+              >
                 {d.startLink}
                 <Arrow />
-              </a>
+              </Link>
             </aside>
           </>
         ) : topic ? (
@@ -278,21 +292,21 @@ export function Documentation({
               }
             >
               {previous ? (
-                <a href={`#/docs/${previous}`}>
+                <Link href={`/docs/${previous}/`} scroll={false}>
                   <span className="mono">{d.previous}</span>
                   <strong>{d.topics[previous].title}</strong>
-                </a>
+                </Link>
               ) : (
                 <span />
               )}
               {next && (
-                <a href={`#/docs/${next}`}>
+                <Link href={`/docs/${next}/`} scroll={false}>
                   <span className="mono">{d.next}</span>
                   <strong>
                     {d.topics[next].title}
                     <Arrow />
                   </strong>
-                </a>
+                </Link>
               )}
             </nav>
           </article>
@@ -302,10 +316,10 @@ export function Documentation({
               {d.missingTitle}
             </h1>
             <p>{d.missingBody}</p>
-            <a className="text-link docs-back" href="#/docs">
+            <Link className="text-link docs-back" href="/docs/" scroll={false}>
               {d.back}
               <Arrow />
-            </a>
+            </Link>
           </div>
         )}
       </main>

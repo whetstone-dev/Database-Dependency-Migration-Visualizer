@@ -175,7 +175,7 @@ const en: DocsCopy = {
             },
           ],
           paragraphs: [
-            "Open the localhost address printed by Vite. The website explains the toolkit and opens the shipped reports. It has no database connection or upload flow.",
+            "Open the localhost address printed by Next.js. The website explains the toolkit and opens the shipped reports. It has no database connection or upload flow.",
           ],
         },
       ],
@@ -636,7 +636,7 @@ const es: DocsCopy = {
             },
           ],
           paragraphs: [
-            "Abre la dirección local que imprime Vite. La web explica el toolkit y abre los informes incluidos. No tiene conexión a bases de datos ni carga de archivos.",
+            "Abre la dirección local que imprime Next.js. La web explica el toolkit y abre los informes incluidos. No tiene conexión a bases de datos ni carga de archivos.",
           ],
         },
       ],

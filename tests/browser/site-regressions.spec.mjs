@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { readFile, readdir } from "node:fs/promises";
 
-const site = "http://127.0.0.1:4173";
+const site = process.env.DBDEP_SITE_URL ?? "http://127.0.0.1:4173";
 const slugs = ["ecommerce", "analytics", "high-traffic"];
 
 for (const [viewport, reduced] of [
@@ -39,7 +39,7 @@ for (const [viewport, reduced] of [
     for (const [index, slug] of slugs.entries()) {
       await expect(links.nth(index)).toHaveAttribute(
         "href",
-        `./demos/${slug}/report.html`,
+        `${new URL(site).pathname.replace(/\/$/, "")}/demos/${slug}/report.html`,
       );
       const report = await context.newPage();
       await report.goto(`${site}/demos/${slug}/report.html`);
@@ -150,7 +150,7 @@ test("examples open reports separately and the workflow explains the pipeline", 
   for (const [index, slug] of slugs.entries()) {
     await expect(links.nth(index)).toHaveAttribute(
       "href",
-      `./demos/${slug}/report.html`,
+      `${new URL(site).pathname.replace(/\/$/, "")}/demos/${slug}/report.html`,
     );
     await expect(links.nth(index)).toHaveAttribute("target", "_blank");
     const response = await page.request.get(
@@ -303,7 +303,7 @@ test("the build retains every dependency notice and license byte", async ({
   const notices = page.getByRole("link", { name: "Third-party notices" });
   await expect(notices).toHaveCount(1);
   const response = await page.request.get(
-    site + (await notices.getAttribute("href")).slice(1),
+    new URL(await notices.getAttribute("href"), `${site}/`).href,
   );
   expect(response.ok()).toBe(true);
   expect(await response.text()).toContain(
