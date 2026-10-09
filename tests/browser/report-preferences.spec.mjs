@@ -129,7 +129,6 @@ test("English is the default and theme follows the system until explicitly chose
   page,
 }) => {
   await page.emulateMedia({ colorScheme: "dark" });
-  await page.addInitScript(() => localStorage.clear());
   await page.goto(reportUrl);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
@@ -141,12 +140,36 @@ test("English is the default and theme follows the system until explicitly chose
       localStorage.getItem("dbdep-locale"),
     ]),
   ).toEqual(["light", "es"]);
-  // Remove the initialization script by loading the same file in a new page in this context.
-  const reloaded = await page.context().newPage();
-  await reloaded.goto(reportUrl);
-  await expect(reloaded.locator("html")).toHaveAttribute("lang", "es");
-  await expect(reloaded.locator("html")).toHaveAttribute("data-theme", "light");
-  await reloaded.close();
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("lang", "es");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+});
+
+test("report preferences persist between tabs with the same HTTP origin", async ({
+  page,
+  context,
+}) => {
+  // Cross-tab storage sharing is defined for HTTP origins, not file URLs.
+  const url = "http://127.0.0.1:4173/preference-report.html";
+  const body = await readFile(new URL(reportUrl), "utf8");
+  await context.route(url, (route) =>
+    route.fulfill({ contentType: "text/html", body }),
+  );
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto(url);
+  await page.getByRole("button", { name: "Switch to dark mode" }).click();
+  await page.getByRole("button", { name: "Español", exact: true }).click();
+  expect(
+    await page.evaluate(() => [
+      localStorage.getItem("dbdep-theme"),
+      localStorage.getItem("dbdep-locale"),
+    ]),
+  ).toEqual(["dark", "es"]);
+  const reopened = await context.newPage();
+  await reopened.goto(url);
+  await expect(reopened.locator("html")).toHaveAttribute("lang", "es");
+  await expect(reopened.locator("html")).toHaveAttribute("data-theme", "dark");
+  await reopened.close();
 });
 
 test("preferences remain usable when browser storage throws", async ({
