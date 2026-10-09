@@ -2,6 +2,7 @@
 import { impact, select } from "./graph.mjs";
 import { Builder, canonical, digest, display, compare } from "./model.mjs";
 import { plan } from "./planning.mjs";
+import { normalize_target_type } from "./types.mjs";
 import {
   Inspector,
   read_statements,
@@ -236,7 +237,7 @@ export class Review {
       true,
     );
   }
-  process(kind, body, ev) {
+  process(kind, body, ev, target_type = null) {
     this.migration_evidence.add(ev);
     const f = this.finding.bind(this);
     if (kind === "TransactionStmt") {
@@ -411,7 +412,7 @@ export class Review {
             ["int2", "int4", "int8", "bigint", "integer"].includes(old) &&
             targetType === "uuid";
           const reason =
-            `Type transition ${old} to ${targetType}. ` +
+            `Type transition ${old} to ${target_type ?? targetType}. ` +
             (incompatible
               ? "BIGINT/integer identifiers have no general semantics-preserving UUID cast. "
               : "Conversion compatibility requires type/cast and data verification. ") +
@@ -573,6 +574,7 @@ export function review(
   };
 }
 export function assess_operation(model, node, operation, target_type = null) {
+  target_type = normalize_target_type(target_type);
   const r = new Review(model),
     ev = r.b.evidence(
       "user-operation",
@@ -628,6 +630,7 @@ export function assess_operation(model, node, operation, target_type = null) {
         ],
       },
       ev,
+      target_type,
     );
   } else if (operation === "drop-column")
     r.process(

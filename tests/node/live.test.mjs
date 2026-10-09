@@ -5,15 +5,30 @@ import {
   capture,
   inspect_catalog,
   connection_config,
+  QUERIES,
 } from "../../src/dbdep/catalog.mjs";
 import { impact } from "../../src/dbdep/graph.mjs";
-import { validate } from "../../src/dbdep/model.mjs";
+import { digest, validate } from "../../src/dbdep/model.mjs";
 const dsn = process.env.DBDEP_TEST_DSN;
 test(
   "isolated read-only catalog capture records actual PostgreSQL associations",
   { skip: !dsn },
   async () => {
-    const m = inspect_catalog(await capture(dsn));
+    const captured = await capture(dsn);
+    assert.equal(captured.capture_version, "1.1.0");
+    for (const [qid, sql] of Object.entries(QUERIES))
+      assert.equal(captured.queries[qid].sql_hash, digest(sql));
+    assert.ok(captured.queries.pg_attrdef.rows.length);
+    for (const row of captured.queries.pg_attrdef.rows) {
+      assert.deepEqual(Object.keys(row).sort(), [
+        "adnum",
+        "adrelid",
+        "expression_hash",
+        "oid",
+      ]);
+      assert.match(row.expression_hash, /^sha256:[a-f0-9]{64}$/);
+    }
+    const m = inspect_catalog(captured);
     assert.deepEqual(validate(m), []);
     assert.ok(impact(m, "sales.orders.total_amount").affected.length);
     for (const kind of [

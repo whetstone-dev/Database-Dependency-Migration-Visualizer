@@ -35,6 +35,7 @@ import {
   mermaid,
   dot,
   summary,
+  md_safe,
 } from "../../src/dbdep/reports.mjs";
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 const ecommerce = () =>
@@ -97,7 +98,7 @@ test("complete Node CLI pipeline yields the same validated model in every artifa
       md = readFileSync(join(dir, "report.md"), "utf8");
     assert.deepEqual(embedded_state(html).model, model);
     for (const obj of [...model.nodes, ...model.edges])
-      assert.ok(md.includes(obj.id));
+      assert.ok(md.includes(md_safe(obj.id)));
   }));
 test("invalid model cannot create a report", () =>
   temporary((dir) => {
@@ -239,10 +240,7 @@ test("all discovery queries are one fixed SELECT, catalog-qualified, and use onl
     for (const r of walk(stmts, "RangeVar"))
       assert.equal(r.schemaname, "pg_catalog", qid);
     for (const f of walk(stmts, "FuncCall"))
-      assert.ok(
-        ["current_setting", "pg_get_expr"].includes(strings(f.funcname).at(-1)),
-        qid,
-      );
+      assert.ok(["current_setting"].includes(strings(f.funcname).at(-1)), qid);
   }
 });
 test("genuine catalog preserves normalized view chains and snapshot addresses", () => {

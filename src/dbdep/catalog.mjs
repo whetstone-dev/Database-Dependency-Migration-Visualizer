@@ -5,7 +5,8 @@ import { Builder, canonical, digest, quoted } from "./model.mjs";
 
 const USER_NS =
   "n.nspname NOT LIKE 'pg_%' AND n.nspname <> 'information_schema'";
-export const QUERIES = Object.freeze({
+// Exact historical queries validate offline 1.0.0 evidence only.
+export const LEGACY_QUERIES = Object.freeze({
   server_version:
     "SELECT pg_catalog.current_setting('server_version_num') AS version",
   pg_namespace: `SELECT n.oid, n.nspname FROM pg_catalog.pg_namespace n WHERE ${USER_NS} ORDER BY n.oid`,
@@ -25,15 +26,48 @@ export const QUERIES = Object.freeze({
     "SELECT e.oid, n.nspname, e.extname, e.extversion FROM pg_catalog.pg_extension e JOIN pg_catalog.pg_namespace n ON n.oid=e.extnamespace ORDER BY e.oid",
   pg_attrdef: `SELECT a.oid, a.adrelid, a.adnum, pg_catalog.pg_get_expr(a.adbin,a.adrelid) AS expression FROM pg_catalog.pg_attrdef a JOIN pg_catalog.pg_class c ON c.oid=a.adrelid JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE ${USER_NS} ORDER BY a.oid`,
 });
+export const QUERIES = Object.freeze({
+  ...LEGACY_QUERIES,
+  // pg_get_expr can invoke a custom constant type's output routine while
+  // deparsing. Read stored pg_node_tree text without traversing expressions.
+  pg_attrdef: `SELECT a.oid, a.adrelid, a.adnum, a.adbin::text AS expression FROM pg_catalog.pg_attrdef a JOIN pg_catalog.pg_class c ON c.oid=a.adrelid JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE ${USER_NS} ORDER BY a.oid`,
+});
 
 /** Accept libpq keyword DSNs and PostgreSQL URLs without ever exposing values. */
 export function connection_config(dsn) {
   if (typeof dsn !== "string" || !dsn.trim())
     throw new Error("The requested DSN is unavailable");
   let parsed;
-  if (/^postgres(?:ql)?:\/\//i.test(dsn)) parsed = parseConnectionString(dsn);
-  else {
-    parsed = {};
+  if (/^postgres(?:ql)?:\/\//i.test(dsn)) {
+    const parameters = new URLSearchParams(
+      dsn.includes("?") ? dsn.slice(dsn.indexOf("?") + 1).split("#", 1)[0] : "",
+    );
+    if (
+      [
+        "service",
+        "servicefile",
+        "hostaddr",
+        "dbname",
+        "database",
+        "target_session_attrs",
+        "load_balance_hosts",
+      ].some((key) => parameters.has(key))
+    )
+      throw new Error("Unsupported DSN parameter");
+    parsed = parseConnectionString(dsn);
+  } else {
+    parsed = Object.create(null);
+    const supported = new Set([
+      "host",
+      "port",
+      "user",
+      "password",
+      "dbname",
+      "database",
+      "ssl",
+      "sslmode",
+      "options",
+    ]);
     const tokens = /\s*([a-z_]+)\s*=\s*('(?:\\.|[^'\\])*'|(?:\\.|[^\s])+)/gy;
     let index = 0;
     while (index < dsn.length) {
@@ -41,16 +75,27 @@ export function connection_config(dsn) {
       tokens.lastIndex = index;
       const match = tokens.exec(dsn);
       if (!match) throw new Error("Unsupported DSN syntax");
+      if (!supported.has(match[1]))
+        throw new Error("Unsupported DSN parameter");
       let value = match[2];
       if (value.startsWith("'")) value = value.slice(1, -1);
       value = value.replace(/\\(.)/gs, "$1");
       parsed[match[1] === "dbname" ? "database" : match[1]] = value;
       index = tokens.lastIndex;
     }
-    if (parsed.sslmode && parsed.sslmode !== "disable") {
-      if (!["require", "verify-ca", "verify-full"].includes(parsed.sslmode))
+    if (parsed.sslmode !== undefined) {
+      if (
+        !["disable", "require", "verify-ca", "verify-full"].includes(
+          parsed.sslmode,
+        )
+      )
         throw new Error("Unsupported SSL mode in keyword DSN");
-      parsed.ssl = true;
+      parsed.ssl = parsed.sslmode !== "disable";
+    } else if (parsed.ssl !== undefined) {
+      if (["false", "0"].includes(parsed.ssl)) parsed.ssl = false;
+      else if (["true", "1"].includes(parsed.ssl)) parsed.ssl = true;
+      else if (parsed.ssl !== "no-verify")
+        throw new Error("Unsupported SSL setting in keyword DSN");
     }
   }
   const config = {};
@@ -69,7 +114,7 @@ export function connection_config(dsn) {
 
 export async function capture(dsn) {
   const result = {
-    capture_version: "1.0.0",
+    capture_version: "1.1.0",
     captured_at: new Date().toISOString(),
     queries: {},
   };
@@ -106,16 +151,21 @@ export async function capture(dsn) {
 }
 
 export function inspect_catalog(data) {
-  if (data?.capture_version !== "1.0.0")
-    throw new Error("Unsupported catalog capture version");
+  const expected =
+    data?.capture_version === "1.1.0"
+      ? QUERIES
+      : data?.capture_version === "1.0.0"
+        ? LEGACY_QUERIES
+        : null;
+  if (!expected) throw new Error("Unsupported catalog capture version");
   const queries = data.queries ?? {};
   if (
     Object.keys(queries).sort().join(",") !==
-    Object.keys(QUERIES).sort().join(",")
+    Object.keys(expected).sort().join(",")
   )
     throw new Error("Catalog capture query set is incomplete or unknown");
   for (const [qid, q] of Object.entries(queries)) {
-    if (q.sql_hash !== digest(QUERIES[qid]))
+    if (q.sql_hash !== digest(expected[qid]))
       throw new Error(`Catalog query hash mismatch: ${qid}`);
     if (
       !Array.isArray(q.rows) ||
@@ -137,22 +187,28 @@ export function inspect_catalog(data) {
   const key = (...parts) => parts.join(":");
   const types = new Map(queries.pg_type.rows.map((r) => [r.oid, r]));
   const namespaces = new Set(queries.pg_namespace.rows.map((r) => r.nspname));
-  const ev = (qid, address = "") =>
-    b.evidence(
-      qid,
-      Buffer.from(canonical(queries[qid])),
-      0,
-      0,
-      "OBSERVED",
-      "postgres_catalog",
-      {
-        query_id: qid,
-        captured_at: data.captured_at,
-        catalog_address: address,
-        explanation:
-          "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
-      },
-    );
+  const provenance = new Map();
+  const ev = (qid, address = "") => {
+    if (!provenance.has(qid))
+      provenance.set(qid, {
+        source_hash: digest(canonical(queries[qid])),
+        addresses: new Map(),
+      });
+    const record = provenance.get(qid);
+    if (!record.addresses.has(address))
+      record.addresses.set(
+        address,
+        b.evidence(qid, Buffer.alloc(0), 0, 0, "OBSERVED", "postgres_catalog", {
+          source_hash: record.source_hash,
+          query_id: qid,
+          captured_at: data.captured_at,
+          catalog_address: address,
+          explanation:
+            "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        }),
+      );
+    return record.addresses.get(address);
+  };
   const node = (
     qid,
     oid,

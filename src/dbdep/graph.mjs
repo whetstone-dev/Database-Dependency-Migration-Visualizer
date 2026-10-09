@@ -2,6 +2,8 @@
 import { statements } from "./sql.mjs";
 import { canonical, compare } from "./model.mjs";
 import { assess_operation } from "./rules.mjs";
+import { normalize_target_type } from "./types.mjs";
+export { normalize_target_type } from "./types.mjs";
 
 export function select(model, selector) {
   const direct = model.nodes.find((n) => n.id === selector);
@@ -44,6 +46,7 @@ export function select(model, selector) {
   return matches[0];
 }
 export function impact(model, selector, operation = null, to = null) {
+  to = normalize_target_type(to);
   const root = select(model, selector).id,
     reverse = new Map();
   for (const e of model.edges) {
