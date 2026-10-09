@@ -26,6 +26,8 @@ Thumbs.db
 *.log
 .vscode/
 node_modules/
+test-results/
+playwright-report/
 site/dist/
 site/public/demos/
 site/public/demo-manifest.json

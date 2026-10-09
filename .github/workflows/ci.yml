@@ -5,31 +5,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: python -m pip install -e '.[dev,live]'
-      - run: python -m playwright install --with-deps chromium
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: npm
-          cache-dependency-path: site/package-lock.json
-      - run: npm ci
-        working-directory: site
-      - run: npm run build
-        working-directory: site
-      - run: python -m ruff check src scripts tests
-      - run: python -m ruff format --check src scripts tests
-      - run: python -m pytest -q
-      - run: python scripts/verify_examples.py
-      - run: python scripts/benchmark.py
-      - run: python -m build
+          node-version: "24"
+      - run: npm install --global pnpm@12.10.1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test
+      - run: pnpm verify:examples
+      - run: pnpm build
+      - run: pnpm test:browser
+      - run: pnpm benchmark
+      - run: pnpm pack --pack-destination dist/v0.3.0
+      - run: pnpm package:skill
+      - run: pnpm package:site
+      - run: pnpm smoke:artifacts
   catalog:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        postgres: ['14.20', '15.15', '16.11', '17.7', '18.1']
+        postgres: ["14.20", "15.15", "16.11", "17.7", "18.1"]
     services:
       postgres:
         image: postgres:${{ matrix.postgres }}
@@ -37,19 +32,20 @@ jobs:
           POSTGRES_USER: fixture_owner
           POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_DB: dbdep_examples
-        ports: ['5432:5432']
+        ports: ["5432:5432"]
         options: >-
           --health-cmd 'pg_isready -U fixture_owner -d dbdep_examples'
           --health-interval 5s --health-timeout 5s --health-retries 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
-      - run: python -m pip install -e '.[dev,live]'
-      - run: python scripts/setup_ci_fixture.py
+          node-version: "24"
+      - run: npm install --global pnpm@12.10.1
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/setup-ci-fixture.mjs
         env:
-          DBDEP_FIXTURE_OWNER_DSN: host=127.0.0.1 port=5432 user=fixture_owner dbname=dbdep_examples
-      - run: python -m pytest tests/test_live.py -q
+          DBDEP_FIXTURE_OWNER_DSN: postgresql://fixture_owner@127.0.0.1:5432/dbdep_examples
+      - run: node --test tests/node/live.test.mjs
         env:
-          DBDEP_TEST_DSN: host=127.0.0.1 port=5432 user=dbdep_readonly dbname=dbdep_examples
+          DBDEP_TEST_DSN: postgresql://dbdep_readonly@127.0.0.1:5432/dbdep_examples

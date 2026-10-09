@@ -2,7 +2,7 @@
 
 Analysis only. No SQL was executed by the analyzer.
 
-Snapshot `snapshot:2675de6c67b14f27ec476950`. PostgreSQL 18, catalog_snapshot.
+Snapshot `snapshot:a212e9d15e69ec94425d4006`. PostgreSQL 18, catalog_snapshot.
 Nodes: 22. Edges: 29. Evidence: 44. Findings: 6. Unknowns: 1.
 
 Arrows mean source depends on/references target. Impact walks reverse edges. Paths describe potential impact; they do not prove runtime failure or complete consumer coverage.
@@ -67,7 +67,7 @@ OBSERVED means supplied catalog metadata. PARSED means syntax-aware source evide
 
 ### expand
 
-Add nullable replacement columns or compatible interfaces; design UUID mapping and new keys before changing identifier types.
+Where a replacement is needed, add nullable columns or compatible interfaces. Define the replacement representation and any identifier mapping before changing keys.
 
 Preconditions: Confirm PostgreSQL version, backups, ownership, consumers and feasible mapping. Review privileges and lock budget.
 
@@ -77,11 +77,11 @@ Recovery: Stop deployment before consumers depend on the new fields; keep old fi
 
 ### backfill
 
-Backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.
+If stored data needs a representation change, backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.
 
-Preconditions: Prove mapping uniqueness, handle concurrent writes and define throttling. Numeric identifiers do not have a general UUID cast.
+Preconditions: Validate transformation semantics and mapping uniqueness where identifiers change. Handle concurrent writes and define throttling.
 
-Verification: Check mapping completeness, uniqueness, NULL rates and FK consistency under concurrent traffic.
+Verification: Check transformation results, applicable mapping completeness and uniqueness, NULL rates and FK consistency under concurrent traffic.
 
 Recovery: Pause batches and preserve old data; restore from tested backup only under an approved recovery procedure.
 
@@ -140,8 +140,8 @@ Affected root: `postgresql:local/sales/column/orders/total_amount/`.
 | postgresql:local/analytics/type//_order_summary/ | analytics._order_summary | type | OBSERVED | ev:a0c24950cc86ece96b03a0ae |
 | postgresql:local/analytics/type//monthly_revenue/ | analytics.monthly_revenue | type | OBSERVED | ev:cfca16ac9a1c3ff6fa4bc14a |
 | postgresql:local/analytics/type//order_summary/ | analytics.order_summary | type | OBSERVED | ev:02bb36f63e76a8251e5fe5fc |
-| postgresql:local/analytics/view//monthly_revenue/ | analytics.monthly_revenue | view | OBSERVED | ev:107b9e1e4e910e30322cfcaa |
-| postgresql:local/analytics/view//order_summary/ | analytics.order_summary | view | OBSERVED | ev:5389583ffac1b21379672f55 |
+| postgresql:local/analytics/view//monthly_revenue/ | analytics.monthly_revenue | view | OBSERVED | ev:26b00cd48f049c824c083999 |
+| postgresql:local/analytics/view//order_summary/ | analytics.order_summary | view | OBSERVED | ev:0d30f4198da3491416f9e19e |
 | postgresql:local/pg_catalog/extension//plpgsql/ | pg_catalog.plpgsql | extension | OBSERVED | ev:eeb1c6f3bc5d0853972c9992 |
 | postgresql:local/public/schema//public/ | public.public | schema | OBSERVED | ev:8a43b97405c43896b7f874b9 |
 | postgresql:local/sales/column/orders/id/ | sales.orders.id | column | OBSERVED | ev:b99d0e21d0e3f87f72381177 |
@@ -149,9 +149,9 @@ Affected root: `postgresql:local/sales/column/orders/total_amount/`.
 | postgresql:local/sales/constraint/orders/orders_id_not_null/ | sales.orders.orders_id_not_null | constraint | OBSERVED | ev:601c22d1fc5af5606bd3d4ba |
 | postgresql:local/sales/constraint/orders/orders_pkey/ | sales.orders.orders_pkey | constraint | OBSERVED | ev:7343e9fd75a693aece425800 |
 | postgresql:local/sales/constraint/orders/orders_total_amount_not_null/ | sales.orders.orders_total_amount_not_null | constraint | OBSERVED | ev:e054f21253244cf1902a0b00 |
-| postgresql:local/sales/index//orders_pkey/ | sales.orders_pkey | index | OBSERVED | ev:12979d2993a242348e218b7a |
+| postgresql:local/sales/index//orders_pkey/ | sales.orders_pkey | index | OBSERVED | ev:47b3d1d960d2e8653880bdd5 |
 | postgresql:local/sales/schema//sales/ | sales.sales | schema | OBSERVED | ev:f86c03cd14b6fade625bb6ee |
-| postgresql:local/sales/table//orders/ | sales.orders | table | OBSERVED | ev:6713d46d22a2df2cd32e076b |
+| postgresql:local/sales/table//orders/ | sales.orders | table | OBSERVED | ev:ffc6ecf0e20f88c94d01f3aa |
 | postgresql:local/sales/type//_orders/ | sales._orders | type | OBSERVED | ev:272377cb956d0eec9031e4c7 |
 | postgresql:local/sales/type//orders/ | sales.orders | type | OBSERVED | ev:3506d2f1190ae064132ef7d8 |
 
@@ -195,19 +195,19 @@ Affected root: `postgresql:local/sales/column/orders/total_amount/`.
 |---|---|---|---|
 | ev:02bb36f63e76a8251e5fe5fc | postgres_catalog | pg_type at 2026-10-09T16:32:45.035603+00:00 (pg_type:16398:0) | sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce |
 | ev:0945ec2f971483bce560c4b2 | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_type:16390:0-&gt;pg_type:16391:0) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
+| ev:0d30f4198da3491416f9e19e | postgres_catalog | pg_class at 2026-10-09T16:32:45.035603+00:00 (pg_class:16396:0) | sha256:ac3cbd252fdb623adf6a84ee5b7055db8707a021a431d17f4032a6998755ad04 |
 | ev:0dcbc87e35e0e8b5c14d9e5c | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_class:16400:0-&gt;pg_namespace:16388:0) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
-| ev:107b9e1e4e910e30322cfcaa | postgres_catalog | pg_class at 2026-10-09T16:32:45.035603+00:00 (pg_class:16400:0) | sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0 |
 | ev:10a5cef22313ed07c5c01130 | postgres_catalog | pg_constraint at 2026-10-09T16:32:45.035603+00:00 () | sha256:fa9b4946bdb637292ddf707df2a1d0b3888a370a36a96667834b203e7bd5ff93 |
-| ev:12979d2993a242348e218b7a | postgres_catalog | pg_class at 2026-10-09T16:32:45.035603+00:00 (pg_class:16394:0) | sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0 |
+| ev:26b00cd48f049c824c083999 | postgres_catalog | pg_class at 2026-10-09T16:32:45.035603+00:00 (pg_class:16400:0) | sha256:ac3cbd252fdb623adf6a84ee5b7055db8707a021a431d17f4032a6998755ad04 |
 | ev:272377cb956d0eec9031e4c7 | postgres_catalog | pg_type at 2026-10-09T16:32:45.035603+00:00 (pg_type:16390:0) | sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce |
 | ev:2b726a8c9138c587bda8edf9 | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_type:16398:0-&gt;pg_class:16396:0) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
 | ev:2c83deeee37ec3e87689b909 | postgres_catalog | pg_namespace at 2026-10-09T16:32:45.035603+00:00 (pg_namespace:16388:0) | sha256:e044ff4af53fb9dbe91eff0599e205ddc4b6dc24d8e26d7365162e77dfa0d7ba |
 | ev:3506d2f1190ae064132ef7d8 | postgres_catalog | pg_type at 2026-10-09T16:32:45.035603+00:00 (pg_type:16391:0) | sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce |
 | ev:442dac27d805b6a84bbebfb7 | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_rewrite:16403:0-&gt;pg_class:16400:0) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
 | ev:45d9b35cafa103957cf2af5e | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_class:16396:0-&gt;pg_namespace:16388:0) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
+| ev:47b3d1d960d2e8653880bdd5 | postgres_catalog | pg_class at 2026-10-09T16:32:45.035603+00:00 (pg_class:16394:0) | sha256:ac3cbd252fdb623adf6a84ee5b7055db8707a021a431d17f4032a6998755ad04 |
 | ev:4dbb656b27318ea9f0bfed20 | postgres_catalog | pg_attribute at 2026-10-09T16:32:45.035603+00:00 (pg_class:16389:2) | sha256:4b9df534f307951c1815569ed2d46ab00935dcf74f36048065a0ae379196db0e |
 | ev:4e94d8a44687244d3018b756 | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_rewrite:16403:0-&gt;pg_class:16396:2) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
-| ev:5389583ffac1b21379672f55 | postgres_catalog | pg_class at 2026-10-09T16:32:45.035603+00:00 (pg_class:16396:0) | sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0 |
 | ev:53e332384fa39e3e95d5c713 | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_type:16391:0-&gt;pg_class:16389:0) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
 | ev:549eb3a8383dbb88a06197b6 | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_class:16394:0-&gt;pg_constraint:16395:0) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
 | ev:55869a800d91529f3d4c107c | migration_diff | examples/analytics/drop.sql:1-1 | sha256:297b740b46ede38605d0d18d43357d4abfd26ee5803285d390623a59cbb52201 |
@@ -215,7 +215,6 @@ Affected root: `postgresql:local/sales/column/orders/total_amount/`.
 | ev:5c841a0b542b7bbc4a8f8471 | postgres_catalog | server_version at 2026-10-09T16:32:45.035603+00:00 () | sha256:82dac9244dba639bc043db976903d9a364691818ca5cac80d5b2e24fbf90a76d |
 | ev:5ebda9f77097aff56bde2cf2 | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_constraint:16392:0-&gt;pg_class:16389:1) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
 | ev:601c22d1fc5af5606bd3d4ba | postgres_catalog | pg_constraint at 2026-10-09T16:32:45.035603+00:00 (pg_constraint:16392:0) | sha256:fa9b4946bdb637292ddf707df2a1d0b3888a370a36a96667834b203e7bd5ff93 |
-| ev:6713d46d22a2df2cd32e076b | postgres_catalog | pg_class at 2026-10-09T16:32:45.035603+00:00 (pg_class:16389:0) | sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0 |
 | ev:7343e9fd75a693aece425800 | postgres_catalog | pg_constraint at 2026-10-09T16:32:45.035603+00:00 (pg_constraint:16395:0) | sha256:fa9b4946bdb637292ddf707df2a1d0b3888a370a36a96667834b203e7bd5ff93 |
 | ev:845e1f63c21ede90483c793e | postgres_catalog | pg_type at 2026-10-09T16:32:45.035603+00:00 (pg_type:16401:0) | sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce |
 | ev:8a43b97405c43896b7f874b9 | postgres_catalog | pg_namespace at 2026-10-09T16:32:45.035603+00:00 (pg_namespace:2200:0) | sha256:e044ff4af53fb9dbe91eff0599e205ddc4b6dc24d8e26d7365162e77dfa0d7ba |
@@ -237,3 +236,4 @@ Affected root: `postgresql:local/sales/column/orders/total_amount/`.
 | ev:e1b7cfaf007c8cada9f1ae20 | postgres_catalog | pg_depend at 2026-10-09T16:32:45.035603+00:00 (pg_type:16402:0-&gt;pg_class:16400:0) | sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85 |
 | ev:eeb1c6f3bc5d0853972c9992 | postgres_catalog | pg_extension at 2026-10-09T16:32:45.035603+00:00 (pg_extension:15210:0) | sha256:e20869df2b51a80de931d27c03ff98f05bc37f29466b8103f3c782ee53127ec3 |
 | ev:f86c03cd14b6fade625bb6ee | postgres_catalog | pg_namespace at 2026-10-09T16:32:45.035603+00:00 (pg_namespace:16387:0) | sha256:e044ff4af53fb9dbe91eff0599e205ddc4b6dc24d8e26d7365162e77dfa0d7ba |
+| ev:ffc6ecf0e20f88c94d01f3aa | postgres_catalog | pg_class at 2026-10-09T16:32:45.035603+00:00 (pg_class:16389:0) | sha256:ac3cbd252fdb623adf6a84ee5b7055db8707a021a431d17f4032a6998755ad04 |

@@ -1,12 +1,12 @@
 {
   "name": "database-dependency-migration-site",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
     "prepare:demos": "node scripts/prepare-demos.mjs",
-    "dev": "npm run prepare:demos && vite --host 127.0.0.1",
-    "build": "npm run prepare:demos && tsc --noEmit && vite build",
+    "dev": "pnpm run prepare:demos && vite --host 127.0.0.1",
+    "build": "pnpm run prepare:demos && tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {

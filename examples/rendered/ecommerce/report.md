@@ -106,7 +106,7 @@ OBSERVED means supplied catalog metadata. PARSED means syntax-aware source evide
 
 ### expand
 
-Add nullable replacement columns or compatible interfaces; design UUID mapping and new keys before changing identifier types.
+Where a replacement is needed, add nullable columns or compatible interfaces. Define the replacement representation and any identifier mapping before changing keys.
 
 Preconditions: Confirm PostgreSQL version, backups, ownership, consumers and feasible mapping. Review privileges and lock budget.
 
@@ -116,11 +116,11 @@ Recovery: Stop deployment before consumers depend on the new fields; keep old fi
 
 ### backfill
 
-Backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.
+If stored data needs a representation change, backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.
 
-Preconditions: Prove mapping uniqueness, handle concurrent writes and define throttling. Numeric identifiers do not have a general UUID cast.
+Preconditions: Validate transformation semantics and mapping uniqueness where identifiers change. Handle concurrent writes and define throttling.
 
-Verification: Check mapping completeness, uniqueness, NULL rates and FK consistency under concurrent traffic.
+Verification: Check transformation results, applicable mapping completeness and uniqueness, NULL rates and FK consistency under concurrent traffic.
 
 Recovery: Pause batches and preserve old data; restore from tested backup only under an approved recovery procedure.
 

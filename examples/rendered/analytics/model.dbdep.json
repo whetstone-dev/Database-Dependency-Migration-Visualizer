@@ -513,6 +513,17 @@
     },
     {
       "captured_at": "2026-10-09T16:32:45.035603+00:00",
+      "catalog_address": "pg_class:16396:0",
+      "confidence": "direct",
+      "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+      "id": "ev:0d30f4198da3491416f9e19e",
+      "origin": "postgres_catalog",
+      "query_id": "pg_class",
+      "source_hash": "sha256:ac3cbd252fdb623adf6a84ee5b7055db8707a021a431d17f4032a6998755ad04",
+      "status": "OBSERVED"
+    },
+    {
+      "captured_at": "2026-10-09T16:32:45.035603+00:00",
       "catalog_address": "pg_class:16400:0->pg_namespace:16388:0",
       "confidence": "direct",
       "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
@@ -520,17 +531,6 @@
       "origin": "postgres_catalog",
       "query_id": "pg_depend",
       "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
-      "status": "OBSERVED"
-    },
-    {
-      "captured_at": "2026-10-09T16:32:45.035603+00:00",
-      "catalog_address": "pg_class:16400:0",
-      "confidence": "direct",
-      "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
-      "id": "ev:107b9e1e4e910e30322cfcaa",
-      "origin": "postgres_catalog",
-      "query_id": "pg_class",
-      "source_hash": "sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0",
       "status": "OBSERVED"
     },
     {
@@ -546,13 +546,13 @@
     },
     {
       "captured_at": "2026-10-09T16:32:45.035603+00:00",
-      "catalog_address": "pg_class:16394:0",
+      "catalog_address": "pg_class:16400:0",
       "confidence": "direct",
       "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
-      "id": "ev:12979d2993a242348e218b7a",
+      "id": "ev:26b00cd48f049c824c083999",
       "origin": "postgres_catalog",
       "query_id": "pg_class",
-      "source_hash": "sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0",
+      "source_hash": "sha256:ac3cbd252fdb623adf6a84ee5b7055db8707a021a431d17f4032a6998755ad04",
       "status": "OBSERVED"
     },
     {
@@ -623,6 +623,17 @@
     },
     {
       "captured_at": "2026-10-09T16:32:45.035603+00:00",
+      "catalog_address": "pg_class:16394:0",
+      "confidence": "direct",
+      "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+      "id": "ev:47b3d1d960d2e8653880bdd5",
+      "origin": "postgres_catalog",
+      "query_id": "pg_class",
+      "source_hash": "sha256:ac3cbd252fdb623adf6a84ee5b7055db8707a021a431d17f4032a6998755ad04",
+      "status": "OBSERVED"
+    },
+    {
+      "captured_at": "2026-10-09T16:32:45.035603+00:00",
       "catalog_address": "pg_class:16389:2",
       "confidence": "direct",
       "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
@@ -641,17 +652,6 @@
       "origin": "postgres_catalog",
       "query_id": "pg_depend",
       "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
-      "status": "OBSERVED"
-    },
-    {
-      "captured_at": "2026-10-09T16:32:45.035603+00:00",
-      "catalog_address": "pg_class:16396:0",
-      "confidence": "direct",
-      "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
-      "id": "ev:5389583ffac1b21379672f55",
-      "origin": "postgres_catalog",
-      "query_id": "pg_class",
-      "source_hash": "sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0",
       "status": "OBSERVED"
     },
     {
@@ -731,17 +731,6 @@
       "origin": "postgres_catalog",
       "query_id": "pg_constraint",
       "source_hash": "sha256:fa9b4946bdb637292ddf707df2a1d0b3888a370a36a96667834b203e7bd5ff93",
-      "status": "OBSERVED"
-    },
-    {
-      "captured_at": "2026-10-09T16:32:45.035603+00:00",
-      "catalog_address": "pg_class:16389:0",
-      "confidence": "direct",
-      "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
-      "id": "ev:6713d46d22a2df2cd32e076b",
-      "origin": "postgres_catalog",
-      "query_id": "pg_class",
-      "source_hash": "sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0",
       "status": "OBSERVED"
     },
     {
@@ -973,6 +962,17 @@
       "origin": "postgres_catalog",
       "query_id": "pg_namespace",
       "source_hash": "sha256:e044ff4af53fb9dbe91eff0599e205ddc4b6dc24d8e26d7365162e77dfa0d7ba",
+      "status": "OBSERVED"
+    },
+    {
+      "captured_at": "2026-10-09T16:32:45.035603+00:00",
+      "catalog_address": "pg_class:16389:0",
+      "confidence": "direct",
+      "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+      "id": "ev:ffc6ecf0e20f88c94d01f3aa",
+      "origin": "postgres_catalog",
+      "query_id": "pg_class",
+      "source_hash": "sha256:ac3cbd252fdb623adf6a84ee5b7055db8707a021a431d17f4032a6998755ad04",
       "status": "OBSERVED"
     }
   ],
@@ -1300,7 +1300,7 @@
     {
       "confidence": "direct",
       "evidence_ids": [
-        "ev:107b9e1e4e910e30322cfcaa"
+        "ev:26b00cd48f049c824c083999"
       ],
       "id": "postgresql:local/analytics/view//monthly_revenue/",
       "kind": "view",
@@ -1313,7 +1313,7 @@
         "oid": 16400,
         "relkind": "v",
         "relpages": 0,
-        "reltuples": -1.0,
+        "reltuples": -1,
         "statistics_source": "pg_class estimates, not row counts"
       },
       "qualified_name": "analytics.monthly_revenue",
@@ -1324,7 +1324,7 @@
     {
       "confidence": "direct",
       "evidence_ids": [
-        "ev:5389583ffac1b21379672f55"
+        "ev:0d30f4198da3491416f9e19e"
       ],
       "id": "postgresql:local/analytics/view//order_summary/",
       "kind": "view",
@@ -1337,7 +1337,7 @@
         "oid": 16396,
         "relkind": "v",
         "relpages": 0,
-        "reltuples": -1.0,
+        "reltuples": -1,
         "statistics_source": "pg_class estimates, not row counts"
       },
       "qualified_name": "analytics.order_summary",
@@ -1501,7 +1501,7 @@
     {
       "confidence": "direct",
       "evidence_ids": [
-        "ev:12979d2993a242348e218b7a"
+        "ev:47b3d1d960d2e8653880bdd5"
       ],
       "id": "postgresql:local/sales/index//orders_pkey/",
       "kind": "index",
@@ -1515,7 +1515,7 @@
         "ready": true,
         "relkind": "i",
         "relpages": 1,
-        "reltuples": 0.0,
+        "reltuples": 0,
         "statistics_source": "pg_class estimates, not row counts",
         "unique": true,
         "valid": true
@@ -1547,7 +1547,7 @@
     {
       "confidence": "direct",
       "evidence_ids": [
-        "ev:6713d46d22a2df2cd32e076b"
+        "ev:ffc6ecf0e20f88c94d01f3aa"
       ],
       "id": "postgresql:local/sales/table//orders/",
       "kind": "table",
@@ -1560,7 +1560,7 @@
         "oid": 16389,
         "relkind": "r",
         "relpages": 0,
-        "reltuples": -1.0,
+        "reltuples": -1,
         "statistics_source": "pg_class estimates, not row counts"
       },
       "qualified_name": "sales.orders",
@@ -1614,8 +1614,8 @@
   "schema_version": "1.0.0",
   "snapshot": {
     "created_at": "2026-10-09T16:32:45.035603+00:00",
-    "id": "snapshot:2675de6c67b14f27ec476950",
-    "source_fingerprint": "sha256:2675de6c67b14f27ec476950be7a07be03c9e90d0502544031855d219112276f"
+    "id": "snapshot:a212e9d15e69ec94425d4006",
+    "source_fingerprint": "sha256:a212e9d15e69ec94425d400683b5b40d3f561b034d1a488268b3063d2dcda2de"
   },
   "unknowns": [
     {
