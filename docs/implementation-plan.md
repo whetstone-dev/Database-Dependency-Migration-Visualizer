@@ -1,5 +1,7 @@
 # Database dependency migration implementation plan
 
+Historical v0.1.0 plan. The current Node.js, report and documentation implementation is covered by [node-report-docs-plan.md](node-report-docs-plan.md); Python files described below exist in the v0.1.0/v0.2.0 tags.
+
 The supplied 2026-10-09 brief is the implementation contract. The existing MIT license and repository name are retained. Implementation is authorized by the user's request; no extra design approval is needed.
 
 Use Python 3.11+ with pinned pglast 8.5, PostgreSQL 18 grammar, JSON Schema, optional psycopg and Playwright. A stable canonical graph feeds every output. Never execute migration SQL. Native PostgreSQL binaries can create an isolated fixture cluster if Docker is unavailable.

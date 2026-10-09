@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Run `python scripts/dbdep.py doctor --json` or installed `dbdep doctor --json`. Source scripts require pglast/jsonschema; live mode adds psycopg; browser development adds Playwright and downloaded Chromium. `python -m pip install -e '.[dev,live]'` installs development extras. `python -m playwright install chromium` installs test browser binaries.
+Run `pnpm dbdep doctor --json`, `node scripts/dbdep.mjs doctor --json` or installed `dbdep doctor --json`. Node.js 22.18+ is required. `pnpm install --frozen-lockfile` installs the pinned workspace, including libpg-query, Ajv and pg. `pnpm exec playwright install chromium` installs browser test binaries. An unpacked skill uses `pnpm install --prod --frozen-lockfile --ignore-workspace` in its folder.
 
 Exit 2 indicates invalid JSON/schema, unsupported capture version, missing dependency, malformed selector, ambiguous object, SQL syntax error or I/O failure. Fix the original source/model, then regenerate. Use stable node IDs for functions with overloads or constraints sharing names. SQL literals are excluded from parse errors; inspect the input locally for detail.
 

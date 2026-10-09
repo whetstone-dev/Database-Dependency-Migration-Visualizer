@@ -9,3 +9,4 @@
 # Retain byte-exact creator receipts and copied evaluation outputs.
 evals/results/** -text -whitespace
 evals/review.html -text -whitespace
+evals/review-node.html -text -whitespace

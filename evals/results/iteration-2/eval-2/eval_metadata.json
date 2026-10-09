@@ -1,0 +1,10 @@
+{
+  "eval_id": 2,
+  "eval_name": "Two downstream views with catalog paths",
+  "prompt": "Use analytics/schema.sql and analytics/catalog.json. What depends on sales.orders.total_amount, including transitive views? Show paths and catalog evidence. Explain RESTRICT versus CASCADE without running any SQL.",
+  "assertions": [
+    "Identifies both downstream views",
+    "Uses catalog evidence",
+    "Qualifies CASCADE"
+  ]
+}

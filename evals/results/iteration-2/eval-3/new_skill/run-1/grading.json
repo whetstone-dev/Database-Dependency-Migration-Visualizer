@@ -1,0 +1,68 @@
+{
+  "expectations": [
+    {
+      "text": "Rejects concurrent index transaction context",
+      "passed": true,
+      "evidence": "review model finding finding:61f2a716d49ea583a4524bbf is DDM006, direct confidence/error: CREATE INDEX CONCURRENTLY is forbidden inside a transaction block. examples/high-traffic/migrations/007.sql, lines 4-4; supplied file has BEGIN on line 3 and concurrent index on line 4."
+    },
+    {
+      "text": "Explains conditional rewrite and unknown lock duration",
+      "passed": true,
+      "evidence": "DDM002 finding:e8c62af5af6d801991d01b20 qualifies rewrite/index rebuild by cast, typmod and USING expression; response distinguishes SHARE for regular index, ACCESS EXCLUSIVE for type alteration, and unmeasured/unknown duration. It does not assert a timed rewrite."
+    },
+    {
+      "text": "Labels user metadata",
+      "passed": true,
+      "evidence": "review.json metadata is origin=user_supplied, status=INFERRED; public.orders size_bytes=8000000000 and traffic=high match metadata.json. Evidence ev:5fb078138cefc22bce2fcef9 resolves in canonical model and source_hash equals canonical input metadata fingerprint."
+    },
+    {
+      "text": "Creates review HTML",
+      "passed": true,
+      "evidence": "review/report.html embeds exactly review/model.dbdep.json (4 findings) and the exact five-phase plan from review.json; no external resource URLs, CSP connect-src none. Browser behavior was not tested."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Concurrent indexing in this explicit transaction is rejected by the analyzer",
+      "type": "factual",
+      "verified": true,
+      "evidence": "DDM006 finding:61f2a716d49ea583a4524bbf, grounded migration evidence ev:f5f5e93f642715781126c9c2."
+    },
+    {
+      "claim": "The generated phase plan is tailored to this amount/index proposal",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Both frozen toolkits emit UUID-specific expansion/backfill wording for numeric(12,2) -> float8; it is irrelevant to this change. The old response explicitly discloses this defect; the new response omits it. The four original assertions do not check phase relevance."
+    },
+    {
+      "claim": "Recorded CLI validation/analysis commands were actually retained",
+      "type": "process",
+      "verified": true,
+      "evidence": "execution.json retains 4 commands with argv, exit codes and stdout/stderr. All recorded commands exited zero, or the case made no command calls."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+      "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+    ],
+    "needs_review": [
+      "Both frozen review plans contain irrelevant UUID instructions for a numeric amount change; old response discloses this, new response does not."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "Add a safety assertion that generated amount/index plans contain no irrelevant UUID mapping or identifier-cast instructions and make optional phases conditional on the actual operation. Both configurations passed the existing locking/metadata/HTML assertions while exposing this planner defect."
+      }
+    ],
+    "overall": "Assertions passed only where saved content and source evidence support them. Important unasserted gaps remain; see suggestions and iteration-2/analysis.md."
+  }
+}

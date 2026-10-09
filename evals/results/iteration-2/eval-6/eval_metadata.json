@@ -1,0 +1,10 @@
+{
+  "eval_id": 6,
+  "eval_name": "Separate object identities with ambiguity diagnostics",
+  "prompt": "Analyze multi-schema/schema.sql and tricky-identifiers/schema.sql separately. Preserve schema collisions, quoted identifiers, overloaded routines, partitioning and composite foreign keys. Report resolution uncertainty.",
+  "assertions": [
+    "Does not merge public.orders and sales.orders",
+    "Preserves quoted CustomerID and function overloads",
+    "Reports unqualified ambiguity"
+  ]
+}

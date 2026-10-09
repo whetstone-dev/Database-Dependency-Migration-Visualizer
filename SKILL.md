@@ -3,7 +3,7 @@ name: database-dependency-migration
 description: Analyze PostgreSQL schema dependencies, explain table and column change impact, review SQL migration hazards, compare schema snapshots, and produce source-backed interactive dependency graphs and phased migration plans. Use for PostgreSQL migration review, downstream blast radius, rename/type-change analysis, or dependency exploration from DDL, SQL repositories and catalog snapshots. Analysis only; not a migration executor or a general query performance optimizer.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   author: whetstone-dev
 ---
 
@@ -11,7 +11,7 @@ metadata:
 
 Use the bundled deterministic toolkit for factual dependency and migration claims. Keep artifacts in the user's workspace. The versioned `*.dbdep.json` model is the source of truth for HTML, Markdown and graph exports. Regenerate outputs instead of editing them.
 
-Resolve this skill's absolute directory as `<skill-dir>`. Run `python "<skill-dir>/scripts/dbdep.py" ...` from the user's working directory, or installed `dbdep`. Python 3.11+ and the pinned dependencies in `pyproject.toml` are required. If imports fail, install with `python -m pip install "<skill-dir>"`. Live discovery additionally needs `"<skill-dir>[live]"`. Do not substitute regex extraction or invented catalog facts for the engine.
+Resolve this skill's absolute directory as `<skill-dir>`. Install Node.js 22.18+ and pnpm 12.10.1, then run `pnpm install --prod --frozen-lockfile --ignore-workspace` inside the skill directory. Run `node "<skill-dir>/scripts/dbdep.mjs" ...` from the user's working directory, or installed `dbdep`. From a source checkout, `pnpm install --frozen-lockfile` installs the complete workspace and `pnpm dbdep <command>` runs the CLI. The engine uses PostgreSQL 18's real WebAssembly parser, Ajv and pg. Python is not required by the toolkit. Do not substitute regex extraction or invented catalog facts for the engine.
 
 ## Route by task
 
@@ -30,6 +30,8 @@ Use `doctor --json` for setup and `demo <output-directory>` for the three shippe
 `source -> target` means source depends on/references target. Walk reverse edges for blast radius. Foreign-key relationships have a distinct edge kind. Reverse paths show potential consumers, not a proof of failure or PostgreSQL's exact CASCADE deletion closure.
 
 Report OBSERVED catalog metadata, PARSED syntax evidence, INFERRED hypotheses and UNKNOWN gaps separately. Cite file lines or catalog query/address/timestamp from evidence. DDL lacks some catalog facts; routine bodies, dynamic SQL, host-language ORMs and nested column scopes remain partial or unknown. Never claim exhaustive consumers, zero downtime, measured lock duration or lossless rollback.
+
+For catalog provenance, distinguish the evidence `source_hash` from the captured `queries[query_id].sql_hash`. The source hash fingerprints the canonical query record, including rows and SQL hash. The SQL hash fingerprints the fixed SELECT text. Cite each with its actual meaning; do not label a payload fingerprint as a SQL-query hash.
 
 Backfill UPDATE/INSERT/DELETE semantics are outside the hazard engine. Treat those reviews as UNKNOWN; absence of a specific DDL hazard is not a safety approval.
 

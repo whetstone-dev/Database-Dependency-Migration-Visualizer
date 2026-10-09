@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "Explicitly reports dynamic UNKNOWN coverage",
+      "passed": true,
+      "evidence": "schema.dbdep.json retains two UNKNOWN records: unsupported host-language SQL/ORM extraction and non-exhaustive routine-body/runtime references; both link to actual hashed query.ts/schema.sql evidence. No function-to-email target edge was invented (0 such edges)."
+    },
+    {
+      "text": "Retains static SQL evidence",
+      "passed": true,
+      "evidence": "Static query edge edge:e06bff90a111da017be97a3a points to customers.email, PARSED evidence ev:b314c12d876f9a28d6620da1, static.sql line 1, hash sha256:74a6e9b68586f7dbe8b68224ca852c37233cdcee49831ed6dff930e393446526; independently matched exact input bytes and saved impact path."
+    },
+    {
+      "text": "Does not claim exhaustive consumer discovery",
+      "passed": true,
+      "evidence": "Response explicitly says all consumers cannot be established / supplied files do not support an exhaustive runtime list, preserves both coverage gaps, and does not treat absent edges as safety proof."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "There is one grounded static email consumer and two unresolved runtime coverage gaps",
+      "type": "factual",
+      "verified": true,
+      "evidence": "One query_reference targets email; two UNKNOWN records retain host/routine evidence. Static file hash was recomputed."
+    },
+    {
+      "claim": "Recorded CLI validation/analysis commands were actually retained",
+      "type": "process",
+      "verified": true,
+      "evidence": "execution.json retains 5 commands with argv, exit codes and stdout/stderr. All recorded commands exited zero, or the case made no command calls."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+      "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "Require absence of guessed dynamic function/host-language dependency edges, not only the presence of an UNKNOWN sentence. A model could otherwise contain invented consumers and still satisfy these text-focused assertions."
+      }
+    ],
+    "overall": "Assertions passed only where saved content and source evidence support them. Important unasserted gaps remain; see suggestions and iteration-2/analysis.md."
+  }
+}

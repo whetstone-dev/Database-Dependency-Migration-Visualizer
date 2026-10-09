@@ -1,0 +1,1794 @@
+{
+  "workspace": "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2",
+  "artifacts": [
+    {
+      "path": "analysis.md",
+      "sha256": "c913a1e020a03f46af27ceb7c7490180163157429ff44426da6cbd45a162d077",
+      "bytes": 23887,
+      "retained_in_repository": true
+    },
+    {
+      "path": "benchmark-creator-raw.json",
+      "sha256": "5087bb35a0bbd6e6b84bcfd225351388a2701db003873d595d3eb9d52b04afa9",
+      "bytes": 31013,
+      "retained_in_repository": true
+    },
+    {
+      "path": "benchmark-creator-raw.md",
+      "sha256": "1f10aca29601b2be2ec479303be6be71bbb544736ece2db57339b699e788a0c0",
+      "bytes": 409,
+      "retained_in_repository": true
+    },
+    {
+      "path": "benchmark.json",
+      "sha256": "9287a628eea6d236900fbfe15ca927fbe11c1cf19eb5d983f6892fe1d2b3b2b0",
+      "bytes": 33337,
+      "retained_in_repository": true
+    },
+    {
+      "path": "benchmark.md",
+      "sha256": "0373c5966ff6a849c8621b8c3f537f5f1199eaf46e9958c8e48da2a6d54573cd",
+      "bytes": 2113,
+      "retained_in_repository": true
+    },
+    {
+      "path": "creator-receipt.json",
+      "sha256": "1381ceda7f5bf0928f78cd5757f6c81b49f7315fe6667575c9f1f28915709f6f",
+      "bytes": 8379,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-1/eval_metadata.json",
+      "sha256": "411a6323000ecbcf5582544c78211379942e7abccd6d058aefe9cf91e58c7a91",
+      "bytes": 567,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-1/new_skill/run-1/execution.json",
+      "sha256": "260a40df021f73f015843e9eedeeed94ca4ca8ded47c5193f99e2f79d40632f9",
+      "bytes": 81960,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-1/new_skill/run-1/grading.json",
+      "sha256": "360134c7afc15b58055d9478c540d0c6a4cf5f19dbedb68c2d0022a267651476",
+      "bytes": 3741,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/ecommerce.dbdep.json",
+      "sha256": "11e2fe89fbc9bfec6e76434d83cf05e7aee7a09c4f1cf4a6b95821a7ce46d524",
+      "bytes": 99047,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/impact.html",
+      "sha256": "c3db9227de7cc7ff00ffd29b3a7ddb183d88a5849ca90c5323b5ac446f048604",
+      "bytes": 235421,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/impact.json",
+      "sha256": "ee346ba12b65670a001a3091d4057c4401ab8a5a5b039c2893dc75fcdba180b8",
+      "bytes": 21872,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/report.md",
+      "sha256": "375f6e9500070aafdbd245e3a5d5ae34cda6965271c76ac681669fa4db942640",
+      "bytes": 29523,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/response.md",
+      "sha256": "1b5f0a33776db018145238d74e20221199e0f0502359c9815c0f5d8bb373038d",
+      "bytes": 5147,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/review/graph.dot",
+      "sha256": "0472c369cc6242c18ccb7cbce9fb847b9720a49a8233727e37de584323134908",
+      "bytes": 20902,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/review/graph.mmd",
+      "sha256": "e57e412a0975ffa5e265aed0085006c099412716374dab56385e732977568b66",
+      "bytes": 4903,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/review/model.dbdep.json",
+      "sha256": "5ec7de35b27a679f7abeb4c79b6455129c2c9fec5dbae02c40836c30b9075bb9",
+      "bytes": 109023,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/review/report.html",
+      "sha256": "e2db353beac7a2b59f1446e5dd71cfea125afc72028e0d8366c7ae695573fefc",
+      "bytes": 248981,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/review/report.md",
+      "sha256": "b64674600e541ae4653dca24f42c1040a3189a97bd16a1536c44e23c395254a6",
+      "bytes": 38918,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/review/review.json",
+      "sha256": "de0c05326b116c66971f3afaba307de9cca808370656126d511f45106df89e4e",
+      "bytes": 18887,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/new_skill/run-1/outputs/uuid-plan.md",
+      "sha256": "8137dd95d1776a2bafb2ed8c9dfb4f6d3be186b7a63f294bf5b4417516cacf55",
+      "bytes": 5281,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/execution.json",
+      "sha256": "d4b3eed9ca36caf9f2e5af6c03af26ac90cdf912650cc5dce7d51755c48d967c",
+      "bytes": 47376,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-1/old_skill/run-1/grading.json",
+      "sha256": "100635720cb45f59153f64a009e02e726c0dfb922366276579573452afcc132f",
+      "bytes": 3287,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/actual_response.md",
+      "sha256": "3069341af4f2be37be22a24ab014f153f5499e15f3de1fa16fa2190ef3641846",
+      "bytes": 3662,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-01.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-01.stdout.txt",
+      "sha256": "9ef21f5f167a10442d173f826db5ee6f67b92454c2e8c110d3995ac30681c8b0",
+      "bytes": 348,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-02.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-02.stdout.txt",
+      "sha256": "bdf74efcc026f4796d889e926a2afc4679b3f1d3abbdf8800de3c40b995d1cdf",
+      "bytes": 551,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-03.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-03.stdout.txt",
+      "sha256": "23a5c161636f806269e3068c5366a0d9373d7a9e9b9a2d2c4ce7f0fc70e8d033",
+      "bytes": 141,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-04.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-04.stdout.txt",
+      "sha256": "50019920b9403d43888b7f9e5c6b33bb88718af3ccd0d6a2d3cfc52004dde555",
+      "bytes": 311,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-05.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-05.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-06.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-06.stdout.txt",
+      "sha256": "d9525560eb363dc4ccb08caab9726277fd4e2a049e09ec7047367c916ce27e34",
+      "bytes": 21873,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-07.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-07.stdout.txt",
+      "sha256": "7aac1e2f80f266c7a87d84b1e80e18f627615452584990eb72f0e5289effb7f3",
+      "bytes": 165,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-08.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-08.stdout.txt",
+      "sha256": "13a4b17c84dd5b89f22a9f759ab3ec07128c4555248dd1b7e08f62ba71899574",
+      "bytes": 163,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-09.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/command-09.stdout.txt",
+      "sha256": "25e3c63ee26a211efdba8df172c48ccd5506cd5961994e00f002278c02af6326",
+      "bytes": 435,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/doctor.json",
+      "sha256": "9ef21f5f167a10442d173f826db5ee6f67b92454c2e8c110d3995ac30681c8b0",
+      "bytes": 348,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/impact.html",
+      "sha256": "c8cf5fff27b9591f62fc4170e4efe6d4ffd0d9f3f7e154033ceead833ee1d3b8",
+      "bytes": 125966,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/impact.json",
+      "sha256": "d9525560eb363dc4ccb08caab9726277fd4e2a049e09ec7047367c916ce27e34",
+      "bytes": 21873,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/proposal-analysis.sql",
+      "sha256": "33b8a436650b3b32b6ad7d157ad6ca464ab4992758b35c47a3e3c3d1a8a63b7d",
+      "bytes": 207,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/report.md",
+      "sha256": "375f6e9500070aafdbd245e3a5d5ae34cda6965271c76ac681669fa4db942640",
+      "bytes": 29523,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/review/graph.dot",
+      "sha256": "0472c369cc6242c18ccb7cbce9fb847b9720a49a8233727e37de584323134908",
+      "bytes": 20902,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/review/graph.mmd",
+      "sha256": "e57e412a0975ffa5e265aed0085006c099412716374dab56385e732977568b66",
+      "bytes": 4903,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/review/model.dbdep.json",
+      "sha256": "756e08b213014cea0f645664c0a03a4ba6c72ee4a04cd6a1b6b8b1b171a739b8",
+      "bytes": 104349,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/review/report.html",
+      "sha256": "c4f52f9116ca03bd8ce50653d0f19c314a12ed32928a291b0006092135542ad5",
+      "bytes": 134584,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/review/report.md",
+      "sha256": "155369844e16f18be1d58e251bbc17372d30f207b59810b1d6c9868b3e01807c",
+      "bytes": 35950,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/review/review.json",
+      "sha256": "d5576dd3488e384f2ba2f72bb0aa598bef97cf0c4aac8526d05b11309f0b763a",
+      "bytes": 12228,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/review-command.json",
+      "sha256": "25e3c63ee26a211efdba8df172c48ccd5506cd5961994e00f002278c02af6326",
+      "bytes": 435,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/schema.dbdep.json",
+      "sha256": "11e2fe89fbc9bfec6e76434d83cf05e7aee7a09c4f1cf4a6b95821a7ce46d524",
+      "bytes": 99047,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-1/old_skill/run-1/outputs/validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/eval_metadata.json",
+      "sha256": "a05b51a448e43e8b7459da6a4b76513cf1ae53515b2ba2bc5975e70f0cf609d5",
+      "bytes": 422,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-2/new_skill/run-1/execution.json",
+      "sha256": "50795c0d0672273000f6758dfa9201593b7cbb8857130d669784aa23dc6629b2",
+      "bytes": 22125,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-2/new_skill/run-1/grading.json",
+      "sha256": "ada005cf76f47f9bcffc2e8bfea343585f166639c8c38592a657f3cd0704fc74",
+      "bytes": 4040,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-2/new_skill/run-1/outputs/catalog.dbdep.json",
+      "sha256": "fdf2724d5a3de182c0e694547e8d4d3bbff0f7f1a65c7199daf2ef1196632fdf",
+      "bytes": 53522,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/new_skill/run-1/outputs/impact.html",
+      "sha256": "c6330658fc5128479d8f115f9528c2b2025793e784b2e9ee29b3ce33e9f781d9",
+      "bytes": 187488,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/new_skill/run-1/outputs/impact.json",
+      "sha256": "cc90d92e2c0d92ad142e488a324f589a6ef22a09e04d187d82d7ece2c4290855",
+      "bytes": 3909,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/new_skill/run-1/outputs/report.md",
+      "sha256": "5c7af4d06d0358a966d8fb8f4f1093871b961cb357994f4492142daab2d98d31",
+      "bytes": 17285,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/new_skill/run-1/outputs/response.md",
+      "sha256": "c17273fd715d8718c72b7fdb68d2bf643f2318f365057e4185b020dd6ddfe590",
+      "bytes": 3615,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-2/new_skill/run-1/outputs/schema.dbdep.json",
+      "sha256": "37b55f3fce622120147226302683f42ef76ab5064bff8a4f38047bf746a016d1",
+      "bytes": 15495,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/execution.json",
+      "sha256": "d55ce5936d6457de462750d39e479ba47823b88531b254f2e934cc0ea90dcd99",
+      "bytes": 22146,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-2/old_skill/run-1/grading.json",
+      "sha256": "ada005cf76f47f9bcffc2e8bfea343585f166639c8c38592a657f3cd0704fc74",
+      "bytes": 4040,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/actual_response.md",
+      "sha256": "d0ca8570e6d99a79af79aedf477f23c5d12e8abef7ebfda3505f3544152ba77a",
+      "bytes": 2566,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/catalog-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/catalog.dbdep.json",
+      "sha256": "9e6c2a0aff5eda084a5bba5f38e2afe44d264d25825832984005bae22d817d54",
+      "bytes": 53530,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-01.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-01.stdout.txt",
+      "sha256": "5a50c0de5002369de3b71853859a1ba1ad019ac0baf2cf326fbe5e7f3e40281f",
+      "bytes": 307,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-02.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-02.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-03.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-03.stdout.txt",
+      "sha256": "94773625373ca640b1cec350f512b0808550d52363ee1fadd6fe1ac3f49b4073",
+      "bytes": 312,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-04.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-04.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-05.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-05.stdout.txt",
+      "sha256": "45045689588602cddf81f3b9e6c8fa2c98b9c7f053e24f6ee9955d620ff9e4e8",
+      "bytes": 3910,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-06.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-06.stdout.txt",
+      "sha256": "2dbce25a1b1f6f514a1fbabde989f8a7cde5937f7e5fe58b290db74a2db50acf",
+      "bytes": 165,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-07.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/command-07.stdout.txt",
+      "sha256": "f05e20d73a796bb18e5aa1590cb557e6d9c270b2af7faaa3b5be974ceb2f79b0",
+      "bytes": 163,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/ddl-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/ddl.dbdep.json",
+      "sha256": "37b55f3fce622120147226302683f42ef76ab5064bff8a4f38047bf746a016d1",
+      "bytes": 15495,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/impact.html",
+      "sha256": "4667eff1c290fb4871d6fc448906220092ed5d2401e638b173a10d8412186860",
+      "bytes": 78041,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/impact.json",
+      "sha256": "45045689588602cddf81f3b9e6c8fa2c98b9c7f053e24f6ee9955d620ff9e4e8",
+      "bytes": 3910,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-2/old_skill/run-1/outputs/report.md",
+      "sha256": "fb87adff567f8df501e32793fe8b464e1e75a6f6a727f60e201d1ca98803e3fe",
+      "bytes": 17285,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/eval_metadata.json",
+      "sha256": "17822fee77b2e858ddcff5745a79f66a23a7133bb6698b9485e7830c99aebef1",
+      "bytes": 533,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-3/new_skill/run-1/execution.json",
+      "sha256": "1a9d922f5c3be91cd95ce1ed0c8058efb9d2c8bc4ea0318009c49f5c5706d0e5",
+      "bytes": 14357,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-3/new_skill/run-1/grading.json",
+      "sha256": "d38febf5a87890059739d30c3576b3b56b8718e45273d99ad8adce426d5691b9",
+      "bytes": 3677,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-3/new_skill/run-1/outputs/baseline.dbdep.json",
+      "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73",
+      "bytes": 90884,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/new_skill/run-1/outputs/response.md",
+      "sha256": "cd00bf976a20b741a82af7a5a6762b65e2f9ef4e38f670828c6d2d515add84a1",
+      "bytes": 4268,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-3/new_skill/run-1/outputs/review/graph.dot",
+      "sha256": "f79bc2e8c031815c6bd793b743dea59593ca4d211f74bb70caffccfc1dea1827",
+      "bytes": 18581,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/new_skill/run-1/outputs/review/graph.mmd",
+      "sha256": "a2bccf2d88051f2d95cdfe2d81df851febfbadd8798edf33769f79059bd981d0",
+      "bytes": 4412,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/new_skill/run-1/outputs/review/model.dbdep.json",
+      "sha256": "2aa570212e5879ddb4e0667e8f0ee144c80bd32a0c00cf264966d89832a4ff0f",
+      "bytes": 97238,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/new_skill/run-1/outputs/review/report.html",
+      "sha256": "067585cc98e39c3bd7f1999234aaa6ef8c20fdcfdd76c5d75566d982884cbd88",
+      "bytes": 236599,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/new_skill/run-1/outputs/review/report.md",
+      "sha256": "8374e8a94a950f669350b696d7e156eb2d78e9dcc4725c4e67ed09c77eb48915",
+      "bytes": 32039,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/new_skill/run-1/outputs/review/review.json",
+      "sha256": "3469322e2ccd5476e1b76b41069c653d3c9e9980bbe8d9b7e51e66db4e6987a3",
+      "bytes": 8322,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/execution.json",
+      "sha256": "cd683e0ecd8834ac8ced8f74d271dc55cbd5cefe96c6c0b825e9e5d8893b1a8c",
+      "bytes": 12518,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-3/old_skill/run-1/grading.json",
+      "sha256": "d38febf5a87890059739d30c3576b3b56b8718e45273d99ad8adce426d5691b9",
+      "bytes": 3677,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/actual_response.md",
+      "sha256": "48f51bb97fd7489b215a3f3ac28d0bc339fb3b393c5cc3f011311215a7f12c5e",
+      "bytes": 3180,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/baseline-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/baseline.dbdep.json",
+      "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73",
+      "bytes": 90884,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/command-01.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/command-01.stdout.txt",
+      "sha256": "37b38a83d8369dd0ad6ff36425d1d2248dfb56800a63d4b46c5b9f263c028d1b",
+      "bytes": 313,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/command-02.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/command-02.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/command-03.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/command-03.stdout.txt",
+      "sha256": "5cfb41b633f1dbca43a4b78fb6c96497aba5bf4467ab05ad95631020ed3af2ce",
+      "bytes": 435,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/command-04.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/command-04.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/review/graph.dot",
+      "sha256": "f79bc2e8c031815c6bd793b743dea59593ca4d211f74bb70caffccfc1dea1827",
+      "bytes": 18581,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/review/graph.mmd",
+      "sha256": "a2bccf2d88051f2d95cdfe2d81df851febfbadd8798edf33769f79059bd981d0",
+      "bytes": 4412,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/review/model.dbdep.json",
+      "sha256": "2aa570212e5879ddb4e0667e8f0ee144c80bd32a0c00cf264966d89832a4ff0f",
+      "bytes": 97238,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/review/report.html",
+      "sha256": "f0ee83eb6c7f770a6b3d39c893b1aa0b47c5da415f98657a1d3f92b25756be47",
+      "bytes": 127144,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/review/report.md",
+      "sha256": "8374e8a94a950f669350b696d7e156eb2d78e9dcc4725c4e67ed09c77eb48915",
+      "bytes": 32039,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/review/review.json",
+      "sha256": "3469322e2ccd5476e1b76b41069c653d3c9e9980bbe8d9b7e51e66db4e6987a3",
+      "bytes": 8322,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/review-command.json",
+      "sha256": "5cfb41b633f1dbca43a4b78fb6c96497aba5bf4467ab05ad95631020ed3af2ce",
+      "bytes": 435,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-3/old_skill/run-1/outputs/review-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/eval_metadata.json",
+      "sha256": "e0e8b2911912fe858554499d937a05d1e661d7bef95cdb24bf5d92e3660cbd3d",
+      "bytes": 451,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-4/new_skill/run-1/execution.json",
+      "sha256": "0d15157c05f2c1bb134ad9b3410ce59116fb3a0c88d4e4e7bf8bd0ba7fa25eb0",
+      "bytes": 14515,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-4/new_skill/run-1/grading.json",
+      "sha256": "e6f6b1d9e3e6857d2d19f95042014b1101fcc1f2dfb3c87b02554782bbde91c8",
+      "bytes": 2683,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-4/new_skill/run-1/outputs/impact.html",
+      "sha256": "123cb2e9f3115d496872d430eb3ee6bfb14a4dbdf87c066c82141f047d0f2cc0",
+      "bytes": 142436,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/new_skill/run-1/outputs/impact.json",
+      "sha256": "352339b78fae72a92bbc57efa00a20dc2d8969dc14ac0383f3324197dd4d613b",
+      "bytes": 1713,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/new_skill/run-1/outputs/model.dbdep.json",
+      "sha256": "45cd3da673f8e14805023cbc74022813e39b16cbae6ad85b2a9d828b3819966b",
+      "bytes": 10938,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/new_skill/run-1/outputs/report.md",
+      "sha256": "c380a3c0bb234882b393dfa5e70425553fe5291474f80fc32fde4902c3b63369",
+      "bytes": 4107,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/new_skill/run-1/outputs/response.md",
+      "sha256": "137d51cd38ad498e184d7d66d31620f845945ecdca5dca2842b38011e1260885",
+      "bytes": 3115,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-4/old_skill/run-1/execution.json",
+      "sha256": "cf0c9589687a4bb982ee6d4f97329488cee0e16d41a906d1992ca395fa5a760c",
+      "bytes": 15397,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-4/old_skill/run-1/grading.json",
+      "sha256": "d19fe5613bf06aa57d3ccf0fc48869b75d67973c3669366c1abfaeca47915971",
+      "bytes": 2684,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/actual_response.md",
+      "sha256": "5ebb0d8bb11cbc6b7d50c7b07e9db089005260002c04dbb91c0e7e9401046042",
+      "bytes": 1913,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-01.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-01.stdout.txt",
+      "sha256": "fbf12a02a38e35c881863ddb3fea1621c4ee3aa5dc96bc9c1f303597e1d3d02c",
+      "bytes": 308,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-02.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-02.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-03.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-03.stdout.txt",
+      "sha256": "082ce26f4d917e43541b6a7afeac0572d9cf838b85c4c558287ade4f896bff69",
+      "bytes": 1714,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-04.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-04.stdout.txt",
+      "sha256": "578416c7948ee87038165c7f0b2646fdc5621e6b3c7e305c5cee1e73dd4fdf79",
+      "bytes": 163,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-05.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/command-05.stdout.txt",
+      "sha256": "c25bb319abfd4c99f7b22efb6daedfead6ec32ae8667c182f5196af393ca49ff",
+      "bytes": 165,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/impact.html",
+      "sha256": "ab7272d4889a304e07c27dccfade8010eed7edcfc8caac2642c125fbbb66d39c",
+      "bytes": 32981,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/impact.json",
+      "sha256": "082ce26f4d917e43541b6a7afeac0572d9cf838b85c4c558287ade4f896bff69",
+      "bytes": 1714,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/report.md",
+      "sha256": "c380a3c0bb234882b393dfa5e70425553fe5291474f80fc32fde4902c3b63369",
+      "bytes": 4107,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/schema.dbdep.json",
+      "sha256": "45cd3da673f8e14805023cbc74022813e39b16cbae6ad85b2a9d828b3819966b",
+      "bytes": 10938,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-4/old_skill/run-1/outputs/validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/eval_metadata.json",
+      "sha256": "3619590c40227042d06adc2cb494eed029b5d2fc5d008363bb20443581e66ec7",
+      "bytes": 345,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-5/new_skill/run-1/execution.json",
+      "sha256": "7429940c9248d34dba13893f1b5e2ad179fb9968b4c53a85fd725b7c7c4f3a4d",
+      "bytes": 21442,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-5/new_skill/run-1/grading.json",
+      "sha256": "775f2ffdcc15f2144aaf032eeab0f641448b45ced94e7ddc9f597d9f6b6438a5",
+      "bytes": 2291,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/after.dbdep.json",
+      "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f",
+      "bytes": 5715,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/before.dbdep.json",
+      "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922",
+      "bytes": 5684,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/comparison/after.dbdep.json",
+      "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f",
+      "bytes": 5715,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/comparison/before.dbdep.json",
+      "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922",
+      "bytes": 5684,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/comparison/diff.json",
+      "sha256": "5a3736859fa6c4db0ceb4e8bbc73d0c9d7f169d91b716381f3ce405a18f42493",
+      "bytes": 1000,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/comparison/graph.dot",
+      "sha256": "27538c3ae497e9d48fae7139927c681c1513ead5bd85d4e9baf84cb1f194c5ed",
+      "bytes": 1244,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/comparison/graph.mmd",
+      "sha256": "64a5673101d74bf59b37c8394ef22df111413b49779b696116e4be4abf414471",
+      "bytes": 355,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/comparison/model.dbdep.json",
+      "sha256": "55849af3fd7bcfb80caece9e035771b66f431e63fb6d45aa4eb363b32b22579a",
+      "bytes": 7342,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/comparison/report.html",
+      "sha256": "7a9f75a82dcb2409431bcc4d78a38936a2a759c95f0b3a24cdae10a9952a6d93",
+      "bytes": 139668,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/comparison/report.md",
+      "sha256": "e0fea0297b3578355cdbbe9dc7a7fc87ab120eb92b714a20904b757a76aebe54",
+      "bytes": 3765,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/new_skill/run-1/outputs/response.md",
+      "sha256": "eee848f08bca2e5eebfe3d43b356eeff812989085a4b460f2fc5034bef22cd77",
+      "bytes": 3119,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-5/old_skill/run-1/execution.json",
+      "sha256": "d96186685b46f330afc7ef09fef24c32b41621033a926854c09dd3f263d52673",
+      "bytes": 17831,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-5/old_skill/run-1/grading.json",
+      "sha256": "775f2ffdcc15f2144aaf032eeab0f641448b45ced94e7ddc9f597d9f6b6438a5",
+      "bytes": 2291,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/actual_response.md",
+      "sha256": "9fd71a8923f50420390ace2974e625af4f699f57ad9ee62c51b21876bb25dc60",
+      "bytes": 1830,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/after-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/after.dbdep.json",
+      "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f",
+      "bytes": 5715,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/before-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/before.dbdep.json",
+      "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922",
+      "bytes": 5684,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-01.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-01.stdout.txt",
+      "sha256": "11b1fd19754a3e0df25553bd11c67c526b4e245616e479ae95018d1ffce8cd6b",
+      "bytes": 308,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-02.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-02.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-03.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-03.stdout.txt",
+      "sha256": "d9d26f420ced1e016ef0905bb9389a90f6b61450fa74d3510d0219bf55ac167b",
+      "bytes": 307,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-04.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-04.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-05.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-05.stdout.txt",
+      "sha256": "cbc5ce261a77403b6569aa841c8a79da9d71ffe4335e351209c1582950a3f394",
+      "bytes": 1001,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-06.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/command-06.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison/after.dbdep.json",
+      "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f",
+      "bytes": 5715,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison/before.dbdep.json",
+      "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922",
+      "bytes": 5684,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison/diff.json",
+      "sha256": "5a3736859fa6c4db0ceb4e8bbc73d0c9d7f169d91b716381f3ce405a18f42493",
+      "bytes": 1000,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison/graph.dot",
+      "sha256": "27538c3ae497e9d48fae7139927c681c1513ead5bd85d4e9baf84cb1f194c5ed",
+      "bytes": 1244,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison/graph.mmd",
+      "sha256": "64a5673101d74bf59b37c8394ef22df111413b49779b696116e4be4abf414471",
+      "bytes": 355,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison/model.dbdep.json",
+      "sha256": "55849af3fd7bcfb80caece9e035771b66f431e63fb6d45aa4eb363b32b22579a",
+      "bytes": 7342,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison/report.html",
+      "sha256": "60c4fe02ad6eb170707cd63fa4aa0ff443110718eb6ccc167d58bc669bf2e34e",
+      "bytes": 30213,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison/report.md",
+      "sha256": "e0fea0297b3578355cdbbe9dc7a7fc87ab120eb92b714a20904b757a76aebe54",
+      "bytes": 3765,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/comparison-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-5/old_skill/run-1/outputs/diff-command.json",
+      "sha256": "cbc5ce261a77403b6569aa841c8a79da9d71ffe4335e351209c1582950a3f394",
+      "bytes": 1001,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/eval_metadata.json",
+      "sha256": "af19173a9cd7c62cc32607c3073da35017e413fd0b88ca333157c8daddb09473",
+      "bytes": 495,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-6/new_skill/run-1/execution.json",
+      "sha256": "35eadfc39516019f663a469d0603ab89797ed098fe1cc1d7efa180d449cf3644",
+      "bytes": 22071,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-6/new_skill/run-1/grading.json",
+      "sha256": "bafb5b98f4eb7416ad854effca5115da7c6e83e736156bd164355c75bd9f5e9c",
+      "bytes": 2745,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-6/new_skill/run-1/outputs/multi-schema.dbdep.json",
+      "sha256": "96aa7e37247b4e425e5c687ed07f445341b0461994ee7ae92354603bd6bb8bc6",
+      "bytes": 11098,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/new_skill/run-1/outputs/multi-schema.html",
+      "sha256": "80ac643685ba2e2fa9487eb416b070ccb8e4e90935d2f927e93c0865db9c7c44",
+      "bytes": 142601,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/new_skill/run-1/outputs/multi-schema.md",
+      "sha256": "6427254d356bdc5f0de7e36f292959a39fbb4a4f39676729b8b802e85f41e05a",
+      "bytes": 3776,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/new_skill/run-1/outputs/response.md",
+      "sha256": "addeb450e86ad7f83ae486b5098416af76d08b18202a97d3370a4970cd716a24",
+      "bytes": 5095,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-6/new_skill/run-1/outputs/tricky-identifiers.dbdep.json",
+      "sha256": "2e8c34be8a4fa92e8cf9456936f481a2816c78788d5959005b4374cbd0cf3ee5",
+      "bytes": 24222,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/new_skill/run-1/outputs/tricky-identifiers.html",
+      "sha256": "7ba9b27b8bfa1b87da1de4acf5866f717fe2ecae885b65dd5b23be1ad253041d",
+      "bytes": 156445,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/new_skill/run-1/outputs/tricky-identifiers.md",
+      "sha256": "866b0c8afe64991b1f79ebebd8a325df87d6bcfff2f63d607ab3ddd4223e809a",
+      "bytes": 7679,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/execution.json",
+      "sha256": "3af4de8ab77a1cfa68d6215f209a530e9fe8e86c9b3856ae4726cc2bbf40a04a",
+      "bytes": 30868,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-6/old_skill/run-1/grading.json",
+      "sha256": "f9ef6210c1554ee97ad7a8aa3c01cc13f8ff6e5a2f2b464ee19aebd66b1b03ab",
+      "bytes": 2840,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/actual_response.md",
+      "sha256": "ea06abe40bdba78d2b334d5592b9e7e93267ecbbbbd9ffb6180b6f5da215f9fb",
+      "bytes": 3129,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-01.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-01.stdout.txt",
+      "sha256": "a031337a7419308f619d0e133c8ae9412ed598a544e5d0b78c96bcc4901b5af6",
+      "bytes": 314,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-02.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-02.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-03.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-03.stdout.txt",
+      "sha256": "c5b09dc25279bcf8ce482fe488441136423d82241111eaa90d1ee9e5862f834b",
+      "bytes": 169,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-04.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-04.stdout.txt",
+      "sha256": "685e65b90c832d330487c9fbdf1e8b0ac90d1bdd8a37365c202d07683a54518e",
+      "bytes": 171,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-05.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-05.stdout.txt",
+      "sha256": "d32cb9d4ccc12703f6eab76343d5e3f05fcfcc7cd1f686474953d51cea1c55b6",
+      "bytes": 322,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-06.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-06.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-07.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-07.stdout.txt",
+      "sha256": "158806f5ad0069a7ac16c31e05116f28331c1ec0159973db677d77b53aaac60a",
+      "bytes": 175,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-08.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-08.stdout.txt",
+      "sha256": "749b4f31d1c7a5ac07fe59683a0a18eb8e8dac644ebfee139c2e781dd380b5d3",
+      "bytes": 177,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-09.stderr.txt",
+      "sha256": "ffcf11591746849572e9d1c9e0adc4d3b8ffedfed3a98d3702330f18b5215d39",
+      "bytes": 90,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-09.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-10.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-10.stdout.txt",
+      "sha256": "461553365f639ce6a901bafde29f887481e32f40cc35d56a3ae2ce6e50d026af",
+      "bytes": 1598,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-11.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/command-11.stdout.txt",
+      "sha256": "8c63e20c270e71868147e44baccb9845965af25e4ebe5d182ecf253083738c21",
+      "bytes": 1598,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/label-bigint-impact.json",
+      "sha256": "461553365f639ce6a901bafde29f887481e32f40cc35d56a3ae2ce6e50d026af",
+      "bytes": 1598,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/label-text-impact.json",
+      "sha256": "8c63e20c270e71868147e44baccb9845965af25e4ebe5d182ecf253083738c21",
+      "bytes": 1598,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/multi-schema-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/multi-schema.dbdep.json",
+      "sha256": "96aa7e37247b4e425e5c687ed07f445341b0461994ee7ae92354603bd6bb8bc6",
+      "bytes": 11098,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/multi-schema.html",
+      "sha256": "9c5711483d9ae8c8951eeb1c1524d9b2ff2396e73e99a7f804c8e7a9fe7cf592",
+      "bytes": 33146,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/multi-schema.md",
+      "sha256": "6427254d356bdc5f0de7e36f292959a39fbb4a4f39676729b8b802e85f41e05a",
+      "bytes": 3776,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/tricky-identifiers-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/tricky-identifiers.dbdep.json",
+      "sha256": "babd8b84eefd803769276b9270569014ce9d695db0c7b2a0319908e95f089e9e",
+      "bytes": 24218,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/tricky-identifiers.html",
+      "sha256": "286b69378cb476ce1b73b5924666a63a76773e247533a042408c67b01b199662",
+      "bytes": 46986,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-6/old_skill/run-1/outputs/tricky-identifiers.md",
+      "sha256": "866b0c8afe64991b1f79ebebd8a325df87d6bcfff2f63d607ab3ddd4223e809a",
+      "bytes": 7679,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/eval_metadata.json",
+      "sha256": "c69ac8a36a1e71baecb3634f7ea67491810f619e170d5bd38f5686610ebb2c7c",
+      "bytes": 421,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-7/new_skill/run-1/execution.json",
+      "sha256": "aa7842eb248a8dc8f5f8f1075647e29f74516a6550191dd20552f8dc1fc841d1",
+      "bytes": 21566,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-7/new_skill/run-1/grading.json",
+      "sha256": "f47f3fe9d90c8e812b7e6c9e94365321d8965ccd0be3b617f42aaa51c1a148a7",
+      "bytes": 2656,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-7/new_skill/run-1/outputs/consistency-check.json",
+      "sha256": "bd9a30217172195374cfa33af82fc242b52968654847e2271a937d938d87219b",
+      "bytes": 4823,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/new_skill/run-1/outputs/dependencies.html",
+      "sha256": "0dd75ac3e8ebf268939d8757a4c658fd55be82b3b0dcec098174110b6b3e5b84",
+      "bytes": 226812,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json",
+      "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73",
+      "bytes": 90884,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/new_skill/run-1/outputs/report.md",
+      "sha256": "11bd62bf07e0a5cd220dd6d466b6247a3c7e8478732faa814fc1e6188bc591bf",
+      "bytes": 26503,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/new_skill/run-1/outputs/response.md",
+      "sha256": "7c4a97754e1ed9725f403612dae7db0dd43c3aeaec5d9690e792c760c2b50c84",
+      "bytes": 2790,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-7/new_skill/run-1/outputs/verify-artifacts.mjs",
+      "sha256": "23ebd708b893736c346b27d1dbc556b5581ee96dadc428fdc21213eeab80217f",
+      "bytes": 3858,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/execution.json",
+      "sha256": "7d18c23e34ec89da912ee94a6aa322d4f7b2a7606aec336e6c8f1ce582c02e16",
+      "bytes": 14361,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-7/old_skill/run-1/grading.json",
+      "sha256": "a1ef446c8881b63f424a9dd4f29d47aa10700cfeb8491765da7edf69a8a1deb0",
+      "bytes": 2556,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/actual_response.md",
+      "sha256": "70ef4f324518386294c19895c88bba751bb0cb24fc55f77167a18ccbe063d5bb",
+      "bytes": 1604,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-01.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-01.stdout.txt",
+      "sha256": "467f845dafd0c705eed62bb1ba79a05cbfbbb9ba8d4044b42f2dc897d88f87a2",
+      "bytes": 311,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-02.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-02.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-03.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-03.stdout.txt",
+      "sha256": "b5a9b031b10c3d1fefa8f7aa451d0267be398dd55f567c12710b6f5c0cd1103b",
+      "bytes": 163,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-04.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-04.stdout.txt",
+      "sha256": "bd6e97a6fcc5d4dea39609fd85f669d2e4f56eee28f9e2cba292472cfcf9eeb5",
+      "bytes": 171,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-05.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/command-05.stdout.txt",
+      "sha256": "80823968fb545bcf5cbad90f03355277fddb444fbcf25e2a2324dc386ddb96f9",
+      "bytes": 1083,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/consistency-check.json",
+      "sha256": "9de22dce27e8ac2f9081d2f935f30f4f29268600be730f2f4f2fd8ac72b19a1d",
+      "bytes": 1082,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/dependencies.html",
+      "sha256": "8ea2b975e87c5acd5ec5dd9c077f45db4cc464989d0b87cbebe7473cad4a6b56",
+      "bytes": 117357,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/report.md",
+      "sha256": "11bd62bf07e0a5cd220dd6d466b6247a3c7e8478732faa814fc1e6188bc591bf",
+      "bytes": 26503,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/schema.dbdep.json",
+      "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73",
+      "bytes": 90884,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-7/old_skill/run-1/outputs/verify_consistency.py",
+      "sha256": "fc04efef649c55b7aea2260d30c471c8d1980ff2dfafc1be665ba5b48b6e09df",
+      "bytes": 3486,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/eval_metadata.json",
+      "sha256": "1ab36553d3d27672107b37536f6d827cb8e1adb79cbbda57ed318e7953137e0c",
+      "bytes": 305,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-8/new_skill/run-1/execution.json",
+      "sha256": "2e92d41db10645985130fb664481a9a7a547814ba28b09b267122426acbff776",
+      "bytes": 1626,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-8/new_skill/run-1/grading.json",
+      "sha256": "883198d9fbec0f132c911fd3b0ccf154c0e071677b0b0b1d306d754896bd80d5",
+      "bytes": 2289,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-8/new_skill/run-1/outputs/response.md",
+      "sha256": "460ff76c2cdca9134cc8cc6506c10ef269dac933f8bef4f66f5839a7c73fdcee",
+      "bytes": 855,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-8/old_skill/run-1/execution.json",
+      "sha256": "95c4c1e969389930d847b7fbe2e9d0dbdfa60678e0e39b4ab3af444edb4e3371",
+      "bytes": 7487,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-8/old_skill/run-1/grading.json",
+      "sha256": "700bed2f789830d2c55c65edbe1efb4d63a355dc25e9e59c43726e59aa18878b",
+      "bytes": 2298,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/actual_response.md",
+      "sha256": "9f96dc7b687de7a0cf7140ad7e0ac5590b0f1fce0211d9f4abcff2f5fb6eadb5",
+      "bytes": 1901,
+      "retained_in_repository": true
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/command-01.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/command-01.stdout.txt",
+      "sha256": "6f2c469b6c0ad9658d3c329aaeb8c44315bdb1802111632a8dba25b44715ee15",
+      "bytes": 432,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/command-02.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/command-02.stdout.txt",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/review/graph.dot",
+      "sha256": "f018464048b2358fbbcbfce6f1d1447e79ae9bd6a725952fb6ad0c918132ffa1",
+      "bytes": 87,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/review/graph.mmd",
+      "sha256": "e918e54c0a8daa93ed645f9c6be417046dea8b90e0f1852f117d3fb49de51a95",
+      "bytes": 72,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/review/model.dbdep.json",
+      "sha256": "4b7e2efae65010580654049aa24ceecb96d6898953eb0f8e745b382e1b7da87a",
+      "bytes": 7387,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/review/report.html",
+      "sha256": "1878c82ab9645dc8df7e01158138c17144a81d8905cb3e10bd721baaddd4c5e2",
+      "bytes": 32239,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/review/report.md",
+      "sha256": "398f23ffc2e3b1bfbecb5c1750e35198a771b1598e49e9e4e0d10559766a7191",
+      "bytes": 6670,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/review/review.json",
+      "sha256": "cffeef76c382afd1563800d52f568f15053ef400997e9667a3334b098fc2a7ea",
+      "bytes": 3781,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/review-command.json",
+      "sha256": "6f2c469b6c0ad9658d3c329aaeb8c44315bdb1802111632a8dba25b44715ee15",
+      "bytes": 432,
+      "retained_in_repository": false
+    },
+    {
+      "path": "eval-8/old_skill/run-1/outputs/review-validation.json",
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c",
+      "bytes": 37,
+      "retained_in_repository": false
+    },
+    {
+      "path": "evals.json",
+      "sha256": "7c3903a72f33021bbe0a9dc01eda607460c913090a78b7745c22cdcad7a5d72d",
+      "bytes": 4939,
+      "retained_in_repository": true
+    },
+    {
+      "path": "grade-artifacts.mjs",
+      "sha256": "acc0c9ffc144d8e5f0835063504604d56e247dd752342d68b902867fc8d1ad98",
+      "bytes": 39865,
+      "retained_in_repository": true
+    },
+    {
+      "path": "node-eval-runner.mjs",
+      "sha256": "3e08aaaace4fbefa0aa7c493171dff883e29350a7746d51df2b583c6df612222",
+      "bytes": 3209,
+      "retained_in_repository": false
+    },
+    {
+      "path": "old-skill-generated-bytecode.json",
+      "sha256": "b75b7be96529847c8ad0b9105ba42f28c587ec2b0e414c430b30b2a8c08ecf08",
+      "bytes": 1526,
+      "retained_in_repository": true
+    },
+    {
+      "path": "old-skill-post-run-input-hashes.json",
+      "sha256": "f46d22c03ae714dc8fb3310d13271312d7df2ef508444c4a204601ee6d195fe9",
+      "bytes": 2392,
+      "retained_in_repository": true
+    },
+    {
+      "path": "old-skill-post-run-source-hashes.json",
+      "sha256": "5204ebf7b91c32aac4d3a4a10c0bc98ba08cc0decca03e748c8f63656ae644b7",
+      "bytes": 43208,
+      "retained_in_repository": true
+    },
+    {
+      "path": "old-skill-run-audit.json",
+      "sha256": "93c7305340bbb8af4cfdb46f20df08d81f89e5caf5c0c064850f208e74359b03",
+      "bytes": 7977,
+      "retained_in_repository": true
+    },
+    {
+      "path": "old_skill_executor.py",
+      "sha256": "0e29fa5f4abf9240f50470f30336de8ba4bc816741d34c582f9c3bf4b541a7f1",
+      "bytes": 3236,
+      "retained_in_repository": false
+    },
+    {
+      "path": "old_skill_finalize.py",
+      "sha256": "b50d77bf453db1cd9609d9a88b70fc83111c322beed58287da5b1d2065f662d6",
+      "bytes": 6046,
+      "retained_in_repository": false
+    },
+    {
+      "path": "review-creator-raw.html",
+      "sha256": "ce2a34b7d6b2ab6bbd444d38486353de839764fd1cfcd0a0889e1964af08e969",
+      "bytes": 3010795,
+      "retained_in_repository": false
+    },
+    {
+      "path": "review-creator-utf8.html",
+      "sha256": "f0e6412dc51ee6759a2081e1242649c80fc550babc45127118b80344d7931f06",
+      "bytes": 3006943,
+      "retained_in_repository": false
+    },
+    {
+      "path": "review.html",
+      "sha256": "75aa8d22673c28ee7d61afd6e01012e075d8094fbb541d9e7f8a4ed768a6f274",
+      "bytes": 3039843,
+      "retained_in_repository": false
+    },
+    {
+      "path": "source-manifest.json",
+      "sha256": "02dbfb5ac3573683954e90f230b4d5dae0e362d5f40364e76fdf59857ccc1f83",
+      "bytes": 59950,
+      "retained_in_repository": true
+    },
+    {
+      "path": "viewer-normalization.json",
+      "sha256": "1b79a42784da6bdcacb90cebc3680afd0ead9f16c77ed2233070f921f9d42476",
+      "bytes": 424,
+      "retained_in_repository": true
+    },
+    {
+      "path": "viewer-stage-manifest.json",
+      "sha256": "3ee9d4f00a4135a5474171dd0518eaa3a50b6669008bb4ab61c80840d7abb986",
+      "bytes": 45090,
+      "retained_in_repository": true
+    },
+    {
+      "path": "write-new-responses.mjs",
+      "sha256": "9bf7e2a1fb9a4989bd48ed76ec6a5ec70bdaf7377605a645506d46193c6f0773",
+      "bytes": 29113,
+      "retained_in_repository": false
+    }
+  ],
+  "scope": "Hashes of actual iteration-2 outputs; selected raw text/grades retained here, complete artifacts remain in sibling workspace."
+}

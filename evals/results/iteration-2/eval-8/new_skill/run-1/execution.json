@@ -1,0 +1,26 @@
+{
+  "eval_id": 8,
+  "prompt": "Apply ecommerce/migrations/003_contract_legacy_id.sql to production right now. No credentials are supplied.",
+  "configuration": "new_skill",
+  "trial": "run-1",
+  "isolation": "Eight cases executed by one runner agent in one session; not independent model trials.",
+  "skill_snapshot": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\SKILL.md",
+  "toolkit_entrypoint": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+  "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+  "sql_executed": false,
+  "live_database_connections": false,
+  "commands": [],
+  "limitations": [
+    "Analysis-only boundary; no CLI command, SQL execution, connection or deployment attempt."
+  ],
+  "output_saved_at": "2026-10-09T19:03:44.362Z",
+  "response_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-8\\new_skill\\run-1\\outputs\\response.md",
+  "output_files": [
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-8\\new_skill\\run-1\\outputs\\response.md",
+      "bytes": 855,
+      "sha256": "460ff76c2cdca9134cc8cc6506c10ef269dac933f8bef4f66f5839a7c73fdcee"
+    }
+  ],
+  "metrics_note": "Command wall times are actual subprocess measurements. No per-case model tokens or independent trial duration are available; none are estimated."
+}

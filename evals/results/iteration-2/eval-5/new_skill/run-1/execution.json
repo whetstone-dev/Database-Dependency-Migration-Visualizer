@@ -1,0 +1,350 @@
+{
+  "eval_id": 5,
+  "prompt": "Compare diff/before.sql and diff/after.sql. Produce before/after models and comparison JSON/HTML. Distinguish destructive and ambiguous changes.",
+  "configuration": "new_skill",
+  "trial": "run-1",
+  "isolation": "Eight cases executed by one runner agent in one session; not independent model trials.",
+  "skill_snapshot": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\SKILL.md",
+  "toolkit_entrypoint": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+  "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+  "sql_executed": false,
+  "live_database_connections": false,
+  "commands": [
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "inspect",
+        "--ddl",
+        "examples/diff/before.sql",
+        "--out",
+        "../eval-5/new_skill/run-1/outputs/before.dbdep.json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs inspect --ddl examples/diff/before.sql --out ../eval-5/new_skill/run-1/outputs/before.dbdep.json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:21.809Z",
+      "ended_at": "2026-10-09T18:58:22.468Z",
+      "wall_time_ms": 655.6006,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\"model\":\"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-5\\\\new_skill\\\\run-1\\\\outputs\\\\before.dbdep.json\",\"summary\":{\"nodes\":4,\"edges\":4,\"evidence\":1,\"unknowns\":0,\"findings\":0,\"severity_counts\":{\"info\":0,\"warning\":0,\"error\":0}}}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\before.dbdep.json",
+          "bytes": 5684,
+          "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "inspect",
+        "--ddl",
+        "examples/diff/after.sql",
+        "--out",
+        "../eval-5/new_skill/run-1/outputs/after.dbdep.json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs inspect --ddl examples/diff/after.sql --out ../eval-5/new_skill/run-1/outputs/after.dbdep.json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:23.111Z",
+      "ended_at": "2026-10-09T18:58:23.813Z",
+      "wall_time_ms": 698.2051,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\"model\":\"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-5\\\\new_skill\\\\run-1\\\\outputs\\\\after.dbdep.json\",\"summary\":{\"nodes\":4,\"edges\":4,\"evidence\":1,\"unknowns\":0,\"findings\":0,\"severity_counts\":{\"info\":0,\"warning\":0,\"error\":0}}}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\after.dbdep.json",
+          "bytes": 5715,
+          "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\before.dbdep.json",
+          "bytes": 5684,
+          "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "validate",
+        "../eval-5/new_skill/run-1/outputs/before.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs validate ../eval-5/new_skill/run-1/outputs/before.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:24.493Z",
+      "ended_at": "2026-10-09T18:58:24.937Z",
+      "wall_time_ms": 440.2364,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\after.dbdep.json",
+          "bytes": 5715,
+          "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\before.dbdep.json",
+          "bytes": 5684,
+          "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "validate",
+        "../eval-5/new_skill/run-1/outputs/after.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs validate ../eval-5/new_skill/run-1/outputs/after.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:25.512Z",
+      "ended_at": "2026-10-09T18:58:25.944Z",
+      "wall_time_ms": 428.4527,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\after.dbdep.json",
+          "bytes": 5715,
+          "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\before.dbdep.json",
+          "bytes": 5684,
+          "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "diff",
+        "../eval-5/new_skill/run-1/outputs/before.dbdep.json",
+        "../eval-5/new_skill/run-1/outputs/after.dbdep.json",
+        "--out",
+        "../eval-5/new_skill/run-1/outputs/comparison",
+        "--json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs diff ../eval-5/new_skill/run-1/outputs/before.dbdep.json ../eval-5/new_skill/run-1/outputs/after.dbdep.json --out ../eval-5/new_skill/run-1/outputs/comparison --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:26.577Z",
+      "ended_at": "2026-10-09T18:58:27.085Z",
+      "wall_time_ms": 501.6404,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\n  \"added\": [\n    \"postgresql:local/public/column/customers/display_name/\"\n  ],\n  \"after\": \"snapshot:a0250809442792cb0364da52\",\n  \"before\": \"snapshot:d3a54864576ab959d979c255\",\n  \"edges_added\": [\n    \"edge:43ee8764438d9a11bbc2521e\"\n  ],\n  \"edges_removed\": [\n    \"edge:449d080bde5028b829fd281a\"\n  ],\n  \"matched\": [\n    \"postgresql:local/public/column/customers/id/\",\n    \"postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422\",\n    \"postgresql:local/public/table//customers/\"\n  ],\n  \"modified\": [\n    \"postgresql:local/public/table//customers/\"\n  ],\n  \"removed\": [\n    \"postgresql:local/public/column/customers/name/\"\n  ],\n  \"rename_candidates\": [\n    {\n      \"added\": \"postgresql:local/public/column/customers/display_name/\",\n      \"explanation\": \"Possible rename; add/drop remains the observed change. Human confirmation required.\",\n      \"removed\": \"postgresql:local/public/column/customers/name/\",\n      \"status\": \"UNKNOWN\"\n    }\n  ],\n  \"schema_version\": \"1.0.0\"\n}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\after.dbdep.json",
+          "bytes": 5715,
+          "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\before.dbdep.json",
+          "bytes": 5684,
+          "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\after.dbdep.json",
+          "bytes": 5715,
+          "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\before.dbdep.json",
+          "bytes": 5684,
+          "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\diff.json",
+          "bytes": 1000,
+          "sha256": "5a3736859fa6c4db0ceb4e8bbc73d0c9d7f169d91b716381f3ce405a18f42493"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\graph.dot",
+          "bytes": 1244,
+          "sha256": "27538c3ae497e9d48fae7139927c681c1513ead5bd85d4e9baf84cb1f194c5ed"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\graph.mmd",
+          "bytes": 355,
+          "sha256": "64a5673101d74bf59b37c8394ef22df111413b49779b696116e4be4abf414471"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\model.dbdep.json",
+          "bytes": 7342,
+          "sha256": "55849af3fd7bcfb80caece9e035771b66f431e63fb6d45aa4eb363b32b22579a"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\report.html",
+          "bytes": 139668,
+          "sha256": "7a9f75a82dcb2409431bcc4d78a38936a2a759c95f0b3a24cdae10a9952a6d93"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\report.md",
+          "bytes": 3765,
+          "sha256": "e0fea0297b3578355cdbbe9dc7a7fc87ab120eb92b714a20904b757a76aebe54"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "purpose": "Frozen dbdep CLI analysis.",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "validate",
+        "../eval-5/new_skill/run-1/outputs/comparison/model.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs validate ../eval-5/new_skill/run-1/outputs/comparison/model.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T19:00:41.590Z",
+      "ended_at": "2026-10-09T19:00:41.998Z",
+      "wall_time_ms": 402.63100000000003,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\after.dbdep.json",
+          "bytes": 5715,
+          "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\before.dbdep.json",
+          "bytes": 5684,
+          "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\after.dbdep.json",
+          "bytes": 5715,
+          "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\before.dbdep.json",
+          "bytes": 5684,
+          "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\diff.json",
+          "bytes": 1000,
+          "sha256": "5a3736859fa6c4db0ceb4e8bbc73d0c9d7f169d91b716381f3ce405a18f42493"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\graph.dot",
+          "bytes": 1244,
+          "sha256": "27538c3ae497e9d48fae7139927c681c1513ead5bd85d4e9baf84cb1f194c5ed"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\graph.mmd",
+          "bytes": 355,
+          "sha256": "64a5673101d74bf59b37c8394ef22df111413b49779b696116e4be4abf414471"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\model.dbdep.json",
+          "bytes": 7342,
+          "sha256": "55849af3fd7bcfb80caece9e035771b66f431e63fb6d45aa4eb363b32b22579a"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\report.html",
+          "bytes": 139668,
+          "sha256": "7a9f75a82dcb2409431bcc4d78a38936a2a759c95f0b3a24cdae10a9952a6d93"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\report.md",
+          "bytes": 3765,
+          "sha256": "e0fea0297b3578355cdbbe9dc7a7fc87ab120eb92b714a20904b757a76aebe54"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Schema snapshots do not prove rename history or data preservation.",
+    "Possible rename is UNKNOWN; no live execution occurred."
+  ],
+  "output_saved_at": "2026-10-09T19:03:44.337Z",
+  "response_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\response.md",
+  "output_files": [
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\after.dbdep.json",
+      "bytes": 5715,
+      "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\before.dbdep.json",
+      "bytes": 5684,
+      "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\after.dbdep.json",
+      "bytes": 5715,
+      "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\before.dbdep.json",
+      "bytes": 5684,
+      "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\diff.json",
+      "bytes": 1000,
+      "sha256": "5a3736859fa6c4db0ceb4e8bbc73d0c9d7f169d91b716381f3ce405a18f42493"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\graph.dot",
+      "bytes": 1244,
+      "sha256": "27538c3ae497e9d48fae7139927c681c1513ead5bd85d4e9baf84cb1f194c5ed"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\graph.mmd",
+      "bytes": 355,
+      "sha256": "64a5673101d74bf59b37c8394ef22df111413b49779b696116e4be4abf414471"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\model.dbdep.json",
+      "bytes": 7342,
+      "sha256": "55849af3fd7bcfb80caece9e035771b66f431e63fb6d45aa4eb363b32b22579a"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\report.html",
+      "bytes": 139668,
+      "sha256": "7a9f75a82dcb2409431bcc4d78a38936a2a759c95f0b3a24cdae10a9952a6d93"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\comparison\\report.md",
+      "bytes": 3765,
+      "sha256": "e0fea0297b3578355cdbbe9dc7a7fc87ab120eb92b714a20904b757a76aebe54"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\new_skill\\run-1\\outputs\\response.md",
+      "bytes": 3119,
+      "sha256": "eee848f08bca2e5eebfe3d43b356eeff812989085a4b460f2fc5034bef22cd77"
+    }
+  ],
+  "metrics_note": "Command wall times are actual subprocess measurements. No per-case model tokens or independent trial duration are available; none are estimated."
+}

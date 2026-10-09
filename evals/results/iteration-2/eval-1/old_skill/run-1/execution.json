@@ -1,0 +1,360 @@
+{
+  "eval_id": 1,
+  "configuration": "old_skill",
+  "run": 1,
+  "prompt": "Analyze ecommerce/schema.sql and its app SQL. Offline only: what is affected if public.customers.id changes from bigint to uuid? Generate an interactive HTML graph, a canonical model and a staged migration review. Do not execute SQL.",
+  "skill": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\SKILL.md",
+  "toolkit": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+  "working_directory": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+  "execution_scope": "Offline analysis of copied inputs with the frozen historical v0.2 Python toolkit. One executor handles all eight cases.",
+  "commands": [
+    {
+      "ordinal": 1,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "doctor",
+        "--json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py doctor --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\n  \"dependencies\": {\n    \"jsonschema\": \"4.26.0\",\n    \"pglast\": \"8.5\",\n    \"playwright\": \"1.56.0\",\n    \"psycopg\": \"3.3.2\"\n  },\n  \"migration_execution\": false,\n  \"offline\": true,\n  \"postgresql\": {\n    \"grammar\": \"18\",\n    \"live_adapter\": \"14-18\",\n    \"runtime_coverage\": \"partial\"\n  },\n  \"python\": \"3.14.4\",\n  \"ready\": true,\n  \"version\": \"0.2.0\"\n}\n\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-01.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-01.stderr.txt"
+    },
+    {
+      "ordinal": 2,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "review",
+        "--help"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py review --help",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "usage: dbdep.py review [-h] [--baseline BASELINE] --migration MIGRATION\n                       [--metadata METADATA] [--pg-version {14,15,16,17,18}]\n                       [--transaction-mode {statements,single}]\n                       [--fail-on {high,medium,unknown}] --out OUT [--json]\n\noptions:\n  -h, --help            show this help message and exit\n  --baseline BASELINE\n  --migration MIGRATION\n  --metadata METADATA\n  --pg-version {14,15,16,17,18}\n  --transaction-mode {statements,single}\n  --fail-on {high,medium,unknown}\n  --out OUT\n  --json\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-02.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-02.stderr.txt"
+    },
+    {
+      "ordinal": 3,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "docs",
+        "--help"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py docs --help",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "usage: dbdep.py docs [-h] --out OUT model\n\npositional arguments:\n  model\n\noptions:\n  -h, --help  show this help message and exit\n  --out OUT\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-03.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-03.stderr.txt"
+    },
+    {
+      "ordinal": 4,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "inspect",
+        "--ddl",
+        "examples/ecommerce/schema.sql",
+        "--repo",
+        "examples/ecommerce/app",
+        "--out",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py inspect --ddl examples/ecommerce/schema.sql --repo examples/ecommerce/app --out C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\"model\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-1\\\\old_skill\\\\run-1\\\\outputs\\\\schema.dbdep.json\", \"summary\": {\"nodes\": 52, \"edges\": 98, \"evidence\": 12, \"unknowns\": 8, \"findings\": 0, \"severity_counts\": {\"info\": 0, \"warning\": 0, \"error\": 0}}}\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-04.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-04.stderr.txt"
+    },
+    {
+      "ordinal": 5,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "validate",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py validate C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-05.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-05.stderr.txt"
+    },
+    {
+      "ordinal": 6,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "impact",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json",
+        "--object",
+        "public.customers.id",
+        "--operation",
+        "alter-type",
+        "--to",
+        "uuid",
+        "--json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py impact C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json --object public.customers.id --operation alter-type --to uuid --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\n  \"affected\": [\n    \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/\",\n    \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/\",\n    \"postgresql:local/public/column/addresses/customer_id/\",\n    \"postgresql:local/public/column/customer_summary/email/\",\n    \"postgresql:local/public/column/customer_summary/id/\",\n    \"postgresql:local/public/column/customer_summary/order_count/\",\n    \"postgresql:local/public/column/orders/customer_id/\",\n    \"postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4\",\n    \"postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422\",\n    \"postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4\",\n    \"postgresql:local/public/index//orders_customer_idx/\",\n    \"postgresql:local/public/view//customer_summary/\"\n  ],\n  \"categories\": {\n    \"inferred\": [],\n    \"recorded_catalog\": [],\n    \"static_reference\": [\n      \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/\",\n      \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/\",\n      \"postgresql:local/public/column/addresses/customer_id/\",\n      \"postgresql:local/public/column/customer_summary/email/\",\n      \"postgresql:local/public/column/customer_summary/id/\",\n      \"postgresql:local/public/column/customer_summary/order_count/\",\n      \"postgresql:local/public/column/orders/customer_id/\",\n      \"postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4\",\n      \"postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422\",\n      \"postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4\",\n      \"postgresql:local/public/index//orders_customer_idx/\",\n      \"postgresql:local/public/view//customer_summary/\"\n    ]\n  },\n  \"direct\": [\n    \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/\",\n    \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/\",\n    \"postgresql:local/public/column/addresses/customer_id/\",\n    \"postgresql:local/public/column/orders/customer_id/\",\n    \"postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4\",\n    \"postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422\",\n    \"postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4\",\n    \"postgresql:local/public/view//customer_summary/\"\n  ],\n  \"explanation\": \"Reverse paths show potential impact. They do not prove execution failure or exhaustive runtime coverage.\",\n  \"findings\": [\n    {\n      \"confidence\": \"conditional\",\n      \"evidence\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"evidence_ids\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"id\": \"finding:24bc5ac0d365c9a3c959c1bb\",\n      \"object_ids\": [],\n      \"origin\": \"migration_diff\",\n      \"reason\": \"Table size/traffic/runtime statistics are unavailable. Lock mode can be described but duration and downtime are unknown.\",\n      \"remediation\": \"Collect labeled metadata and rehearse representative workload; do not invent row counts or timing.\",\n      \"risk_dimensions\": [\n        \"locking\",\n        \"rewrite\",\n        \"unresolved_dependencies\"\n      ],\n      \"risk_level\": \"unknown\",\n      \"rule_id\": \"DDM012\",\n      \"severity\": \"warning\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"confidence\": \"conditional\",\n      \"evidence\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"evidence_ids\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"id\": \"finding:7c9549bc028224403b6f6e68\",\n      \"object_ids\": [\n        \"postgresql:local/public/column/customers/id/\"\n      ],\n      \"origin\": \"migration_diff\",\n      \"reason\": \"Changed column has identity/default/generated semantics; sequence names and implicit casts may need catalog resolution.\",\n      \"remediation\": \"Preserve ownership, generation, default behavior and sequence state in a reviewed replacement design.\",\n      \"risk_dimensions\": [\n        \"compatibility\",\n        \"deployment_order\"\n      ],\n      \"risk_level\": \"high\",\n      \"rule_id\": \"DDM015\",\n      \"severity\": \"error\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"confidence\": \"conditional\",\n      \"evidence\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"evidence_ids\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"id\": \"finding:8f9bd0f97924d9f12cb8a4f4\",\n      \"object_ids\": [\n        \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/\",\n        \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/\",\n        \"postgresql:local/public/view//customer_summary/\"\n      ],\n      \"origin\": \"migration_diff\",\n      \"reason\": \"Known views/routines/SQL consumers reference this object. Catalog paths and parsed source references have distinct guarantees; untracked routine bodies remain UNKNOWN.\",\n      \"remediation\": \"Review the supplied dependency paths and verify runtime consumers; never claim all function calls were discovered.\",\n      \"risk_dimensions\": [\n        \"compatibility\",\n        \"unresolved_dependencies\"\n      ],\n      \"risk_level\": \"high\",\n      \"rule_id\": \"DDM008\",\n      \"severity\": \"error\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"confidence\": \"conditional\",\n      \"evidence\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"evidence_ids\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"id\": \"finding:93a5f2a630f2b908731a342f\",\n      \"object_ids\": [\n        \"postgresql:local/public/column/customers/id/\"\n      ],\n      \"origin\": \"migration_diff\",\n      \"reason\": \"Type transition int8 to uuid. BIGINT/integer identifiers have no general semantics-preserving UUID cast. PostgreSQL 18 ALTER COLUMN TYPE generally takes ACCESS EXCLUSIVE; rewrite/index rebuild depends on cast, typmod and USING expression. Rewrite and lock duration are conditional.\",\n      \"remediation\": \"Design and verify a mapping/replacement column. Check USING, defaults, FKs, views, indexes and actual cast support in a disposable database.\",\n      \"risk_dimensions\": [\n        \"compatibility\",\n        \"locking\",\n        \"rewrite\"\n      ],\n      \"risk_level\": \"high\",\n      \"rule_id\": \"DDM002\",\n      \"severity\": \"error\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"confidence\": \"conditional\",\n      \"evidence\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"evidence_ids\": [\n        \"ev:fc6fed0ad423aa1b4782f7c9\"\n      ],\n      \"id\": \"finding:ee86beb809f574c3747cc1b6\",\n      \"object_ids\": [\n        \"postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4\",\n        \"postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422\",\n        \"postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4\",\n        \"postgresql:local/public/index//orders_customer_idx/\"\n      ],\n      \"origin\": \"migration_diff\",\n      \"reason\": \"Constraints/indexes/column-specific triggers depend on the changed object via the displayed edge kinds.\",\n      \"remediation\": \"Rebuild or transition affected objects with verified order and constraint validation.\",\n      \"risk_dimensions\": [\n        \"compatibility\",\n        \"deployment_order\"\n      ],\n      \"risk_level\": \"high\",\n      \"rule_id\": \"DDM014\",\n      \"severity\": \"error\",\n      \"status\": \"PARSED\"\n    }\n  ],\n  \"operation\": \"alter-type\",\n  \"operation_evidence\": [\n    {\n      \"byte_length\": 62,\n      \"byte_start\": 1231,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:3eff11898bac02d99ee08daf\",\n      \"line_end\": 34,\n      \"line_start\": 34,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 191,\n      \"byte_start\": 0,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:40680f826d95f1ec183340ed\",\n      \"line_end\": 6,\n      \"line_start\": 1,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 175,\n      \"byte_start\": 193,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:4f849d665202a664e7893d4a\",\n      \"line_end\": 11,\n      \"line_start\": 7,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 118,\n      \"byte_start\": 1614,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:776d7da11045ee31e44912e0\",\n      \"line_end\": 46,\n      \"line_start\": 45,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 264,\n      \"byte_start\": 540,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:7de9792a75dda688bf1f738f\",\n      \"line_end\": 22,\n      \"line_start\": 17,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 168,\n      \"byte_start\": 370,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:8dadc8fc9c511aafd4803a87\",\n      \"line_end\": 16,\n      \"line_start\": 12,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 222,\n      \"byte_start\": 806,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:b306c585df0ee00d863316dd\",\n      \"line_end\": 28,\n      \"line_start\": 23,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 184,\n      \"byte_start\": 1295,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:c81447f17e11c2d5b6c401da\",\n      \"line_end\": 38,\n      \"line_start\": 35,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 199,\n      \"byte_start\": 1030,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:e3fa1e6bfbfed48ae579bc40\",\n      \"line_end\": 33,\n      \"line_start\": 29,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 71,\n      \"byte_start\": 0,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:e4dc7c3f3bcbc60c845f14b5\",\n      \"line_end\": 1,\n      \"line_start\": 1,\n      \"origin\": \"application_source\",\n      \"path\": \"examples/ecommerce/app/customers.sql\",\n      \"source_hash\": \"sha256:a415aaea7a68344c4f8c3e93fc4233772176a54a53c14c74541c2e512be81470\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 131,\n      \"byte_start\": 1481,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:e9af3cfadad5d8900305d336\",\n      \"line_end\": 44,\n      \"line_start\": 39,\n      \"origin\": \"sql_file\",\n      \"path\": \"examples/ecommerce/schema.sql\",\n      \"source_hash\": \"sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 120,\n      \"byte_start\": 0,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:f8c7e18154ef774049bc8694\",\n      \"line_end\": 2,\n      \"line_start\": 1,\n      \"origin\": \"application_source\",\n      \"path\": \"examples/ecommerce/app/orders.sql\",\n      \"source_hash\": \"sha256:07ed8c193824ea5e25844e2be152acec7d04492c5b3d5ca9fbc55d2ee4e1421e\",\n      \"status\": \"PARSED\"\n    },\n    {\n      \"byte_length\": 0,\n      \"byte_start\": 0,\n      \"confidence\": \"direct\",\n      \"explanation\": \"Syntax establishes a static reference, not runtime reachability.\",\n      \"id\": \"ev:fc6fed0ad423aa1b4782f7c9\",\n      \"line_end\": 1,\n      \"line_start\": 1,\n      \"origin\": \"user_supplied\",\n      \"path\": \"user-operation\",\n      \"source_hash\": \"sha256:7e689f6b584d26a66d7210b88c1a1dec672b221f4ef68b3c6affaab5dcd033c2\",\n      \"status\": \"PARSED\"\n    }\n  ],\n  \"paths\": {\n    \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/\": [\n      \"edge:a9189d507b83265b33fafc29\"\n    ],\n    \"postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/\": [\n      \"edge:c0e890722d6fafc386c0e426\"\n    ],\n    \"postgresql:local/public/column/addresses/customer_id/\": [\n      \"edge:6c3f2ed8788f2720c5aff75f\"\n    ],\n    \"postgresql:local/public/column/customer_summary/email/\": [\n      \"edge:6e209e98877452de8f04385b\",\n      \"edge:aa9343ef5c72a1e514641dc7\"\n    ],\n    \"postgresql:local/public/column/customer_summary/id/\": [\n      \"edge:8d3c400eda2590da824c965e\",\n      \"edge:aa9343ef5c72a1e514641dc7\"\n    ],\n    \"postgresql:local/public/column/customer_summary/order_count/\": [\n      \"edge:aa1d9857feb03fc467ed1835\",\n      \"edge:aa9343ef5c72a1e514641dc7\"\n    ],\n    \"postgresql:local/public/column/orders/customer_id/\": [\n      \"edge:fbc21659908e0ae2a5cd46ea\"\n    ],\n    \"postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4\": [\n      \"edge:6b337fb6d4bfa4f999a1cc86\"\n    ],\n    \"postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422\": [\n      \"edge:84d30a74505bc15546505d27\"\n    ],\n    \"postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4\": [\n      \"edge:f4ce6b8bb9138d13271b58f2\"\n    ],\n    \"postgresql:local/public/index//orders_customer_idx/\": [\n      \"edge:014fb6369ba96ca9ec2ffb6e\",\n      \"edge:fbc21659908e0ae2a5cd46ea\"\n    ],\n    \"postgresql:local/public/view//customer_summary/\": [\n      \"edge:aa9343ef5c72a1e514641dc7\"\n    ]\n  },\n  \"plan\": [\n    {\n      \"action\": \"Add nullable replacement columns or compatible interfaces; design UUID mapping and new keys before changing identifier types.\",\n      \"phase\": \"expand\",\n      \"preconditions\": \"Confirm PostgreSQL version, backups, ownership, consumers and feasible mapping. Review privileges and lock budget.\",\n      \"recovery\": \"Stop deployment before consumers depend on the new fields; keep old fields available.\",\n      \"review_only\": true,\n      \"verification\": \"Rehearse DDL on a disposable database with representative data. Verify identity/sequence/default semantics.\"\n    },\n    {\n      \"action\": \"Backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.\",\n      \"phase\": \"backfill\",\n      \"preconditions\": \"Prove mapping uniqueness, handle concurrent writes and define throttling. Numeric identifiers do not have a general UUID cast.\",\n      \"recovery\": \"Pause batches and preserve old data; restore from tested backup only under an approved recovery procedure.\",\n      \"review_only\": true,\n      \"verification\": \"Check mapping completeness, uniqueness, NULL rates and FK consistency under concurrent traffic.\"\n    },\n    {\n      \"action\": \"Validate CHECK/FK constraints where NOT VALID is supported. Build concurrent indexes outside transaction blocks when appropriate.\",\n      \"phase\": \"validate\",\n      \"preconditions\": \"Confirm constraint support, partition restrictions, existing violations and resource budget. Concurrent index failure can leave an invalid index.\",\n      \"recovery\": \"Investigate failed validation or invalid indexes; repair/retry through separate authorized tooling.\",\n      \"review_only\": true,\n      \"verification\": \"Check constraint validation and pg_index.indisvalid/indisready, compare old/new results and observe lock waits.\"\n    },\n    {\n      \"action\": \"Deploy compatible readers/writers and transition dependent FKs, views, functions, API/ORM contracts and downstream jobs.\",\n      \"phase\": \"transition\",\n      \"preconditions\": \"Obtain explicit consumer ownership and deployment-order evidence. Account for UNKNOWN and dynamic SQL paths.\",\n      \"recovery\": \"Revert application reads only while both representations remain consistent; otherwise prefer roll-forward.\",\n      \"review_only\": true,\n      \"verification\": \"Observe application errors and old-field usage through an agreed window. Static graph paths do not prove runtime coverage.\"\n    },\n    {\n      \"action\": \"Remove legacy objects only after verified transition and a separate destructive-change review.\",\n      \"phase\": \"contract\",\n      \"preconditions\": \"Confirm no remaining consumers, validated keys, tested backups and signed-off CASCADE consequences. Schedule lock acquisition.\",\n      \"recovery\": \"Drops can lose data. Reverse DDL does not restore it; use tested recovery or roll-forward with an operator.\",\n      \"review_only\": true,\n      \"verification\": \"Reinspect schema, compare snapshots and run application integration checks. Do not promise zero downtime.\"\n    }\n  ],\n  \"risk_level\": \"high\",\n  \"root\": \"postgresql:local/public/column/customers/id/\",\n  \"to\": \"uuid\",\n  \"unknowns\": [\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:7de9792a75dda688bf1f738f\"\n      ],\n      \"explanation\": \"Identity sequence exists but its actual name/OID needs catalog metadata.\",\n      \"id\": \"unknown:18505c245f165e4c93c709f8\",\n      \"object_id\": \"postgresql:local/public/column/orders/id/\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    },\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:8dadc8fc9c511aafd4803a87\"\n      ],\n      \"explanation\": \"Identity sequence exists but its actual name/OID needs catalog metadata.\",\n      \"id\": \"unknown:5afc9281a8cd153100e8eb4f\",\n      \"object_id\": \"postgresql:local/public/column/products/id/\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    },\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:4f849d665202a664e7893d4a\"\n      ],\n      \"explanation\": \"Identity sequence exists but its actual name/OID needs catalog metadata.\",\n      \"id\": \"unknown:5ff30f718f152d8ea851b944\",\n      \"object_id\": \"postgresql:local/public/column/addresses/id/\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    },\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:e9af3cfadad5d8900305d336\"\n      ],\n      \"explanation\": \"Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.\",\n      \"id\": \"unknown:69ffcfe1e4e57e6481af7368\",\n      \"object_id\": \"postgresql:local/public/function//touch_customer/\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    },\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:40680f826d95f1ec183340ed\"\n      ],\n      \"explanation\": \"Default/generated function and sequence expression targets need catalog resolution.\",\n      \"id\": \"unknown:8bea11811025af9e17a96a8e\",\n      \"object_id\": \"postgresql:local/public/column/customers/updated_at/\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    },\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:40680f826d95f1ec183340ed\"\n      ],\n      \"explanation\": \"Identity sequence exists but its actual name/OID needs catalog metadata.\",\n      \"id\": \"unknown:9e847561e1fbe07255d98720\",\n      \"object_id\": \"postgresql:local/public/column/customers/id/\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    },\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:e3fa1e6bfbfed48ae579bc40\"\n      ],\n      \"explanation\": \"Identity sequence exists but its actual name/OID needs catalog metadata.\",\n      \"id\": \"unknown:eacbb533e2808e73f27dbf47\",\n      \"object_id\": \"postgresql:local/public/column/payments/id/\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    },\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:7de9792a75dda688bf1f738f\"\n      ],\n      \"explanation\": \"Default/generated function and sequence expression targets need catalog resolution.\",\n      \"id\": \"unknown:f16dbb53af3ad137ed449c36\",\n      \"object_id\": \"postgresql:local/public/column/orders/created_at/\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    }\n  ]\n}\n\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-06.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-06.stderr.txt"
+    },
+    {
+      "ordinal": 7,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "render",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json",
+        "--object",
+        "public.customers.id",
+        "--out",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/impact.html"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py render C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json --object public.customers.id --out C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/impact.html",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\"artifact\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-1\\\\old_skill\\\\run-1\\\\outputs\\\\impact.html\"}\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-07.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-07.stderr.txt"
+    },
+    {
+      "ordinal": 8,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "docs",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json",
+        "--out",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/report.md"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py docs C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json --out C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/report.md",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\"artifact\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-1\\\\old_skill\\\\run-1\\\\outputs\\\\report.md\"}\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-08.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-08.stderr.txt"
+    },
+    {
+      "ordinal": 9,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "review",
+        "--baseline",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json",
+        "--migration",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/proposal-analysis.sql",
+        "--out",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/review",
+        "--json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py review --baseline C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/schema.dbdep.json --migration C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/proposal-analysis.sql --out C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-1/old_skill/run-1/outputs/review --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\n  \"directory\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-1\\\\old_skill\\\\run-1\\\\outputs\\\\review\",\n  \"policy_passed\": true,\n  \"review_only\": true,\n  \"risk_level\": \"high\",\n  \"summary\": {\n    \"edges\": 98,\n    \"evidence\": 13,\n    \"findings\": 5,\n    \"nodes\": 52,\n    \"severity_counts\": {\n      \"error\": 4,\n      \"info\": 0,\n      \"warning\": 1\n    },\n    \"unknowns\": 8\n  }\n}\n\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-09.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\command-09.stderr.txt"
+    }
+  ],
+  "limitations": [
+    "This is a historical baseline comparison, not the current shipped runtime.",
+    "Cases share one executor context rather than eight isolated model sessions.",
+    "No PostgreSQL server or supplied SQL is executed. No database connection is made.",
+    "No model-token or per-case assistant-duration telemetry is available.",
+    "Browser interaction and visual inspection are not performed unless explicitly recorded.",
+    "Python initially wrote nine bytecode caches under the frozen snapshot. Cache cleanup was rejected by automatic approval review as blocked by policy. Source files were not edited; the post-run audit lists source and cache hashes separately."
+  ],
+  "status": "completed",
+  "artifacts": [
+    {
+      "path": "actual_response.md",
+      "bytes": 3662,
+      "sha256": "3069341af4f2be37be22a24ab014f153f5499e15f3de1fa16fa2190ef3641846"
+    },
+    {
+      "path": "command-01.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-01.stdout.txt",
+      "bytes": 348,
+      "sha256": "9ef21f5f167a10442d173f826db5ee6f67b92454c2e8c110d3995ac30681c8b0"
+    },
+    {
+      "path": "command-02.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-02.stdout.txt",
+      "bytes": 551,
+      "sha256": "bdf74efcc026f4796d889e926a2afc4679b3f1d3abbdf8800de3c40b995d1cdf"
+    },
+    {
+      "path": "command-03.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-03.stdout.txt",
+      "bytes": 141,
+      "sha256": "23a5c161636f806269e3068c5366a0d9373d7a9e9b9a2d2c4ce7f0fc70e8d033"
+    },
+    {
+      "path": "command-04.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-04.stdout.txt",
+      "bytes": 311,
+      "sha256": "50019920b9403d43888b7f9e5c6b33bb88718af3ccd0d6a2d3cfc52004dde555"
+    },
+    {
+      "path": "command-05.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-05.stdout.txt",
+      "bytes": 37,
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c"
+    },
+    {
+      "path": "command-06.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-06.stdout.txt",
+      "bytes": 21873,
+      "sha256": "d9525560eb363dc4ccb08caab9726277fd4e2a049e09ec7047367c916ce27e34"
+    },
+    {
+      "path": "command-07.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-07.stdout.txt",
+      "bytes": 165,
+      "sha256": "7aac1e2f80f266c7a87d84b1e80e18f627615452584990eb72f0e5289effb7f3"
+    },
+    {
+      "path": "command-08.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-08.stdout.txt",
+      "bytes": 163,
+      "sha256": "13a4b17c84dd5b89f22a9f759ab3ec07128c4555248dd1b7e08f62ba71899574"
+    },
+    {
+      "path": "command-09.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-09.stdout.txt",
+      "bytes": 435,
+      "sha256": "25e3c63ee26a211efdba8df172c48ccd5506cd5961994e00f002278c02af6326"
+    },
+    {
+      "path": "doctor.json",
+      "bytes": 348,
+      "sha256": "9ef21f5f167a10442d173f826db5ee6f67b92454c2e8c110d3995ac30681c8b0"
+    },
+    {
+      "path": "impact.html",
+      "bytes": 125966,
+      "sha256": "c8cf5fff27b9591f62fc4170e4efe6d4ffd0d9f3f7e154033ceead833ee1d3b8"
+    },
+    {
+      "path": "impact.json",
+      "bytes": 21873,
+      "sha256": "d9525560eb363dc4ccb08caab9726277fd4e2a049e09ec7047367c916ce27e34"
+    },
+    {
+      "path": "proposal-analysis.sql",
+      "bytes": 207,
+      "sha256": "33b8a436650b3b32b6ad7d157ad6ca464ab4992758b35c47a3e3c3d1a8a63b7d"
+    },
+    {
+      "path": "report.md",
+      "bytes": 29523,
+      "sha256": "375f6e9500070aafdbd245e3a5d5ae34cda6965271c76ac681669fa4db942640"
+    },
+    {
+      "path": "review/graph.dot",
+      "bytes": 20902,
+      "sha256": "0472c369cc6242c18ccb7cbce9fb847b9720a49a8233727e37de584323134908"
+    },
+    {
+      "path": "review/graph.mmd",
+      "bytes": 4903,
+      "sha256": "e57e412a0975ffa5e265aed0085006c099412716374dab56385e732977568b66"
+    },
+    {
+      "path": "review/model.dbdep.json",
+      "bytes": 104349,
+      "sha256": "756e08b213014cea0f645664c0a03a4ba6c72ee4a04cd6a1b6b8b1b171a739b8"
+    },
+    {
+      "path": "review/report.html",
+      "bytes": 134584,
+      "sha256": "c4f52f9116ca03bd8ce50653d0f19c314a12ed32928a291b0006092135542ad5"
+    },
+    {
+      "path": "review/report.md",
+      "bytes": 35950,
+      "sha256": "155369844e16f18be1d58e251bbc17372d30f207b59810b1d6c9868b3e01807c"
+    },
+    {
+      "path": "review/review.json",
+      "bytes": 12228,
+      "sha256": "d5576dd3488e384f2ba2f72bb0aa598bef97cf0c4aac8526d05b11309f0b763a"
+    },
+    {
+      "path": "review-command.json",
+      "bytes": 435,
+      "sha256": "25e3c63ee26a211efdba8df172c48ccd5506cd5961994e00f002278c02af6326"
+    },
+    {
+      "path": "schema.dbdep.json",
+      "bytes": 99047,
+      "sha256": "11e2fe89fbc9bfec6e76434d83cf05e7aee7a09c4f1cf4a6b95821a7ce46d524"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 37,
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c"
+    }
+  ],
+  "missing_required_artifacts": [],
+  "post_run_audit": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-run-audit.json"
+}

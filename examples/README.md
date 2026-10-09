@@ -1,6 +1,6 @@
 # Reproducible PostgreSQL examples
 
-`python scripts/dbdep.py demo out/demo` generates ecommerce, analytics and high-traffic bundles. `python scripts/verify_examples.py` compares checked-in canonical artifacts with fresh analysis; screenshots are verified separately by browser capture. Inputs contain fixture values only, never real connection details.
+`pnpm dbdep demo out/demo` generates ecommerce, analytics and high-traffic bundles. `pnpm verify:examples` compares checked-in canonical artifacts with fresh analysis; screenshots are verified separately with `node scripts/capture-screenshots.mjs`. Inputs contain fixture values only, never real connection details.
 
 - `ecommerce/` includes six tables, FK constraints, view, function/trigger and application SQL. Three proposed phases illustrate expansion/backfill/destructive contract. Backfill SQL is a whole-table sketch; batching, writer coordination and recovery are operator responsibilities. The analyzer does not execute it.
 - `analytics/` has a table and two chained views. Its actual catalog capture records pg_rewrite ownership and provenance; default expressions are hashed and no user rows are captured.

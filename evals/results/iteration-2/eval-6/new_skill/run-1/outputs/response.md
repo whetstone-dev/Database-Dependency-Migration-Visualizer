@@ -1,0 +1,25 @@
+I analyzed the two fixtures separately. Both models passed strict validation with no errors.
+
+The multi-schema model preserves public.orders and sales.orders as different objects, including their separate columns and primary keys:
+
+- postgresql:local/public/table//orders/ from [multi-schema/schema.sql line 2](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/multi-schema/schema.sql:2).
+- postgresql:local/sales/table//orders/ from [multi-schema/schema.sql line 3](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/multi-schema/schema.sql:3).
+
+[SELECT id FROM orders](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/multi-schema/schema.sql:4) is unqualified. Its relation resolution is UNKNOWN, with unknown:59d4365de9e7f89c3637f633 and evidence ev:e76da804f85b10ec65dea5ee. Its id column is also unresolved. The engine does not assume search_path or attach this query to either orders table. This model contains 8 nodes, 6 edges, 4 evidence items and 2 UNKNOWN entries.
+
+The tricky-identifiers model preserves case and structural relationships:
+
+| Declaration | Preserved identity or dependency |
+|---|---|
+| Quoted column | ["Commerce"."Order"."CustomerID"](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/tricky-identifiers/schema.sql:4) is postgresql:local/Commerce/column/Order/CustomerID/. It is not folded to customerid. |
+| Routine overloads | [label(bigint)](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/tricky-identifiers/schema.sql:12) is postgresql:local/Commerce/function//label/int8; [label(text)](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/tricky-identifiers/schema.sql:13) is postgresql:local/Commerce/function//label/text. The parser normalizes bigint to int8. Use these stable IDs to select an overload. |
+| Partitioned table | ["Commerce"."Order"](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/tricky-identifiers/schema.sql:3) is kind=partitioned_table, ID postgresql:local/Commerce/partitioned_table//Order/. |
+| Partition | [order_eu](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/tricky-identifiers/schema.sql:7) points to its parent through partition edge:3bd9b12e79b1ed42379a3de5. |
+| Composite FK | [items FK](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/inputs/examples/tricky-identifiers/schema.sql:10) retains the ordered local columns [customer_id, region], and the two direct column relationships customer_id -> CustomerID and region -> region. Its synthetic constraint ID is postgresql:local/Commerce/constraint/items/items_customer_id_region_fkey/23c52783c1783815fc0aa8f7. |
+| Custom enum | The qualified state type is preserved and the status column resolves to the declared "Commerce".state type. |
+
+The tricky model contains 14 nodes, 19 edges, 7 evidence items and 3 UNKNOWN entries. Both routine bodies remain UNKNOWN for runtime-reference coverage; overload declarations do not establish bound runtime call targets. Inherited column definitions and partition bounds are not expanded offline. The unnamed PK/FK names are inferred offline labels, not confirmed live PostgreSQL-generated names. Capture catalogs or review supported additional input before resolving these facts. Parser signatures can differ from catalog type identities, so compare matching capture modes.
+
+Artifacts: [multi-schema model](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-6/new_skill/run-1/outputs/multi-schema.dbdep.json), [multi-schema Markdown](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-6/new_skill/run-1/outputs/multi-schema.md), [multi-schema HTML](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-6/new_skill/run-1/outputs/multi-schema.html), [tricky-identifiers model](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-6/new_skill/run-1/outputs/tricky-identifiers.dbdep.json), [tricky-identifiers Markdown](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-6/new_skill/run-1/outputs/tricky-identifiers.md), [tricky-identifiers HTML](C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-6/new_skill/run-1/outputs/tricky-identifiers.html).
+
+Source paths remain separate in the evidence inventories. All declaration evidence is PARSED. Reverse paths show potential consumers, not exhaustive runtime discovery or exact CASCADE results. No SQL ran, no database connection occurred and browser behavior was not checked.

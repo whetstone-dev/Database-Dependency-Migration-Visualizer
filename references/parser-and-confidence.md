@@ -1,6 +1,8 @@
 # Parser and confidence
 
-pglast 8.5 uses PostgreSQL 18 grammar. It parses syntax; it does not run PostgreSQL name/type binding. CLI version context accepts PostgreSQL 14-18, but grammar acceptance does not prove syntax exists on every release. Actual fixture execution is recorded separately. Use release-specific documentation and a disposable database before making execution claims.
+libpg-query 18.1.5 exposes PostgreSQL 18's parser through WebAssembly. It parses syntax; it does not run PostgreSQL name/type binding. CLI version context accepts PostgreSQL 14-18, but grammar acceptance does not prove syntax exists on every release. Actual fixture execution is recorded separately. Use release-specific documentation and a disposable database before making execution claims.
+
+Relation alias column lists and implicit USING/NATURAL join column resolution remain UNKNOWN. The engine retains supported relation references and suppresses column edges for those unsupported scopes. Routine signatures quote unusual identifier components to prevent overload collisions. Unqualified custom argument types preserve source spelling; qualify them and compare like capture modes when matching routine identities across snapshots.
 
 Implemented offline objects include schemas, regular/partitioned tables, columns, named/unnamed common constraints, views, materialized views, sequences, enum/domain/composite types, overloaded functions/procedures, indexes and triggers. Composite FK column order is preserved. Identity/default/generated definitions are hashed. Column type relationships resolve to declared custom types.
 

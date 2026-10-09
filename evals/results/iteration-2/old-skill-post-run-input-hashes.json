@@ -1,0 +1,77 @@
+[
+  {
+    "path": "examples/analytics/catalog.json",
+    "bytes": 530271,
+    "sha256": "b060e672cefda54c1d90fdba2c3ad34f0250b1e751e2243eebd7c198d1237af5"
+  },
+  {
+    "path": "examples/analytics/schema.sql",
+    "bytes": 323,
+    "sha256": "acbb921ac8bf82f40fdaa110b518972addcacc7fc82c0c05fe55c9e201871eed"
+  },
+  {
+    "path": "examples/diff/after.sql",
+    "bytes": 74,
+    "sha256": "b2bf74eda80fc93944df201742445d7f2def8c67b8dfbd4a0cb9482aacc3d82a"
+  },
+  {
+    "path": "examples/diff/before.sql",
+    "bytes": 66,
+    "sha256": "4569fadad0be1b58f8b0dd15d292c052702bd28402a8ad9b8b473d27ffe2159a"
+  },
+  {
+    "path": "examples/dynamic-sql-unknown/app/query.ts",
+    "bytes": 158,
+    "sha256": "371d9dbabbc40776797ec25772f0481330e835c50024a9ad70449aa65a8a0cd3"
+  },
+  {
+    "path": "examples/dynamic-sql-unknown/app/static.sql",
+    "bytes": 50,
+    "sha256": "74a6e9b68586f7dbe8b68224ca852c37233cdcee49831ed6dff930e393446526"
+  },
+  {
+    "path": "examples/dynamic-sql-unknown/schema.sql",
+    "bytes": 307,
+    "sha256": "8b911d5a4da5b080313b97f870ce63b5c3eb71448f453bd37af34256a524bc8c"
+  },
+  {
+    "path": "examples/ecommerce/app/customers.sql",
+    "bytes": 73,
+    "sha256": "a415aaea7a68344c4f8c3e93fc4233772176a54a53c14c74541c2e512be81470"
+  },
+  {
+    "path": "examples/ecommerce/app/orders.sql",
+    "bytes": 122,
+    "sha256": "07ed8c193824ea5e25844e2be152acec7d04492c5b3d5ca9fbc55d2ee4e1421e"
+  },
+  {
+    "path": "examples/ecommerce/migrations/003_contract_legacy_id.sql",
+    "bytes": 284,
+    "sha256": "312cd82ea52d1f6afd5b49d4dff0812fadc95d7f0b87a1250e2fd461a9687c2e"
+  },
+  {
+    "path": "examples/ecommerce/schema.sql",
+    "bytes": 1734,
+    "sha256": "613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d"
+  },
+  {
+    "path": "examples/high-traffic/metadata.json",
+    "bytes": 177,
+    "sha256": "9d2c020c1c45fc0da3eb378e870d9cf05da29c8d4282f74fa7231538790fa3b2"
+  },
+  {
+    "path": "examples/high-traffic/migrations/007.sql",
+    "bytes": 227,
+    "sha256": "b258f46847ce8c427e965530b42a2a3289baaa972e08a50e662ef5bd0180db5b"
+  },
+  {
+    "path": "examples/multi-schema/schema.sql",
+    "bytes": 147,
+    "sha256": "516122db03c9d259182fcfb2ca37067cf5db70bb29fc09c9b75512b02968584f"
+  },
+  {
+    "path": "examples/tricky-identifiers/schema.sql",
+    "bytes": 694,
+    "sha256": "1eb1ec72053d22388c61aef977cf2175a2489093756b7f93ee25f8e087257ba0"
+  }
+]

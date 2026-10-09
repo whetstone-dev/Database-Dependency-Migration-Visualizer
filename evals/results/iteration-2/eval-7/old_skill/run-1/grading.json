@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "Generates canonical model with no dangling edges",
+      "passed": true,
+      "evidence": "schema.dbdep.json conforms to the frozen canonical schema; independently checked 50 unique node IDs / 88 unique edge IDs, every endpoint and every evidence reference. All 10 source-file hashes match actual inputs."
+    },
+    {
+      "text": "HTML embedded model matches JSON",
+      "passed": true,
+      "evidence": "dependencies.html dbdep-state.model deep-equals schema.dbdep.json; summary matches all five array counts (50 nodes, 88 edges, 10 evidence, 0 findings, 8 UNKNOWN)."
+    },
+    {
+      "text": "Markdown includes model IDs",
+      "passed": true,
+      "evidence": "report.md includes every full node (50), edge (88) and evidence (10) ID plus snapshot snapshot:e76261b7d8228cbcc604568c; missing identifiers: 0."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Canonical, HTML and Markdown artifacts have consistent counts and identifiers",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Independent checks reproduced executor consistency receipt against actual artifact bytes. No external resource URLs; browser interaction and visual review remain untested in this evaluation."
+    },
+    {
+      "claim": "Recorded CLI validation/analysis commands were actually retained",
+      "type": "process",
+      "verified": true,
+      "evidence": "execution.json retains 5 commands with argv, exit codes and stdout/stderr. All recorded commands exited zero, or the case made no command calls."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+      "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "Internal consistency is necessary but does not prove PostgreSQL binding correctness. Add a source-grounded expected relationship oracle and deliberately malformed models/HTML mismatch negatives so copying the same wrong graph into each format cannot pass."
+      }
+    ],
+    "overall": "Assertions passed only where saved content and source evidence support them. Important unasserted gaps remain; see suggestions and iteration-2/analysis.md."
+  }
+}

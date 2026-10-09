@@ -1,0 +1,272 @@
+{
+  "eval_id": 5,
+  "configuration": "old_skill",
+  "run": 1,
+  "prompt": "Compare diff/before.sql and diff/after.sql. Produce before/after models and comparison JSON/HTML. Distinguish destructive and ambiguous changes.",
+  "skill": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\SKILL.md",
+  "toolkit": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+  "working_directory": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+  "execution_scope": "Offline analysis of copied inputs with the frozen historical v0.2 Python toolkit. One executor handles all eight cases.",
+  "commands": [
+    {
+      "ordinal": 1,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "inspect",
+        "--ddl",
+        "examples/diff/before.sql",
+        "--out",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/before.dbdep.json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py inspect --ddl examples/diff/before.sql --out C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/before.dbdep.json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\"model\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-5\\\\old_skill\\\\run-1\\\\outputs\\\\before.dbdep.json\", \"summary\": {\"nodes\": 4, \"edges\": 4, \"evidence\": 1, \"unknowns\": 0, \"findings\": 0, \"severity_counts\": {\"info\": 0, \"warning\": 0, \"error\": 0}}}\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-01.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-01.stderr.txt"
+    },
+    {
+      "ordinal": 2,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "validate",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/before.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py validate C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/before.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-02.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-02.stderr.txt"
+    },
+    {
+      "ordinal": 3,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "inspect",
+        "--ddl",
+        "examples/diff/after.sql",
+        "--out",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/after.dbdep.json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py inspect --ddl examples/diff/after.sql --out C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/after.dbdep.json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\"model\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-5\\\\old_skill\\\\run-1\\\\outputs\\\\after.dbdep.json\", \"summary\": {\"nodes\": 4, \"edges\": 4, \"evidence\": 1, \"unknowns\": 0, \"findings\": 0, \"severity_counts\": {\"info\": 0, \"warning\": 0, \"error\": 0}}}\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-03.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-03.stderr.txt"
+    },
+    {
+      "ordinal": 4,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "validate",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/after.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py validate C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/after.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-04.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-04.stderr.txt"
+    },
+    {
+      "ordinal": 5,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "diff",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/before.dbdep.json",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/after.dbdep.json",
+        "--out",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/comparison",
+        "--json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py diff C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/before.dbdep.json C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/after.dbdep.json --out C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/comparison --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\n  \"added\": [\n    \"postgresql:local/public/column/customers/display_name/\"\n  ],\n  \"after\": \"snapshot:a0250809442792cb0364da52\",\n  \"before\": \"snapshot:d3a54864576ab959d979c255\",\n  \"edges_added\": [\n    \"edge:43ee8764438d9a11bbc2521e\"\n  ],\n  \"edges_removed\": [\n    \"edge:449d080bde5028b829fd281a\"\n  ],\n  \"matched\": [\n    \"postgresql:local/public/column/customers/id/\",\n    \"postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422\",\n    \"postgresql:local/public/table//customers/\"\n  ],\n  \"modified\": [\n    \"postgresql:local/public/table//customers/\"\n  ],\n  \"removed\": [\n    \"postgresql:local/public/column/customers/name/\"\n  ],\n  \"rename_candidates\": [\n    {\n      \"added\": \"postgresql:local/public/column/customers/display_name/\",\n      \"explanation\": \"Possible rename; add/drop remains the observed change. Human confirmation required.\",\n      \"removed\": \"postgresql:local/public/column/customers/name/\",\n      \"status\": \"UNKNOWN\"\n    }\n  ],\n  \"schema_version\": \"1.0.0\"\n}\n\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-05.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-05.stderr.txt"
+    },
+    {
+      "ordinal": 6,
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py",
+        "validate",
+        "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/comparison/model.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-snapshot\\scripts\\dbdep.py validate C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-5/old_skill/run-1/outputs/comparison/model.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "exit_code": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n\n",
+      "stderr": "",
+      "stdout_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-06.stdout.txt",
+      "stderr_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\command-06.stderr.txt"
+    }
+  ],
+  "limitations": [
+    "This is a historical baseline comparison, not the current shipped runtime.",
+    "Cases share one executor context rather than eight isolated model sessions.",
+    "No PostgreSQL server or supplied SQL is executed. No database connection is made.",
+    "No model-token or per-case assistant-duration telemetry is available.",
+    "Browser interaction and visual inspection are not performed unless explicitly recorded.",
+    "Python initially wrote nine bytecode caches under the frozen snapshot. Cache cleanup was rejected by automatic approval review as blocked by policy. Source files were not edited; the post-run audit lists source and cache hashes separately."
+  ],
+  "status": "completed",
+  "artifacts": [
+    {
+      "path": "actual_response.md",
+      "bytes": 1830,
+      "sha256": "9fd71a8923f50420390ace2974e625af4f699f57ad9ee62c51b21876bb25dc60"
+    },
+    {
+      "path": "after-validation.json",
+      "bytes": 37,
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c"
+    },
+    {
+      "path": "after.dbdep.json",
+      "bytes": 5715,
+      "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+    },
+    {
+      "path": "before-validation.json",
+      "bytes": 37,
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c"
+    },
+    {
+      "path": "before.dbdep.json",
+      "bytes": 5684,
+      "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+    },
+    {
+      "path": "command-01.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-01.stdout.txt",
+      "bytes": 308,
+      "sha256": "11b1fd19754a3e0df25553bd11c67c526b4e245616e479ae95018d1ffce8cd6b"
+    },
+    {
+      "path": "command-02.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-02.stdout.txt",
+      "bytes": 37,
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c"
+    },
+    {
+      "path": "command-03.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-03.stdout.txt",
+      "bytes": 307,
+      "sha256": "d9d26f420ced1e016ef0905bb9389a90f6b61450fa74d3510d0219bf55ac167b"
+    },
+    {
+      "path": "command-04.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-04.stdout.txt",
+      "bytes": 37,
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c"
+    },
+    {
+      "path": "command-05.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-05.stdout.txt",
+      "bytes": 1001,
+      "sha256": "cbc5ce261a77403b6569aa841c8a79da9d71ffe4335e351209c1582950a3f394"
+    },
+    {
+      "path": "command-06.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "command-06.stdout.txt",
+      "bytes": 37,
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c"
+    },
+    {
+      "path": "comparison/after.dbdep.json",
+      "bytes": 5715,
+      "sha256": "14eb65309c04e39e0a176091dfe6c7eb77b0a6aede27485a126dbd23cb603e2f"
+    },
+    {
+      "path": "comparison/before.dbdep.json",
+      "bytes": 5684,
+      "sha256": "777da891502df5585ba953615f047f4344dccac875b9c78a46d1bd80fec6b922"
+    },
+    {
+      "path": "comparison/diff.json",
+      "bytes": 1000,
+      "sha256": "5a3736859fa6c4db0ceb4e8bbc73d0c9d7f169d91b716381f3ce405a18f42493"
+    },
+    {
+      "path": "comparison/graph.dot",
+      "bytes": 1244,
+      "sha256": "27538c3ae497e9d48fae7139927c681c1513ead5bd85d4e9baf84cb1f194c5ed"
+    },
+    {
+      "path": "comparison/graph.mmd",
+      "bytes": 355,
+      "sha256": "64a5673101d74bf59b37c8394ef22df111413b49779b696116e4be4abf414471"
+    },
+    {
+      "path": "comparison/model.dbdep.json",
+      "bytes": 7342,
+      "sha256": "55849af3fd7bcfb80caece9e035771b66f431e63fb6d45aa4eb363b32b22579a"
+    },
+    {
+      "path": "comparison/report.html",
+      "bytes": 30213,
+      "sha256": "60c4fe02ad6eb170707cd63fa4aa0ff443110718eb6ccc167d58bc669bf2e34e"
+    },
+    {
+      "path": "comparison/report.md",
+      "bytes": 3765,
+      "sha256": "e0fea0297b3578355cdbbe9dc7a7fc87ab120eb92b714a20904b757a76aebe54"
+    },
+    {
+      "path": "comparison-validation.json",
+      "bytes": 37,
+      "sha256": "ad17591cb91d79ccdd789dfdfbb300286163e13783225de527b7912f16aeb60c"
+    },
+    {
+      "path": "diff-command.json",
+      "bytes": 1001,
+      "sha256": "cbc5ce261a77403b6569aa841c8a79da9d71ffe4335e351209c1582950a3f394"
+    }
+  ],
+  "missing_required_artifacts": [],
+  "post_run_audit": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-run-audit.json"
+}

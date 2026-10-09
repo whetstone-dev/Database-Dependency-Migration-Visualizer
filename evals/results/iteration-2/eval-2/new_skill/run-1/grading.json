@@ -1,0 +1,71 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies both downstream views",
+      "passed": true,
+      "evidence": "catalog.dbdep.json has direct path edge:7382463a30822eedad6c5a9a and transitive path edge:5478cb147e8a08cfcc0208bf, edge:9efce2644f223eca12a5d782, edge:7382463a30822eedad6c5a9a; both views are affected. Every saved impact path chains to the requested column: true."
+    },
+    {
+      "text": "Uses catalog evidence",
+      "passed": true,
+      "evidence": "Verified OBSERVED pg_depend edge evidence against capture rows pg_rewrite:16399:0->pg_class:16389:2 and pg_rewrite:16403:0->pg_class:16396:2, deptype=n. Evidence source_hash correctly matches canonical query payload sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85; capture SQL hash is separately sha256:49abd0415a10073d639817a880d5dde3f3932083d8924626255a0f298414b9be. Both responses mislabel the payload hash as a SQL/query hash, an unasserted factual defect. Structural containment connects the intermediate column to its owning view."
+    },
+    {
+      "text": "Qualifies CASCADE",
+      "passed": true,
+      "evidence": "Response distinguishes RESTRICT blocking a drop and CASCADE following PostgreSQL catalog deletion rules, then explicitly denies exact deletion-closure or safety approval; catalog/application/runtime coverage is qualified."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Both downstream views have recorded catalog paths",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Paths were derived independently from saved edges; underlying pg_depend addresses and type n agree with supplied capture."
+    },
+    {
+      "claim": "The quoted 9e504033… hash is the pg_depend SQL/source-query hash",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The quoted value is SHA-256 of canonical {rows,sql_hash} query payload, independently reproduced as sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85. The actual capture queries.pg_depend.sql_hash is sha256:49abd0415a10073d639817a880d5dde3f3932083d8924626255a0f298414b9be. Artifact evidence is authentic; both response descriptions confuse these two provenance hashes."
+    },
+    {
+      "claim": "HTML was generated for the same catalog model",
+      "type": "process",
+      "verified": true,
+      "evidence": "Parsed HTML envelope exactly matches canonical catalog JSON and has no external resource URLs."
+    },
+    {
+      "claim": "Recorded CLI validation/analysis commands were actually retained",
+      "type": "process",
+      "verified": true,
+      "evidence": "execution.json retains 7 commands with argv, exit codes and stdout/stderr. All recorded commands exited zero, or the case made no command calls."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+      "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Uses catalog evidence",
+        "reason": "Require catalog row addresses, dependency types and query hashes to match the supplied capture, and a correctly oriented transitive path. Merely mentioning catalog evidence would not detect fabricated bindings or reversed edges."
+      },
+      {
+        "reason": "Require the explanation to distinguish SQL query-text fingerprints from captured query-payload/evidence fingerprints. Both responses call an authentic payload hash the SQL/source-query hash, which the original assertion does not catch."
+      }
+    ],
+    "overall": "Assertions passed only where saved content and source evidence support them. Important unasserted gaps remain; see suggestions and iteration-2/analysis.md."
+  }
+}

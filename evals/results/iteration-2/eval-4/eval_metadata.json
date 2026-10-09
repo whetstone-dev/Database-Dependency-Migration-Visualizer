@@ -1,0 +1,10 @@
+{
+  "eval_id": 4,
+  "eval_name": "Grounded static reference with explicit unknown runtime paths",
+  "prompt": "Find every consumer of public.customers.email in dynamic-sql-unknown/schema.sql and its app folder. Do not guess dynamic SQL targets; describe coverage and grounded references.",
+  "assertions": [
+    "Explicitly reports dynamic UNKNOWN coverage",
+    "Retains static SQL evidence",
+    "Does not claim exhaustive consumer discovery"
+  ]
+}

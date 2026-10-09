@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Reports add/drop and ambiguous rename",
+      "passed": true,
+      "evidence": "diff.json explicitly adds display_name and removes name, retaining the pair as rename_candidates.status=UNKNOWN. Actual before/after models contain the corresponding text columns. Response distinguishes possible data loss from a proven rename and denies recovered values from reverse DDL."
+    },
+    {
+      "text": "Creates comparison artifact",
+      "passed": true,
+      "evidence": "Comparison JSON is parseable; report.html embeds the exact comparison model and exact diff in its changes field; before/after models are retained, valid and snapshot-scoped source hashes match input bytes. No external resource URLs."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 0,
+    "total": 2,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "The comparison retains add/drop rather than proving a rename",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Before contains name; after contains display_name. Candidate ambiguity is UNKNOWN and both changes remain in diff arrays."
+    },
+    {
+      "claim": "Recorded CLI validation/analysis commands were actually retained",
+      "type": "process",
+      "verified": true,
+      "evidence": "execution.json retains 6 commands with argv, exit codes and stdout/stderr. All recorded commands exited zero, or the case made no command calls."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+      "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "Extend comparison assertions to verify snapshot-scoped source evidence for matching object IDs, differing evidence records and unrelated add/drop pairs that should never be guessed as renames."
+      }
+    ],
+    "overall": "Assertions passed only where saved content and source evidence support them. Important unasserted gaps remain; see suggestions and iteration-2/analysis.md."
+  }
+}

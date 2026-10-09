@@ -1,0 +1,66 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies the orders customer FK",
+      "passed": true,
+      "evidence": "schema.dbdep.json has edge:fbc21659908e0ae2a5cd46ea: orders.customer_id -> customers.id, kind=foreign_key, evidence ev:7de9792a75dda688bf1f738f; orders FK constraint postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4 is in impact.json."
+    },
+    {
+      "text": "Identifies customer_summary view",
+      "passed": true,
+      "evidence": "schema.dbdep.json has customer_summary -> customers.id via edge:aa9343ef5c72a1e514641dc7; impact.json includes the view and response describes its select/join on c.id."
+    },
+    {
+      "text": "Provides source evidence",
+      "passed": true,
+      "evidence": "Verified 25 file-evidence hashes against actual input bytes; ev:7de9792a75dda688bf1f738f records schema.sql lines 17-22."
+    },
+    {
+      "text": "Provides staged migration plan",
+      "passed": true,
+      "evidence": "review/review.json has five review-only phases (expand, backfill, validate, transition, contract), each with prerequisites, verification and recovery; response requires a unique mapping and retained data. Response adapts the generic phases to the key, child columns, view and application SQL."
+    },
+    {
+      "text": "Creates parseable canonical graph and offline HTML",
+      "passed": true,
+      "evidence": "schema.dbdep.json: 52 nodes, 98 edges, valid schema with no missing endpoints/evidence; every impact path chains to customers.id. impact.html embeds exactly that model; no external resource URLs, CSP connect-src none. Browser interaction was not tested."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Reported object/evidence counts and source-backed impact are correct",
+      "type": "factual",
+      "verified": true,
+      "evidence": "52 nodes / 98 edges / 12 evidence / 8 UNKNOWN; all stored paths verified."
+    },
+    {
+      "claim": "Recorded CLI validation/analysis commands were actually retained",
+      "type": "process",
+      "verified": true,
+      "evidence": "execution.json retains 9 commands with argv, exit codes and stdout/stderr. All recorded commands exited zero, or the case made no command calls."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+      "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Provides staged migration plan",
+        "reason": "Require a target-specific mapping for both orders and addresses, key/default transition, consistent concurrent writers, pre-contract consumer evidence and recoverable data. Five generic phase names alone would pass even with an infeasible bigint-to-UUID cast."
+      }
+    ],
+    "overall": "Assertions passed only where saved content and source evidence support them. Important unasserted gaps remain; see suggestions and iteration-2/analysis.md."
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "eval_id": 4,
+  "prompt": "Find every consumer of public.customers.email in dynamic-sql-unknown/schema.sql and its app folder. Do not guess dynamic SQL targets; describe coverage and grounded references.",
+  "configuration": "new_skill",
+  "trial": "run-1",
+  "isolation": "Eight cases executed by one runner agent in one session; not independent model trials.",
+  "skill_snapshot": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\SKILL.md",
+  "toolkit_entrypoint": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+  "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+  "sql_executed": false,
+  "live_database_connections": false,
+  "commands": [
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "inspect",
+        "--ddl",
+        "examples/dynamic-sql-unknown/schema.sql",
+        "--repo",
+        "examples/dynamic-sql-unknown/app",
+        "--out",
+        "../eval-4/new_skill/run-1/outputs/model.dbdep.json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs inspect --ddl examples/dynamic-sql-unknown/schema.sql --repo examples/dynamic-sql-unknown/app --out ../eval-4/new_skill/run-1/outputs/model.dbdep.json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:16.665Z",
+      "ended_at": "2026-10-09T18:58:17.297Z",
+      "wall_time_ms": 629.2279,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\"model\":\"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-4\\\\new_skill\\\\run-1\\\\outputs\\\\model.dbdep.json\",\"summary\":{\"nodes\":6,\"edges\":7,\"evidence\":4,\"unknowns\":2,\"findings\":0,\"severity_counts\":{\"info\":0,\"warning\":0,\"error\":0}}}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\model.dbdep.json",
+          "bytes": 10938,
+          "sha256": "45cd3da673f8e14805023cbc74022813e39b16cbae6ad85b2a9d828b3819966b"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "validate",
+        "../eval-4/new_skill/run-1/outputs/model.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs validate ../eval-4/new_skill/run-1/outputs/model.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:17.837Z",
+      "ended_at": "2026-10-09T18:58:18.222Z",
+      "wall_time_ms": 381.9396,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\model.dbdep.json",
+          "bytes": 10938,
+          "sha256": "45cd3da673f8e14805023cbc74022813e39b16cbae6ad85b2a9d828b3819966b"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "impact",
+        "../eval-4/new_skill/run-1/outputs/model.dbdep.json",
+        "--object",
+        "public.customers.email",
+        "--out",
+        "../eval-4/new_skill/run-1/outputs/impact.json",
+        "--json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs impact ../eval-4/new_skill/run-1/outputs/model.dbdep.json --object public.customers.email --out ../eval-4/new_skill/run-1/outputs/impact.json --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:18.747Z",
+      "ended_at": "2026-10-09T18:58:19.160Z",
+      "wall_time_ms": 409.67260000000005,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\n  \"affected\": [\n    \"postgresql:local/application/query//examples%2Fdynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3Ab314c12d876f9a28d6620da1/\"\n  ],\n  \"categories\": {\n    \"inferred\": [],\n    \"recorded_catalog\": [],\n    \"static_reference\": [\n      \"postgresql:local/application/query//examples%2Fdynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3Ab314c12d876f9a28d6620da1/\"\n    ]\n  },\n  \"direct\": [\n    \"postgresql:local/application/query//examples%2Fdynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3Ab314c12d876f9a28d6620da1/\"\n  ],\n  \"explanation\": \"Reverse paths show potential impact. They do not prove execution failure or exhaustive runtime coverage.\",\n  \"operation\": null,\n  \"paths\": {\n    \"postgresql:local/application/query//examples%2Fdynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3Ab314c12d876f9a28d6620da1/\": [\n      \"edge:e06bff90a111da017be97a3a\"\n    ]\n  },\n  \"root\": \"postgresql:local/public/column/customers/email/\",\n  \"to\": null,\n  \"unknowns\": [\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:2c2fb2d23ea17b894ac7fc0a\"\n      ],\n      \"explanation\": \"Host-language SQL/ORM extraction is unsupported; dynamic paths remain UNKNOWN.\",\n      \"id\": \"unknown:348ee37bf2022b0ffe8e0df8\",\n      \"object_id\": null,\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    },\n    {\n      \"confidence\": \"unknown\",\n      \"evidence_ids\": [\n        \"ev:f841ef7712234461327d5c9e\"\n      ],\n      \"explanation\": \"Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.\",\n      \"id\": \"unknown:957b09205402a704ecf6086f\",\n      \"object_id\": \"postgresql:local/public/function//lookup_customer/text\",\n      \"origin\": \"heuristic\",\n      \"status\": \"UNKNOWN\"\n    }\n  ]\n}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\impact.json",
+          "bytes": 1713,
+          "sha256": "352339b78fae72a92bbc57efa00a20dc2d8969dc14ac0383f3324197dd4d613b"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\model.dbdep.json",
+          "bytes": 10938,
+          "sha256": "45cd3da673f8e14805023cbc74022813e39b16cbae6ad85b2a9d828b3819966b"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "docs",
+        "../eval-4/new_skill/run-1/outputs/model.dbdep.json",
+        "--out",
+        "../eval-4/new_skill/run-1/outputs/report.md"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs docs ../eval-4/new_skill/run-1/outputs/model.dbdep.json --out ../eval-4/new_skill/run-1/outputs/report.md",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:19.754Z",
+      "ended_at": "2026-10-09T18:58:20.211Z",
+      "wall_time_ms": 453.14770000000004,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\"artifact\":\"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-4\\\\new_skill\\\\run-1\\\\outputs\\\\report.md\"}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\impact.json",
+          "bytes": 1713,
+          "sha256": "352339b78fae72a92bbc57efa00a20dc2d8969dc14ac0383f3324197dd4d613b"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\model.dbdep.json",
+          "bytes": 10938,
+          "sha256": "45cd3da673f8e14805023cbc74022813e39b16cbae6ad85b2a9d828b3819966b"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\report.md",
+          "bytes": 4107,
+          "sha256": "c380a3c0bb234882b393dfa5e70425553fe5291474f80fc32fde4902c3b63369"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "render",
+        "../eval-4/new_skill/run-1/outputs/model.dbdep.json",
+        "--object",
+        "public.customers.email",
+        "--out",
+        "../eval-4/new_skill/run-1/outputs/impact.html"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs render ../eval-4/new_skill/run-1/outputs/model.dbdep.json --object public.customers.email --out ../eval-4/new_skill/run-1/outputs/impact.html",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:20.790Z",
+      "ended_at": "2026-10-09T18:58:21.227Z",
+      "wall_time_ms": 432.9052,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\"artifact\":\"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-4\\\\new_skill\\\\run-1\\\\outputs\\\\impact.html\"}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\impact.html",
+          "bytes": 142436,
+          "sha256": "123cb2e9f3115d496872d430eb3ee6bfb14a4dbdf87c066c82141f047d0f2cc0"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\impact.json",
+          "bytes": 1713,
+          "sha256": "352339b78fae72a92bbc57efa00a20dc2d8969dc14ac0383f3324197dd4d613b"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\model.dbdep.json",
+          "bytes": 10938,
+          "sha256": "45cd3da673f8e14805023cbc74022813e39b16cbae6ad85b2a9d828b3819966b"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\report.md",
+          "bytes": 4107,
+          "sha256": "c380a3c0bb234882b393dfa5e70425553fe5291474f80fc32fde4902c3b63369"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Routine-body and host-language SQL/ORM extraction remain UNKNOWN.",
+    "Only one static consumer is grounded; exhaustive discovery is not claimed."
+  ],
+  "output_saved_at": "2026-10-09T19:03:44.330Z",
+  "response_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\response.md",
+  "output_files": [
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\impact.html",
+      "bytes": 142436,
+      "sha256": "123cb2e9f3115d496872d430eb3ee6bfb14a4dbdf87c066c82141f047d0f2cc0"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\impact.json",
+      "bytes": 1713,
+      "sha256": "352339b78fae72a92bbc57efa00a20dc2d8969dc14ac0383f3324197dd4d613b"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\model.dbdep.json",
+      "bytes": 10938,
+      "sha256": "45cd3da673f8e14805023cbc74022813e39b16cbae6ad85b2a9d828b3819966b"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\report.md",
+      "bytes": 4107,
+      "sha256": "c380a3c0bb234882b393dfa5e70425553fe5291474f80fc32fde4902c3b63369"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\new_skill\\run-1\\outputs\\response.md",
+      "bytes": 3115,
+      "sha256": "137d51cd38ad498e184d7d66d31620f845945ecdca5dca2842b38011e1260885"
+    }
+  ],
+  "metrics_note": "Command wall times are actual subprocess measurements. No per-case model tokens or independent trial duration are available; none are estimated."
+}

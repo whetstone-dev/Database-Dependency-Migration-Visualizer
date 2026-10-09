@@ -1,8 +1,8 @@
 # Contributing
 
-Install `python -m pip install -e ".[dev,live]"` and `python -m playwright install chromium`. Add failing observable tests before changing graph semantics, hazards or safety boundaries. Preserve source locations, unknowns and deterministic output. Do not test user migrations on any shared database.
+Install Node.js 22.18+, pnpm 12.10.1, `pnpm install --frozen-lockfile` and `pnpm exec playwright install chromium`. Run `pnpm test`, `pnpm build`, `pnpm test:browser` and `pnpm verify:examples`. Add failing observable tests before changing graph semantics, hazards or safety boundaries. Preserve source locations, unknowns and deterministic output. Do not test user migrations on any shared database.
 
-Run Ruff, pytest, `scripts/verify_examples.py` and packaging checks before committing. Regenerate curated examples through `demo`, then capture/inspect screenshots with `scripts/capture_screenshots.py`. Do not edit generated model/HTML/Markdown by hand. CI browser/catalog matrices are defined in `.github/workflows/ci.yml`.
+Run the Node tests, example verification and packaging checks before committing. Regenerate curated examples with `pnpm demo`, then capture and inspect screenshots with `node scripts/capture-screenshots.mjs`. Do not edit generated model/HTML/Markdown by hand. CI browser/catalog matrices are defined in `.github/workflows/ci.yml`.
 
 Use Conventional Commits with leading Gitmoji, no scope, imperative lowercase subject and a required body explaining change, purpose and validation. Examples: `✨ feat: add catalog dependency normalization` or `🐛 fix: preserve unknown backfill risk`. Split commits by purpose. Use `!`/BREAKING CHANGE for incompatible contracts. See `docs/releases.md` for annotated SemVer tags and publication.
 

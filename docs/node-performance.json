@@ -1,0 +1,37 @@
+{
+  "node": "24.15.0",
+  "platform": "win32",
+  "measurements": [
+    {
+      "nodes": 100,
+      "edges": 99,
+      "build_seconds": 0.009918800000000033,
+      "validation_seconds": 0.017305499999999994,
+      "impact_seconds": 0.026133100000000013,
+      "render_seconds": 0.04658330000000001,
+      "html_bytes": 228585,
+      "browser_visible_cap": 350
+    },
+    {
+      "nodes": 1000,
+      "edges": 999,
+      "build_seconds": 0.05752080000000001,
+      "validation_seconds": 0.11347209999999995,
+      "impact_seconds": 0.14172910000000002,
+      "render_seconds": 0.26943770000000006,
+      "html_bytes": 1106089,
+      "browser_visible_cap": 350
+    },
+    {
+      "nodes": 5000,
+      "edges": 4999,
+      "build_seconds": 0.17455259999999997,
+      "validation_seconds": 0.30084220000000006,
+      "impact_seconds": 0.3738836999999999,
+      "render_seconds": 0.5912791000000002,
+      "html_bytes": 5006091,
+      "browser_visible_cap": 350
+    }
+  ],
+  "scope": "Synthetic star graph CPU timings. No SQL, production performance or browser frame-rate guarantee. Historical Python linear-graph timings are not directly comparable."
+}

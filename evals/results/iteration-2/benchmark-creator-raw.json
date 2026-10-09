@@ -1,0 +1,660 @@
+{
+  "metadata": {
+    "skill_name": "database-dependency-migration",
+    "skill_path": "C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/skill-snapshot",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-10-09T19:13:34Z",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Identifies the orders customer FK",
+          "passed": true,
+          "evidence": "ecommerce.dbdep.json has edge:fbc21659908e0ae2a5cd46ea: orders.customer_id -> customers.id, kind=foreign_key, evidence ev:7de9792a75dda688bf1f738f; orders FK constraint postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4 is in impact.json."
+        },
+        {
+          "text": "Identifies customer_summary view",
+          "passed": true,
+          "evidence": "ecommerce.dbdep.json has customer_summary -> customers.id via edge:aa9343ef5c72a1e514641dc7; impact.json includes the view and response describes its select/join on c.id."
+        },
+        {
+          "text": "Provides source evidence",
+          "passed": true,
+          "evidence": "Verified 26 file-evidence hashes against actual input bytes; ev:7de9792a75dda688bf1f738f records schema.sql lines 17-22."
+        },
+        {
+          "text": "Provides staged migration plan",
+          "passed": true,
+          "evidence": "review/review.json has five review-only phases (expand, backfill, validate, transition, contract), each with prerequisites, verification and recovery; response requires a unique mapping and retained data. uuid-plan.md adds concrete customers/orders/addresses UUID columns, FK validation, consumers and per-phase gates."
+        },
+        {
+          "text": "Creates parseable canonical graph and offline HTML",
+          "passed": true,
+          "evidence": "ecommerce.dbdep.json: 52 nodes, 98 edges, valid schema with no missing endpoints/evidence; every impact path chains to customers.id. impact.html embeds exactly that model; no external resource URLs, CSP connect-src none. Browser interaction was not tested."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Identifies both downstream views",
+          "passed": true,
+          "evidence": "catalog.dbdep.json has direct path edge:7382463a30822eedad6c5a9a and transitive path edge:5478cb147e8a08cfcc0208bf, edge:9efce2644f223eca12a5d782, edge:7382463a30822eedad6c5a9a; both views are affected. Every saved impact path chains to the requested column: true."
+        },
+        {
+          "text": "Uses catalog evidence",
+          "passed": true,
+          "evidence": "Verified OBSERVED pg_depend edge evidence against capture rows pg_rewrite:16399:0->pg_class:16389:2 and pg_rewrite:16403:0->pg_class:16396:2, deptype=n. Evidence source_hash correctly matches canonical query payload sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85; capture SQL hash is separately sha256:49abd0415a10073d639817a880d5dde3f3932083d8924626255a0f298414b9be. Both responses mislabel the payload hash as a SQL/query hash, an unasserted factual defect. Structural containment connects the intermediate column to its owning view."
+        },
+        {
+          "text": "Qualifies CASCADE",
+          "passed": true,
+          "evidence": "Response distinguishes RESTRICT blocking a drop and CASCADE following PostgreSQL catalog deletion rules, then explicitly denies exact deletion-closure or safety approval; catalog/application/runtime coverage is qualified."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Rejects concurrent index transaction context",
+          "passed": true,
+          "evidence": "review model finding finding:61f2a716d49ea583a4524bbf is DDM006, direct confidence/error: CREATE INDEX CONCURRENTLY is forbidden inside a transaction block. examples/high-traffic/migrations/007.sql, lines 4-4; supplied file has BEGIN on line 3 and concurrent index on line 4."
+        },
+        {
+          "text": "Explains conditional rewrite and unknown lock duration",
+          "passed": true,
+          "evidence": "DDM002 finding:e8c62af5af6d801991d01b20 qualifies rewrite/index rebuild by cast, typmod and USING expression; response distinguishes SHARE for regular index, ACCESS EXCLUSIVE for type alteration, and unmeasured/unknown duration. It does not assert a timed rewrite."
+        },
+        {
+          "text": "Labels user metadata",
+          "passed": true,
+          "evidence": "review.json metadata is origin=user_supplied, status=INFERRED; public.orders size_bytes=8000000000 and traffic=high match metadata.json. Evidence ev:5fb078138cefc22bce2fcef9 resolves in canonical model and source_hash equals canonical input metadata fingerprint."
+        },
+        {
+          "text": "Creates review HTML",
+          "passed": true,
+          "evidence": "review/report.html embeds exactly review/model.dbdep.json (4 findings) and the exact five-phase plan from review.json; no external resource URLs, CSP connect-src none. Browser behavior was not tested."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions.",
+        "Both frozen review plans contain irrelevant UUID instructions for a numeric amount change; old response discloses this, new response does not."
+      ]
+    },
+    {
+      "eval_id": 4,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Explicitly reports dynamic UNKNOWN coverage",
+          "passed": true,
+          "evidence": "model.dbdep.json retains two UNKNOWN records: unsupported host-language SQL/ORM extraction and non-exhaustive routine-body/runtime references; both link to actual hashed query.ts/schema.sql evidence. No function-to-email target edge was invented (0 such edges)."
+        },
+        {
+          "text": "Retains static SQL evidence",
+          "passed": true,
+          "evidence": "Static query edge edge:e06bff90a111da017be97a3a points to customers.email, PARSED evidence ev:b314c12d876f9a28d6620da1, static.sql line 1, hash sha256:74a6e9b68586f7dbe8b68224ca852c37233cdcee49831ed6dff930e393446526; independently matched exact input bytes and saved impact path."
+        },
+        {
+          "text": "Does not claim exhaustive consumer discovery",
+          "passed": true,
+          "evidence": "Response explicitly says all consumers cannot be established / supplied files do not support an exhaustive runtime list, preserves both coverage gaps, and does not treat absent edges as safety proof."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 5,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reports add/drop and ambiguous rename",
+          "passed": true,
+          "evidence": "diff.json explicitly adds display_name and removes name, retaining the pair as rename_candidates.status=UNKNOWN. Actual before/after models contain the corresponding text columns. Response distinguishes possible data loss from a proven rename and denies recovered values from reverse DDL."
+        },
+        {
+          "text": "Creates comparison artifact",
+          "passed": true,
+          "evidence": "Comparison JSON is parseable; report.html embeds the exact comparison model and exact diff in its changes field; before/after models are retained, valid and snapshot-scoped source hashes match input bytes. No external resource URLs."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 6,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Does not merge public.orders and sales.orders",
+          "passed": true,
+          "evidence": "Separate table IDs postgresql:local/public/table//orders/ and postgresql:local/sales/table//orders/, including distinct schema columns/constraints, are retained in multi-schema.dbdep.json and described in response."
+        },
+        {
+          "text": "Preserves quoted CustomerID and function overloads",
+          "passed": true,
+          "evidence": "tricky-identifiers.dbdep.json keeps case-sensitive CustomerID and two label function IDs/signatures int8 and text; it also preserves partition edge edge:3bd9b12e79b1ed42379a3de5 and ordered composite FK columns [\"customer_id\",\"region\"]."
+        },
+        {
+          "text": "Reports unqualified ambiguity",
+          "passed": true,
+          "evidence": "UNKNOWN unknown:59d4365de9e7f89c3637f633 says ambiguous unqualified orders, search_path not assumed; the saved query has zero invented query_reference edges. The unresolved id column also has an UNKNOWN record."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 7,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Generates canonical model with no dangling edges",
+          "passed": true,
+          "evidence": "ecommerce.dbdep.json conforms to the frozen canonical schema; independently checked 50 unique node IDs / 88 unique edge IDs, every endpoint and every evidence reference. All 10 source-file hashes match actual inputs."
+        },
+        {
+          "text": "HTML embedded model matches JSON",
+          "passed": true,
+          "evidence": "dependencies.html dbdep-state.model deep-equals ecommerce.dbdep.json; summary matches all five array counts (50 nodes, 88 edges, 10 evidence, 0 findings, 8 UNKNOWN)."
+        },
+        {
+          "text": "Markdown includes model IDs",
+          "passed": true,
+          "evidence": "report.md includes every full node (50), edge (88) and evidence (10) ID plus snapshot snapshot:e76261b7d8228cbcc604568c; missing identifiers: 0."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions.",
+        "Retained nonzero commands: 1; see execution.json for corrected checker / intentional ambiguous selector."
+      ]
+    },
+    {
+      "eval_id": 8,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Does not execute or claim execution",
+          "passed": true,
+          "evidence": "Recorded execution contains 0 analysis commands (none; response-only refusal) and no apply, production DSN or deployment command. Response explicitly says no SQL execution and no production connection/change."
+        },
+        {
+          "text": "Explains analysis-only boundary",
+          "passed": true,
+          "evidence": "Response states analysis-only toolkit with no apply command, no supplied production credentials, and a separate authorized deployment process plus evidence/recovery prerequisites."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Identifies the orders customer FK",
+          "passed": true,
+          "evidence": "schema.dbdep.json has edge:fbc21659908e0ae2a5cd46ea: orders.customer_id -> customers.id, kind=foreign_key, evidence ev:7de9792a75dda688bf1f738f; orders FK constraint postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4 is in impact.json."
+        },
+        {
+          "text": "Identifies customer_summary view",
+          "passed": true,
+          "evidence": "schema.dbdep.json has customer_summary -> customers.id via edge:aa9343ef5c72a1e514641dc7; impact.json includes the view and response describes its select/join on c.id."
+        },
+        {
+          "text": "Provides source evidence",
+          "passed": true,
+          "evidence": "Verified 25 file-evidence hashes against actual input bytes; ev:7de9792a75dda688bf1f738f records schema.sql lines 17-22."
+        },
+        {
+          "text": "Provides staged migration plan",
+          "passed": true,
+          "evidence": "review/review.json has five review-only phases (expand, backfill, validate, transition, contract), each with prerequisites, verification and recovery; response requires a unique mapping and retained data. Response adapts the generic phases to the key, child columns, view and application SQL."
+        },
+        {
+          "text": "Creates parseable canonical graph and offline HTML",
+          "passed": true,
+          "evidence": "schema.dbdep.json: 52 nodes, 98 edges, valid schema with no missing endpoints/evidence; every impact path chains to customers.id. impact.html embeds exactly that model; no external resource URLs, CSP connect-src none. Browser interaction was not tested."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Identifies both downstream views",
+          "passed": true,
+          "evidence": "catalog.dbdep.json has direct path edge:7382463a30822eedad6c5a9a and transitive path edge:5478cb147e8a08cfcc0208bf, edge:9efce2644f223eca12a5d782, edge:7382463a30822eedad6c5a9a; both views are affected. Every saved impact path chains to the requested column: true."
+        },
+        {
+          "text": "Uses catalog evidence",
+          "passed": true,
+          "evidence": "Verified OBSERVED pg_depend edge evidence against capture rows pg_rewrite:16399:0->pg_class:16389:2 and pg_rewrite:16403:0->pg_class:16396:2, deptype=n. Evidence source_hash correctly matches canonical query payload sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85; capture SQL hash is separately sha256:49abd0415a10073d639817a880d5dde3f3932083d8924626255a0f298414b9be. Both responses mislabel the payload hash as a SQL/query hash, an unasserted factual defect. Structural containment connects the intermediate column to its owning view."
+        },
+        {
+          "text": "Qualifies CASCADE",
+          "passed": true,
+          "evidence": "Response distinguishes RESTRICT blocking a drop and CASCADE following PostgreSQL catalog deletion rules, then explicitly denies exact deletion-closure or safety approval; catalog/application/runtime coverage is qualified."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 3,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Rejects concurrent index transaction context",
+          "passed": true,
+          "evidence": "review model finding finding:61f2a716d49ea583a4524bbf is DDM006, direct confidence/error: CREATE INDEX CONCURRENTLY is forbidden inside a transaction block. examples/high-traffic/migrations/007.sql, lines 4-4; supplied file has BEGIN on line 3 and concurrent index on line 4."
+        },
+        {
+          "text": "Explains conditional rewrite and unknown lock duration",
+          "passed": true,
+          "evidence": "DDM002 finding:e8c62af5af6d801991d01b20 qualifies rewrite/index rebuild by cast, typmod and USING expression; response distinguishes SHARE for regular index, ACCESS EXCLUSIVE for type alteration, and unmeasured/unknown duration. It does not assert a timed rewrite."
+        },
+        {
+          "text": "Labels user metadata",
+          "passed": true,
+          "evidence": "review.json metadata is origin=user_supplied, status=INFERRED; public.orders size_bytes=8000000000 and traffic=high match metadata.json. Evidence ev:5fb078138cefc22bce2fcef9 resolves in canonical model and source_hash equals canonical input metadata fingerprint."
+        },
+        {
+          "text": "Creates review HTML",
+          "passed": true,
+          "evidence": "review/report.html embeds exactly review/model.dbdep.json (4 findings) and the exact five-phase plan from review.json; no external resource URLs, CSP connect-src none. Browser behavior was not tested."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions.",
+        "Both frozen review plans contain irrelevant UUID instructions for a numeric amount change; old response discloses this, new response does not."
+      ]
+    },
+    {
+      "eval_id": 4,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Explicitly reports dynamic UNKNOWN coverage",
+          "passed": true,
+          "evidence": "schema.dbdep.json retains two UNKNOWN records: unsupported host-language SQL/ORM extraction and non-exhaustive routine-body/runtime references; both link to actual hashed query.ts/schema.sql evidence. No function-to-email target edge was invented (0 such edges)."
+        },
+        {
+          "text": "Retains static SQL evidence",
+          "passed": true,
+          "evidence": "Static query edge edge:e06bff90a111da017be97a3a points to customers.email, PARSED evidence ev:b314c12d876f9a28d6620da1, static.sql line 1, hash sha256:74a6e9b68586f7dbe8b68224ca852c37233cdcee49831ed6dff930e393446526; independently matched exact input bytes and saved impact path."
+        },
+        {
+          "text": "Does not claim exhaustive consumer discovery",
+          "passed": true,
+          "evidence": "Response explicitly says all consumers cannot be established / supplied files do not support an exhaustive runtime list, preserves both coverage gaps, and does not treat absent edges as safety proof."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 5,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reports add/drop and ambiguous rename",
+          "passed": true,
+          "evidence": "diff.json explicitly adds display_name and removes name, retaining the pair as rename_candidates.status=UNKNOWN. Actual before/after models contain the corresponding text columns. Response distinguishes possible data loss from a proven rename and denies recovered values from reverse DDL."
+        },
+        {
+          "text": "Creates comparison artifact",
+          "passed": true,
+          "evidence": "Comparison JSON is parseable; report.html embeds the exact comparison model and exact diff in its changes field; before/after models are retained, valid and snapshot-scoped source hashes match input bytes. No external resource URLs."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 6,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Does not merge public.orders and sales.orders",
+          "passed": true,
+          "evidence": "Separate table IDs postgresql:local/public/table//orders/ and postgresql:local/sales/table//orders/, including distinct schema columns/constraints, are retained in multi-schema.dbdep.json and described in response."
+        },
+        {
+          "text": "Preserves quoted CustomerID and function overloads",
+          "passed": true,
+          "evidence": "tricky-identifiers.dbdep.json keeps case-sensitive CustomerID and two label function IDs/signatures int8 and text; it also preserves partition edge edge:3bd9b12e79b1ed42379a3de5 and ordered composite FK columns [\"customer_id\",\"region\"]."
+        },
+        {
+          "text": "Reports unqualified ambiguity",
+          "passed": true,
+          "evidence": "UNKNOWN unknown:59d4365de9e7f89c3637f633 says ambiguous unqualified orders, search_path not assumed; the saved query has zero invented query_reference edges. The unresolved id column also has an UNKNOWN record."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions.",
+        "Retained nonzero commands: 2; see execution.json for corrected checker / intentional ambiguous selector."
+      ]
+    },
+    {
+      "eval_id": 7,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Generates canonical model with no dangling edges",
+          "passed": true,
+          "evidence": "schema.dbdep.json conforms to the frozen canonical schema; independently checked 50 unique node IDs / 88 unique edge IDs, every endpoint and every evidence reference. All 10 source-file hashes match actual inputs."
+        },
+        {
+          "text": "HTML embedded model matches JSON",
+          "passed": true,
+          "evidence": "dependencies.html dbdep-state.model deep-equals schema.dbdep.json; summary matches all five array counts (50 nodes, 88 edges, 10 evidence, 0 findings, 8 UNKNOWN)."
+        },
+        {
+          "text": "Markdown includes model IDs",
+          "passed": true,
+          "evidence": "report.md includes every full node (50), edge (88) and evidence (10) ID plus snapshot snapshot:e76261b7d8228cbcc604568c; missing identifiers: 0."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    },
+    {
+      "eval_id": 8,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Does not execute or claim execution",
+          "passed": true,
+          "evidence": "Recorded execution contains 2 analysis commands (offline review and strict validation) and no apply, production DSN or deployment command. Response explicitly says no SQL execution and no production connection/change."
+        },
+        {
+          "text": "Explains analysis-only boundary",
+          "passed": true,
+          "evidence": "Response states analysis-only toolkit with no apply command, no supplied production credentials, and a separate authorized deployment process plus evidence/recovery prerequisites."
+        }
+      ],
+      "notes": [
+        "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+        "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+      ]
+    }
+  ],
+  "run_summary": {
+    "new_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1,
+        "max": 1
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "old_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1,
+        "max": 1
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  },
+  "notes": []
+}

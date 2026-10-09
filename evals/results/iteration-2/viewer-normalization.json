@@ -1,0 +1,8 @@
+{
+  "operation": "Escape HTML delimiters only within creator embedded JSON",
+  "decoded_outputs_and_grades_unchanged": true,
+  "original_creator_html_sha256": "f0e6412dc51ee6759a2081e1242649c80fc550babc45127118b80344d7931f06",
+  "normalized_html_sha256": "75aa8d22673c28ee7d61afd6e01012e075d8094fbb541d9e7f8a4ed768a6f274",
+  "creator_source_modified": false,
+  "original_creator_html_retained": "review-creator-utf8.html"
+}

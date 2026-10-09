@@ -1,0 +1,57 @@
+{
+  "expectations": [
+    {
+      "text": "Does not merge public.orders and sales.orders",
+      "passed": true,
+      "evidence": "Separate table IDs postgresql:local/public/table//orders/ and postgresql:local/sales/table//orders/, including distinct schema columns/constraints, are retained in multi-schema.dbdep.json and described in response."
+    },
+    {
+      "text": "Preserves quoted CustomerID and function overloads",
+      "passed": true,
+      "evidence": "tricky-identifiers.dbdep.json keeps case-sensitive CustomerID and two label function IDs/signatures int8 and text; it also preserves partition edge edge:3bd9b12e79b1ed42379a3de5 and ordered composite FK columns [\"customer_id\",\"region\"]."
+    },
+    {
+      "text": "Reports unqualified ambiguity",
+      "passed": true,
+      "evidence": "UNKNOWN unknown:59d4365de9e7f89c3637f633 says ambiguous unqualified orders, search_path not assumed; the saved query has zero invented query_reference edges. The unresolved id column also has an UNKNOWN record."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Partition and composite foreign-key structure are preserved",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Child-to-parent partition edge edge:3bd9b12e79b1ed42379a3de5; composite FK ordered columns and customer_id->CustomerID / region->region edges exist. Inherited columns and bounds remain UNKNOWN."
+    },
+    {
+      "claim": "Recorded CLI validation/analysis commands were actually retained",
+      "type": "process",
+      "verified": true,
+      "evidence": "execution.json retains 11 commands with argv, exit codes and stdout/stderr. Nonzero outcomes are retained, not erased: 2."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "No per-case model token usage or assistant-duration telemetry exists; timing and execution_metrics are omitted rather than fabricated.",
+      "One runner handles all eight cases per configuration; these are single trials, not eight independent model sessions."
+    ],
+    "needs_review": [],
+    "workarounds": [
+      "Retained nonzero commands: 2; see execution.json for corrected checker / intentional ambiguous selector."
+    ]
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "The prompt requires partitioning and composite FK preservation, but none of its original assertions requires them. Add checks for partition kind/ownership and both ordered FK column mappings. Also add user-defined type names containing commas, dots and quotes to test overload identity collisions."
+      }
+    ],
+    "overall": "Assertions passed only where saved content and source evidence support them. Important unasserted gaps remain; see suggestions and iteration-2/analysis.md."
+  }
+}

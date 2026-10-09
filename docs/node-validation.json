@@ -1,0 +1,557 @@
+{
+  "version": "0.3.0",
+  "recorded_at": "2026-10-09T19:32:00.902Z",
+  "platform": "win32",
+  "node": "24.15.0",
+  "pnpm": "12.10.1",
+  "local_postgresql": "18.3",
+  "scope": "Local source/content and artifact verification. No remote CI, publication, production migration, downtime or full-runtime-coverage claim.",
+  "tests": {
+    "offline": {
+      "passed": 99,
+      "failed": 0,
+      "skipped": 2,
+      "total": 101,
+      "duration_ms": 12542.4404
+    },
+    "browser": {
+      "startTime": "2026-10-09T19:20:53.540Z",
+      "duration": 59149.840000000004,
+      "expected": 51,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "isolated_live": {
+      "passed": 2,
+      "failed": 0,
+      "total": 2,
+      "duration_ms": 5560.148,
+      "shipped_schema_diff_files_executed": 7,
+      "migration_proposals_executed": 0
+    },
+    "baseline_snapshot_setup_focused_rerun": {
+      "passed": 1,
+      "reason": "Ensure tmp parent exists in a clean checkout independently of other tests."
+    }
+  },
+  "creator": {
+    "new_skill_assertions": "25/25",
+    "previous_skill_assertions": "25/25",
+    "independent_artifact_checks": 103,
+    "paired_sample_scope": "One executor per configuration, eight cases in shared context, one run per case.",
+    "frozen_source_manifest": "evals/results/iteration-2/source-manifest.json",
+    "exact_commands_receipt": "evals/results/iteration-2/creator-receipt.json",
+    "initial_failures_retained": true,
+    "post_evaluation_changes": [
+      "Generic phase wording and catalog hash instructions",
+      "Documentation enlarged-text/accessibility adjustments",
+      "Immediate report tabs",
+      "Creator viewer UTF8/staging/delimiter correction",
+      "Reusable baseline workspace/ref with freeze protection"
+    ],
+    "browser": {
+      "runs": 16,
+      "grades": 50,
+      "ids": [
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8
+      ],
+      "errors": [],
+      "external_requests_blocked": true,
+      "outputs_and_benchmark_rendered": true,
+      "original_grades_equal": 16,
+      "original_utf8_text_outputs_equal": 189,
+      "creator_universal_newline_normalization": true
+    },
+    "package": {
+      "installed_creator_packager_exit": 0,
+      "validation": "Skill is valid!",
+      "member_hashes_match_node_archive": true,
+      "members": 92,
+      "node_archive_sha256": "c5280f1e2f50a53b63729a26ad31e83d3bcf97bb221030d62b0be054d88eb2fb",
+      "creator_archive_sha256": "cca5466959f069edec7fc12f7c52377402b7d1d4330a6c2b1d8798001d746143",
+      "normalization": "Creator archive is validation-only; deterministic Node archive is the release asset."
+    },
+    "trigger_accuracy": null,
+    "human_qualitative_review": "pending"
+  },
+  "build": {
+    "typecheck": true,
+    "production_webpage": true,
+    "formatting": true,
+    "frozen_pnpm_install": true,
+    "curated_byte_reproducible_artifacts": 18
+  },
+  "packages": {
+    "artifacts": [
+      {
+        "artifact": "dist/v0.3.0/database-dependency-migration-0.3.0.tgz",
+        "sha256": "0a49f1a1edf13b00086e92035702ccf91afa04046c6db5c29f892980b3abc3e0",
+        "byte_identical_second_build": true
+      },
+      {
+        "artifact": "dist/v0.3.0/database-dependency-migration.skill",
+        "sha256": "c5280f1e2f50a53b63729a26ad31e83d3bcf97bb221030d62b0be054d88eb2fb",
+        "byte_identical_second_build": true
+      },
+      {
+        "artifact": "dist/database-dependency-migration-site-0.3.0.zip",
+        "sha256": "71f74a9c1c1b579007b9d4c0da815b3f634258f6c004d8f5db88aaadc8373d2e",
+        "byte_identical_second_build": true
+      }
+    ],
+    "fresh_outside_checkout_node_only_smoke": {
+      "package": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\dist\\v0.3.0\\database-dependency-migration-0.3.0.tgz",
+      "outside_checkout": true,
+      "fresh_environment": true,
+      "node_only": true,
+      "npm": {
+        "doctor": true,
+        "demo_models_valid": 3,
+        "bundled_resources": "passed"
+      },
+      "skill_install": "pnpm frozen production lockfile",
+      "skill": {
+        "doctor": true,
+        "demo_models_valid": 3,
+        "bundled_resources": "passed",
+        "artifact": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\dist\\v0.3.0\\database-dependency-migration.skill"
+      }
+    }
+  },
+  "reviews": {
+    "engine": "Independent review approved after five reproduced fixes; generic phase wording later approved separately.",
+    "ui": "Independent review approved enlarged Spanish header/sidebar, instant report tabs and offline preference behavior.",
+    "evaluation": "Independent final review verified original UTF8 grades/text, staging hashes and embedded benchmark; no remaining blockers."
+  },
+  "limitations": [
+    "Node 22.18 minimum not tested locally; local runtime is Node 24.15.0.",
+    "Browser tests use Chromium, not a physical-device/browser matrix.",
+    "ESP localizes interface; analytical text and CLI/Markdown remain English.",
+    "Plans are conditional review checklists; data transformations and target-schema replay remain partial/unavailable.",
+    "Catalog/runtime/ORM/dynamic/nested-scope coverage is partial or UNKNOWN.",
+    "Viewer caps 350 nodes, 40 path previews and 16 preview steps; canonical export remains complete.",
+    "Creator viewer omits nested bundles; full artifacts remain in sibling workspace.",
+    "Creator/historical baseline own their Python environment; shipped toolkit has no Python source/dependency.",
+    "Historical baseline bytecode cleanup was blocked by automatic approval review and is audited."
+  ],
+  "source_hash_scope": "Application, schemas, viewer/site, tooling, tests, skill instructions and dependency lockfiles. Documentation/evaluation receipts are separate and not self-hashed.",
+  "sources": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "0cd3428d8ca78edefdded311f217ed75bd94e2a6a3118446bddaef1594a0783e"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "e2c7e1620332a61dcd1c2c17d4f2364bf8ba0572c792de6c83e53f7881f96721"
+    },
+    {
+      "path": "assets/viewer/archivo-LICENSE",
+      "sha256": "c3c8402eec0e31dc9a76851235b1c02a0bb821488b2db8e35bcc2ab60ca8fc2b"
+    },
+    {
+      "path": "assets/viewer/archivo-latin-wght-normal.woff2",
+      "sha256": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967"
+    },
+    {
+      "path": "assets/viewer/bootstrap.js",
+      "sha256": "42b902aac224834da6298ef0db40368c66f6f815d93764f8cfcc0d910b44364b"
+    },
+    {
+      "path": "assets/viewer/ibm-plex-mono-LICENSE",
+      "sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f"
+    },
+    {
+      "path": "assets/viewer/ibm-plex-mono-latin-400-normal.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "assets/viewer/locales.js",
+      "sha256": "0e976ae36572415d81186ad972a3106f66c5108146bf8a966642d2d66d3ffb67"
+    },
+    {
+      "path": "assets/viewer/template.html",
+      "sha256": "ff6b4eafd42dc5a44341c33d6256530fecd70e6143ff8520c3429b9d67717834"
+    },
+    {
+      "path": "assets/viewer/viewer.css",
+      "sha256": "50d938d01a5621b148a244fd7f37474af1bfe1e252a5f3db9351485cbbed28e3"
+    },
+    {
+      "path": "assets/viewer/viewer.js",
+      "sha256": "34b71d706ede42895669e39a722801ac4d49b5f0477cb4d1c7b73846685458c9"
+    },
+    {
+      "path": "package.json",
+      "sha256": "ff39a8d7f0f6dddb5080a59c44b5f7497fbef7a788b3722f730ea37fb05d020d"
+    },
+    {
+      "path": "playwright.config.mjs",
+      "sha256": "9eee7671b82be9ddc2e5d469279f3d12bfde7e5ee407b61d1470d5946d086923"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "b1b5b9a126e21987bcca0ca0403287f3eee152ac055de55b96ea244897806d0c"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "5dd5258906b0f17359a6db5f90d76e49f5c35439a1a258757871df72e4c5d488"
+    },
+    {
+      "path": "schemas/dbdep.schema.json",
+      "sha256": "a0034b4ef957bb54b816b0c14bc1fc5fe0b7d2766eb8f6f68a2c8bcd71bb01f8"
+    },
+    {
+      "path": "schemas/findings.schema.json",
+      "sha256": "f52b5b31499c656da5e8a1d119ed502bdd3d7ee2c8e7062acf87d194131cc751"
+    },
+    {
+      "path": "schemas/report.schema.json",
+      "sha256": "17f1bed7e16f150de0ff9ee37ae23b429343f057ece308a7d4ee8825ad905927"
+    },
+    {
+      "path": "scripts/benchmark.mjs",
+      "sha256": "c845f33472aeef574d96734ff1e29371ea6880a02f33d80ba09e072b2bf83bdd"
+    },
+    {
+      "path": "scripts/capture-screenshots.mjs",
+      "sha256": "61c30173d7eec14f487cfd3c42de89b65e61b58db71e1463a62976c9a1caa2de"
+    },
+    {
+      "path": "scripts/capture-site-screenshots.mjs",
+      "sha256": "ec4b422e4fa9cf4fa897bb0c7458348c4a838075d35576a54d8bd04e44606365"
+    },
+    {
+      "path": "scripts/collect-evaluations.mjs",
+      "sha256": "3822181759af372a705e3141a5c07a836ca5668d828dc346f634eab55af15f1d"
+    },
+    {
+      "path": "scripts/dbdep.mjs",
+      "sha256": "f55053f14285fc0d12518cfd12bda6faf52e3aef077ec1f871e250fdc9ab43bb"
+    },
+    {
+      "path": "scripts/finalize-evaluations.mjs",
+      "sha256": "c2239ec566902c033654163298e3062176928c798e912b71d80c04c0e40b2c6f"
+    },
+    {
+      "path": "scripts/fixture-cluster.mjs",
+      "sha256": "9f9a808a12e9de89b51fb0091ced99fb2199fc09e82c6f7e0a88be7610b9f9db"
+    },
+    {
+      "path": "scripts/package-site.mjs",
+      "sha256": "81be47fdbae4e29062d90bf62ef1acbf71898f49b9294a8b8b48cb44dbf3f1d8"
+    },
+    {
+      "path": "scripts/package-skill.mjs",
+      "sha256": "c3e25bb1f76791f62d126cfa8ea3bce4dee3479966803384303a41afc61cbdb0"
+    },
+    {
+      "path": "scripts/prepare-baseline.mjs",
+      "sha256": "ecae7eaffcd1f13d15a7c5a586ff4d136f055edc1cb187ae81055bf96733f526"
+    },
+    {
+      "path": "scripts/prepare-evaluations.mjs",
+      "sha256": "fc2d264aeace0d328f11af2d40bdfd68a2e1012c214cfdddb226b2db5ed4c19c"
+    },
+    {
+      "path": "scripts/sanitize-creator-viewer.mjs",
+      "sha256": "3c2789258da3af0c22d1825ace5a264d172f524072fb946ec2852f007423cca3"
+    },
+    {
+      "path": "scripts/setup-ci-fixture.mjs",
+      "sha256": "1495256e7bc5e5ccaa7b49327bd2d36e8a6c00b26bcb3b9d61c6aa48fe2203d3"
+    },
+    {
+      "path": "scripts/smoke-artifacts.mjs",
+      "sha256": "6092bfe36f28f96be3f9205e973b5a7a3437621268d5158eb70a51f5d103b7ab"
+    },
+    {
+      "path": "scripts/stage-evaluation-viewer.mjs",
+      "sha256": "f5c8a4f8778692e5530dae447020548b4398cd7a278063857b7a572ef93b8297"
+    },
+    {
+      "path": "scripts/tooling.mjs",
+      "sha256": "f4f494c2bad14b2c5d1b7561d0156d6b51b83f3aaac20f7d8e026529a0d512e7"
+    },
+    {
+      "path": "scripts/verify-examples.mjs",
+      "sha256": "10b53f3af7badad237d4afc71ef07b8b9eb02850686a657760236e0b43e8d336"
+    },
+    {
+      "path": "site/package.json",
+      "sha256": "2dc2ea783531760fdc9a626c696985b42ee340a0fa4d6363ba01561efa31baf6"
+    },
+    {
+      "path": "site/scripts/capture-docs.mjs",
+      "sha256": "689d99a93806e3df51b49c77828dfd10262da7657d062b0b31b5af125db1a64d"
+    },
+    {
+      "path": "site/scripts/prepare-demos.mjs",
+      "sha256": "fe1a0ba9a36d76526b8d81b63ddad1045692d7356bb8e51653172589e9b92cd8"
+    },
+    {
+      "path": "site/src/App.tsx",
+      "sha256": "2696daaa7b90a41ca6234b5015e1efcb8ec6e974774c857a3c9ea7e9ccd873bf"
+    },
+    {
+      "path": "site/src/components/AnalysisFlow.tsx",
+      "sha256": "0a2e0d0f8062261385c76f0b01f37488002d1f11183a925980a36273e5ff8687"
+    },
+    {
+      "path": "site/src/components/CopyButton.tsx",
+      "sha256": "30124773269fcabb48005fa4e4809b93f358a416fccb3b4ad34a1dfa8ea6b878"
+    },
+    {
+      "path": "site/src/components/Documentation.tsx",
+      "sha256": "70e8326d993dab6f60567c3c645214eac3e0311b09c68fed240583f43af87d37"
+    },
+    {
+      "path": "site/src/components/Examples.tsx",
+      "sha256": "e00584ecd7c39540779aca1d966b1434f32ba69f10a1a142eaf8e1e3a734ea71"
+    },
+    {
+      "path": "site/src/components/Icons.tsx",
+      "sha256": "dd6f1cbd0f881ae569a8b16ba7c7dc11905b0c593549a0033b59b8d786ab9648"
+    },
+    {
+      "path": "site/src/components/ImpactStudy.tsx",
+      "sha256": "c62548cc40d47731dfb32375532fa4794d04982c6c84c9c7e576a30c0f32928b"
+    },
+    {
+      "path": "site/src/components/Preferences.tsx",
+      "sha256": "f66241fdb4d92f5ada76c67ba32b09fa16213d9e9a5df89240f211b21a493c9e"
+    },
+    {
+      "path": "site/src/components/react-bits/BlurText.tsx",
+      "sha256": "b00b1359d9212b61d4abc755c128ac209f7d80468db60095995da1dc6a74bdb3"
+    },
+    {
+      "path": "site/src/components/react-bits/DotGrid.tsx",
+      "sha256": "3b35d33c6210bc64bd1c0d384a15ab03787226d7ebdf904eafab8d6d3eadbf88"
+    },
+    {
+      "path": "site/src/components/react-bits/Magnet.tsx",
+      "sha256": "fa2b868b8a73dfab94df7ebe5f5e1b719c1422f8d023f53d1b8d3b5134f4118a"
+    },
+    {
+      "path": "site/src/data/demos.json",
+      "sha256": "a0858fb445453d3b7a7048179ac9554b00bef2e41f45fe0cf976c8182663d802"
+    },
+    {
+      "path": "site/src/docs.ts",
+      "sha256": "2e88791178cba29cfa380b352309921a334dda5ea32b984cbe7f305e1505760a"
+    },
+    {
+      "path": "site/src/i18n.ts",
+      "sha256": "f76eb5ca49c29ec2244526933af680261d618bf732f71a656620421055d23e2e"
+    },
+    {
+      "path": "site/src/main.tsx",
+      "sha256": "ffe8a72f7b36269925c2633c5329f2aaa34749f4c428aad8dabb9aa091315f26"
+    },
+    {
+      "path": "site/src/styles.css",
+      "sha256": "9bb143b1e8896545eb389b553890feb425a86b0d82d7a0d35952abbcdaaeea9b"
+    },
+    {
+      "path": "site/src/usePageMotion.ts",
+      "sha256": "a39343329cf041760b3a16546b0c4c1468882290eaade8c16e0c0bac1f48ee5d"
+    },
+    {
+      "path": "site/src/useReducedMotion.ts",
+      "sha256": "78786caab01b8eb1fe125524d9d84f3a4edb87fab5d0e8032863dfe3e27f6063"
+    },
+    {
+      "path": "site/src/vite-env.d.ts",
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "src/dbdep/__pycache__/__init__.cpython-314.pyc",
+      "sha256": "b456d19aad956a31c19e68681c57eec9316326e047c62f3bb3b99e99650c6865"
+    },
+    {
+      "path": "src/dbdep/__pycache__/catalog.cpython-314.pyc",
+      "sha256": "2a5b595024c840c067164b72273034770fd1907428c613aa98465720a3f2f5c0"
+    },
+    {
+      "path": "src/dbdep/__pycache__/cli.cpython-314.pyc",
+      "sha256": "a2e7d7d250404b6190314d6cd7944a0cb29e6c7b92bc5f859a2c39058ed8155d"
+    },
+    {
+      "path": "src/dbdep/__pycache__/engine.cpython-314.pyc",
+      "sha256": "1d2ec74cc9a799bb77b006407910422451655df0df897bc2989038d87487abdc"
+    },
+    {
+      "path": "src/dbdep/__pycache__/graph.cpython-314.pyc",
+      "sha256": "64b6b01d4a35593913d231a6a65a316aa822b86e148995121add78dfffb78e9b"
+    },
+    {
+      "path": "src/dbdep/__pycache__/model.cpython-314.pyc",
+      "sha256": "4309803f300e9f978e915e4b10c5dffeb3ddcd1614f2a8c521a301311f0e5239"
+    },
+    {
+      "path": "src/dbdep/__pycache__/planning.cpython-314.pyc",
+      "sha256": "2f0b94d924c80a70b6cfdd86315895221fc7f15bb151f56c195f6effacdf46b6"
+    },
+    {
+      "path": "src/dbdep/__pycache__/reports.cpython-314.pyc",
+      "sha256": "9d7cd391637f07da7bafc6fdde82f3bd2c5463490df6dfae4eff822b1b19fe45"
+    },
+    {
+      "path": "src/dbdep/__pycache__/rules.cpython-314.pyc",
+      "sha256": "d2b39755e29743943b4e42a3030237e681c503ba96a2dff5fcc48fb6dfc2f904"
+    },
+    {
+      "path": "src/dbdep/__pycache__/sql.cpython-314.pyc",
+      "sha256": "d62c5479163122ec4ae1ba6363b6d6495688523ca162483947dfab053cb0bcab"
+    },
+    {
+      "path": "src/dbdep/catalog.mjs",
+      "sha256": "4a7891fdec3dccf58b457fa35c7762fdd1fe71bd932884a7501cf011ef6428ef"
+    },
+    {
+      "path": "src/dbdep/cli.mjs",
+      "sha256": "e16d05f0537b08c3320f6ed25334a8d87f5217c0aaa36c638c15d579148cac29"
+    },
+    {
+      "path": "src/dbdep/engine.mjs",
+      "sha256": "8a8f8e45c9499b268073d97901bd56b2f66c61e5c581ca4def62273aa5adfcc1"
+    },
+    {
+      "path": "src/dbdep/graph.mjs",
+      "sha256": "0b88c0b4612b73ee4912482db93f2ee264d4ac8474058c7d07c1ec920450d103"
+    },
+    {
+      "path": "src/dbdep/model.mjs",
+      "sha256": "092faf2204e6b123d3a072ef18f2b44172ed7ba8b7d27f1723e44a5b608b249b"
+    },
+    {
+      "path": "src/dbdep/planning.mjs",
+      "sha256": "f5540795a3a5b895aa142890ac9fb8a99d81bdcc376d1641d24598cb12210cb0"
+    },
+    {
+      "path": "src/dbdep/reports.mjs",
+      "sha256": "558c9e5c78139494df15ca9e08e6f843ae85d60cfebbd215586e7a32d01e060f"
+    },
+    {
+      "path": "src/dbdep/rules.mjs",
+      "sha256": "e8d1f5fa3d3ee259d519f33047c5b1c5e45c8c47f504128aa78bcb008360f04c"
+    },
+    {
+      "path": "src/dbdep/sql.mjs",
+      "sha256": "bdedf87821aa07a2a7a0e45d075a274f96661c60293cf1ff10b06e5d64e97c25"
+    },
+    {
+      "path": "tests/browser/creator-viewer.spec.mjs",
+      "sha256": "2573b2f2cf01a1e58a774b3044c44607fface04dbfcb24885c4cca9e06eb063b"
+    },
+    {
+      "path": "tests/browser/report-preferences.spec.mjs",
+      "sha256": "dd257f5c6d30f238b8ff3b7c553f9dc0cbceb1287f6efeda8edbe136033e0e06"
+    },
+    {
+      "path": "tests/browser/site-docs.spec.mjs",
+      "sha256": "58bc8e434d22f3b1a60f3e014e31d83cdd94ecfd151d261562a1cb55ae0023d5"
+    },
+    {
+      "path": "tests/browser/site-regressions.spec.mjs",
+      "sha256": "a7eea3d102359ae5cb8768db7a470ad63538773c9cae279601f2e1e35d3367da"
+    },
+    {
+      "path": "tests/node/engine-extra.test.mjs",
+      "sha256": "7d40358b75e5e2f669ee8b7de5415f3e055dd18d93b4a0060b93a53ce9d64d39"
+    },
+    {
+      "path": "tests/node/engine-review-fixes.test.mjs",
+      "sha256": "2d772f58f6dbe596a86e46f74168c5294c61c04d1cc311f49b1daf1d0b6c13ea"
+    },
+    {
+      "path": "tests/node/engine.test.mjs",
+      "sha256": "8b26652dc7509b3306d7a87dda06ad5be8c83ee473cbf71c8738ad64388d2737"
+    },
+    {
+      "path": "tests/node/evaluation-snapshot.test.mjs",
+      "sha256": "e8835f054bec9a6508e7429bd34fc0f2e081a513a20d22beafc7efddfb070271"
+    },
+    {
+      "path": "tests/node/integration.test.mjs",
+      "sha256": "69e8642ac3893cae691d17d079263cce735188ad4a944bd33e7dfa8a40c8fcf1"
+    },
+    {
+      "path": "tests/node/live.test.mjs",
+      "sha256": "26ede15dd52c69c4257875ff3a6d7d45d7b9db3fb8945978c75eeee05c9a603a"
+    }
+  ],
+  "transcripts": [
+    {
+      "path": "out/node-tests.log",
+      "sha256": "8a26601313ceb36c9a3fbb7328ea495d7e0bd215e932c56eb66db8950c1148ea",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/node-live.log",
+      "sha256": "024de5a19681163f77ceb9cac8fd2bac6637675963959bc186b1eae8c264b1b9",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/node-browser.log",
+      "sha256": "8d9285c7c937681da2fe054285f072a07827820e39fc92b8b4ee8139a1079f41",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/node-install.log",
+      "sha256": "c06988760988cc91eee16dc3daaf2e459b6985355c83c5381d06646c2b79ec96",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/node-build.log",
+      "sha256": "283a5c8446879f52e5ff32e5b5450ce2ba2a70faa1ff37bc581d14778d41c938",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/node-format.log",
+      "sha256": "d2fdcf2ae18059bb8a38c8346983311bc6799544ed66001629faabc7ca822a0f",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/node-example-verification.log",
+      "sha256": "d6917af9f103fce9f9a92b5146662e00e8ef12387f0534b0993a5c0296f5f597",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/node-artifact-smoke.log",
+      "sha256": "595eea9f290b086a172cf4d65b0e66afe4a0eeb313ce860d2a90b74e49d03ebf",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/creator-package.log",
+      "sha256": "b6bc1f945845dc3a1f8fe9f6027820018322699fe88a1d85ecf593703dcb9a67",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/creator-rich-validation.log",
+      "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4",
+      "retained": "local ignored out directory"
+    },
+    {
+      "path": "out/creator-system-validation.log",
+      "sha256": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4",
+      "retained": "local ignored out directory"
+    }
+  ]
+}

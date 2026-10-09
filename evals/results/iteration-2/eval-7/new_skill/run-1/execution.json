@@ -1,0 +1,260 @@
+{
+  "eval_id": 7,
+  "prompt": "Generate a canonical dependency model, Markdown and standalone HTML from ecommerce/schema.sql. Validate graph integrity and consistency of stable identifiers and counts across outputs.",
+  "configuration": "new_skill",
+  "trial": "run-1",
+  "isolation": "Eight cases executed by one runner agent in one session; not independent model trials.",
+  "skill_snapshot": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\SKILL.md",
+  "toolkit_entrypoint": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+  "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+  "sql_executed": false,
+  "live_database_connections": false,
+  "commands": [
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "inspect",
+        "--ddl",
+        "examples/ecommerce/schema.sql",
+        "--out",
+        "../eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs inspect --ddl examples/ecommerce/schema.sql --out ../eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:55.592Z",
+      "ended_at": "2026-10-09T18:58:56.224Z",
+      "wall_time_ms": 628.5273,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\"model\":\"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-7\\\\new_skill\\\\run-1\\\\outputs\\\\ecommerce.dbdep.json\",\"summary\":{\"nodes\":50,\"edges\":88,\"evidence\":10,\"unknowns\":8,\"findings\":0,\"severity_counts\":{\"info\":0,\"warning\":0,\"error\":0}}}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\ecommerce.dbdep.json",
+          "bytes": 90884,
+          "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "validate",
+        "../eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json",
+        "--strict",
+        "--json"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs validate ../eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json --strict --json",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:56.778Z",
+      "ended_at": "2026-10-09T18:58:57.197Z",
+      "wall_time_ms": 415.8297,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\ecommerce.dbdep.json",
+          "bytes": 90884,
+          "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "docs",
+        "../eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json",
+        "--out",
+        "../eval-7/new_skill/run-1/outputs/report.md"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs docs ../eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json --out ../eval-7/new_skill/run-1/outputs/report.md",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:57.768Z",
+      "ended_at": "2026-10-09T18:58:58.167Z",
+      "wall_time_ms": 395.4835,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\"artifact\":\"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-7\\\\new_skill\\\\run-1\\\\outputs\\\\report.md\"}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\ecommerce.dbdep.json",
+          "bytes": 90884,
+          "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\report.md",
+          "bytes": 26503,
+          "sha256": "11bd62bf07e0a5cd220dd6d466b6247a3c7e8478732faa814fc1e6188bc591bf"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs",
+        "render",
+        "../eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json",
+        "--out",
+        "../eval-7/new_skill/run-1/outputs/dependencies.html"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\skill-snapshot\\scripts\\dbdep.mjs render ../eval-7/new_skill/run-1/outputs/ecommerce.dbdep.json --out ../eval-7/new_skill/run-1/outputs/dependencies.html",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T18:58:58.743Z",
+      "ended_at": "2026-10-09T18:58:59.165Z",
+      "wall_time_ms": 417.7666,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\"artifact\":\"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-7\\\\new_skill\\\\run-1\\\\outputs\\\\dependencies.html\"}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\dependencies.html",
+          "bytes": 226812,
+          "sha256": "0dd75ac3e8ebf268939d8757a4c658fd55be82b3b0dcec098174110b6b3e5b84"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\ecommerce.dbdep.json",
+          "bytes": 90884,
+          "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\report.md",
+          "bytes": 26503,
+          "sha256": "11bd62bf07e0a5cd220dd6d466b6247a3c7e8478732faa814fc1e6188bc591bf"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "purpose": "Built-in Node artifact verification; no toolkit replacement or SQL execution.",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\verify-artifacts.mjs"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\verify-artifacts.mjs",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T19:00:39.949Z",
+      "ended_at": "2026-10-09T19:00:40.062Z",
+      "wall_time_ms": 109.13380000000001,
+      "exit_code": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "file:///C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-7/new_skill/run-1/outputs/verify-artifacts.mjs:31\r\n  check(`${label} summary count matches model arrays and Markdown`, model.summary[field] === count && markdown.includes(`${label}: ${count}.`), {count,model_summary:model.summary[field]});\r\n                                                                                 ^\r\n\r\nTypeError: Cannot read properties of undefined (reading 'nodes')\r\n    at file:///C:/Users/josed/Desktop/Jose/whetstone-dev/database-dependency-migration-workspace/iteration-2/eval-7/new_skill/run-1/outputs/verify-artifacts.mjs:31:82\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)\r\n    at async node:internal/modules/esm/loader:639:26\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\r\n\r\nNode.js v24.15.0\r\n",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\dependencies.html",
+          "bytes": 226812,
+          "sha256": "0dd75ac3e8ebf268939d8757a4c658fd55be82b3b0dcec098174110b6b3e5b84"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\ecommerce.dbdep.json",
+          "bytes": 90884,
+          "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\report.md",
+          "bytes": 26503,
+          "sha256": "11bd62bf07e0a5cd220dd6d466b6247a3c7e8478732faa814fc1e6188bc591bf"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\verify-artifacts.mjs",
+          "bytes": 3940,
+          "sha256": "a29de74e1fa96ab521f40124e10a330cd1cb6f716cc1c596de61122bbf8fefe4"
+        }
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "purpose": "Built-in Node artifact verification; no toolkit replacement or SQL execution.",
+      "argv": [
+        "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\verify-artifacts.mjs"
+      ],
+      "command": "node C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\verify-artifacts.mjs",
+      "cwd": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\inputs",
+      "started_at": "2026-10-09T19:00:59.095Z",
+      "ended_at": "2026-10-09T19:00:59.236Z",
+      "wall_time_ms": 135.37009999999998,
+      "exit_code": 0,
+      "signal": null,
+      "stdout": "{\n  \"checked_at\": \"2026-10-09T19:00:59.219Z\",\n  \"checker\": \"Node.js built-ins only; reads saved artifacts without importing the engine.\",\n  \"checks\": [\n    {\n      \"name\": \"JSON parses and HTML embedded model deep-equals canonical JSON\",\n      \"passed\": true,\n      \"detail\": {\n        \"canonical\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-7\\\\new_skill\\\\run-1\\\\outputs\\\\ecommerce.dbdep.json\",\n        \"html\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-7\\\\new_skill\\\\run-1\\\\outputs\\\\dependencies.html\"\n      }\n    },\n    {\n      \"name\": \"Node identifiers are unique\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 50\n      }\n    },\n    {\n      \"name\": \"Edge identifiers are unique\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 88\n      }\n    },\n    {\n      \"name\": \"No dangling edge endpoints\",\n      \"passed\": true,\n      \"detail\": {\n        \"danglingEdges\": []\n      }\n    },\n    {\n      \"name\": \"Every edge evidence identifier exists\",\n      \"passed\": true,\n      \"detail\": {\n        \"missingEvidence\": []\n      }\n    },\n    {\n      \"name\": \"Nodes model array count matches Markdown\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 50\n      }\n    },\n    {\n      \"name\": \"Nodes HTML summary count matches model summary\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 50,\n        \"html_summary\": 50\n      }\n    },\n    {\n      \"name\": \"Edges model array count matches Markdown\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 88\n      }\n    },\n    {\n      \"name\": \"Edges HTML summary count matches model summary\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 88,\n        \"html_summary\": 88\n      }\n    },\n    {\n      \"name\": \"Evidence model array count matches Markdown\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 10\n      }\n    },\n    {\n      \"name\": \"Evidence HTML summary count matches model summary\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 10,\n        \"html_summary\": 10\n      }\n    },\n    {\n      \"name\": \"Findings model array count matches Markdown\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 0\n      }\n    },\n    {\n      \"name\": \"Findings HTML summary count matches model summary\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 0,\n        \"html_summary\": 0\n      }\n    },\n    {\n      \"name\": \"Unknowns model array count matches Markdown\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 8\n      }\n    },\n    {\n      \"name\": \"Unknowns HTML summary count matches model summary\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 8,\n        \"html_summary\": 8\n      }\n    },\n    {\n      \"name\": \"Markdown contains every nodes stable identifier\",\n      \"passed\": true,\n      \"detail\": {\n        \"checked\": 50,\n        \"missing\": []\n      }\n    },\n    {\n      \"name\": \"Markdown contains every edges stable identifier\",\n      \"passed\": true,\n      \"detail\": {\n        \"checked\": 88,\n        \"missing\": []\n      }\n    },\n    {\n      \"name\": \"Markdown contains every evidence stable identifier\",\n      \"passed\": true,\n      \"detail\": {\n        \"checked\": 10,\n        \"missing\": []\n      }\n    },\n    {\n      \"name\": \"HTML stable node IDs equal canonical IDs in order\",\n      \"passed\": true,\n      \"detail\": {\n        \"count\": 50\n      }\n    },\n    {\n      \"name\": \"HTML has no external script, stylesheet, image or iframe source\",\n      \"passed\": true,\n      \"detail\": {\n        \"checked\": \"HTML resource tags only; links to documentation are not network dependencies.\"\n      }\n    }\n  ],\n  \"valid\": true,\n  \"counts\": {\n    \"nodes\": 50,\n    \"edges\": 88,\n    \"evidence\": 10,\n    \"findings\": 0,\n    \"unknowns\": 8\n  },\n  \"source_artifacts\": [\n    {\n      \"path\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-7\\\\new_skill\\\\run-1\\\\outputs\\\\ecommerce.dbdep.json\",\n      \"sha256\": \"b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73\"\n    },\n    {\n      \"path\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-7\\\\new_skill\\\\run-1\\\\outputs\\\\dependencies.html\",\n      \"sha256\": \"0dd75ac3e8ebf268939d8757a4c658fd55be82b3b0dcec098174110b6b3e5b84\"\n    },\n    {\n      \"path\": \"C:\\\\Users\\\\josed\\\\Desktop\\\\Jose\\\\whetstone-dev\\\\database-dependency-migration-workspace\\\\iteration-2\\\\eval-7\\\\new_skill\\\\run-1\\\\outputs\\\\report.md\",\n      \"sha256\": \"11bd62bf07e0a5cd220dd6d466b6247a3c7e8478732faa814fc1e6188bc591bf\"\n    }\n  ],\n  \"limitations\": [\n    \"No browser interaction, visual inspection or database execution was performed.\",\n    \"Internal graph consistency does not prove complete runtime consumers or PostgreSQL binding.\"\n  ]\n}\n",
+      "stderr": "",
+      "spawn_error": null,
+      "output_files_after_command": [
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\consistency-check.json",
+          "bytes": 4823,
+          "sha256": "bd9a30217172195374cfa33af82fc242b52968654847e2271a937d938d87219b"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\dependencies.html",
+          "bytes": 226812,
+          "sha256": "0dd75ac3e8ebf268939d8757a4c658fd55be82b3b0dcec098174110b6b3e5b84"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\ecommerce.dbdep.json",
+          "bytes": 90884,
+          "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\report.md",
+          "bytes": 26503,
+          "sha256": "11bd62bf07e0a5cd220dd6d466b6247a3c7e8478732faa814fc1e6188bc591bf"
+        },
+        {
+          "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\verify-artifacts.mjs",
+          "bytes": 3858,
+          "sha256": "23ebd708b893736c346b27d1dbc556b5581ee96dadc428fdc21213eeab80217f"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The initial auxiliary verifier failed due to a wrong summary-field assumption; its actual exit and stderr are retained. Corrected saved-artifact verification passed.",
+    "No browser interaction, visual inspection or database binding/execution."
+  ],
+  "output_saved_at": "2026-10-09T19:03:44.352Z",
+  "response_file": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\response.md",
+  "output_files": [
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\consistency-check.json",
+      "bytes": 4823,
+      "sha256": "bd9a30217172195374cfa33af82fc242b52968654847e2271a937d938d87219b"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\dependencies.html",
+      "bytes": 226812,
+      "sha256": "0dd75ac3e8ebf268939d8757a4c658fd55be82b3b0dcec098174110b6b3e5b84"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\ecommerce.dbdep.json",
+      "bytes": 90884,
+      "sha256": "b89f4e1da445a062cb846c10283b5aef878d95ad944f06281705367bef0bbc73"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\report.md",
+      "bytes": 26503,
+      "sha256": "11bd62bf07e0a5cd220dd6d466b6247a3c7e8478732faa814fc1e6188bc591bf"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\response.md",
+      "bytes": 2790,
+      "sha256": "7c4a97754e1ed9725f403612dae7db0dd43c3aeaec5d9690e792c760c2b50c84"
+    },
+    {
+      "path": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\new_skill\\run-1\\outputs\\verify-artifacts.mjs",
+      "bytes": 3858,
+      "sha256": "23ebd708b893736c346b27d1dbc556b5581ee96dadc428fdc21213eeab80217f"
+    }
+  ],
+  "metrics_note": "Command wall times are actual subprocess measurements. No per-case model tokens or independent trial duration are available; none are estimated."
+}

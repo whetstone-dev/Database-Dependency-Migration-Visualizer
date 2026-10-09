@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 - 2026-10-09
+
+Replaced the full Python application, CLI, tests and support scripts with an independent Node.js toolkit and one frozen pnpm workspace. The engine uses PostgreSQL 18's WebAssembly parser, Ajv and pg, with the same canonical schema, command flags, evidence states and review-only boundary. Python commands and wheel packaging are superseded by Node commands and npm tarballs.
+
+Added a bilingual documentation section with topic cards, grouped sidebar, command reference, direct routes, browser history and accessible mobile contents. Standalone reports now match the webpage's palette, embedded fonts and ENG/ESP/light/dark controls. Original analytical evidence and canonical JSON remain unchanged by preference changes; exported SVGs retain their active theme. Frequently used report tabs switch immediately.
+
+Added regression coverage and fixed domain naming, qualified stars, ambiguous alias/join column scopes, UTF-8 BOM provenance, quoted routine signature collisions, and chained/prepared transaction context. Unsupported resolution remains UNKNOWN. Generic phase guidance is conditional and explicitly remains a review checklist. Enlarged Spanish text now wraps header controls and scrolls the bounded documentation sidebar.
+
+The creator evaluation compares a frozen Node prerelease with the previous tagged skill. Historical evaluation evidence is retained. Local test, browser, packaging and live PostgreSQL results are recorded in docs/node-validation.md; remote CI and publication are separate.
+
 ## 0.2.0 - 2026-10-09
 
 Redesigned the skill webpage using Emil's design-engineering, animation and Apple design skills. Added persistent light/dark and ENG/ESP controls, English by default, a replayable analysis flow, and evidence-backed dependency traces that highlight on hover, focus or touch.

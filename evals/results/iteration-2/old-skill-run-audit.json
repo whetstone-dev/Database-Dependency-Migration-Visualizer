@@ -1,0 +1,166 @@
+{
+  "configuration": "old_skill",
+  "skill_version_observed": "0.2.0",
+  "python_version_observed": "3.14.4",
+  "execution_mode": "One assistant executor handled all eight exact prompts separately. This is not eight isolated assistant sessions.",
+  "cases": [
+    {
+      "eval_id": 1,
+      "status": "completed",
+      "outputs": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs",
+      "actual_response": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\outputs\\actual_response.md",
+      "execution_receipt": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-1\\old_skill\\run-1\\execution.json",
+      "command_count": 9,
+      "actual_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "missing_artifacts": []
+    },
+    {
+      "eval_id": 2,
+      "status": "completed",
+      "outputs": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-2\\old_skill\\run-1\\outputs",
+      "actual_response": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-2\\old_skill\\run-1\\outputs\\actual_response.md",
+      "execution_receipt": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-2\\old_skill\\run-1\\execution.json",
+      "command_count": 7,
+      "actual_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "missing_artifacts": []
+    },
+    {
+      "eval_id": 3,
+      "status": "completed",
+      "outputs": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-3\\old_skill\\run-1\\outputs",
+      "actual_response": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-3\\old_skill\\run-1\\outputs\\actual_response.md",
+      "execution_receipt": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-3\\old_skill\\run-1\\execution.json",
+      "command_count": 4,
+      "actual_exit_codes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "missing_artifacts": []
+    },
+    {
+      "eval_id": 4,
+      "status": "completed",
+      "outputs": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\old_skill\\run-1\\outputs",
+      "actual_response": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\old_skill\\run-1\\outputs\\actual_response.md",
+      "execution_receipt": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-4\\old_skill\\run-1\\execution.json",
+      "command_count": 5,
+      "actual_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "missing_artifacts": []
+    },
+    {
+      "eval_id": 5,
+      "status": "completed",
+      "outputs": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs",
+      "actual_response": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\outputs\\actual_response.md",
+      "execution_receipt": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-5\\old_skill\\run-1\\execution.json",
+      "command_count": 6,
+      "actual_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "missing_artifacts": []
+    },
+    {
+      "eval_id": 6,
+      "status": "completed",
+      "outputs": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-6\\old_skill\\run-1\\outputs",
+      "actual_response": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-6\\old_skill\\run-1\\outputs\\actual_response.md",
+      "execution_receipt": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-6\\old_skill\\run-1\\execution.json",
+      "command_count": 11,
+      "actual_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "missing_artifacts": []
+    },
+    {
+      "eval_id": 7,
+      "status": "completed",
+      "outputs": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\old_skill\\run-1\\outputs",
+      "actual_response": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\old_skill\\run-1\\outputs\\actual_response.md",
+      "execution_receipt": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-7\\old_skill\\run-1\\execution.json",
+      "command_count": 5,
+      "actual_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "missing_artifacts": []
+    },
+    {
+      "eval_id": 8,
+      "status": "completed",
+      "outputs": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-8\\old_skill\\run-1\\outputs",
+      "actual_response": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-8\\old_skill\\run-1\\outputs\\actual_response.md",
+      "execution_receipt": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\eval-8\\old_skill\\run-1\\execution.json",
+      "command_count": 2,
+      "actual_exit_codes": [
+        0,
+        0
+      ],
+      "missing_artifacts": []
+    }
+  ],
+  "source_hash_manifest": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-post-run-source-hashes.json",
+  "input_hash_manifest": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-post-run-input-hashes.json",
+  "generated_bytecode_manifest": "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-2\\old-skill-generated-bytecode.json",
+  "bytecode_cache_count": 9,
+  "bytecode_cleanup": "Automatic approval review rejected the cleanup action with reason: blocked by policy. Cache files remain. Subsequent CLI subprocesses set PYTHONDONTWRITEBYTECODE=1.",
+  "source_files_edited_by_executor": false,
+  "current_or_new_toolkit_inspected": false,
+  "dependencies_installed_or_modified": false,
+  "sql_executed": false,
+  "database_connection_made": false,
+  "browser_interaction_tested": false,
+  "visual_inspection_performed": false,
+  "assistant_timing_or_token_telemetry_available": false,
+  "grading_performed": false,
+  "notes": [
+    "Case 3's generated generic phase plan contains UUID text unrelated to its numeric-to-double operation; the actual response identifies this limitation.",
+    "Case 6 includes one intentional name-only ambiguous selector rejection, with actual toolkit exit code 2 and captured stderr, followed by successful stable-ID selectors.",
+    "Case 7 includes an actually executed independent JSON/HTML/Markdown consistency check with all checks passing.",
+    "Case 8 has no baseline and produces a partial high-risk review with zero graph objects. No apply action exists or was attempted.",
+    "This executor has not read the parent's pre-run manifest; post-run source and input hashes are supplied for its comparison."
+  ]
+}

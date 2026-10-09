@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "Transaction prohibition, conditional locking/rewrite and review artifacts",
+  "prompt": "Review high-traffic/migrations/007.sql against ecommerce/schema.sql with high-traffic/metadata.json. Explain definite versus conditional locking and transaction hazards. Generate a review report and standalone HTML.",
+  "assertions": [
+    "Rejects concurrent index transaction context",
+    "Explains conditional rewrite and unknown lock duration",
+    "Labels user metadata",
+    "Creates review HTML"
+  ]
+}
