@@ -11,7 +11,13 @@ import { tmpdir } from "node:os";
 import { dirname, resolve, join, relative, isAbsolute, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { unzipSync } from "fflate";
-import { ROOT, VERSION, checked_remove, save } from "./tooling.mjs";
+import {
+  ROOT,
+  VERSION,
+  checked_remove,
+  save,
+  resolve_npm_cli,
+} from "./tooling.mjs";
 const value = (flag, fallback) => {
   const i = process.argv.indexOf(flag);
   return i < 0 ? fallback : resolve(process.argv[i + 1]);
@@ -33,14 +39,9 @@ const out = value(
   "--out",
   join(ROOT, "dist", `v${VERSION}`, "artifact-smoke.json"),
 );
+const npmCli = resolve_npm_cli();
 const base = tmpdir(),
   root = mkdtempSync(join(base, "dbdep-node-smoke-"));
-const npmCli = join(
-  dirname(process.execPath),
-  "node_modules/npm/bin/npm-cli.js",
-);
-if (!existsSync(npmCli))
-  throw new Error("Install Node with npm before running artifact smoke tests");
 function run(executable, args, cwd) {
   const result = spawnSync(executable, args, {
     cwd,
