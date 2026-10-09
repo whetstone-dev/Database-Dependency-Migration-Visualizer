@@ -57,7 +57,7 @@
     "pg-connection-string": "2.14.1"
   },
   "devDependencies": {
-    "@playwright/test": "1.56.0",
+    "@playwright/test": "1.63.0",
     "fflate": "0.8.3",
     "prettier": "3.9.9"
   }
