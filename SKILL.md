@@ -3,7 +3,7 @@ name: database-dependency-migration
 description: Analyze PostgreSQL schema dependencies, explain table and column change impact, review SQL migration hazards, compare schema snapshots, and produce source-backed interactive dependency graphs and phased migration plans. Use for PostgreSQL migration review, downstream blast radius, rename/type-change analysis, or dependency exploration from DDL, SQL repositories and catalog snapshots. Analysis only; not a migration executor or a general query performance optimizer.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   author: whetstone-dev
 ---
 

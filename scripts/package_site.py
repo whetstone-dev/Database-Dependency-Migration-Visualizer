@@ -3,6 +3,7 @@
 
 import hashlib
 import json
+import tomllib
 import zipfile
 from pathlib import Path
 
@@ -26,7 +27,10 @@ def main():
     payloads["LICENSE"] = (ROOT / "LICENSE").read_bytes()
     out = ROOT / "dist"
     out.mkdir(exist_ok=True)
-    archive = out / "database-dependency-migration-site-0.1.0.zip"
+    version = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"][
+        "version"
+    ]
+    archive = out / f"database-dependency-migration-site-{version}.zip"
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as bundle:
         for name, data in sorted(payloads.items()):
             info = zipfile.ZipInfo(name, (1980, 1, 1, 0, 0, 0))
