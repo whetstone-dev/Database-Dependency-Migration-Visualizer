@@ -91,6 +91,9 @@ test("the skip link focuses the current documentation page without changing its 
   page,
 }) => {
   await page.goto(`${site}/#/docs/installation`);
+  await expect(
+    page.getByRole("link", { name: "Skip to content" }),
+  ).toBeVisible();
   await page.keyboard.press("Tab");
   await expect(
     page.getByRole("link", { name: "Skip to content" }),
