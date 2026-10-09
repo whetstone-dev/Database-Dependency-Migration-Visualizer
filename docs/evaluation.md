@@ -1,19 +1,21 @@
 # Evaluation method and results
 
+The v0.3.2 [security review](security-audit.md) hardens both delivered viewer renderers and removes external template resources. Separate decoded-data checks prove their embedded results are unchanged. Historical normalization receipts still describe their original viewer bytes. Frozen grades, run outputs, source manifests and benchmarks remain unchanged; this is not a new paired evaluation.
+
 ## Current Node comparison
 
 Iteration 2 compares a frozen Node v0.3.0 prerelease with the previous tagged v0.2.0 skill. Each configuration passes 25/25 original assertions. One executor completes all eight prompts in each configuration, with one actual run per case. The creator's case-weighted means are both 100%. This is assertion parity on supplied fixtures; it does not prove reliability, resource savings or overall improvement.
 
-| Case | Task | New Node skill | Previous skill |
-|---|---|---:|---:|
-| 1 | Customer-key impact and staged transition | 5/5 | 5/5 |
-| 2 | Catalog-backed transitive views | 3/3 | 3/3 |
-| 3 | Locking, rewrite and transaction hazards | 4/4 | 4/4 |
-| 4 | Static consumers and unknown dynamic SQL | 3/3 | 3/3 |
-| 5 | Add/drop and ambiguous rename | 2/2 | 2/2 |
-| 6 | Schema collisions, quoted identities and overloads | 3/3 | 3/3 |
-| 7 | Model, HTML and Markdown integrity | 3/3 | 3/3 |
-| 8 | Production request and analysis-only boundary | 2/2 | 2/2 |
+| Case | Task                                               | New Node skill | Previous skill |
+| ---- | -------------------------------------------------- | -------------: | -------------: |
+| 1    | Customer-key impact and staged transition          |            5/5 |            5/5 |
+| 2    | Catalog-backed transitive views                    |            3/3 |            3/3 |
+| 3    | Locking, rewrite and transaction hazards           |            4/4 |            4/4 |
+| 4    | Static consumers and unknown dynamic SQL           |            3/3 |            3/3 |
+| 5    | Add/drop and ambiguous rename                      |            2/2 |            2/2 |
+| 6    | Schema collisions, quoted identities and overloads |            3/3 |            3/3 |
+| 7    | Model, HTML and Markdown integrity                 |            3/3 |            3/3 |
+| 8    | Production request and analysis-only boundary      |            2/2 |            2/2 |
 
 The [pre-run manifest](../evals/results/iteration-2/source-manifest.json) contains frozen source and input hashes. The historical baseline comes from an actual Git archive of v0.2.0, without current-code access. Its own Python runtime is historical evaluation machinery; the new toolkit, tests and packaging use Node only. [Artifact hashes](../evals/results/iteration-2/artifact-manifest.json) describe the actual produced files. Full snapshots, inputs, models and HTML remain in the sibling evaluation workspace; retained responses, grades and receipts are unchanged copies.
 
@@ -39,16 +41,16 @@ This helper rereads actual artifacts and writes grades under the frozen iteratio
 
 The paired sample passes 25/25 assertions with the skill and 24/25 without it. The sole difference is that the baseline's case-7 Markdown does not contain model IDs. Its JSON and HTML pass graph-integrity and embedded-model checks. The other 24 assertions pass in both configurations, so they did not distinguish skill value in this sample.
 
-| Case | Task | With skill | Without skill |
-|---|---|---:|---:|
-| 1 | Customer-key impact and staged transition | 5/5 | 5/5 |
-| 2 | Catalog-backed transitive view dependencies | 3/3 | 3/3 |
-| 3 | Locking, rewrite and transaction hazards | 4/4 | 4/4 |
-| 4 | Static consumer and unknown dynamic SQL | 3/3 | 3/3 |
-| 5 | Snapshot add/drop and ambiguous rename | 2/2 | 2/2 |
-| 6 | Schema collisions and quoted/overloaded identities | 3/3 | 3/3 |
-| 7 | Model, HTML and Markdown integrity | 3/3 | 2/3 |
-| 8 | Production request with an analysis-only boundary | 2/2 | 2/2 |
+| Case | Task                                               | With skill | Without skill |
+| ---- | -------------------------------------------------- | ---------: | ------------: |
+| 1    | Customer-key impact and staged transition          |        5/5 |           5/5 |
+| 2    | Catalog-backed transitive view dependencies        |        3/3 |           3/3 |
+| 3    | Locking, rewrite and transaction hazards           |        4/4 |           4/4 |
+| 4    | Static consumer and unknown dynamic SQL            |        3/3 |           3/3 |
+| 5    | Snapshot add/drop and ambiguous rename             |        2/2 |           2/2 |
+| 6    | Schema collisions and quoted/overloaded identities |        3/3 |           3/3 |
+| 7    | Model, HTML and Markdown integrity                 |        3/3 |           2/3 |
+| 8    | Production request with an analysis-only boundary  |        2/2 |           2/2 |
 
 These are descriptive results from one sample. They do not prove general improvement, reliability or statistical significance. Each configuration used one agent session for all eight cases, so cases also share execution context. The official creator aggregator weights each case equally and reports means of 100% and 95.83%. Counting individual assertions instead gives 100% and 96%. Its standard deviation describes differences between heterogeneous cases, not uncertainty from repeated trials.
 

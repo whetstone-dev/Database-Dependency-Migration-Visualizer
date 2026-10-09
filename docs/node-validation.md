@@ -1,5 +1,7 @@
 # Node migration validation
 
+The subsequent v0.3.2 security review is recorded in [security-audit.md](security-audit.md). The counts and receipts below describe the historical Node migration release.
+
 The corrected v0.3.1 release is recorded in [release-validation.json](release-validation.json). Its static website includes the final source documentation, and the packager rejects stale copies. The v0.3.0 receipt and tag remain historical evidence. A generated website data file has a local content hash but is intentionally absent from Git. Current receipts use the Git file inventory to identify committed inputs; generated data and ignored historical Python caches have separate hashes. The caches are excluded from release packages.
 
 Version 0.3.0 replaces the Python engine, CLI, support scripts, automated tests and package metadata with Node.js ES modules and a single pnpm workspace. The canonical model stays at schema version 1.0.0. Historical v0.1.0/v0.2.0 records remain in their existing receipts and Git tags.
@@ -8,20 +10,20 @@ The local environment is Windows, Node.js 24.15.0, pnpm 12.10.1, Chromium from P
 
 Observed verification:
 
-| Check | Result |
-|---|---|
-| Frozen pnpm workspace installation | Passed |
-| Native engine and CLI suite | 100 passed; 2 isolated live tests skipped without a fixture DSN |
-| Isolated PostgreSQL cluster | 2 live tests passed; seven shipped schema/diff fixture files execute; proposals never execute; cluster stopped and removed |
-| TypeScript and production webpage build | Passed |
-| Report, documentation and creator viewer browser suite | 51 passed |
-| Curated fixture regeneration | 18 artifacts reproduce byte-for-byte |
-| Synthetic scale checks | 100, 1,000 and 5,000 objects remain complete; viewer renders at most 350 |
-| Skill creator frontmatter validators | System and installed creator both report valid |
-| Installed creator packager | Validates the clean Node skill stage; packaged member hashes match the Node release archive |
-| npm package and unpacked Agent Skill | Node-only installations outside the checkout generate and strictly validate all three demo models; skill installation uses the frozen production pnpm lockfile |
-| npm, skill and website reproducibility | All three archives reproduce byte-for-byte on a second local build |
-| Final website documentation | README and skill instructions match the final source bytes; stale copies fail before packaging |
+| Check                                                  | Result                                                                                                                                                         |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Frozen pnpm workspace installation                     | Passed                                                                                                                                                         |
+| Native engine and CLI suite                            | 100 passed; 2 isolated live tests skipped without a fixture DSN                                                                                                |
+| Isolated PostgreSQL cluster                            | 2 live tests passed; seven shipped schema/diff fixture files execute; proposals never execute; cluster stopped and removed                                     |
+| TypeScript and production webpage build                | Passed                                                                                                                                                         |
+| Report, documentation and creator viewer browser suite | 51 passed                                                                                                                                                      |
+| Curated fixture regeneration                           | 18 artifacts reproduce byte-for-byte                                                                                                                           |
+| Synthetic scale checks                                 | 100, 1,000 and 5,000 objects remain complete; viewer renders at most 350                                                                                       |
+| Skill creator frontmatter validators                   | System and installed creator both report valid                                                                                                                 |
+| Installed creator packager                             | Validates the clean Node skill stage; packaged member hashes match the Node release archive                                                                    |
+| npm package and unpacked Agent Skill                   | Node-only installations outside the checkout generate and strictly validate all three demo models; skill installation uses the frozen production pnpm lockfile |
+| npm, skill and website reproducibility                 | All three archives reproduce byte-for-byte on a second local build                                                                                             |
+| Final website documentation                            | README and skill instructions match the final source bytes; stale copies fail before packaging                                                                 |
 
 The engine implementer compared the full native output to the legacy Python output for five DDL fixtures and three ecommerce reviews before removing the old sources. Existing saved canonical models still validate. The analytics catalog's generated evidence changes because JavaScript serializes integer-valued estimates without Python's `.0`; the original authentic capture is unchanged. This is a reproducible representation change, not a newly observed database fact.
 
@@ -29,13 +31,13 @@ Independent review found and reproduced unsupported alias-column and implicit-jo
 
 The report and docs review initially blocked approval for header overflow at enlarged intermediate widths and an unreachable sticky-sidebar link. New regressions and independent probes verify 200% Spanish text at 601, 700, 820, 1000, 1101 and 1440 px. Sidebar focus now remains inside the viewport. Frequent report tab actions are immediate. Final UI review approved the changes.
 
-| Before | After | Why |
-|---|---|---|
-| Separate report palette and serif type | Same webpage colors, Archivo and IBM Plex Mono | Consistent presentation and embedded offline fonts |
-| English-only report interface | Persistent ENG/ESP and light/dark controls | Shared preferences, localized accessible labels and controls |
-| Raw documentation links | Topic index, grouped sidebar and seven bilingual guides | Readers can navigate installation, commands and evidence boundaries |
-| Header/sidebar failed with enlarged text | Adaptive wrapping and bounded native scrolling | Keyboard controls and links stay reachable |
-| Repeated report tabs restarted fades | Immediate view switching | Frequent analysis controls do not replay decoration |
+| Before                                   | After                                                   | Why                                                                 |
+| ---------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------- |
+| Separate report palette and serif type   | Same webpage colors, Archivo and IBM Plex Mono          | Consistent presentation and embedded offline fonts                  |
+| English-only report interface            | Persistent ENG/ESP and light/dark controls              | Shared preferences, localized accessible labels and controls        |
+| Raw documentation links                  | Topic index, grouped sidebar and seven bilingual guides | Readers can navigate installation, commands and evidence boundaries |
+| Header/sidebar failed with enlarged text | Adaptive wrapping and bounded native scrolling          | Keyboard controls and links stay reachable                          |
+| Repeated report tabs restarted fades     | Immediate view switching                                | Frequent analysis controls do not replay decoration                 |
 
 Theme and locale changes preserve model JSON, graph selection, filters, pan/zoom and active tab. Exported SVGs retain the chosen palette and embedded fonts. Report UI translates; original analytical text, evidence and identifiers retain their original language. This protects evidence provenance rather than silently translating claims. Markdown and CLI output remain English.
 

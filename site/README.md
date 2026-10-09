@@ -1,56 +1,55 @@
-# Database dependency migration webpage
+# Database dependency migration website
 
-A local React/Vite webpage for the Agent Skill and Node.js toolkit. It explains the analysis workflow, includes English and Spanish documentation, demonstrates selected dependency traces, and opens three generated HTML reports separately.
+A separate React/Vite website for the Agent Skill and Node.js toolkit. It explains PostgreSQL dependency analysis, provides English/Spanish documentation at `/#/docs`, and opens three generated standalone HTML reports. The pending local release is v0.3.2. Hosting uses the [manual GitHub Pages workflow](../.github/workflows/pages.yml); deployment is separate from local validation and is not claimed here.
 
-Requires Node.js 22.18.0+ and pnpm 12.10.1. Run from the repository root:
+## Development and build
+
+Use Node.js 22.18+ and pnpm 12.10.1. Run from the repository root:
 
 ```sh
-pnpm install --frozen-lockfile
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm dev
+```
+
+For a production preview:
+
+```sh
 pnpm build
 pnpm preview
 ```
 
-Open the localhost address printed by Vite. For development:
+Open the localhost address printed by Vite. `prepare:demos` runs before development and builds. It copies report HTML, model JSON, review JSON and Markdown from `examples/rendered/`, copies README/SKILL documentation, derives the visible graph/counts from the models, and retains complete website license notices. It rejects missing selected dependency paths. Generated copies, build output and dependencies are ignored.
 
-```sh
-pnpm dev
-```
+When the engine changes, run `pnpm demo` and `pnpm verify:examples` before rebuilding. Do not edit generated reports or model data by hand. The CLI also supports `node scripts/dbdep.mjs <command>`.
 
-`prepare:demos` runs before development and builds. It copies reports, models, reviews and Markdown from `examples/rendered/` into `site/public/demos/`, copies the repository README and skill definition, and derives the webpage's counts and graph specimen from the actual models. It fails if its selected dependency paths are missing. Generated copies, `dist/`, and `node_modules/` are ignored. Regenerate the root examples with `pnpm dbdep demo examples/rendered` before building when the engine changes. Every CLI command also supports the direct entry point `node scripts/dbdep.mjs`.
+## Interface and evidence
 
-The page has no backend, upload flow, credentials, live database connection, or migration execution. It does not register hosting or publish the repository. Its repository links point to the existing GitHub repository; local setup uses the checkout instead of claiming a separately published package.
+English is the default. ENG/ESP translates website copy, documentation, accessible controls and document language. Light/dark starts from system preferences; explicit choices persist when storage is available. Report controls support both languages, while CLI/Markdown and analytical explanations remain English. Source identifiers and evidence retain their original language.
 
-The ENG/ESP control translates page text, documentation, navigation, accessible labels, feedback, document language, title and description. English is the default. The light/dark control starts from the system preference; explicit choices persist in local browser storage. Controls still work when storage is blocked. Generated report interfaces also support both languages. Source evidence, object identifiers, and analytical text retain their original language.
+The selected impact traces come from real curated model edges. Arrows point from a dependent toward its dependency; selected traces do not represent every runtime consumer. Example cards open self-contained reports in separate tabs. The canonical JSON remains unchanged by UI preferences and can be exported from the report.
 
-Documentation starts at `/#/docs`, with individual routes for introduction, installation, quickstart, good requests, command reference, evidence and confidence, and safety and limits. Topic cards and a grouped sidebar provide navigation. Hash routes support direct links, reloads, and browser history on a static server, including deployments under a subdirectory. The mobile contents button exposes its expanded state and supports Escape to close. Topic navigation focuses the new heading immediately. Documentation browsing has no entry animation or smooth scrolling.
+Keyboard focus and fragment navigation are immediate. Reduced motion disables smooth scrolling and decorative movement. The explanatory flow supports replay and remains readable without animation. GSAP, Lenis and adapted React Bits components provide the retained motion/pointer behavior.
 
-The redesign applies the globally installed `emil-design-eng`, `animate` and `apple-design` skills. The header uses a translucent material, solid under reduced transparency or increased contrast. Colors adapt to both themes; buttons respond immediately and retain visible keyboard focus. No Claude `/design` skill was used for this revision.
+The site has no backend, upload endpoint, credentials, database discovery or migration execution. See [security](../references/security.md), [parser coverage](../references/parser-and-confidence.md), and the [audit](../docs/security-audit.md).
 
-The impact study highlights the selected source-backed edge on hover, focus or touch. Arrows point from dependents toward their dependency. Its eight direct and twelve potentially affected counts come from the shipped model. These are selected paths, not the entire dependency graph.
+## GitHub Pages
 
-GSAP sequences the explanatory sources/model/review/artifacts flow once on entry, with replay. It finishes in about two seconds and stops when hidden or offscreen. Keyboard entry/replay shows the complete static flow. Lenis uses GSAP's ticker for pointer scrolling; keyboard fragment links jump immediately and focus their destination. Translation refreshes scroll bounds without replaying entry effects. Reduced motion disables smooth scrolling, section lifts and pointer effects. The graph remains readable without motion.
+Follow [the Pages guide](../docs/github-pages.md). Select **GitHub Actions** as the Pages source, then manually run `pages.yml` for reviewed, published `main` source. Pushes and pull requests do not deploy automatically.
 
-React Bits DotGrid and Magnet are adapted from pinned official sources. The retained BlurText adaptation is no longer used by the page. Full licenses and original source hashes are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md); the build copies every retained notice into `dist/`, linked from the footer. The new flow was independently implemented after inspecting [network-engineering's flow](https://github.com/whetstone-dev/network-engineering/blob/main/web/src/components/Flow.tsx).
+The workflow uploads only `site/dist`. Curated reports/models and copied documentation/licenses are public; local `out/`, `tmp/` and `evals/` directories are excluded from the deployment. Relative asset paths use Vite's `base: "./"`; hash routes support direct documentation links and reloads under a repository subdirectory. Inspect the actual deployment URL after the workflow succeeds.
 
-The landing page contains no iframes. Each example explains a concrete question and opens the self-contained HTML report in its own tab. The same reports live in `examples/rendered/<scenario>/report.html` at the repository root. Repository links point to the corresponding example sources on GitHub; new committed files become available there after a push. The HTML reports are also shipped in the static site.
+## Verification and notices
 
-After building, run the webpage browser checks from the repository root:
+Build first, then run from the repository root:
 
 ```sh
 pnpm exec playwright install chromium
-pnpm exec playwright test tests/browser/site-regressions.spec.mjs tests/browser/site-docs.spec.mjs
+pnpm check:site
+pnpm test:browser
 ```
 
-The browser configuration serves the built page at `http://127.0.0.1:4173` and uses Playwright Chromium. Build the site first. Checks cover documentation routes, keyboard focus, mobile contents, command copying, actual reports and their JSON export, theme/language persistence, storage failure, system theme, translated mobile layouts, touch/focus/hover traces, explanatory flow, reduced motion, immediate keyboard fragments, pointer scrolling, magnetic focus reset, retained license bytes and browser errors. Root CLI/parser checks remain separate.
+The browser configuration serves the built site at `http://127.0.0.1:4173`. Tests cover documentation routes, keyboard/mobile navigation, theme/language persistence, blocked storage, source-backed traces, actual report exports, motion preferences, retained licenses and browser errors. CLI/parser checks and visual inspection remain separate.
 
-The reviewed desktop and mobile captures are in `screenshots/`.
+Reviewed captures are in [screenshots/](screenshots/). `node scripts/capture-site-screenshots.mjs` captures the built site; with a preview running, `node site/scripts/capture-docs.mjs` captures documentation pages. `DBDEP_SITE_URL` can select another local preview address. Static captures use reduced motion.
 
-Browser captures use reduced motion for stable static inspection; browser tests verify animated behavior.
-
-With the built preview running, regenerate the documentation captures from the repository root:
-
-```sh
-node site/scripts/capture-docs.mjs
-```
-
-The script writes the desktop index in both themes, the installation page, and the Spanish mobile index to `site/screenshots/`. Set `DBDEP_SITE_URL` to use another local preview address.
+React Bits adaptations retain pinned source hashes and MIT + Commons Clause notices. GSAP retains its Standard License. All retained notices are copied into the build and linked from the footer. Read [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) before redistribution. The explanatory flow was independently implemented after inspecting [network-engineering's flow](https://github.com/whetstone-dev/network-engineering/blob/main/web/src/components/Flow.tsx); no PostgreSQL engine code was imported from that project.

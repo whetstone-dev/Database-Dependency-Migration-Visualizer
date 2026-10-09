@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2 - 2026-10-09
+
+Harden output writes against pre-created links and source overwrites, normalize target types before graph/library assessment, and escape imported Markdown fields. Live catalog capture 1.1.0 hashes stored default-expression trees without deparsing custom values; offline 1.0.0 captures retain their original query contracts. Cache query evidence fingerprints and reject unsupported connection routing parameters.
+
+Harden both creator review renderers against untrusted grades, attributes and preview content, remove their external template assets, and preserve decoded evaluation data and frozen grades. Rename the high-traffic workload fixture so the real Skills CLI installation keeps it. Add observed installation and hostile-input regressions.
+
+Prepare manual GitHub Pages deployment with SHA-pinned actions, separate deploy permissions and an allowlisted static-output check. Rewrite the README and contributing guide around the network-engineering repository's structure, and add security/publication documentation. Local validation and limitations are recorded in docs/security-audit.md; publication remains separate.
+
 ## 0.3.1 - 2026-10-09
 
 Rebuild the website documentation copies from the final README and skill instructions. Website packaging now rejects stale copies before writing an archive; fresh-install smoke checks require the package's exact version. Keep the v0.3.0 tag and artifacts as historical evidence, and record the corrected release separately. The dependency engine and canonical model contract are unchanged.

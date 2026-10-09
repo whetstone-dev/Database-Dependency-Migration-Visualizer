@@ -1,7 +1,21 @@
-# Security
+# Security policy
 
-This version analyzes PostgreSQL metadata and SQL locally. It cannot execute migrations. Live discovery is explicitly requested, uses an environment variable and fixed read-only catalog queries, and does not extract business rows or stored routine bodies. Read `references/security.md` for details.
+The latest locally validated release is v0.3.2. Support focuses on the latest release; older tags and evaluation records remain historical evidence. A local tag does not establish publication or a deployed website.
 
-Treat schema/source names and architecture reports as sensitive. Keep outputs local unless explicitly asked to share. Do not put connection strings into models or issue reports. Catalog errors intentionally hide driver details. Default SQL literals are hashed; provenance is not a general secret-scanning guarantee.
+## Report a vulnerability
 
-Report vulnerabilities privately through the repository owner's available GitHub security reporting/contact mechanism. Do not post credentials, production DDL or data in a public issue. No hosted support endpoint or response SLA is claimed.
+Use the repository's private vulnerability reporting option when available. Otherwise contact a maintainer privately before sharing an exploit that includes private database details. Public issues may describe a sanitized problem, affected version and reproduction using synthetic SQL. Do not include credentials, production captures or private schema names.
+
+## Trust boundaries
+
+The installed skill contains agent instructions and executable Node.js code. Review its source and dependencies before execution. Install the frozen production dependencies with `--ignore-scripts`. The Skills CLI installation copies the root skill directory, including development files and evaluations; the separate `.skill` archive has a narrower file allowlist.
+
+The analyzer reads supplied SQL and catalog captures as data. It has no migration execution command or API. Live discovery requires an explicitly selected environment variable and read-only mode, uses fixed catalog queries, omits routine bodies and business rows, and hashes stored default-expression trees. Development fixture scripts execute shipped example SQL only in their own disposable cluster or explicitly configured CI fixture database.
+
+Reports reject pre-existing symlink/junction output paths and replace ordinary files atomically. The CLI protects selected input files from output overwrites. These checks do not isolate a process from another user who can concurrently replace its directories. Run in a workspace you control and select a separate output directory.
+
+SQL literals and comments are omitted from generated models. Recognizable DSN/password markers are rejected, but this is not exhaustive secret detection. Names, paths and metadata can still be sensitive. Reports and local catalog snapshots are private unless deliberately reviewed for sharing. The standalone explorer and creator evaluation viewers work offline; the public website contains curated examples only.
+
+Input size and graph traversal are not globally resource-limited. Unsupported SQL resolution remains UNKNOWN. Read-only discovery and static findings do not establish a production migration's correctness, lock duration or downtime.
+
+See the [security boundary](references/security.md), [catalog contract](references/postgres-catalog.md), [local audit](docs/security-audit.md), and [Pages publication setup](docs/github-pages.md).
