@@ -1,16 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f5f3eb" />
-    <meta name="description" content="Source-backed PostgreSQL dependency graphs, blast-radius analysis, and review-only migration plans for AI coding agents." />
+    <meta name="theme-color" content="#f8fafc" />
+    <meta
+      name="description"
+      content="Source-backed PostgreSQL dependency graphs, blast-radius analysis, and review-only migration plans for AI coding agents."
+    />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>Database dependency migration · Whetstone</title>
+    <script>
+      // Set preferences before the first paint. English is the initial language.
+      (() => {
+        let theme, locale;
+        try {
+          theme = localStorage.getItem("dbdep-theme");
+          locale = localStorage.getItem("dbdep-locale");
+        } catch {}
+        const dark =
+          theme === "dark" ||
+          (theme !== "light" &&
+            matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.lang = locale === "es" ? "es" : "en";
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <noscript>This page needs JavaScript. Read the skill at <a href="./docs/SKILL.md">SKILL.md</a>, or open a <a href="./demos/ecommerce/report.html">generated report</a>.</noscript>
+    <noscript
+      >This page needs JavaScript. Read the skill at
+      <a href="./docs/SKILL.md">SKILL.md</a>, or open a
+      <a href="./demos/ecommerce/report.html">generated report</a>.</noscript
+    >
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

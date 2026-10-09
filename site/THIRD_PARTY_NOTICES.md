@@ -14,7 +14,7 @@ All selected files came from commit `d86fccbd477786f94ca7eb891fbe0ec039d3cd3b`. 
 | `src/components/react-bits/DotGrid.tsx`  | [Backgrounds/DotGrid/DotGrid.tsx](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/src/ts-default/Backgrounds/DotGrid/DotGrid.tsx)           | `c1440e84a4d4ad33223fae8a2ef2179e9eb7af2775d9ce1c10aef01da100fe95` |
 | `src/components/react-bits/Magnet.tsx`   | [Animations/Magnet/Magnet.tsx](https://github.com/DavidHDev/react-bits/blob/d86fccbd477786f94ca7eb891fbe0ec039d3cd3b/src/ts-default/Animations/Magnet/Magnet.tsx)                 | `17227417dc61cf1cf02b88c7a291607de3eedfd4714ab642078c5ebf102f586f` |
 
-Local adaptations keep heading text visible during its small blur transition, use accessible text semantics, disable animation for reduced motion, use a static dot pattern when motion is reduced, disable pointer interactions on touch, clean up GSAP tweens, and keep focused buttons steady. Styling is scoped to this webpage.
+Local adaptations use accessible text semantics, disable movement for reduced motion, use a static dot pattern on touch, draw the canvas only on demand, suspend drawing and inertia offscreen, clean up GSAP tweens, and keep focused buttons steady. The retained BlurText adaptation is no longer imported by the page. Styling is scoped to this webpage.
 
 ## Runtime libraries and fonts
 

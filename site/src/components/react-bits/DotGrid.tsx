@@ -2,7 +2,13 @@
 // Adapted for this website from David Haz / React Bits at d86fccbd477786f94ca7eb891fbe0ec039d3cd3b.
 // Original SHA256: c1440e84a4d4ad33223fae8a2ef2179e9eb7af2775d9ce1c10aef01da100fe95.
 // MIT + Commons Clause. See site/licenses/react-bits-LICENSE.md.
-import React, { useRef, useEffect, useCallback, useMemo } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 
@@ -71,8 +77,20 @@ const DotGrid: React.FC<DotGridProps> = ({
   style,
 }) => {
   const reduced = useReducedMotion();
+  const [finePointer, setFinePointer] = useState(
+    () => window.matchMedia("(hover: hover) and (pointer: fine)").matches,
+  );
+  const staticGrid = reduced || !finePointer;
+  useEffect(() => {
+    const query = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setFinePointer(query.matches);
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const visibleRef = useRef(false);
+  const drawRequestRef = useRef<() => void>(() => {});
   const dotsRef = useRef<Dot[]>([]);
   const pointerRef = useRef({
     x: 0,
@@ -132,13 +150,15 @@ const DotGrid: React.FC<DotGridProps> = ({
         dots.push({ cx, cy, xOffset: 0, yOffset: 0, _inertiaApplied: false });
       }
     }
+    dotsRef.current.forEach((dot) => gsap.killTweensOf(dot));
     dotsRef.current = dots;
+    drawRequestRef.current();
   }, [dotSize, gap]);
 
   useEffect(() => {
-    if (!circlePath || reduced) return;
+    if (!circlePath || staticGrid) return;
 
-    let rafId: number;
+    let rafId: number | undefined;
     const proxSq = proximity * proximity;
 
     const draw = () => {
@@ -173,16 +193,46 @@ const DotGrid: React.FC<DotGridProps> = ({
         ctx.fill(circlePath);
         ctx.restore();
       }
-
-      rafId = requestAnimationFrame(draw);
     };
-
-    draw();
-    return () => cancelAnimationFrame(rafId);
-  }, [proximity, baseColor, activeRgb, baseRgb, circlePath, reduced]);
+    const requestDraw = () => {
+      if (!visibleRef.current || document.hidden || rafId !== undefined) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = undefined;
+        draw();
+      });
+    };
+    drawRequestRef.current = requestDraw;
+    const reset = () => {
+      if (rafId !== undefined) cancelAnimationFrame(rafId);
+      rafId = undefined;
+      dotsRef.current.forEach((dot) => {
+        gsap.killTweensOf(dot);
+        dot.xOffset = dot.yOffset = 0;
+        dot._inertiaApplied = false;
+      });
+      pointerRef.current.x = pointerRef.current.y = -1e6;
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      visibleRef.current = entry.isIntersecting;
+      if (entry.isIntersecting) requestDraw();
+      else reset();
+    });
+    if (wrapperRef.current) observer.observe(wrapperRef.current);
+    const visibility = () => {
+      if (document.hidden) reset();
+      else requestDraw();
+    };
+    document.addEventListener("visibilitychange", visibility);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", visibility);
+      reset();
+      drawRequestRef.current = () => {};
+    };
+  }, [proximity, baseColor, activeRgb, baseRgb, circlePath, staticGrid]);
 
   useEffect(() => {
-    if (reduced) return;
+    if (staticGrid) return;
     buildGrid();
     let ro: ResizeObserver | null = null;
     if ("ResizeObserver" in window) {
@@ -195,15 +245,29 @@ const DotGrid: React.FC<DotGridProps> = ({
       if (ro) ro.disconnect();
       else window.removeEventListener("resize", buildGrid);
     };
-  }, [buildGrid, reduced]);
+  }, [buildGrid, staticGrid]);
 
   useEffect(() => {
     if (
-      reduced ||
+      staticGrid ||
       !window.matchMedia("(hover: hover) and (pointer: fine)").matches
     )
       return;
     const onMove = (e: MouseEvent) => {
+      if (!visibleRef.current || document.hidden || !canvasRef.current) return;
+      const bounds = canvasRef.current.getBoundingClientRect();
+      if (
+        e.clientX < bounds.left ||
+        e.clientX > bounds.right ||
+        e.clientY < bounds.top ||
+        e.clientY > bounds.bottom
+      ) {
+        if (pointerRef.current.x !== -1e6) {
+          pointerRef.current.x = pointerRef.current.y = -1e6;
+          drawRequestRef.current();
+        }
+        return;
+      }
       const now = performance.now();
       const pr = pointerRef.current;
       const dt = pr.lastTime ? now - pr.lastTime : 16;
@@ -239,22 +303,31 @@ const DotGrid: React.FC<DotGridProps> = ({
           const pushY = dot.cy - pr.y + vy * 0.005;
           gsap.to(dot, {
             inertia: { xOffset: pushX, yOffset: pushY, resistance },
+            onUpdate: () => drawRequestRef.current(),
             onComplete: () => {
               gsap.to(dot, {
                 xOffset: 0,
                 yOffset: 0,
                 duration: returnDuration,
                 ease: "elastic.out(1,0.75)",
+                onUpdate: () => drawRequestRef.current(),
               });
               dot._inertiaApplied = false;
             },
           });
         }
       }
+      drawRequestRef.current();
     };
 
     const onClick = (e: MouseEvent) => {
-      if (!canvasRef.current) return;
+      if (
+        e.detail === 0 ||
+        !visibleRef.current ||
+        document.hidden ||
+        !canvasRef.current
+      )
+        return;
       const rect = canvasRef.current.getBoundingClientRect();
       const cx = e.clientX - rect.left;
       const cy = e.clientY - rect.top;
@@ -268,12 +341,14 @@ const DotGrid: React.FC<DotGridProps> = ({
           const pushY = (dot.cy - cy) * shockStrength * falloff;
           gsap.to(dot, {
             inertia: { xOffset: pushX, yOffset: pushY, resistance },
+            onUpdate: () => drawRequestRef.current(),
             onComplete: () => {
               gsap.to(dot, {
                 xOffset: 0,
                 yOffset: 0,
                 duration: returnDuration,
                 ease: "elastic.out(1,0.75)",
+                onUpdate: () => drawRequestRef.current(),
               });
               dot._inertiaApplied = false;
             },
@@ -299,12 +374,12 @@ const DotGrid: React.FC<DotGridProps> = ({
     returnDuration,
     shockRadius,
     shockStrength,
-    reduced,
+    staticGrid,
   ]);
 
   return (
     <div
-      className={`dot-grid ${reduced ? "dot-grid--static" : ""} ${className}`}
+      className={`dot-grid ${staticGrid ? "dot-grid--static" : ""} ${className}`}
       style={style}
       aria-hidden="true"
     >
