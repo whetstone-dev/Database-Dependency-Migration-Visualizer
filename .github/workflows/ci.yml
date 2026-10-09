@@ -1,22 +1,28 @@
 name: validate
 on: [push, pull_request]
+permissions:
+  contents: read
 jobs:
   offline:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "24"
-      - run: npm install --global pnpm@12.10.1
-      - run: pnpm install --frozen-lockfile
+      - run: npm install --global pnpm@12.10.1 --ignore-scripts
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: pnpm audit --audit-level=low
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test
       - run: pnpm verify:examples
       - run: pnpm build
+      - run: pnpm check:site
       - run: pnpm test:browser
       - run: pnpm benchmark
-      - run: pnpm pack --pack-destination dist/v0.3.1
+      - run: pnpm pack --pack-destination dist/v0.3.2
       - run: pnpm package:skill
       - run: pnpm package:site
       - run: pnpm smoke:artifacts
@@ -37,12 +43,14 @@ jobs:
           --health-cmd 'pg_isready -U fixture_owner -d dbdep_examples'
           --health-interval 5s --health-timeout 5s --health-retries 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "24"
-      - run: npm install --global pnpm@12.10.1
-      - run: pnpm install --frozen-lockfile
+      - run: npm install --global pnpm@12.10.1 --ignore-scripts
+      - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: node scripts/setup-ci-fixture.mjs
         env:
           DBDEP_FIXTURE_OWNER_DSN: postgresql://fixture_owner@127.0.0.1:5432/dbdep_examples

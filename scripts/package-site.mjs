@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
+import { check_site_publication } from "./check-site-publication.mjs";
 import {
   ROOT,
   VERSION,
@@ -14,6 +15,7 @@ const site = join(ROOT, "site"),
 if (!existsSync(join(built, "index.html")))
   throw new Error("Build the webpage with pnpm build before packaging");
 verify_built_docs(ROOT, built);
+check_site_publication(ROOT, built);
 const payloads = Object.fromEntries(
   files(built).map((p) => [
     relative(built, p).replaceAll("\\", "/"),
