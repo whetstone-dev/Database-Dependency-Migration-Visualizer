@@ -1,0 +1,3031 @@
+{
+  "coverage": {
+    "capabilities": [
+      "ddl_ast",
+      "simple_sql_references",
+      "reverse_dependencies"
+    ],
+    "catalog_available": false,
+    "exhaustive": false,
+    "repository_scan": true,
+    "unresolved": 8
+  },
+  "edges": [
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:3eff11898bac02d99ee08daf"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:014fb6369ba96ca9ec2ffb6e",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/index//orders_customer_idx/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/customer_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e4dc7c3f3bcbc60c845f14b5"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:0d63cdfda898dda0d0ad8205",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/name/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:0fd89a08c8cb49371591999e",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_quantity_check__485b310e0371/485b310e03717749fd366756",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/order_items/quantity/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:3eff11898bac02d99ee08daf"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:122fa6ad729c390103dc691f",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/index//orders_customer_idx/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:18a94627aae399dfc7524ec3",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/orders/id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:1a413343114cc7a6e07d44c2",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/customers/updated_at/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:1aa24304fac7db22fadbc3a2",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/addresses/customer_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//addresses/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:1d9d0976df3698a0baab6d4f",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_pkey/0f66fa763c977cd394d53f04",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/order_items/product_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:21f46e17cc79c2dc179c60b7",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/addresses/addresses_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//addresses/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:24a25eea6c256af13096b2d4",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/view//customer_summary/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/email/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:2b4a327b2a480706c0fa842d",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/addresses/id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//addresses/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:2d6b9ecfcf9878d978cd8602",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/4f7950eb41a49d97e2c7146e",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/order_items/product_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:2eddcbe6246a409f53fb05a8",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/addresses/city/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//addresses/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:2f87c0839429a4ab70f6577b",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/customer_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:776d7da11045ee31e44912e0"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:2fc82a466cea94afdf966e07",
+      "kind": "trigger_association",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/trigger/customers/customers_touch/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:31b516307eef6dd0a3d257d6",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/order_items/order_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//order_items/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:f8c7e18154ef774049bc8694"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:3d411ea3b817ba78d8239733",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:3e7919197cdfba064bae5dee",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/addresses/customer_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:3f36d958c1a16f4f5063977f",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/customers/customers_email_key/30ba9a81fb7ea6ec9ff167f7",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:4288ed89833d0022c1d54d05",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/payments/payments_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/payments/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:42b516772ae0c490fc62e11c",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/payments/amount/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//payments/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:44748c81a94abde3f9f756c1",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/customers/email/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:449d080bde5028b829fd281a",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/customers/name/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:4852fede4511dce0fbc8a7af",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "constraint": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/1ef74bdedf741fe887a86e14"
+      },
+      "source": "postgresql:local/public/column/order_items/order_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:493a5da95d3bdaadae7e03fb",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/orders/orders_total_amount_check__8c94b42a7e78/8c94b42a7e78904691546dba",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:4c6e6857c89ea809b31a3996",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/4f7950eb41a49d97e2c7146e",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/products/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:535a1452c20c4f6274bc02e5",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/payments/payments_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//payments/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:5402d78cd2ee1aefae55d740",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/orders/created_at/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:57783f8cc3c12381d5a1b58e",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/payments/payments_amount_check__2fbbb5aae972/2fbbb5aae972c43b3e1ddb51",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/payments/amount/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:57d138471f7e225c7e01d90c",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/payments/payments_amount_check__2fbbb5aae972/2fbbb5aae972c43b3e1ddb51",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//payments/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:5854677188c6ab1c841f33ed",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/view//customer_summary/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/customer_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:60a259d4dc6d48cdf764e46f",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/payments/payments_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:612709d82e5f92d0eb08603a",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/order_items/order_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:62a5bb71cf88a0ebc61e744d",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/payments/order_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//payments/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:62fcf75c3913fb26cc394149",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "columns": [
+          "order_id"
+        ],
+        "constraint": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/1ef74bdedf741fe887a86e14"
+      },
+      "source": "postgresql:local/public/table//order_items/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:6b337fb6d4bfa4f999a1cc86",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:6c3f2ed8788f2720c5aff75f",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "constraint": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4"
+      },
+      "source": "postgresql:local/public/column/addresses/customer_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:6e209e98877452de8f04385b",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/customer_summary/email/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/view//customer_summary/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:f8c7e18154ef774049bc8694"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:75fa9aa95ba7b9d956e76660",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:7925f99039a93219e51926db",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/payments/payments_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/payments/order_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:7c94d6184e2c7e444f2c9312",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:7f3b931f78bdeb022b90e8ba",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/4f7950eb41a49d97e2c7146e",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//products/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:80ea424e44ca67d3c85bc3c5",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/customers/id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:84d30a74505bc15546505d27",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:874d99945657054a80df9f02",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/payments/id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//payments/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:888273ce7767cc3e55291871",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/orders/total_amount/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:f8c7e18154ef774049bc8694"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:898dfc1b3549f6fe9e1041ce",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/customer_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:8a9ad2f29f72dd1a1af8587d",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/products/products_price_check__a1bdfb6cc254/a1bdfb6cc254d41061cec471",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//products/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:8d3c400eda2590da824c965e",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/customer_summary/id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/view//customer_summary/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:9001b115d6c5c48b4b5718ff",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/order_items/quantity/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//order_items/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:90c8c74b3403895629e680da",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/products/products_price_check__a1bdfb6cc254/a1bdfb6cc254d41061cec471",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/products/price/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:96cdb0d84bc00a09ceb5109e",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "columns": [
+          "order_id"
+        ],
+        "constraint": "postgresql:local/public/constraint/payments/payments_order_id_fkey/1ef74bdedf741fe887a86e14"
+      },
+      "source": "postgresql:local/public/table//payments/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:98d3f4f0a67ad80a7f7ab0bd",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:776d7da11045ee31e44912e0"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:9d307aea5e208abba7504fb0",
+      "kind": "trigger_association",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/trigger/customers/customers_touch/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/function//touch_customer/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:a642923dda75dbdc7098d8d7",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "columns": [
+          "product_id"
+        ],
+        "constraint": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/4f7950eb41a49d97e2c7146e"
+      },
+      "source": "postgresql:local/public/table//order_items/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//products/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:a666f589e93aa92ac58f69ea",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:a8578a71397a160629502a5d",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/orders/customer_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:a8bea9311b58d34372ee5943",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/view//customer_summary/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e4dc7c3f3bcbc60c845f14b5"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:a9189d507b83265b33fafc29",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:aa1d9857feb03fc467ed1835",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/customer_summary/order_count/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/view//customer_summary/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:aa9343ef5c72a1e514641dc7",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/view//customer_summary/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:aac409ebab28c4f020bdeda0",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//order_items/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:ac3cbd05c6a9226c89d527a4",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/products/products_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//products/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:ad680030f5a2e293affc3783",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_quantity_check__485b310e0371/485b310e03717749fd366756",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//order_items/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:b3f2f89e86307ac919bd989c",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//addresses/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:bc0cecf27a9d335975ad3a49",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/orders/orders_total_amount_check__8c94b42a7e78/8c94b42a7e78904691546dba",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/total_amount/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:bd8703a71aa20f06a188f31a",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/order_items/product_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//order_items/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:bdbb2b13e6ac09f5824bae43",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "constraint": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/4f7950eb41a49d97e2c7146e"
+      },
+      "source": "postgresql:local/public/column/order_items/product_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/products/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:bfd9cd55aaab90c4ed183b91",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/addresses/addresses_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/addresses/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:f8c7e18154ef774049bc8694"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:c0e890722d6fafc386c0e426",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:c65687c186e8bee9cb8c0471",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:c7ba0696045c497301e52033",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/payments/payments_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:c8311f0c1b599de8590f98cd",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/4f7950eb41a49d97e2c7146e",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//order_items/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:c97827f27d1098e9f3c77ea4",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/orders/orders_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:ca4029a75da40252e4498d21",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "constraint": "postgresql:local/public/constraint/payments/payments_order_id_fkey/1ef74bdedf741fe887a86e14"
+      },
+      "source": "postgresql:local/public/column/payments/order_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:ca848fa6534d7f92402c1a52",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_pkey/0f66fa763c977cd394d53f04",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/order_items/order_id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:cc0012b67ac594d5d7bd6657",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/products/products_sku_key/30ba9a81fb7ea6ec9ff167f7",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//products/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e4dc7c3f3bcbc60c845f14b5"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:cddcdabaec4c64d86a5967e5",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/email/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:d1d2cc90cfc4e410bdc75cec",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/products/products_sku_key/30ba9a81fb7ea6ec9ff167f7",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/products/sku/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:d31da38e2ae27e8c7cfcd42f",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_pkey/0f66fa763c977cd394d53f04",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//order_items/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:d660558bd60070ae4acb636e",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/orders/orders_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:da05ef9838f3b40e481aa89b",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/products/price/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//products/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:da43cc551d6ebd2502680372",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/products/id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//products/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e4dc7c3f3bcbc60c845f14b5"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:dbfeb24560e06d8750f73f55",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:e1747cefd339bbab7c6a304a",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "columns": [
+          "customer_id"
+        ],
+        "constraint": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4"
+      },
+      "source": "postgresql:local/public/table//orders/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:e247fcd60cd703bd273870d3",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/column/products/sku/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//products/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:e40e0e88abbd113de3a5fcd8",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "columns": [
+          "customer_id"
+        ],
+        "constraint": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4"
+      },
+      "source": "postgresql:local/public/table//addresses/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:f8c7e18154ef774049bc8694"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:e4b95d06d0a70b8f382dfa23",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/email/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:e74e28ce9dd6823209b2030c",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/products/products_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/products/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:ebd6536c72c75c6b3b067c27",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/payments/payments_pkey/62676e56159a610040517422",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//payments/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:eccc92a583473fdc12ea81af",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/orders/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:f23585bc075e6bd84fb1a091",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/view//customer_summary/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:f42877ab42b51eee114c1133",
+      "kind": "expression_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/customers/customers_email_key/30ba9a81fb7ea6ec9ff167f7",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/email/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:f4ce6b8bb9138d13271b58f2",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:f8c7e18154ef774049bc8694"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:f5f65ed52b52a130866ae814",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:fbc21659908e0ae2a5cd46ea",
+      "kind": "foreign_key",
+      "origin": "sql_file",
+      "properties": {
+        "constraint": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4"
+      },
+      "source": "postgresql:local/public/column/orders/customer_id/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/column/customers/id/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:fdfb9eb03a5388bd20d49588",
+      "kind": "contains",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//orders/"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+      "id": "edge:ffb83430132bc8b5e521cc1e",
+      "kind": "query_reference",
+      "origin": "sql_file",
+      "properties": {},
+      "source": "postgresql:local/public/view//customer_summary/",
+      "status": "PARSED",
+      "target": "postgresql:local/public/table//customers/"
+    }
+  ],
+  "engine": {
+    "name": "postgresql",
+    "source_mode": "offline_ddl",
+    "version": "18"
+  },
+  "evidence": [
+    {
+      "byte_length": 62,
+      "byte_start": 1231,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:3eff11898bac02d99ee08daf",
+      "line_end": 34,
+      "line_start": 34,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 191,
+      "byte_start": 0,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:40680f826d95f1ec183340ed",
+      "line_end": 6,
+      "line_start": 1,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 175,
+      "byte_start": 193,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:4f849d665202a664e7893d4a",
+      "line_end": 11,
+      "line_start": 7,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 118,
+      "byte_start": 1614,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:776d7da11045ee31e44912e0",
+      "line_end": 46,
+      "line_start": 45,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 264,
+      "byte_start": 540,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:7de9792a75dda688bf1f738f",
+      "line_end": 22,
+      "line_start": 17,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 168,
+      "byte_start": 370,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:8dadc8fc9c511aafd4803a87",
+      "line_end": 16,
+      "line_start": 12,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 49,
+      "byte_start": 233,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:932595bbd8475c83626294de",
+      "line_end": 4,
+      "line_start": 4,
+      "origin": "migration_diff",
+      "path": "examples/ecommerce/migrations/003_contract_legacy_id.sql",
+      "source_hash": "sha256:312cd82ea52d1f6afd5b49d4dff0812fadc95d7f0b87a1250e2fd461a9687c2e",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 222,
+      "byte_start": 806,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:b306c585df0ee00d863316dd",
+      "line_end": 28,
+      "line_start": 23,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 184,
+      "byte_start": 1295,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:c81447f17e11c2d5b6c401da",
+      "line_end": 38,
+      "line_start": 35,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 199,
+      "byte_start": 1030,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:e3fa1e6bfbfed48ae579bc40",
+      "line_end": 33,
+      "line_start": 29,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 71,
+      "byte_start": 0,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:e4dc7c3f3bcbc60c845f14b5",
+      "line_end": 1,
+      "line_start": 1,
+      "origin": "application_source",
+      "path": "examples/ecommerce/app/customers.sql",
+      "source_hash": "sha256:a415aaea7a68344c4f8c3e93fc4233772176a54a53c14c74541c2e512be81470",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 131,
+      "byte_start": 1481,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:e9af3cfadad5d8900305d336",
+      "line_end": 44,
+      "line_start": 39,
+      "origin": "sql_file",
+      "path": "examples/ecommerce/schema.sql",
+      "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 75,
+      "byte_start": 156,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:e9b2533c0430764b4a894410",
+      "line_end": 3,
+      "line_start": 3,
+      "origin": "migration_diff",
+      "path": "examples/ecommerce/migrations/003_contract_legacy_id.sql",
+      "source_hash": "sha256:312cd82ea52d1f6afd5b49d4dff0812fadc95d7f0b87a1250e2fd461a9687c2e",
+      "status": "PARSED"
+    },
+    {
+      "byte_length": 120,
+      "byte_start": 0,
+      "confidence": "direct",
+      "explanation": "Syntax establishes a static reference, not runtime reachability.",
+      "id": "ev:f8c7e18154ef774049bc8694",
+      "line_end": 2,
+      "line_start": 1,
+      "origin": "application_source",
+      "path": "examples/ecommerce/app/orders.sql",
+      "source_hash": "sha256:07ed8c193824ea5e25844e2be152acec7d04492c5b3d5ca9fbc55d2ee4e1421e",
+      "status": "PARSED"
+    }
+  ],
+  "findings": [
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "evidence_ids": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "id": "finding:17fd8d2f76f37f5db9c4bbc0",
+      "object_ids": [
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+        "postgresql:local/public/view//customer_summary/"
+      ],
+      "origin": "migration_diff",
+      "reason": "Known views/routines/SQL consumers reference this object. Catalog paths and parsed source references have distinct guarantees; untracked routine bodies remain UNKNOWN.",
+      "remediation": "Review the supplied dependency paths and verify runtime consumers; never claim all function calls were discovered.",
+      "risk_dimensions": [
+        "compatibility",
+        "unresolved_dependencies"
+      ],
+      "risk_level": "high",
+      "rule_id": "DDM008",
+      "severity": "error",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "evidence_ids": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "id": "finding:1f42b755eba72fea9ba81aea",
+      "object_ids": [
+        "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422",
+        "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/index//orders_customer_idx/"
+      ],
+      "origin": "migration_diff",
+      "reason": "Constraints/indexes/column-specific triggers depend on the changed object via the displayed edge kinds.",
+      "remediation": "Rebuild or transition affected objects with verified order and constraint validation.",
+      "risk_dimensions": [
+        "compatibility",
+        "deployment_order"
+      ],
+      "risk_level": "high",
+      "rule_id": "DDM014",
+      "severity": "error",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "evidence_ids": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "id": "finding:370414671077baaa53bc48ab",
+      "object_ids": [],
+      "origin": "migration_diff",
+      "reason": "Table size/traffic/runtime statistics are unavailable. Lock mode can be described but duration and downtime are unknown.",
+      "remediation": "Collect labeled metadata and rehearse representative workload; do not invent row counts or timing.",
+      "risk_dimensions": [
+        "locking",
+        "rewrite",
+        "unresolved_dependencies"
+      ],
+      "risk_level": "unknown",
+      "rule_id": "DDM012",
+      "severity": "warning",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "evidence_ids": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "id": "finding:3c74037dcbed2a710c2586e9",
+      "object_ids": [
+        "postgresql:local/public/column/customers/id/"
+      ],
+      "origin": "migration_diff",
+      "reason": "Type transition int8 to uuid. BIGINT/integer identifiers have no general semantics-preserving UUID cast. PostgreSQL 18 ALTER COLUMN TYPE generally takes ACCESS EXCLUSIVE; rewrite/index rebuild depends on cast, typmod and USING expression. Rewrite and lock duration are conditional.",
+      "remediation": "Design and verify a mapping/replacement column. Check USING, defaults, FKs, views, indexes and actual cast support in a disposable database.",
+      "risk_dimensions": [
+        "compatibility",
+        "locking",
+        "rewrite"
+      ],
+      "risk_level": "high",
+      "rule_id": "DDM002",
+      "severity": "error",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "evidence_ids": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "id": "finding:4c54355fe16388208b9d5a72",
+      "object_ids": [
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+        "postgresql:local/public/view//customer_summary/"
+      ],
+      "origin": "migration_diff",
+      "reason": "Known views/routines/SQL consumers reference this object. Catalog paths and parsed source references have distinct guarantees; untracked routine bodies remain UNKNOWN.",
+      "remediation": "Review the supplied dependency paths and verify runtime consumers; never claim all function calls were discovered.",
+      "risk_dimensions": [
+        "compatibility",
+        "unresolved_dependencies"
+      ],
+      "risk_level": "high",
+      "rule_id": "DDM008",
+      "severity": "error",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "evidence_ids": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "id": "finding:527d85f2940afbbabfaec742",
+      "object_ids": [
+        "postgresql:local/public/column/orders/customer_id/"
+      ],
+      "origin": "migration_diff",
+      "reason": "DROP COLUMN destroys column data and affects known dependency/source references.",
+      "remediation": "Preserve data and transition consumers before a separately reviewed destructive contract.",
+      "risk_dimensions": [
+        "data_loss",
+        "compatibility"
+      ],
+      "risk_level": "high",
+      "rule_id": "DDM001",
+      "severity": "error",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "evidence_ids": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "id": "finding:927b58a07c6c822fa0c8fe67",
+      "object_ids": [
+        "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/index//orders_customer_idx/"
+      ],
+      "origin": "migration_diff",
+      "reason": "Constraints/indexes/column-specific triggers depend on the changed object via the displayed edge kinds.",
+      "remediation": "Rebuild or transition affected objects with verified order and constraint validation.",
+      "risk_dimensions": [
+        "compatibility",
+        "deployment_order"
+      ],
+      "risk_level": "high",
+      "rule_id": "DDM014",
+      "severity": "error",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "evidence_ids": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "id": "finding:9d142d86d93f8fb28487b147",
+      "object_ids": [
+        "postgresql:local/public/column/customers/id/"
+      ],
+      "origin": "migration_diff",
+      "reason": "Changed column has identity/default/generated semantics; sequence names and implicit casts may need catalog resolution.",
+      "remediation": "Preserve ownership, generation, default behavior and sequence state in a reviewed replacement design.",
+      "risk_dimensions": [
+        "compatibility",
+        "deployment_order"
+      ],
+      "risk_level": "high",
+      "rule_id": "DDM015",
+      "severity": "error",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "evidence_ids": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "id": "finding:d987bdc99719f15b83e7d489",
+      "object_ids": [],
+      "origin": "migration_diff",
+      "reason": "Table size/traffic/runtime statistics are unavailable. Lock mode can be described but duration and downtime are unknown.",
+      "remediation": "Collect labeled metadata and rehearse representative workload; do not invent row counts or timing.",
+      "risk_dimensions": [
+        "locking",
+        "rewrite",
+        "unresolved_dependencies"
+      ],
+      "risk_level": "unknown",
+      "rule_id": "DDM012",
+      "severity": "warning",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "conditional",
+      "evidence": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "evidence_ids": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "id": "finding:edffb23ebd95aa3c71ba1c43",
+      "object_ids": [
+        "postgresql:local/public/column/orders/customer_id/"
+      ],
+      "origin": "migration_diff",
+      "reason": "Destructive contract lacks evidence of completed application transition.",
+      "remediation": "Require expand/backfill/validate/transition gates before contract.",
+      "risk_dimensions": [
+        "deployment_order"
+      ],
+      "risk_level": "high",
+      "rule_id": "DDM011",
+      "severity": "error",
+      "status": "PARSED"
+    }
+  ],
+  "nodes": [
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e4dc7c3f3bcbc60c845f14b5"
+      ],
+      "id": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+      "kind": "query",
+      "name": "examples/ecommerce/app/customers.sql:ev:e4dc7c3f3bcbc60c845f14b5",
+      "origin": "application_source",
+      "parent": "",
+      "properties": {
+        "query_type": "SelectStmt"
+      },
+      "qualified_name": "application.\"examples/ecommerce/app/customers.sql:ev:e4dc7c3f3bcbc60c845f14b5\"",
+      "schema": "application",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:f8c7e18154ef774049bc8694"
+      ],
+      "id": "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+      "kind": "query",
+      "name": "examples/ecommerce/app/orders.sql:ev:f8c7e18154ef774049bc8694",
+      "origin": "application_source",
+      "parent": "",
+      "properties": {
+        "query_type": "SelectStmt"
+      },
+      "qualified_name": "application.\"examples/ecommerce/app/orders.sql:ev:f8c7e18154ef774049bc8694\"",
+      "schema": "application",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "id": "postgresql:local/public/column/addresses/city/",
+      "kind": "column",
+      "name": "city",
+      "origin": "sql_file",
+      "parent": "addresses",
+      "properties": {
+        "definition_hash": "sha256:f08b4647711f741de68a6c097e6f853a74c01c4504f6eed2bf39c4ccd9a2d2d3",
+        "nullable": false,
+        "type": "text"
+      },
+      "qualified_name": "public.addresses.city",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "id": "postgresql:local/public/column/addresses/customer_id/",
+      "kind": "column",
+      "name": "customer_id",
+      "origin": "sql_file",
+      "parent": "addresses",
+      "properties": {
+        "definition_hash": "sha256:c39228203e96db2b8f215085f7140c92c27add8b2fb53c8535a7d66dbdf26695",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.addresses.customer_id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "id": "postgresql:local/public/column/addresses/id/",
+      "kind": "column",
+      "name": "id",
+      "origin": "sql_file",
+      "parent": "addresses",
+      "properties": {
+        "definition_hash": "sha256:2814c4710c8164390073593d66ed870d08a2112eb28c1455a0f252754bd4cac8",
+        "identity": "sha256:970849dc6bb4bf7555e927881f2be02618b27020f51a9864235a907b53da2864",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.addresses.id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "id": "postgresql:local/public/column/customer_summary/email/",
+      "kind": "column",
+      "name": "email",
+      "origin": "sql_file",
+      "parent": "customer_summary",
+      "properties": {
+        "definition_hash": "sha256:66ea6bf2c488f1e2b3c2ac21ecee8d8370033b025b59c8c9b3bb9c2fa0c21a1a",
+        "nullable": true,
+        "type": ""
+      },
+      "qualified_name": "public.customer_summary.email",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "id": "postgresql:local/public/column/customer_summary/id/",
+      "kind": "column",
+      "name": "id",
+      "origin": "sql_file",
+      "parent": "customer_summary",
+      "properties": {
+        "definition_hash": "sha256:49c0c7d706e779884f4363cb3ee005ca55369ea38d969fcdfc75876128460501",
+        "nullable": true,
+        "type": ""
+      },
+      "qualified_name": "public.customer_summary.id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "id": "postgresql:local/public/column/customer_summary/order_count/",
+      "kind": "column",
+      "name": "order_count",
+      "origin": "sql_file",
+      "parent": "customer_summary",
+      "properties": {
+        "definition_hash": "sha256:d84fb59976dfbac1825a1b0308511edf1748625f1bb8522042ad115c5fd6fdea",
+        "nullable": true,
+        "type": ""
+      },
+      "qualified_name": "public.customer_summary.order_count",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "id": "postgresql:local/public/column/customers/email/",
+      "kind": "column",
+      "name": "email",
+      "origin": "sql_file",
+      "parent": "customers",
+      "properties": {
+        "definition_hash": "sha256:137b050c4a5fcfe348bc515063a2634f1d673100246fc37ebef150a8a8bc0ff7",
+        "nullable": false,
+        "type": "text"
+      },
+      "qualified_name": "public.customers.email",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "id": "postgresql:local/public/column/customers/id/",
+      "kind": "column",
+      "name": "id",
+      "origin": "sql_file",
+      "parent": "customers",
+      "properties": {
+        "definition_hash": "sha256:2814c4710c8164390073593d66ed870d08a2112eb28c1455a0f252754bd4cac8",
+        "identity": "sha256:970849dc6bb4bf7555e927881f2be02618b27020f51a9864235a907b53da2864",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.customers.id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "id": "postgresql:local/public/column/customers/name/",
+      "kind": "column",
+      "name": "name",
+      "origin": "sql_file",
+      "parent": "customers",
+      "properties": {
+        "definition_hash": "sha256:1e03ec01f5d19a6bbd1b0f7957b8ea19189cc72e9c15f59a5b5d67d0d22f036d",
+        "nullable": false,
+        "type": "text"
+      },
+      "qualified_name": "public.customers.name",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "id": "postgresql:local/public/column/customers/updated_at/",
+      "kind": "column",
+      "name": "updated_at",
+      "origin": "sql_file",
+      "parent": "customers",
+      "properties": {
+        "default": "sha256:8e2094a132c5ca7401619f31b664c568d4fa6a6f6548e2c7e79a2756e154215a",
+        "definition_hash": "sha256:4134ad4f3a994aff6d436bf6e4329672515896b0977f7dbf2d30ebe930aefa87",
+        "nullable": false,
+        "type": "timestamptz"
+      },
+      "qualified_name": "public.customers.updated_at",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "id": "postgresql:local/public/column/order_items/order_id/",
+      "kind": "column",
+      "name": "order_id",
+      "origin": "sql_file",
+      "parent": "order_items",
+      "properties": {
+        "definition_hash": "sha256:51db3ae41e544385c616bcfa177cd75905d120f72fca4bc4b5a9710b3eac30da",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.order_items.order_id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "id": "postgresql:local/public/column/order_items/product_id/",
+      "kind": "column",
+      "name": "product_id",
+      "origin": "sql_file",
+      "parent": "order_items",
+      "properties": {
+        "definition_hash": "sha256:ff6902b4bb96c519432cce2b2de806bc82c62b4efb355f67108bccc2f890640a",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.order_items.product_id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "id": "postgresql:local/public/column/order_items/quantity/",
+      "kind": "column",
+      "name": "quantity",
+      "origin": "sql_file",
+      "parent": "order_items",
+      "properties": {
+        "definition_hash": "sha256:1d91d3b7f5c391ff0f57184ae9efd6e06247a3661d2414848c98dc6832ab2834",
+        "nullable": false,
+        "type": "int4"
+      },
+      "qualified_name": "public.order_items.quantity",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "id": "postgresql:local/public/column/orders/created_at/",
+      "kind": "column",
+      "name": "created_at",
+      "origin": "sql_file",
+      "parent": "orders",
+      "properties": {
+        "default": "sha256:8e2094a132c5ca7401619f31b664c568d4fa6a6f6548e2c7e79a2756e154215a",
+        "definition_hash": "sha256:256ff2ee5a0bd607cbfc4d481a0529aa37ee8b3c905052a7c52c018df867e584",
+        "nullable": false,
+        "type": "timestamptz"
+      },
+      "qualified_name": "public.orders.created_at",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "id": "postgresql:local/public/column/orders/customer_id/",
+      "kind": "column",
+      "name": "customer_id",
+      "origin": "sql_file",
+      "parent": "orders",
+      "properties": {
+        "definition_hash": "sha256:c39228203e96db2b8f215085f7140c92c27add8b2fb53c8535a7d66dbdf26695",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.orders.customer_id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "id": "postgresql:local/public/column/orders/id/",
+      "kind": "column",
+      "name": "id",
+      "origin": "sql_file",
+      "parent": "orders",
+      "properties": {
+        "definition_hash": "sha256:2814c4710c8164390073593d66ed870d08a2112eb28c1455a0f252754bd4cac8",
+        "identity": "sha256:970849dc6bb4bf7555e927881f2be02618b27020f51a9864235a907b53da2864",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.orders.id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "id": "postgresql:local/public/column/orders/total_amount/",
+      "kind": "column",
+      "name": "total_amount",
+      "origin": "sql_file",
+      "parent": "orders",
+      "properties": {
+        "definition_hash": "sha256:057f194f15b4ffa477b37d8f3bcf98d675b6ea05f0d05515695e16e1e6bffc13",
+        "nullable": false,
+        "type": "numeric(12,2)"
+      },
+      "qualified_name": "public.orders.total_amount",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "id": "postgresql:local/public/column/payments/amount/",
+      "kind": "column",
+      "name": "amount",
+      "origin": "sql_file",
+      "parent": "payments",
+      "properties": {
+        "definition_hash": "sha256:b292d1afe6633b88dd524d5e1484f9db97f6bb46707d91ef73d3ef7712a94271",
+        "nullable": false,
+        "type": "numeric(12,2)"
+      },
+      "qualified_name": "public.payments.amount",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "id": "postgresql:local/public/column/payments/id/",
+      "kind": "column",
+      "name": "id",
+      "origin": "sql_file",
+      "parent": "payments",
+      "properties": {
+        "definition_hash": "sha256:2814c4710c8164390073593d66ed870d08a2112eb28c1455a0f252754bd4cac8",
+        "identity": "sha256:970849dc6bb4bf7555e927881f2be02618b27020f51a9864235a907b53da2864",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.payments.id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "id": "postgresql:local/public/column/payments/order_id/",
+      "kind": "column",
+      "name": "order_id",
+      "origin": "sql_file",
+      "parent": "payments",
+      "properties": {
+        "definition_hash": "sha256:4a51ca6377aa9cd5c5ac4788994569a39b17ab6e4ab074d339389b98ef939eef",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.payments.order_id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "id": "postgresql:local/public/column/products/id/",
+      "kind": "column",
+      "name": "id",
+      "origin": "sql_file",
+      "parent": "products",
+      "properties": {
+        "definition_hash": "sha256:2814c4710c8164390073593d66ed870d08a2112eb28c1455a0f252754bd4cac8",
+        "identity": "sha256:970849dc6bb4bf7555e927881f2be02618b27020f51a9864235a907b53da2864",
+        "nullable": false,
+        "type": "int8"
+      },
+      "qualified_name": "public.products.id",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "id": "postgresql:local/public/column/products/price/",
+      "kind": "column",
+      "name": "price",
+      "origin": "sql_file",
+      "parent": "products",
+      "properties": {
+        "definition_hash": "sha256:2357e448da6873b42c07bf6821c09096aa13e811a8b9d0645d2e0c46e8197b1b",
+        "nullable": false,
+        "type": "numeric(12,2)"
+      },
+      "qualified_name": "public.products.price",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "id": "postgresql:local/public/column/products/sku/",
+      "kind": "column",
+      "name": "sku",
+      "origin": "sql_file",
+      "parent": "products",
+      "properties": {
+        "definition_hash": "sha256:10f6445cf9f0d00a4b80aa8cc89056203227ab042cc87e8eff7f7ddd94afdd03",
+        "nullable": false,
+        "type": "text"
+      },
+      "qualified_name": "public.products.sku",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "id": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+      "kind": "constraint",
+      "name": "addresses_customer_id_fkey",
+      "origin": "sql_file",
+      "parent": "addresses",
+      "properties": {
+        "columns": [
+          "customer_id"
+        ],
+        "constraint_type": "foreign_key",
+        "definition_hash": "sha256:884466556956c633a5c8fcd4799d4aeac8643f8b8f4fb66427b4b437481879c4",
+        "name_inferred": true
+      },
+      "qualified_name": "public.addresses.addresses_customer_id_fkey",
+      "schema": "public",
+      "signature": "884466556956c633a5c8fcd4",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "id": "postgresql:local/public/constraint/addresses/addresses_pkey/62676e56159a610040517422",
+      "kind": "constraint",
+      "name": "addresses_pkey",
+      "origin": "sql_file",
+      "parent": "addresses",
+      "properties": {
+        "columns": [
+          "id"
+        ],
+        "constraint_type": "primary_key",
+        "definition_hash": "sha256:62676e56159a6100405174223116bad9567b0c9cfa971186e6f4848555f723ae",
+        "name_inferred": true
+      },
+      "qualified_name": "public.addresses.addresses_pkey",
+      "schema": "public",
+      "signature": "62676e56159a610040517422",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "id": "postgresql:local/public/constraint/customers/customers_email_key/30ba9a81fb7ea6ec9ff167f7",
+      "kind": "constraint",
+      "name": "customers_email_key",
+      "origin": "sql_file",
+      "parent": "customers",
+      "properties": {
+        "columns": [
+          "email"
+        ],
+        "constraint_type": "unique",
+        "definition_hash": "sha256:30ba9a81fb7ea6ec9ff167f700ff6645f7a64c25d44fe35747c072bd9733974f",
+        "name_inferred": true
+      },
+      "qualified_name": "public.customers.customers_email_key",
+      "schema": "public",
+      "signature": "30ba9a81fb7ea6ec9ff167f7",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "id": "postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422",
+      "kind": "constraint",
+      "name": "customers_pkey",
+      "origin": "sql_file",
+      "parent": "customers",
+      "properties": {
+        "columns": [
+          "id"
+        ],
+        "constraint_type": "primary_key",
+        "definition_hash": "sha256:62676e56159a6100405174223116bad9567b0c9cfa971186e6f4848555f723ae",
+        "name_inferred": true
+      },
+      "qualified_name": "public.customers.customers_pkey",
+      "schema": "public",
+      "signature": "62676e56159a610040517422",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "id": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "kind": "constraint",
+      "name": "order_items_order_id_fkey",
+      "origin": "sql_file",
+      "parent": "order_items",
+      "properties": {
+        "columns": [
+          "order_id"
+        ],
+        "constraint_type": "foreign_key",
+        "definition_hash": "sha256:1ef74bdedf741fe887a86e145fcd8edf53dcb516e17a8fb3b02c4bd9eb3e6815",
+        "name_inferred": true
+      },
+      "qualified_name": "public.order_items.order_items_order_id_fkey",
+      "schema": "public",
+      "signature": "1ef74bdedf741fe887a86e14",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "id": "postgresql:local/public/constraint/order_items/order_items_pkey/0f66fa763c977cd394d53f04",
+      "kind": "constraint",
+      "name": "order_items_pkey",
+      "origin": "sql_file",
+      "parent": "order_items",
+      "properties": {
+        "columns": [
+          "order_id",
+          "product_id"
+        ],
+        "constraint_type": "primary_key",
+        "definition_hash": "sha256:0f66fa763c977cd394d53f0420f2b7b60ba0db3bd7820e8e4193d15351f15589",
+        "name_inferred": true
+      },
+      "qualified_name": "public.order_items.order_items_pkey",
+      "schema": "public",
+      "signature": "0f66fa763c977cd394d53f04",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "id": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/4f7950eb41a49d97e2c7146e",
+      "kind": "constraint",
+      "name": "order_items_product_id_fkey",
+      "origin": "sql_file",
+      "parent": "order_items",
+      "properties": {
+        "columns": [
+          "product_id"
+        ],
+        "constraint_type": "foreign_key",
+        "definition_hash": "sha256:4f7950eb41a49d97e2c7146e5dca493da458f09a1887359bfdcb6d2ce4544bcc",
+        "name_inferred": true
+      },
+      "qualified_name": "public.order_items.order_items_product_id_fkey",
+      "schema": "public",
+      "signature": "4f7950eb41a49d97e2c7146e",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "id": "postgresql:local/public/constraint/order_items/order_items_quantity_check__485b310e0371/485b310e03717749fd366756",
+      "kind": "constraint",
+      "name": "order_items_quantity_check__485b310e0371",
+      "origin": "sql_file",
+      "parent": "order_items",
+      "properties": {
+        "columns": [
+          "quantity"
+        ],
+        "constraint_type": "check",
+        "definition_hash": "sha256:485b310e03717749fd3667563af2e7c4e56277a8aacbf380725a9369c203ee69",
+        "name_inferred": true
+      },
+      "qualified_name": "public.order_items.order_items_quantity_check__485b310e0371",
+      "schema": "public",
+      "signature": "485b310e03717749fd366756",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "id": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+      "kind": "constraint",
+      "name": "orders_customer_id_fkey",
+      "origin": "sql_file",
+      "parent": "orders",
+      "properties": {
+        "columns": [
+          "customer_id"
+        ],
+        "constraint_type": "foreign_key",
+        "definition_hash": "sha256:884466556956c633a5c8fcd4799d4aeac8643f8b8f4fb66427b4b437481879c4",
+        "name_inferred": true
+      },
+      "qualified_name": "public.orders.orders_customer_id_fkey",
+      "schema": "public",
+      "signature": "884466556956c633a5c8fcd4",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "id": "postgresql:local/public/constraint/orders/orders_pkey/62676e56159a610040517422",
+      "kind": "constraint",
+      "name": "orders_pkey",
+      "origin": "sql_file",
+      "parent": "orders",
+      "properties": {
+        "columns": [
+          "id"
+        ],
+        "constraint_type": "primary_key",
+        "definition_hash": "sha256:62676e56159a6100405174223116bad9567b0c9cfa971186e6f4848555f723ae",
+        "name_inferred": true
+      },
+      "qualified_name": "public.orders.orders_pkey",
+      "schema": "public",
+      "signature": "62676e56159a610040517422",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "id": "postgresql:local/public/constraint/orders/orders_total_amount_check__8c94b42a7e78/8c94b42a7e78904691546dba",
+      "kind": "constraint",
+      "name": "orders_total_amount_check__8c94b42a7e78",
+      "origin": "sql_file",
+      "parent": "orders",
+      "properties": {
+        "columns": [
+          "total_amount"
+        ],
+        "constraint_type": "check",
+        "definition_hash": "sha256:8c94b42a7e78904691546dba808f1c7031d09def28d0edf7e5631c7dc0362c2d",
+        "name_inferred": true
+      },
+      "qualified_name": "public.orders.orders_total_amount_check__8c94b42a7e78",
+      "schema": "public",
+      "signature": "8c94b42a7e78904691546dba",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "id": "postgresql:local/public/constraint/payments/payments_amount_check__2fbbb5aae972/2fbbb5aae972c43b3e1ddb51",
+      "kind": "constraint",
+      "name": "payments_amount_check__2fbbb5aae972",
+      "origin": "sql_file",
+      "parent": "payments",
+      "properties": {
+        "columns": [
+          "amount"
+        ],
+        "constraint_type": "check",
+        "definition_hash": "sha256:2fbbb5aae972c43b3e1ddb511934de05abe0e1e0163d5766ba8346e162aac7b1",
+        "name_inferred": true
+      },
+      "qualified_name": "public.payments.payments_amount_check__2fbbb5aae972",
+      "schema": "public",
+      "signature": "2fbbb5aae972c43b3e1ddb51",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "id": "postgresql:local/public/constraint/payments/payments_order_id_fkey/1ef74bdedf741fe887a86e14",
+      "kind": "constraint",
+      "name": "payments_order_id_fkey",
+      "origin": "sql_file",
+      "parent": "payments",
+      "properties": {
+        "columns": [
+          "order_id"
+        ],
+        "constraint_type": "foreign_key",
+        "definition_hash": "sha256:1ef74bdedf741fe887a86e145fcd8edf53dcb516e17a8fb3b02c4bd9eb3e6815",
+        "name_inferred": true
+      },
+      "qualified_name": "public.payments.payments_order_id_fkey",
+      "schema": "public",
+      "signature": "1ef74bdedf741fe887a86e14",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "id": "postgresql:local/public/constraint/payments/payments_pkey/62676e56159a610040517422",
+      "kind": "constraint",
+      "name": "payments_pkey",
+      "origin": "sql_file",
+      "parent": "payments",
+      "properties": {
+        "columns": [
+          "id"
+        ],
+        "constraint_type": "primary_key",
+        "definition_hash": "sha256:62676e56159a6100405174223116bad9567b0c9cfa971186e6f4848555f723ae",
+        "name_inferred": true
+      },
+      "qualified_name": "public.payments.payments_pkey",
+      "schema": "public",
+      "signature": "62676e56159a610040517422",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "id": "postgresql:local/public/constraint/products/products_pkey/62676e56159a610040517422",
+      "kind": "constraint",
+      "name": "products_pkey",
+      "origin": "sql_file",
+      "parent": "products",
+      "properties": {
+        "columns": [
+          "id"
+        ],
+        "constraint_type": "primary_key",
+        "definition_hash": "sha256:62676e56159a6100405174223116bad9567b0c9cfa971186e6f4848555f723ae",
+        "name_inferred": true
+      },
+      "qualified_name": "public.products.products_pkey",
+      "schema": "public",
+      "signature": "62676e56159a610040517422",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "id": "postgresql:local/public/constraint/products/products_price_check__a1bdfb6cc254/a1bdfb6cc254d41061cec471",
+      "kind": "constraint",
+      "name": "products_price_check__a1bdfb6cc254",
+      "origin": "sql_file",
+      "parent": "products",
+      "properties": {
+        "columns": [
+          "price"
+        ],
+        "constraint_type": "check",
+        "definition_hash": "sha256:a1bdfb6cc254d41061cec4716594eab5693d635a51376961f9c38d5cd0fe1a14",
+        "name_inferred": true
+      },
+      "qualified_name": "public.products.products_price_check__a1bdfb6cc254",
+      "schema": "public",
+      "signature": "a1bdfb6cc254d41061cec471",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "id": "postgresql:local/public/constraint/products/products_sku_key/30ba9a81fb7ea6ec9ff167f7",
+      "kind": "constraint",
+      "name": "products_sku_key",
+      "origin": "sql_file",
+      "parent": "products",
+      "properties": {
+        "columns": [
+          "sku"
+        ],
+        "constraint_type": "unique",
+        "definition_hash": "sha256:30ba9a81fb7ea6ec9ff167f700ff6645f7a64c25d44fe35747c072bd9733974f",
+        "name_inferred": true
+      },
+      "qualified_name": "public.products.products_sku_key",
+      "schema": "public",
+      "signature": "30ba9a81fb7ea6ec9ff167f7",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e9af3cfadad5d8900305d336"
+      ],
+      "id": "postgresql:local/public/function//touch_customer/",
+      "kind": "function",
+      "name": "touch_customer",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:69788d99ee54b34da61bcda504b3d00f44297888828d434f875fcccd212a12bc"
+      },
+      "qualified_name": "public.touch_customer",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:3eff11898bac02d99ee08daf"
+      ],
+      "id": "postgresql:local/public/index//orders_customer_idx/",
+      "kind": "index",
+      "name": "orders_customer_idx",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:d756ef818809be11f2ee04e3eb1fff93110159c327f567b050f9f65de80dc738"
+      },
+      "qualified_name": "public.orders_customer_idx",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "id": "postgresql:local/public/table//addresses/",
+      "kind": "table",
+      "name": "addresses",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:9c145553e656fe8efd771936eac30f6b3cff418e8897302f418389562756c435"
+      },
+      "qualified_name": "public.addresses",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "id": "postgresql:local/public/table//customers/",
+      "kind": "table",
+      "name": "customers",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:8ba1a04f5b65f1a8a0377e13fd1d70616cd2a2f3fa939ac2089e2c05767cc559"
+      },
+      "qualified_name": "public.customers",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:b306c585df0ee00d863316dd"
+      ],
+      "id": "postgresql:local/public/table//order_items/",
+      "kind": "table",
+      "name": "order_items",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:6f8b284ed2f016fb55a7ff04ea23ad7b91d781cb2bdf00e1391cb0b254210859"
+      },
+      "qualified_name": "public.order_items",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "id": "postgresql:local/public/table//orders/",
+      "kind": "table",
+      "name": "orders",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:b234fb61206da550dcd90d0a7d1e8a5eb71725c35e3a89f744edb79f61303a79"
+      },
+      "qualified_name": "public.orders",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "id": "postgresql:local/public/table//payments/",
+      "kind": "table",
+      "name": "payments",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:61c438642adec4e78e5308d6e5b02d5f392b152bedb35e7619fdc2b0579163be"
+      },
+      "qualified_name": "public.payments",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "id": "postgresql:local/public/table//products/",
+      "kind": "table",
+      "name": "products",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:e71fc575ab401cd52f45edd3df0faa3421ba55f9ea17bdb7996344bd9382cf1b"
+      },
+      "qualified_name": "public.products",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:776d7da11045ee31e44912e0"
+      ],
+      "id": "postgresql:local/public/trigger/customers/customers_touch/",
+      "kind": "trigger",
+      "name": "customers_touch",
+      "origin": "sql_file",
+      "parent": "customers",
+      "properties": {
+        "definition_hash": "sha256:b883f3a4e2ca6cb2493debafc7c58ab3e03eac238ad05d86ebbe9e6618e97f92"
+      },
+      "qualified_name": "public.customers.customers_touch",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    },
+    {
+      "confidence": "direct",
+      "evidence_ids": [
+        "ev:c81447f17e11c2d5b6c401da"
+      ],
+      "id": "postgresql:local/public/view//customer_summary/",
+      "kind": "view",
+      "name": "customer_summary",
+      "origin": "sql_file",
+      "parent": "",
+      "properties": {
+        "definition_hash": "sha256:c64cf7e681c56e9e87c80899bd868f94133a64e21a9dcbd8a871f71c128e25d3"
+      },
+      "qualified_name": "public.customer_summary",
+      "schema": "public",
+      "signature": "",
+      "status": "PARSED"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "snapshot": {
+    "created_at": null,
+    "id": "snapshot:a90cf67bbd08aeb06cdd4199",
+    "source_fingerprint": "sha256:a90cf67bbd08aeb06cdd419997c98ef8d49823ba05ccb749f8aa32ab37123b33"
+  },
+  "unknowns": [
+    {
+      "confidence": "unknown",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+      "id": "unknown:18505c245f165e4c93c709f8",
+      "object_id": "postgresql:local/public/column/orders/id/",
+      "origin": "heuristic",
+      "status": "UNKNOWN"
+    },
+    {
+      "confidence": "unknown",
+      "evidence_ids": [
+        "ev:8dadc8fc9c511aafd4803a87"
+      ],
+      "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+      "id": "unknown:5afc9281a8cd153100e8eb4f",
+      "object_id": "postgresql:local/public/column/products/id/",
+      "origin": "heuristic",
+      "status": "UNKNOWN"
+    },
+    {
+      "confidence": "unknown",
+      "evidence_ids": [
+        "ev:4f849d665202a664e7893d4a"
+      ],
+      "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+      "id": "unknown:5ff30f718f152d8ea851b944",
+      "object_id": "postgresql:local/public/column/addresses/id/",
+      "origin": "heuristic",
+      "status": "UNKNOWN"
+    },
+    {
+      "confidence": "unknown",
+      "evidence_ids": [
+        "ev:e9af3cfadad5d8900305d336"
+      ],
+      "explanation": "Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.",
+      "id": "unknown:69ffcfe1e4e57e6481af7368",
+      "object_id": "postgresql:local/public/function//touch_customer/",
+      "origin": "heuristic",
+      "status": "UNKNOWN"
+    },
+    {
+      "confidence": "unknown",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+      "id": "unknown:8bea11811025af9e17a96a8e",
+      "object_id": "postgresql:local/public/column/customers/updated_at/",
+      "origin": "heuristic",
+      "status": "UNKNOWN"
+    },
+    {
+      "confidence": "unknown",
+      "evidence_ids": [
+        "ev:40680f826d95f1ec183340ed"
+      ],
+      "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+      "id": "unknown:9e847561e1fbe07255d98720",
+      "object_id": "postgresql:local/public/column/customers/id/",
+      "origin": "heuristic",
+      "status": "UNKNOWN"
+    },
+    {
+      "confidence": "unknown",
+      "evidence_ids": [
+        "ev:e3fa1e6bfbfed48ae579bc40"
+      ],
+      "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+      "id": "unknown:eacbb533e2808e73f27dbf47",
+      "object_id": "postgresql:local/public/column/payments/id/",
+      "origin": "heuristic",
+      "status": "UNKNOWN"
+    },
+    {
+      "confidence": "unknown",
+      "evidence_ids": [
+        "ev:7de9792a75dda688bf1f738f"
+      ],
+      "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+      "id": "unknown:f16dbb53af3ad137ed449c36",
+      "object_id": "postgresql:local/public/column/orders/created_at/",
+      "origin": "heuristic",
+      "status": "UNKNOWN"
+    }
+  ]
+}

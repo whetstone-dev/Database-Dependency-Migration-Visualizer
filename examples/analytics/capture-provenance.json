@@ -1,0 +1,10 @@
+{
+  "capture_role": "dbdep_readonly: LOGIN, no user-table SELECT grants",
+  "capture_sha256": "sha256:b060e672cefda54c1d90fdba2c3ad34f0250b1e751e2243eebd7c198d1237af5",
+  "captured_at": "2026-10-09T16:32:45.035603+00:00",
+  "command": "python scripts/fixture_cluster.py --pg-bin <PostgreSQL-bin> --update-fixtures",
+  "schema_sha256": "sha256:acbb921ac8bf82f40fdaa110b518972addcacc7fc82c0c05fe55c9e201871eed",
+  "scope": "script-created isolated loopback fixture cluster",
+  "server_version_num": "180003",
+  "sql_executed": "shipped analytics/ecommerce/tricky-identifiers fixtures only, never a user migration"
+}

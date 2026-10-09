@@ -1,0 +1,168 @@
+{
+  "impacts": [
+    {
+      "affected": [
+        "postgresql:local/analytics/column/monthly_revenue/revenue/",
+        "postgresql:local/analytics/column/order_summary/id/",
+        "postgresql:local/analytics/column/order_summary/total_amount/",
+        "postgresql:local/analytics/type//_monthly_revenue/",
+        "postgresql:local/analytics/type//_order_summary/",
+        "postgresql:local/analytics/type//monthly_revenue/",
+        "postgresql:local/analytics/type//order_summary/",
+        "postgresql:local/analytics/view//monthly_revenue/",
+        "postgresql:local/analytics/view//order_summary/",
+        "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/"
+      ],
+      "categories": {
+        "inferred": [],
+        "recorded_catalog": [
+          "postgresql:local/analytics/column/monthly_revenue/revenue/",
+          "postgresql:local/analytics/column/order_summary/id/",
+          "postgresql:local/analytics/column/order_summary/total_amount/",
+          "postgresql:local/analytics/type//_monthly_revenue/",
+          "postgresql:local/analytics/type//_order_summary/",
+          "postgresql:local/analytics/type//monthly_revenue/",
+          "postgresql:local/analytics/type//order_summary/",
+          "postgresql:local/analytics/view//monthly_revenue/",
+          "postgresql:local/analytics/view//order_summary/",
+          "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/"
+        ],
+        "static_reference": []
+      },
+      "direct": [
+        "postgresql:local/analytics/view//order_summary/",
+        "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/"
+      ],
+      "explanation": "Reverse paths show potential impact. They do not prove execution failure or exhaustive runtime coverage.",
+      "operation": "AT_DropColumn",
+      "paths": {
+        "postgresql:local/analytics/column/monthly_revenue/revenue/": [
+          "edge:c980619568e864c98439e05f",
+          "edge:5478cb147e8a08cfcc0208bf",
+          "edge:9efce2644f223eca12a5d782",
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/analytics/column/order_summary/id/": [
+          "edge:88287709ee258a2673402599",
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/analytics/column/order_summary/total_amount/": [
+          "edge:9efce2644f223eca12a5d782",
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/analytics/type//_monthly_revenue/": [
+          "edge:55cc31eaf22b798c2164ec54",
+          "edge:7f81923f375e97d964167b72",
+          "edge:5478cb147e8a08cfcc0208bf",
+          "edge:9efce2644f223eca12a5d782",
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/analytics/type//_order_summary/": [
+          "edge:4d95cd8f47074ab437ac62a5",
+          "edge:b6a319aa26a2f9a28fb01645",
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/analytics/type//monthly_revenue/": [
+          "edge:7f81923f375e97d964167b72",
+          "edge:5478cb147e8a08cfcc0208bf",
+          "edge:9efce2644f223eca12a5d782",
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/analytics/type//order_summary/": [
+          "edge:b6a319aa26a2f9a28fb01645",
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/analytics/view//monthly_revenue/": [
+          "edge:5478cb147e8a08cfcc0208bf",
+          "edge:9efce2644f223eca12a5d782",
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/analytics/view//order_summary/": [
+          "edge:7382463a30822eedad6c5a9a"
+        ],
+        "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/": [
+          "edge:33adc274c68e8a9db5269838"
+        ]
+      },
+      "root": "postgresql:local/sales/column/orders/total_amount/",
+      "to": null,
+      "unknowns": [
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:5c841a0b542b7bbc4a8f8471"
+          ],
+          "explanation": "Catalog dependencies cover recorded edges only; repository/runtime consumers and some object definitions are unavailable.",
+          "id": "unknown:1bf85ce355b1da62c1134f3e",
+          "object_id": null,
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "SQL is never executed. Baseline is not replayed into a target schema.",
+    "Runtime consumers, table statistics and deployment completion require independent evidence."
+  ],
+  "metadata": {
+    "evidence_ids": [],
+    "origin": "user_supplied",
+    "status": "INFERRED",
+    "tables": {}
+  },
+  "operations": [
+    {
+      "evidence_ids": [
+        "ev:55869a800d91529f3d4c107c"
+      ],
+      "object_id": "postgresql:local/sales/column/orders/total_amount/",
+      "operation": "AT_DropColumn"
+    }
+  ],
+  "plan": [
+    {
+      "action": "Add nullable replacement columns or compatible interfaces; design UUID mapping and new keys before changing identifier types.",
+      "phase": "expand",
+      "preconditions": "Confirm PostgreSQL version, backups, ownership, consumers and feasible mapping. Review privileges and lock budget.",
+      "recovery": "Stop deployment before consumers depend on the new fields; keep old fields available.",
+      "review_only": true,
+      "verification": "Rehearse DDL on a disposable database with representative data. Verify identity/sequence/default semantics."
+    },
+    {
+      "action": "Backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.",
+      "phase": "backfill",
+      "preconditions": "Prove mapping uniqueness, handle concurrent writes and define throttling. Numeric identifiers do not have a general UUID cast.",
+      "recovery": "Pause batches and preserve old data; restore from tested backup only under an approved recovery procedure.",
+      "review_only": true,
+      "verification": "Check mapping completeness, uniqueness, NULL rates and FK consistency under concurrent traffic."
+    },
+    {
+      "action": "Validate CHECK/FK constraints where NOT VALID is supported. Build concurrent indexes outside transaction blocks when appropriate.",
+      "phase": "validate",
+      "preconditions": "Confirm constraint support, partition restrictions, existing violations and resource budget. Concurrent index failure can leave an invalid index.",
+      "recovery": "Investigate failed validation or invalid indexes; repair/retry through separate authorized tooling.",
+      "review_only": true,
+      "verification": "Check constraint validation and pg_index.indisvalid/indisready, compare old/new results and observe lock waits."
+    },
+    {
+      "action": "Deploy compatible readers/writers and transition dependent FKs, views, functions, API/ORM contracts and downstream jobs.",
+      "phase": "transition",
+      "preconditions": "Obtain explicit consumer ownership and deployment-order evidence. Account for UNKNOWN and dynamic SQL paths.",
+      "recovery": "Revert application reads only while both representations remain consistent; otherwise prefer roll-forward.",
+      "review_only": true,
+      "verification": "Observe application errors and old-field usage through an agreed window. Static graph paths do not prove runtime coverage."
+    },
+    {
+      "action": "Remove legacy objects only after verified transition and a separate destructive-change review.",
+      "phase": "contract",
+      "preconditions": "Confirm no remaining consumers, validated keys, tested backups and signed-off CASCADE consequences. Schedule lock acquisition.",
+      "recovery": "Drops can lose data. Reverse DDL does not restore it; use tested recovery or roll-forward with an operator.",
+      "review_only": true,
+      "verification": "Reinspect schema, compare snapshots and run application integration checks. Do not promise zero downtime."
+    }
+  ],
+  "review_only": true,
+  "risk_level": "high",
+  "schema_version": "1.0.0"
+}

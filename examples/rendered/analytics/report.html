@@ -1,0 +1,1774 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;sha256-FPdlNNiz9JHuNBpwgmsLj0BP6xK/EpHTDrbEZYNl9IQ=&#x27;; style-src &#x27;sha256-ggCecwq2Fx0/QRvhesQqKPMjdTWq4af+cHx2VoiWiJA=&#x27;; img-src data: blob:; connect-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;; object-src &#x27;none&#x27;"><title>PostgreSQL dependency explorer</title><style>:root{--paper:#eeeae2;--ink:#1b302e;--muted:#5e706b;--line:#c7cdc2;--accent:#bd431d;--blue:#206780;--panel:#faf8f2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Calibri,'Trebuchet MS',sans-serif}header{display:flex;justify-content:space-between;align-items:center;padding:20px 4vw;border-bottom:1px solid var(--ink)}.brand{font-size:25px;letter-spacing:-1px;font-weight:900}.brand span,.stamp,.eyebrow{font:11px Consolas,monospace;letter-spacing:1.4px}.brand span{margin-left:15px}.stamp{border:1px solid var(--ink);padding:8px}main{padding:30px 4vw}.intro{position:relative;margin-bottom:28px}.eyebrow{color:var(--accent);font-weight:bold}h1{font-family:Georgia,serif;font-size:clamp(36px,4vw,59px);line-height:1.02;font-weight:normal;letter-spacing:-2px;margin:18px 0}.subtitle{color:var(--muted);font-size:16px;max-width:700px}.stats{display:flex;gap:30px;position:absolute;right:0;bottom:5px}.stat strong{font:32px Georgia,serif;display:block}.stat span{font:11px Consolas,monospace;color:var(--muted);text-transform:uppercase}.tabs{display:flex;border-bottom:2px solid var(--ink);margin-bottom:20px;gap:5px}button,input,select{font:13px Calibri,'Trebuchet MS',sans-serif;color:var(--ink)}button{cursor:pointer;border:1px solid var(--line);background:var(--panel);padding:9px 13px;border-radius:0}@media(hover:hover) and (pointer:fine){button:hover{background:#dbe6dd}}button:focus-visible,input:focus-visible,select:focus-visible,.node:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.tabs button{border:0;background:transparent;padding:13px 24px}.tabs button[aria-pressed=true]{background:var(--ink);color:white}.toolbar{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px}label{display:flex;flex-direction:column;gap:6px;font:11px Consolas,monospace;text-transform:uppercase;letter-spacing:.7px}input,select{height:35px;padding:6px 10px;background:var(--panel);border:1px solid var(--line);min-width:130px}input{min-width:260px}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 320px;border:1px solid var(--line);background:var(--panel)}.canvas-wrap{min-width:0;border-right:1px solid var(--line)}.canvas-tools{display:flex;gap:5px;padding:10px;border-bottom:1px solid var(--line)}#graph{width:100%;height:640px;display:block;cursor:grab;background-color:#f7f5ee;background-image:radial-gradient(#cfd3c8 .6px,transparent .6px);background-size:16px 16px;touch-action:none}#graph:active{cursor:grabbing}#cap{margin:0;padding:7px 13px;color:var(--accent);font:11px Consolas,monospace;min-height:27px}.node{cursor:pointer}.node rect{fill:#faf8f2;stroke:#82958e;stroke-width:1}.node text{fill:#1b302e;font:12px Consolas,monospace;pointer-events:none}.node .sub{fill:#61756e;font:10px Consolas,monospace}.node.selected rect{stroke:#bd431d;stroke-width:3;fill:#fff0e4}.node.affected rect{stroke:#206780;stroke-width:2;fill:#e7f1f2}.node.changed rect{stroke:#bd431d;stroke-width:2;stroke-dasharray:5 2}.edge{fill:none;stroke:#526d63;stroke-width:1.2;opacity:.24;marker-end:url(#arrow)}.edge.parsed{stroke-dasharray:6 4}.edge.fk{stroke:#206780;stroke-dasharray:2 3}.edge.active{opacity:.9;stroke-width:2}.schema-title{font:13px Consolas,monospace;fill:#61756e}.legend{display:flex;gap:14px;flex-wrap:wrap;font:10px Consolas,monospace;padding:13px;border-top:1px solid var(--line)}.legend span{max-width:280px}.hard::before,.parsed::before,.fk::before{content:'';display:inline-block;width:22px;border-top:2px solid;margin-right:5px}.parsed::before{border-top-style:dashed}.fk::before{border-top-style:dotted;color:var(--blue)}aside{padding:20px;max-height:730px;overflow:auto;overflow-wrap:anywhere}h2{font:24px Georgia,serif;line-height:1.15;font-weight:normal}h3{font:14px Consolas,monospace}aside p{font-size:13px;line-height:1.5}.evidence,.path,.unknown,.finding,.phase{border-top:1px solid var(--line);padding:15px 0;margin-top:10px}.evidence{font:11px Consolas,monospace}.evidence p{font:11px Consolas,monospace}.path button{width:100%;text-align:left;margin-top:4px;font:11px Consolas,monospace}.review-toolbar{margin-bottom:20px}.finding{border-left:4px solid var(--blue);padding:16px 22px;background:var(--panel)}.finding.high{border-color:var(--accent)}.finding.unknown{border-color:var(--muted)}.finding h3{margin-top:0}.unknown{color:var(--muted)}.phase{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:25px;background:var(--panel)}.phase h2{color:var(--accent);text-transform:capitalize}.phase p{line-height:1.5}footer{font:11px/1.8 Consolas,monospace;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:15px}[hidden]{display:none!important}@media(max-width:1100px){.stats{position:static;margin-top:24px}.workspace{grid-template-columns:1fr 280px}}@media(max-width:760px){header .stamp{display:none}.workspace{grid-template-columns:1fr}.canvas-wrap{border:0}aside{border-top:1px solid var(--line)}#graph{height:450px}.stats{gap:18px}.tabs button{padding:10px}.phase{grid-template-columns:1fr}main{padding:20px}}
+
+/* Emil design engineering: brief press feedback, immediate keyboard actions. */
+button{transition:transform 120ms cubic-bezier(0.23,1,0.32,1);touch-action:manipulation}button:active{transform:scale(.97)}.keyboard-mode button{transition:none}.keyboard-mode button:active{transform:none}.stats strong{font-variant-numeric:tabular-nums}.canvas-tools{flex-wrap:wrap}aside h2,.finding p,.unknown,.phase p{overflow-wrap:anywhere}@media(max-width:760px){input,select{font-size:16px}.toolbar label{flex:1;min-width:130px}.toolbar label:first-child{flex-basis:100%}input{min-width:0;width:100%}.tabs{overflow:auto}.tabs button{white-space:nowrap}.canvas-tools button{min-height:44px}}@media(prefers-reduced-motion:reduce){button{transition:none}button:active{transform:none}}
+</style></head>
+<body><header><div class="brand">DDM <span>/ POSTGRESQL</span></div><span class="stamp">LOCAL ANALYSIS · REVIEW ONLY</span></header>
+<main><section class="intro"><p class="eyebrow">DATABASE DEPENDENCY &amp; MIGRATION</p><h1>Know what breaks<br>before you migrate.</h1><p class="subtitle">Trace dependencies back to their evidence. Review changes before deployment.</p><div id="stats" class="stats"></div></section>
+<nav class="tabs" aria-label="Report views"><button data-tab="explorer" aria-pressed="true">01 / Explorer</button><button data-tab="findings">02 / Change review</button><button data-tab="sequence">03 / Migration sequence</button></nav>
+<section id="explorer"><div class="toolbar"><label>Find an object<input id="search" type="search" placeholder="schema.table.column"></label><label>Schema<select id="schema"><option value="">All schemas</option></select></label><label>Kind<select id="kind"><option value="">All kinds</option></select></label><label>Evidence<select id="status"><option value="">All statuses</option></select></label><label>Impact<select id="depth"><option value="all">All objects</option><option value="direct">Direct dependents</option><option value="transitive">Transitive dependents</option></select></label></div>
+<div class="workspace"><div class="canvas-wrap"><div class="canvas-tools"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="reset">Reset view</button><button id="export-svg">Export SVG</button><button id="export-json">Export JSON</button></div><p id="cap" role="status" aria-live="polite"></p><svg id="graph" role="group" aria-label="Dependency graph. Use Tab to select nodes; Enter to inspect. Arrow keys pan, plus and minus zoom." tabindex="0" viewBox="0 0 1300 780"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="currentColor"></path></marker></defs><g id="scene"></g></svg><div class="legend"><span class="hard">Solid: catalog</span><span class="parsed">Dashed: parsed reference</span><span class="fk">Dotted: foreign key relationship</span><span>Arrow = source depends on target. Impact follows reverse arrows.</span></div></div><aside id="detail" aria-live="polite"><p class="eyebrow">EVIDENCE INSPECTOR</p><h2>Select an object</h2><p>Inspect direct and transitive consumers, explanatory paths, and source provenance.</p></aside></div></section>
+<section id="findings" hidden><div class="review-toolbar"><label>Risk level<select id="risk"><option value="">All risks</option><option>high</option><option>medium</option><option>low</option><option>unknown</option></select></label></div><div id="change-list"></div><div id="finding-list"></div><h2>Unknown coverage</h2><div id="unknown-list"></div></section>
+<section id="sequence" hidden><p class="subtitle">Review each phase, its preconditions, verification, and recovery. This report never runs SQL.</p><div id="phase-list"></div></section>
+<noscript><p>22 nodes, 29 edges, 6 findings, 1 unknowns. PostgreSQL 18. Source depends on target; blast radius follows reverse edges. Use report.md or the canonical JSON without JavaScript.</p></noscript><footer>OBSERVED = catalog metadata · PARSED = syntax evidence · INFERRED = unproven · UNKNOWN = unavailable.<br>Graph paths show potential impact. Runtime coverage and lock duration require separate evidence.</footer></main>
+<script id="dbdep-state" type="application/json">{
+  "changes": null,
+  "model": {
+    "coverage": {
+      "capabilities": [
+        "catalog_objects",
+        "pg_depend",
+        "pg_rewrite_ownership",
+        "reverse_dependencies"
+      ],
+      "catalog_available": true,
+      "exhaustive": false,
+      "repository_scan": false,
+      "unresolved": 1
+    },
+    "edges": [
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:45d9b35cafa103957cf2af5e"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:056208d89c84aa3d6fecdb15",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_class:16396:0-\u003epg_namespace:16388:0",
+          "dependency_type": "n",
+          "via": "pg_class"
+        },
+        "source": "postgresql:local/analytics/view//order_summary/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/schema//analytics/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:94bf53b50e435deee109a236"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:0a8c47aa37fc354f4b4568c2",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/index//orders_pkey/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/table//orders/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:0dcbc87e35e0e8b5c14d9e5c"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:1e22031734eb8d95d585eab9",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_class:16400:0-\u003epg_namespace:16388:0",
+          "dependency_type": "n",
+          "via": "pg_class"
+        },
+        "source": "postgresql:local/analytics/view//monthly_revenue/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/schema//analytics/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:10a5cef22313ed07c5c01130"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:33adc274c68e8a9db5269838",
+        "kind": "expression_reference",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/total_amount/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:0945ec2f971483bce560c4b2"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:46be06185d2d854f7d861dc5",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_type:16390:0-\u003epg_type:16391:0",
+          "dependency_type": "i",
+          "via": "pg_type"
+        },
+        "source": "postgresql:local/sales/type//_orders/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/type//orders/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:10a5cef22313ed07c5c01130"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:46eea5bd97bf831a975c7342",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/constraint/orders/orders_id_not_null/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/table//orders/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:e073c156d4870e6df674b8d8"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:48b0c940d4da7c979141a6b6",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_constraint:16395:0-\u003epg_class:16389:1",
+          "dependency_type": "a",
+          "via": "pg_constraint"
+        },
+        "source": "postgresql:local/sales/constraint/orders/orders_pkey/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/id/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:a18cd7ab749ffd45da973e4f"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:4d95cd8f47074ab437ac62a5",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_type:16397:0-\u003epg_type:16398:0",
+          "dependency_type": "i",
+          "via": "pg_type"
+        },
+        "source": "postgresql:local/analytics/type//_order_summary/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/type//order_summary/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:4e94d8a44687244d3018b756"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:5478cb147e8a08cfcc0208bf",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_rewrite:16403:0-\u003epg_class:16396:2",
+          "dependency_type": "n",
+          "via": "pg_rewrite"
+        },
+        "source": "postgresql:local/analytics/view//monthly_revenue/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/column/order_summary/total_amount/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:97b8b53b0789c823f69fe6a5"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:55cc31eaf22b798c2164ec54",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_type:16401:0-\u003epg_type:16402:0",
+          "dependency_type": "i",
+          "via": "pg_type"
+        },
+        "source": "postgresql:local/analytics/type//_monthly_revenue/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/type//monthly_revenue/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:94bf53b50e435deee109a236"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:585b66573bc42ab100b3a1dc",
+        "kind": "expression_reference",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/index//orders_pkey/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/id/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:ae9518b47e51bd76d8120289"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:5888b841d8ac8406dc4efa32",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_rewrite:16399:0-\u003epg_class:16389:1",
+          "dependency_type": "n",
+          "via": "pg_rewrite"
+        },
+        "source": "postgresql:local/analytics/view//order_summary/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/id/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:10a5cef22313ed07c5c01130"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:6de9a81ca0690cfadea55519",
+        "kind": "expression_reference",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/constraint/orders/orders_pkey/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/id/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:90a64f3016d97b0343f1bd48"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:7382463a30822eedad6c5a9a",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_rewrite:16399:0-\u003epg_class:16389:2",
+          "dependency_type": "n",
+          "via": "pg_rewrite"
+        },
+        "source": "postgresql:local/analytics/view//order_summary/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/total_amount/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:d680e8bdddcc4d7014effc22"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:7dbacce2ca01cccde5c50180",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_class:16389:0-\u003epg_namespace:16387:0",
+          "dependency_type": "n",
+          "via": "pg_class"
+        },
+        "source": "postgresql:local/sales/table//orders/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/schema//sales/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:e1b7cfaf007c8cada9f1ae20"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:7f81923f375e97d964167b72",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_type:16402:0-\u003epg_class:16400:0",
+          "dependency_type": "i",
+          "via": "pg_type"
+        },
+        "source": "postgresql:local/analytics/type//monthly_revenue/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/view//monthly_revenue/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:10a5cef22313ed07c5c01130"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:84f3b58a92a101d5ffe166bd",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/constraint/orders/orders_pkey/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/table//orders/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:5a4d372fdb8de56e300b05a8"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:88287709ee258a2673402599",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/analytics/column/order_summary/id/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/view//order_summary/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:10a5cef22313ed07c5c01130"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:8ee17f769a71eb691e4a955d",
+        "kind": "expression_reference",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/constraint/orders/orders_id_not_null/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/id/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:10a5cef22313ed07c5c01130"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:8fa19659c0a992517783b817",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/table//orders/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:c7362b01ada7e5f7494ecbf7"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:9efce2644f223eca12a5d782",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/analytics/column/order_summary/total_amount/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/view//order_summary/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:549eb3a8383dbb88a06197b6"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:ad60973d736404b83ade4847",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_class:16394:0-\u003epg_constraint:16395:0",
+          "dependency_type": "i",
+          "via": "pg_class"
+        },
+        "source": "postgresql:local/sales/index//orders_pkey/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/constraint/orders/orders_pkey/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:2b726a8c9138c587bda8edf9"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:b6a319aa26a2f9a28fb01645",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_type:16398:0-\u003epg_class:16396:0",
+          "dependency_type": "i",
+          "via": "pg_type"
+        },
+        "source": "postgresql:local/analytics/type//order_summary/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/view//order_summary/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:b0983bdf4576283eda0289a3"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:c980619568e864c98439e05f",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/analytics/column/monthly_revenue/revenue/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/analytics/view//monthly_revenue/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:5ebda9f77097aff56bde2cf2"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:d8b24b933beba20d5e8bbe59",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_constraint:16392:0-\u003epg_class:16389:1",
+          "dependency_type": "a",
+          "via": "pg_constraint"
+        },
+        "source": "postgresql:local/sales/constraint/orders/orders_id_not_null/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/id/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:53e332384fa39e3e95d5c713"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:d8c8b9c4eefcf4110513f79c",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_type:16391:0-\u003epg_class:16389:0",
+          "dependency_type": "i",
+          "via": "pg_type"
+        },
+        "source": "postgresql:local/sales/type//orders/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/table//orders/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:b99d0e21d0e3f87f72381177"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:e4981304a9018319416b1400",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/column/orders/id/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/table//orders/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:ddddf24415e7310b1823ff63"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:f687f0b82151e49858eeca4d",
+        "kind": "catalog_dependency",
+        "origin": "postgres_catalog",
+        "properties": {
+          "catalog_address": "pg_constraint:16393:0-\u003epg_class:16389:2",
+          "dependency_type": "a",
+          "via": "pg_constraint"
+        },
+        "source": "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/column/orders/total_amount/"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:4dbb656b27318ea9f0bfed20"
+        ],
+        "explanation": "Source depends on or references target; impact traverses reverse edges. Runtime effects require review.",
+        "id": "edge:fa90f9ab092de29493c87262",
+        "kind": "contains",
+        "origin": "postgres_catalog",
+        "properties": {},
+        "source": "postgresql:local/sales/column/orders/total_amount/",
+        "status": "OBSERVED",
+        "target": "postgresql:local/sales/table//orders/"
+      }
+    ],
+    "engine": {
+      "name": "postgresql",
+      "source_mode": "catalog_snapshot",
+      "version": "18"
+    },
+    "evidence": [
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16398:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:02bb36f63e76a8251e5fe5fc",
+        "origin": "postgres_catalog",
+        "query_id": "pg_type",
+        "source_hash": "sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16390:0-\u003epg_type:16391:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:0945ec2f971483bce560c4b2",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16400:0-\u003epg_namespace:16388:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:0dcbc87e35e0e8b5c14d9e5c",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16400:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:107b9e1e4e910e30322cfcaa",
+        "origin": "postgres_catalog",
+        "query_id": "pg_class",
+        "source_hash": "sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:10a5cef22313ed07c5c01130",
+        "origin": "postgres_catalog",
+        "query_id": "pg_constraint",
+        "source_hash": "sha256:fa9b4946bdb637292ddf707df2a1d0b3888a370a36a96667834b203e7bd5ff93",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16394:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:12979d2993a242348e218b7a",
+        "origin": "postgres_catalog",
+        "query_id": "pg_class",
+        "source_hash": "sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16390:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:272377cb956d0eec9031e4c7",
+        "origin": "postgres_catalog",
+        "query_id": "pg_type",
+        "source_hash": "sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16398:0-\u003epg_class:16396:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:2b726a8c9138c587bda8edf9",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_namespace:16388:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:2c83deeee37ec3e87689b909",
+        "origin": "postgres_catalog",
+        "query_id": "pg_namespace",
+        "source_hash": "sha256:e044ff4af53fb9dbe91eff0599e205ddc4b6dc24d8e26d7365162e77dfa0d7ba",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16391:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:3506d2f1190ae064132ef7d8",
+        "origin": "postgres_catalog",
+        "query_id": "pg_type",
+        "source_hash": "sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_rewrite:16403:0-\u003epg_class:16400:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:442dac27d805b6a84bbebfb7",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16396:0-\u003epg_namespace:16388:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:45d9b35cafa103957cf2af5e",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16389:2",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:4dbb656b27318ea9f0bfed20",
+        "origin": "postgres_catalog",
+        "query_id": "pg_attribute",
+        "source_hash": "sha256:4b9df534f307951c1815569ed2d46ab00935dcf74f36048065a0ae379196db0e",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_rewrite:16403:0-\u003epg_class:16396:2",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:4e94d8a44687244d3018b756",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16396:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:5389583ffac1b21379672f55",
+        "origin": "postgres_catalog",
+        "query_id": "pg_class",
+        "source_hash": "sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16391:0-\u003epg_class:16389:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:53e332384fa39e3e95d5c713",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16394:0-\u003epg_constraint:16395:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:549eb3a8383dbb88a06197b6",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "byte_length": 57,
+        "byte_start": 0,
+        "confidence": "direct",
+        "explanation": "Syntax establishes a static reference, not runtime reachability.",
+        "id": "ev:55869a800d91529f3d4c107c",
+        "line_end": 1,
+        "line_start": 1,
+        "origin": "migration_diff",
+        "path": "examples/analytics/drop.sql",
+        "source_hash": "sha256:297b740b46ede38605d0d18d43357d4abfd26ee5803285d390623a59cbb52201",
+        "status": "PARSED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16396:1",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:5a4d372fdb8de56e300b05a8",
+        "origin": "postgres_catalog",
+        "query_id": "pg_attribute",
+        "source_hash": "sha256:4b9df534f307951c1815569ed2d46ab00935dcf74f36048065a0ae379196db0e",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:5c841a0b542b7bbc4a8f8471",
+        "origin": "postgres_catalog",
+        "query_id": "server_version",
+        "source_hash": "sha256:82dac9244dba639bc043db976903d9a364691818ca5cac80d5b2e24fbf90a76d",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_constraint:16392:0-\u003epg_class:16389:1",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:5ebda9f77097aff56bde2cf2",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_constraint:16392:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:601c22d1fc5af5606bd3d4ba",
+        "origin": "postgres_catalog",
+        "query_id": "pg_constraint",
+        "source_hash": "sha256:fa9b4946bdb637292ddf707df2a1d0b3888a370a36a96667834b203e7bd5ff93",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16389:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:6713d46d22a2df2cd32e076b",
+        "origin": "postgres_catalog",
+        "query_id": "pg_class",
+        "source_hash": "sha256:09458ef68619d6c107738d0ed071df3b183d77f14788931aeccdd5d56c8a45f0",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_constraint:16395:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:7343e9fd75a693aece425800",
+        "origin": "postgres_catalog",
+        "query_id": "pg_constraint",
+        "source_hash": "sha256:fa9b4946bdb637292ddf707df2a1d0b3888a370a36a96667834b203e7bd5ff93",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16401:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:845e1f63c21ede90483c793e",
+        "origin": "postgres_catalog",
+        "query_id": "pg_type",
+        "source_hash": "sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_namespace:2200:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:8a43b97405c43896b7f874b9",
+        "origin": "postgres_catalog",
+        "query_id": "pg_namespace",
+        "source_hash": "sha256:e044ff4af53fb9dbe91eff0599e205ddc4b6dc24d8e26d7365162e77dfa0d7ba",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_rewrite:16399:0-\u003epg_class:16389:2",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:90a64f3016d97b0343f1bd48",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_rewrite:16399:0-\u003epg_class:16396:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:93a6a1713544f0a43f57935e",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:94bf53b50e435deee109a236",
+        "origin": "postgres_catalog",
+        "query_id": "pg_index",
+        "source_hash": "sha256:99430df1dcc4c9019f78d316353b0b066b0c8ae41613397a1627e53387367ce9",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16401:0-\u003epg_type:16402:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:97b8b53b0789c823f69fe6a5",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16397:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:a0c24950cc86ece96b03a0ae",
+        "origin": "postgres_catalog",
+        "query_id": "pg_type",
+        "source_hash": "sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16397:0-\u003epg_type:16398:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:a18cd7ab749ffd45da973e4f",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_rewrite:16399:0-\u003epg_class:16389:1",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:ae9518b47e51bd76d8120289",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16400:1",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:b0983bdf4576283eda0289a3",
+        "origin": "postgres_catalog",
+        "query_id": "pg_attribute",
+        "source_hash": "sha256:4b9df534f307951c1815569ed2d46ab00935dcf74f36048065a0ae379196db0e",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16389:1",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:b99d0e21d0e3f87f72381177",
+        "origin": "postgres_catalog",
+        "query_id": "pg_attribute",
+        "source_hash": "sha256:4b9df534f307951c1815569ed2d46ab00935dcf74f36048065a0ae379196db0e",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16396:2",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:c7362b01ada7e5f7494ecbf7",
+        "origin": "postgres_catalog",
+        "query_id": "pg_attribute",
+        "source_hash": "sha256:4b9df534f307951c1815569ed2d46ab00935dcf74f36048065a0ae379196db0e",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16402:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:cfca16ac9a1c3ff6fa4bc14a",
+        "origin": "postgres_catalog",
+        "query_id": "pg_type",
+        "source_hash": "sha256:9c16999f2382b3d4748bd8fe09569edfb24885a9cff77a47d3d7baaf2c492bce",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_class:16389:0-\u003epg_namespace:16387:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:d680e8bdddcc4d7014effc22",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_constraint:16393:0-\u003epg_class:16389:2",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:ddddf24415e7310b1823ff63",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_constraint:16393:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:e054f21253244cf1902a0b00",
+        "origin": "postgres_catalog",
+        "query_id": "pg_constraint",
+        "source_hash": "sha256:fa9b4946bdb637292ddf707df2a1d0b3888a370a36a96667834b203e7bd5ff93",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_constraint:16395:0-\u003epg_class:16389:1",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:e073c156d4870e6df674b8d8",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_type:16402:0-\u003epg_class:16400:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:e1b7cfaf007c8cada9f1ae20",
+        "origin": "postgres_catalog",
+        "query_id": "pg_depend",
+        "source_hash": "sha256:9e5040336dc3349a29735da7b94dd499aa51a1c46d7f1e103c350711f4ac4b85",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_extension:15210:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:eeb1c6f3bc5d0853972c9992",
+        "origin": "postgres_catalog",
+        "query_id": "pg_extension",
+        "source_hash": "sha256:e20869df2b51a80de931d27c03ff98f05bc37f29466b8103f3c782ee53127ec3",
+        "status": "OBSERVED"
+      },
+      {
+        "captured_at": "2026-10-09T16:32:45.035603+00:00",
+        "catalog_address": "pg_namespace:16387:0",
+        "confidence": "direct",
+        "explanation": "Direct catalog metadata from the supplied snapshot; not runtime or production-load proof.",
+        "id": "ev:f86c03cd14b6fade625bb6ee",
+        "origin": "postgres_catalog",
+        "query_id": "pg_namespace",
+        "source_hash": "sha256:e044ff4af53fb9dbe91eff0599e205ddc4b6dc24d8e26d7365162e77dfa0d7ba",
+        "status": "OBSERVED"
+      }
+    ],
+    "findings": [
+      {
+        "confidence": "conditional",
+        "evidence": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "evidence_ids": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "id": "finding:0eb98e4f01dcc1e39c11911e",
+        "object_ids": [],
+        "origin": "migration_diff",
+        "reason": "Table size/traffic/runtime statistics are unavailable. Lock mode can be described but duration and downtime are unknown.",
+        "remediation": "Collect labeled metadata and rehearse representative workload; do not invent row counts or timing.",
+        "risk_dimensions": [
+          "locking",
+          "rewrite",
+          "unresolved_dependencies"
+        ],
+        "risk_level": "unknown",
+        "rule_id": "DDM012",
+        "severity": "warning",
+        "status": "PARSED"
+      },
+      {
+        "confidence": "direct",
+        "evidence": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "evidence_ids": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "id": "finding:bb3848522f33610793c415a2",
+        "object_ids": [
+          "postgresql:local/analytics/column/monthly_revenue/revenue/",
+          "postgresql:local/analytics/column/order_summary/id/",
+          "postgresql:local/analytics/column/order_summary/total_amount/",
+          "postgresql:local/analytics/type//_monthly_revenue/",
+          "postgresql:local/analytics/type//_order_summary/",
+          "postgresql:local/analytics/type//monthly_revenue/",
+          "postgresql:local/analytics/type//order_summary/",
+          "postgresql:local/analytics/view//monthly_revenue/",
+          "postgresql:local/analytics/view//order_summary/",
+          "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/"
+        ],
+        "origin": "migration_diff",
+        "reason": "CASCADE can remove recorded dependent objects. The impact paths include potential static consumers too; those are not PostgreSQL's exact cascade deletion closure.",
+        "remediation": "Review catalog dependency types/internal ownership and explicitly approve each removal. Prefer RESTRICT while investigating.",
+        "risk_dimensions": [
+          "data_loss",
+          "unresolved_dependencies"
+        ],
+        "risk_level": "high",
+        "rule_id": "DDM010",
+        "severity": "error",
+        "status": "PARSED"
+      },
+      {
+        "confidence": "conditional",
+        "evidence": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "evidence_ids": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "id": "finding:db4d27c584b85bd820b74833",
+        "object_ids": [
+          "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/"
+        ],
+        "origin": "migration_diff",
+        "reason": "Constraints/indexes/column-specific triggers depend on the changed object via the displayed edge kinds.",
+        "remediation": "Rebuild or transition affected objects with verified order and constraint validation.",
+        "risk_dimensions": [
+          "compatibility",
+          "deployment_order"
+        ],
+        "risk_level": "high",
+        "rule_id": "DDM014",
+        "severity": "error",
+        "status": "PARSED"
+      },
+      {
+        "confidence": "direct",
+        "evidence": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "evidence_ids": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "id": "finding:e5625c83e8db59377c0ed674",
+        "object_ids": [
+          "postgresql:local/sales/column/orders/total_amount/"
+        ],
+        "origin": "migration_diff",
+        "reason": "DROP COLUMN destroys column data and affects known dependency/source references.",
+        "remediation": "Preserve data and transition consumers before a separately reviewed destructive contract.",
+        "risk_dimensions": [
+          "data_loss",
+          "compatibility"
+        ],
+        "risk_level": "high",
+        "rule_id": "DDM001",
+        "severity": "error",
+        "status": "PARSED"
+      },
+      {
+        "confidence": "conditional",
+        "evidence": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "evidence_ids": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "id": "finding:e80d3475d1af1f83b6d9860b",
+        "object_ids": [
+          "postgresql:local/sales/column/orders/total_amount/"
+        ],
+        "origin": "migration_diff",
+        "reason": "Destructive contract lacks evidence of completed application transition.",
+        "remediation": "Require expand/backfill/validate/transition gates before contract.",
+        "risk_dimensions": [
+          "deployment_order"
+        ],
+        "risk_level": "high",
+        "rule_id": "DDM011",
+        "severity": "error",
+        "status": "PARSED"
+      },
+      {
+        "confidence": "conditional",
+        "evidence": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "evidence_ids": [
+          "ev:55869a800d91529f3d4c107c"
+        ],
+        "id": "finding:fdf60da5c1473addae40e620",
+        "object_ids": [
+          "postgresql:local/analytics/view//monthly_revenue/",
+          "postgresql:local/analytics/view//order_summary/"
+        ],
+        "origin": "migration_diff",
+        "reason": "Known views/routines/SQL consumers reference this object. Catalog paths and parsed source references have distinct guarantees; untracked routine bodies remain UNKNOWN.",
+        "remediation": "Review the supplied dependency paths and verify runtime consumers; never claim all function calls were discovered.",
+        "risk_dimensions": [
+          "compatibility",
+          "unresolved_dependencies"
+        ],
+        "risk_level": "high",
+        "rule_id": "DDM008",
+        "severity": "error",
+        "status": "PARSED"
+      }
+    ],
+    "nodes": [
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:b0983bdf4576283eda0289a3"
+        ],
+        "id": "postgresql:local/analytics/column/monthly_revenue/revenue/",
+        "kind": "column",
+        "name": "revenue",
+        "origin": "postgres_catalog",
+        "parent": "monthly_revenue",
+        "properties": {
+          "catalog_address": "pg_class:16400:1",
+          "nullable": true,
+          "type": "numeric",
+          "typmod": -1
+        },
+        "qualified_name": "analytics.monthly_revenue.revenue",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:5a4d372fdb8de56e300b05a8"
+        ],
+        "id": "postgresql:local/analytics/column/order_summary/id/",
+        "kind": "column",
+        "name": "id",
+        "origin": "postgres_catalog",
+        "parent": "order_summary",
+        "properties": {
+          "catalog_address": "pg_class:16396:1",
+          "nullable": true,
+          "type": "int8",
+          "typmod": -1
+        },
+        "qualified_name": "analytics.order_summary.id",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:c7362b01ada7e5f7494ecbf7"
+        ],
+        "id": "postgresql:local/analytics/column/order_summary/total_amount/",
+        "kind": "column",
+        "name": "total_amount",
+        "origin": "postgres_catalog",
+        "parent": "order_summary",
+        "properties": {
+          "catalog_address": "pg_class:16396:2",
+          "nullable": true,
+          "type": "numeric",
+          "typmod": 786438
+        },
+        "qualified_name": "analytics.order_summary.total_amount",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:2c83deeee37ec3e87689b909"
+        ],
+        "id": "postgresql:local/analytics/schema//analytics/",
+        "kind": "schema",
+        "name": "analytics",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_namespace:16388:0",
+          "oid": 16388
+        },
+        "qualified_name": "analytics.analytics",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:845e1f63c21ede90483c793e"
+        ],
+        "id": "postgresql:local/analytics/type//_monthly_revenue/",
+        "kind": "type",
+        "name": "_monthly_revenue",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_type:16401:0",
+          "internal": true,
+          "oid": 16401,
+          "typtype": "b"
+        },
+        "qualified_name": "analytics._monthly_revenue",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:a0c24950cc86ece96b03a0ae"
+        ],
+        "id": "postgresql:local/analytics/type//_order_summary/",
+        "kind": "type",
+        "name": "_order_summary",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_type:16397:0",
+          "internal": true,
+          "oid": 16397,
+          "typtype": "b"
+        },
+        "qualified_name": "analytics._order_summary",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:cfca16ac9a1c3ff6fa4bc14a"
+        ],
+        "id": "postgresql:local/analytics/type//monthly_revenue/",
+        "kind": "type",
+        "name": "monthly_revenue",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_type:16402:0",
+          "internal": true,
+          "oid": 16402,
+          "typtype": "c"
+        },
+        "qualified_name": "analytics.monthly_revenue",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:02bb36f63e76a8251e5fe5fc"
+        ],
+        "id": "postgresql:local/analytics/type//order_summary/",
+        "kind": "type",
+        "name": "order_summary",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_type:16398:0",
+          "internal": true,
+          "oid": 16398,
+          "typtype": "c"
+        },
+        "qualified_name": "analytics.order_summary",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:107b9e1e4e910e30322cfcaa"
+        ],
+        "id": "postgresql:local/analytics/view//monthly_revenue/",
+        "kind": "view",
+        "name": "monthly_revenue",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_class:16400:0",
+          "is_partition": false,
+          "oid": 16400,
+          "relkind": "v",
+          "relpages": 0,
+          "reltuples": -1.0,
+          "statistics_source": "pg_class estimates, not row counts"
+        },
+        "qualified_name": "analytics.monthly_revenue",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:5389583ffac1b21379672f55"
+        ],
+        "id": "postgresql:local/analytics/view//order_summary/",
+        "kind": "view",
+        "name": "order_summary",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_class:16396:0",
+          "is_partition": false,
+          "oid": 16396,
+          "relkind": "v",
+          "relpages": 0,
+          "reltuples": -1.0,
+          "statistics_source": "pg_class estimates, not row counts"
+        },
+        "qualified_name": "analytics.order_summary",
+        "schema": "analytics",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:eeb1c6f3bc5d0853972c9992"
+        ],
+        "id": "postgresql:local/pg_catalog/extension//plpgsql/",
+        "kind": "extension",
+        "name": "plpgsql",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_extension:15210:0",
+          "oid": 15210,
+          "version": "1.0"
+        },
+        "qualified_name": "pg_catalog.plpgsql",
+        "schema": "pg_catalog",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:8a43b97405c43896b7f874b9"
+        ],
+        "id": "postgresql:local/public/schema//public/",
+        "kind": "schema",
+        "name": "public",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_namespace:2200:0",
+          "oid": 2200
+        },
+        "qualified_name": "public.public",
+        "schema": "public",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:b99d0e21d0e3f87f72381177"
+        ],
+        "id": "postgresql:local/sales/column/orders/id/",
+        "kind": "column",
+        "name": "id",
+        "origin": "postgres_catalog",
+        "parent": "orders",
+        "properties": {
+          "catalog_address": "pg_class:16389:1",
+          "nullable": false,
+          "type": "int8",
+          "typmod": -1
+        },
+        "qualified_name": "sales.orders.id",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:4dbb656b27318ea9f0bfed20"
+        ],
+        "id": "postgresql:local/sales/column/orders/total_amount/",
+        "kind": "column",
+        "name": "total_amount",
+        "origin": "postgres_catalog",
+        "parent": "orders",
+        "properties": {
+          "catalog_address": "pg_class:16389:2",
+          "nullable": false,
+          "type": "numeric",
+          "typmod": 786438
+        },
+        "qualified_name": "sales.orders.total_amount",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:601c22d1fc5af5606bd3d4ba"
+        ],
+        "id": "postgresql:local/sales/constraint/orders/orders_id_not_null/",
+        "kind": "constraint",
+        "name": "orders_id_not_null",
+        "origin": "postgres_catalog",
+        "parent": "orders",
+        "properties": {
+          "catalog_address": "pg_constraint:16392:0",
+          "columns": [
+            "id"
+          ],
+          "constraint_type": "not_null",
+          "oid": 16392,
+          "validated": true
+        },
+        "qualified_name": "sales.orders.orders_id_not_null",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:7343e9fd75a693aece425800"
+        ],
+        "id": "postgresql:local/sales/constraint/orders/orders_pkey/",
+        "kind": "constraint",
+        "name": "orders_pkey",
+        "origin": "postgres_catalog",
+        "parent": "orders",
+        "properties": {
+          "catalog_address": "pg_constraint:16395:0",
+          "columns": [
+            "id"
+          ],
+          "constraint_type": "primary_key",
+          "oid": 16395,
+          "validated": true
+        },
+        "qualified_name": "sales.orders.orders_pkey",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:e054f21253244cf1902a0b00"
+        ],
+        "id": "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/",
+        "kind": "constraint",
+        "name": "orders_total_amount_not_null",
+        "origin": "postgres_catalog",
+        "parent": "orders",
+        "properties": {
+          "catalog_address": "pg_constraint:16393:0",
+          "columns": [
+            "total_amount"
+          ],
+          "constraint_type": "not_null",
+          "oid": 16393,
+          "validated": true
+        },
+        "qualified_name": "sales.orders.orders_total_amount_not_null",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:12979d2993a242348e218b7a"
+        ],
+        "id": "postgresql:local/sales/index//orders_pkey/",
+        "kind": "index",
+        "name": "orders_pkey",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_class:16394:0",
+          "is_partition": false,
+          "oid": 16394,
+          "ready": true,
+          "relkind": "i",
+          "relpages": 1,
+          "reltuples": 0.0,
+          "statistics_source": "pg_class estimates, not row counts",
+          "unique": true,
+          "valid": true
+        },
+        "qualified_name": "sales.orders_pkey",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:f86c03cd14b6fade625bb6ee"
+        ],
+        "id": "postgresql:local/sales/schema//sales/",
+        "kind": "schema",
+        "name": "sales",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_namespace:16387:0",
+          "oid": 16387
+        },
+        "qualified_name": "sales.sales",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:6713d46d22a2df2cd32e076b"
+        ],
+        "id": "postgresql:local/sales/table//orders/",
+        "kind": "table",
+        "name": "orders",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_class:16389:0",
+          "is_partition": false,
+          "oid": 16389,
+          "relkind": "r",
+          "relpages": 0,
+          "reltuples": -1.0,
+          "statistics_source": "pg_class estimates, not row counts"
+        },
+        "qualified_name": "sales.orders",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:272377cb956d0eec9031e4c7"
+        ],
+        "id": "postgresql:local/sales/type//_orders/",
+        "kind": "type",
+        "name": "_orders",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_type:16390:0",
+          "internal": true,
+          "oid": 16390,
+          "typtype": "b"
+        },
+        "qualified_name": "sales._orders",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      },
+      {
+        "confidence": "direct",
+        "evidence_ids": [
+          "ev:3506d2f1190ae064132ef7d8"
+        ],
+        "id": "postgresql:local/sales/type//orders/",
+        "kind": "type",
+        "name": "orders",
+        "origin": "postgres_catalog",
+        "parent": "",
+        "properties": {
+          "catalog_address": "pg_type:16391:0",
+          "internal": true,
+          "oid": 16391,
+          "typtype": "c"
+        },
+        "qualified_name": "sales.orders",
+        "schema": "sales",
+        "signature": "",
+        "status": "OBSERVED"
+      }
+    ],
+    "schema_version": "1.0.0",
+    "snapshot": {
+      "created_at": "2026-10-09T16:32:45.035603+00:00",
+      "id": "snapshot:2675de6c67b14f27ec476950",
+      "source_fingerprint": "sha256:2675de6c67b14f27ec476950be7a07be03c9e90d0502544031855d219112276f"
+    },
+    "unknowns": [
+      {
+        "confidence": "unknown",
+        "evidence_ids": [
+          "ev:5c841a0b542b7bbc4a8f8471"
+        ],
+        "explanation": "Catalog dependencies cover recorded edges only; repository/runtime consumers and some object definitions are unavailable.",
+        "id": "unknown:1bf85ce355b1da62c1134f3e",
+        "object_id": null,
+        "origin": "heuristic",
+        "status": "UNKNOWN"
+      }
+    ]
+  },
+  "plan": [
+    {
+      "action": "Add nullable replacement columns or compatible interfaces; design UUID mapping and new keys before changing identifier types.",
+      "phase": "expand",
+      "preconditions": "Confirm PostgreSQL version, backups, ownership, consumers and feasible mapping. Review privileges and lock budget.",
+      "recovery": "Stop deployment before consumers depend on the new fields; keep old fields available.",
+      "review_only": true,
+      "verification": "Rehearse DDL on a disposable database with representative data. Verify identity/sequence/default semantics."
+    },
+    {
+      "action": "Backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.",
+      "phase": "backfill",
+      "preconditions": "Prove mapping uniqueness, handle concurrent writes and define throttling. Numeric identifiers do not have a general UUID cast.",
+      "recovery": "Pause batches and preserve old data; restore from tested backup only under an approved recovery procedure.",
+      "review_only": true,
+      "verification": "Check mapping completeness, uniqueness, NULL rates and FK consistency under concurrent traffic."
+    },
+    {
+      "action": "Validate CHECK/FK constraints where NOT VALID is supported. Build concurrent indexes outside transaction blocks when appropriate.",
+      "phase": "validate",
+      "preconditions": "Confirm constraint support, partition restrictions, existing violations and resource budget. Concurrent index failure can leave an invalid index.",
+      "recovery": "Investigate failed validation or invalid indexes; repair/retry through separate authorized tooling.",
+      "review_only": true,
+      "verification": "Check constraint validation and pg_index.indisvalid/indisready, compare old/new results and observe lock waits."
+    },
+    {
+      "action": "Deploy compatible readers/writers and transition dependent FKs, views, functions, API/ORM contracts and downstream jobs.",
+      "phase": "transition",
+      "preconditions": "Obtain explicit consumer ownership and deployment-order evidence. Account for UNKNOWN and dynamic SQL paths.",
+      "recovery": "Revert application reads only while both representations remain consistent; otherwise prefer roll-forward.",
+      "review_only": true,
+      "verification": "Observe application errors and old-field usage through an agreed window. Static graph paths do not prove runtime coverage."
+    },
+    {
+      "action": "Remove legacy objects only after verified transition and a separate destructive-change review.",
+      "phase": "contract",
+      "preconditions": "Confirm no remaining consumers, validated keys, tested backups and signed-off CASCADE consequences. Schedule lock acquisition.",
+      "recovery": "Drops can lose data. Reverse DDL does not restore it; use tested recovery or roll-forward with an operator.",
+      "review_only": true,
+      "verification": "Reinspect schema, compare snapshots and run application integration checks. Do not promise zero downtime."
+    }
+  ],
+  "root": "postgresql:local/sales/column/orders/total_amount/",
+  "summary": {
+    "edges": 29,
+    "evidence": 44,
+    "findings": 6,
+    "nodes": 22,
+    "severity_counts": {
+      "error": 5,
+      "info": 0,
+      "warning": 1
+    },
+    "unknowns": 1
+  }
+}
+</script><script>'use strict';
+const STATE = JSON.parse(document.getElementById('dbdep-state').textContent);
+const M = STATE.model, NS = 'http://www.w3.org/2000/svg', CAP = 350;
+const $ = id => document.getElementById(id);
+const nodes = new Map(M.nodes.map(n => [n.id, n])), edges = new Map(M.edges.map(e => [e.id, e]));
+const evidence = new Map(M.evidence.map(e => [e.id, e]));
+const reverse = new Map();
+M.edges.forEach(e => {if (!reverse.has(e.target)) reverse.set(e.target, []); reverse.get(e.target).push(e);});
+let selected = STATE.root || null, zoom = 1, panX = 0, panY = 0, drag = null;
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+document.addEventListener('keydown', () => document.body.classList.add('keyboard-mode'));
+document.addEventListener('pointerdown', () => document.body.classList.remove('keyboard-mode'));
+function el(tag, text, cls, parent) {const n = document.createElement(tag); if (text !== null) n.textContent = text; if (cls) n.className = cls; if (parent) parent.append(n); return n;}
+function svg(tag, attrs, text) {const n = document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v)); if(text!==undefined)n.textContent=text;return n;}
+// Store one BFS predecessor per object rather than all O(N²) path arrays.
+function reach(root) {const paths=new Map([[root,null]]),q=[root];for(let i=0;i<q.length;i++){for(const e of reverse.get(q[i])||[]){if(!paths.has(e.source)){paths.set(e.source,e.id);q.push(e.source);}}}paths.delete(root);return paths;}
+function pathPreview(id, paths){const result=[];let steps=0;while(paths.has(id)){const eid=paths.get(id);if(result.length<16)result.push(eid);id=edges.get(eid).target;steps++;}return {edges:result,steps};}
+function options(id,key){[...new Set(M.nodes.map(n=>n[key]))].sort().forEach(v=>{const o=el('option',v,null,$(id));o.value=v;});}
+options('schema','schema');options('kind','kind');options('status','status');
+for (const [key,label] of [['nodes','OBJECTS'],['edges','RELATIONS'],['findings','FINDINGS'],['unknowns','UNKNOWNS']]) {const d=el('div',null,'stat',$('stats'));el('strong',String(STATE.summary[key]),null,d);el('span',label,null,d);}
+function transform(){$('scene').setAttribute('transform',`translate(${panX},${panY}) scale(${zoom})`);}
+function draw(){
+  const paths=selected?reach(selected):new Map(), direct=new Set((reverse.get(selected)||[]).map(e=>e.source));
+  const text=$('search').value.toLowerCase(), depth=$('depth').value;
+  const filtered=M.nodes.filter(n=>(!text||n.qualified_name.toLowerCase().includes(text)||n.id.toLowerCase().includes(text))&&(!$('schema').value||n.schema===$('schema').value)&&(!$('kind').value||n.kind===$('kind').value)&&(!$('status').value||n.status===$('status').value)&&(depth==='all'||n.id===selected||(depth==='direct'?direct.has(n.id):paths.has(n.id))));
+  const shown=filtered.slice(0,CAP), pos=new Map();
+  const schemas=[...new Set(shown.map(n=>n.schema))].sort(), allSchemas=[...new Set(filtered.map(n=>n.schema))].sort();let row=0;
+  const scene=$('scene');scene.replaceChildren();
+  for(const schema of schemas){scene.append(svg('text',{x:20,y:row*78+20,class:'schema-title'},schema.toUpperCase()));row++;
+    const group=shown.filter(n=>n.schema===schema);group.forEach((n,i)=>pos.set(n.id,{x:20+(i%5)*256,y:(row+Math.floor(i/5))*78}));row+=Math.ceil(group.length/5)+1;}
+  $('cap').textContent=!filtered.length?'No matching objects. Clear search or filters to explore the snapshot.':filtered.length>CAP?`Showing ${CAP} of ${filtered.length} matching objects. Schema totals: ${allSchemas.map(s=>s+': '+filtered.filter(n=>n.schema===s).length).join(', ')}. Narrow filters to inspect all objects; full JSON is preserved.`:`${shown.length} visible objects · ${paths.size} potential dependents · ${M.unknowns.length} unknowns`;
+  const activeEdges=new Set(paths.values());
+  M.edges.forEach(e=>{if(!pos.has(e.source)||!pos.has(e.target))return;const a=pos.get(e.source),b=pos.get(e.target);const path=svg('path',{d:`M${a.x+119},${a.y+57} C${a.x+119},${a.y+90} ${b.x+119},${b.y-20} ${b.x+119},${b.y}`,class:`edge ${e.kind==='foreign_key'?'fk':e.status==='PARSED'?'parsed':''} ${activeEdges.has(e.id)?'active':''}`});path.append(svg('title',{},`${e.kind} · ${e.status} · ${e.explanation}`));scene.append(path);});
+  const changed=new Set(STATE.changes?[...STATE.changes.added,...STATE.changes.removed,...STATE.changes.modified]:[]);
+  shown.forEach(n=>{const p=pos.get(n.id),g=svg('g',{class:`node ${n.id===selected?'selected':paths.has(n.id)?'affected':''} ${changed.has(n.id)?'changed':''}`,transform:`translate(${p.x},${p.y})`,tabindex:0,role:'button','aria-label':`${n.qualified_name}, ${n.kind}, ${n.status}`,'data-id':n.id});
+    const label=n.kind==='column'?`${n.parent}.${n.name}`:n.kind==='query'?n.name.split(':ev:')[0].split('/').slice(-2).join('/'):n.name;
+    g.append(svg('rect',{width:238,height:58,rx:2}),svg('text',{x:10,y:23},label.length>27?label.slice(0,24)+'…':label),svg('text',{x:10,y:43,class:'sub'},`${n.kind} / ${n.status}`),svg('title',{},n.qualified_name));g.addEventListener('click',()=>choose(n.id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(n.id);}});scene.append(g);});
+  const height=Math.max(780,row*78);$('graph').setAttribute('viewBox',`0 0 1300 ${height}`);transform();
+}
+function choose(id){selected=id;draw();inspect();const n=[...document.querySelectorAll('.node')].find(n=>n.getAttribute('data-id')===id);if(n)n.focus();}
+function inspect(){const detail=$('detail');detail.replaceChildren();if(!selected||!nodes.has(selected)){el('h2','Select an object',null,detail);return;}const n=nodes.get(selected),paths=reach(selected);
+  el('p','EVIDENCE INSPECTOR','eyebrow',detail);el('h2',n.qualified_name,null,detail);el('p',`${n.kind} · ${n.status} · ${paths.size} potential dependents`,null,detail);el('p',n.id,null,detail);
+  for(const eid of n.evidence_ids){const e=evidence.get(eid),d=el('div',null,'evidence',detail);el('strong',e.status+' / '+e.origin,null,d);el('p',e.path?`${e.path}:${e.line_start}–${e.line_end}`:`${e.query_id} · ${e.captured_at} · ${e.catalog_address||''}`,null,d);el('p',e.explanation,null,d);el('p',e.source_hash,null,d);}
+  el('h3','Dependency paths',null,detail);
+  let displayed=0;
+  for(const id of paths.keys()){if(displayed++>=40)break;const path=pathPreview(id,paths),d=el('div',null,'path',detail);const btn=el('button',nodes.get(id).qualified_name,null,d);btn.addEventListener('click',()=>choose(id));for(const eid of path.edges){const e=edges.get(eid);el('p',`${nodes.get(e.source).qualified_name} → ${nodes.get(e.target).qualified_name} (${e.kind}, ${e.status})`,null,d);el('p',e.evidence_ids.map(id=>{const ev=evidence.get(id);return ev.path?`${ev.path}:${ev.line_start}`:`${ev.query_id} / ${ev.catalog_address||''}`;}).join('; '),null,d);}if(path.steps>16)el('p',`${path.steps-16} further path steps omitted from this preview. Use CLI impact for the complete path.`,null,d);}
+  if(paths.size>40)el('p',`Showing 40 of ${paths.size} paths. Use search to select another object or CLI impact for all complete paths.`,null,detail);
+  el('h3','Unknown coverage',null,detail);M.unknowns.forEach(u=>el('p',u.explanation,'unknown',detail));
+}
+function findings(){const list=$('finding-list');list.replaceChildren();const risk=$('risk').value;for(const f of M.findings.filter(f=>!risk||f.risk_level===risk)){const d=el('article',null,`finding ${f.risk_level}`,list);el('h3',`${f.rule_id} · ${f.risk_level.toUpperCase()} · ${f.status}`,null,d);el('p',f.reason,null,d);el('p',f.remediation,null,d);el('p',`${f.risk_dimensions.join(', ')} · ${f.evidence_ids.join(', ')}`,'evidence',d);}if(!M.findings.length)el('p','No migration findings. A schema graph alone is not a safety approval.',null,list);}
+M.unknowns.forEach(u=>el('p','UNKNOWN / '+u.explanation,'unknown',$('unknown-list')));
+if(STATE.changes){for(const key of ['added','removed','modified']){el('h3',key.toUpperCase(),null,$('change-list'));STATE.changes[key].forEach(id=>el('p',nodes.has(id)?nodes.get(id).qualified_name:id,null,$('change-list')));}STATE.changes.rename_candidates.forEach(c=>el('p',c.explanation,'unknown',$('change-list')));}
+STATE.plan.forEach((p,i)=>{const d=el('article',null,'phase',$('phase-list'));el('h2',`${i+1}. ${p.phase}`,null,d);const content=el('div',null,null,d);el('p',p.action,null,content);for(const [k,label] of [['preconditions','Preconditions'],['verification','Verification'],['recovery','Recovery']]){el('h3',label,null,content);el('p',p[k],null,content);}});
+if(!STATE.plan.length)el('p','Review a proposed migration to produce a phased sequence.',null,$('phase-list'));
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',e=>{document.querySelectorAll('[data-tab]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));for(const id of ['explorer','findings','sequence'])$(id).hidden=id!==b.dataset.tab;if(e.detail>0&&!reducedMotion.matches)$(b.dataset.tab).animate([{opacity:.5,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:160,easing:'cubic-bezier(0.23, 1, 0.32, 1)'});}));
+for(const id of ['search','schema','kind','status','depth'])$(id).addEventListener(id==='search'?'input':'change',draw);
+$('risk').addEventListener('change',findings);
+function scale(f){zoom=Math.min(4,Math.max(.25,zoom*f));transform();}
+$('zoom-in').addEventListener('click',()=>scale(1.2));$('zoom-out').addEventListener('click',()=>scale(1/1.2));$('reset').addEventListener('click',()=>{zoom=1;panX=panY=0;transform();});
+$('graph').addEventListener('wheel',e=>{e.preventDefault();scale(e.deltaY<0?1.1:1/1.1);},{passive:false});
+$('graph').addEventListener('keydown',e=>{const steps={ArrowLeft:[30,0],ArrowRight:[-30,0],ArrowUp:[0,30],ArrowDown:[0,-30]};if(steps[e.key]){e.preventDefault();panX+=steps[e.key][0];panY+=steps[e.key][1];transform();}if(e.key==='+'||e.key==='=')scale(1.2);if(e.key==='-')scale(1/1.2);});
+$('graph').addEventListener('pointerdown',e=>{if(drag||e.target.closest('.node'))return;drag=[e.clientX,e.clientY,panX,panY];$('graph').setPointerCapture(e.pointerId);});
+$('graph').addEventListener('pointermove',e=>{if(!drag)return;const box=$('graph').getBoundingClientRect(),v=$('graph').viewBox.baseVal;panX=drag[2]+(e.clientX-drag[0])*v.width/box.width;panY=drag[3]+(e.clientY-drag[1])*v.height/box.height;transform();});$('graph').addEventListener('pointerup',()=>drag=null);$('graph').addEventListener('pointercancel',()=>drag=null);
+function download(name,data,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([data],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+$('export-json').addEventListener('click',()=>download('model.dbdep.json',JSON.stringify(M,null,2),'application/json'));
+$('export-svg').addEventListener('click',()=>{const clone=$('graph').cloneNode(true);clone.setAttribute('xmlns',NS);clone.removeAttribute('tabindex');const style=svg('style',{},document.querySelector('style').textContent);clone.prepend(style);download('dependencies.svg',new XMLSerializer().serializeToString(clone),'image/svg+xml');});
+draw();inspect();findings();
+</script></body></html>

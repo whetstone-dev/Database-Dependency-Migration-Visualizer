@@ -1,0 +1,189 @@
+{
+  "impacts": [
+    {
+      "affected": [
+        "postgresql:local/public/constraint/orders/orders_total_amount_check__8c94b42a7e78/8c94b42a7e78904691546dba"
+      ],
+      "categories": {
+        "inferred": [],
+        "recorded_catalog": [],
+        "static_reference": [
+          "postgresql:local/public/constraint/orders/orders_total_amount_check__8c94b42a7e78/8c94b42a7e78904691546dba"
+        ]
+      },
+      "direct": [
+        "postgresql:local/public/constraint/orders/orders_total_amount_check__8c94b42a7e78/8c94b42a7e78904691546dba"
+      ],
+      "explanation": "Reverse paths show potential impact. They do not prove execution failure or exhaustive runtime coverage.",
+      "operation": "AT_AlterColumnType",
+      "paths": {
+        "postgresql:local/public/constraint/orders/orders_total_amount_check__8c94b42a7e78/8c94b42a7e78904691546dba": [
+          "edge:bc0cecf27a9d335975ad3a49"
+        ]
+      },
+      "root": "postgresql:local/public/column/orders/total_amount/",
+      "to": null,
+      "unknowns": [
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:7de9792a75dda688bf1f738f"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:18505c245f165e4c93c709f8",
+          "object_id": "postgresql:local/public/column/orders/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:8dadc8fc9c511aafd4803a87"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:5afc9281a8cd153100e8eb4f",
+          "object_id": "postgresql:local/public/column/products/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:4f849d665202a664e7893d4a"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:5ff30f718f152d8ea851b944",
+          "object_id": "postgresql:local/public/column/addresses/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:e9af3cfadad5d8900305d336"
+          ],
+          "explanation": "Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.",
+          "id": "unknown:69ffcfe1e4e57e6481af7368",
+          "object_id": "postgresql:local/public/function//touch_customer/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:40680f826d95f1ec183340ed"
+          ],
+          "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+          "id": "unknown:8bea11811025af9e17a96a8e",
+          "object_id": "postgresql:local/public/column/customers/updated_at/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:40680f826d95f1ec183340ed"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:9e847561e1fbe07255d98720",
+          "object_id": "postgresql:local/public/column/customers/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:e3fa1e6bfbfed48ae579bc40"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:eacbb533e2808e73f27dbf47",
+          "object_id": "postgresql:local/public/column/payments/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:7de9792a75dda688bf1f738f"
+          ],
+          "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+          "id": "unknown:f16dbb53af3ad137ed449c36",
+          "object_id": "postgresql:local/public/column/orders/created_at/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "SQL is never executed. Baseline is not replayed into a target schema.",
+    "Runtime consumers, table statistics and deployment completion require independent evidence."
+  ],
+  "metadata": {
+    "evidence_ids": [
+      "ev:5fb078138cefc22bce2fcef9"
+    ],
+    "origin": "user_supplied",
+    "status": "INFERRED",
+    "tables": {
+      "public.orders": {
+        "size_bytes": 8000000000,
+        "traffic": "high"
+      }
+    }
+  },
+  "operations": [
+    {
+      "evidence_ids": [
+        "ev:551306041c228ae54da88290"
+      ],
+      "object_id": "postgresql:local/public/column/orders/total_amount/",
+      "operation": "AT_AlterColumnType"
+    }
+  ],
+  "plan": [
+    {
+      "action": "Add nullable replacement columns or compatible interfaces; design UUID mapping and new keys before changing identifier types.",
+      "phase": "expand",
+      "preconditions": "Confirm PostgreSQL version, backups, ownership, consumers and feasible mapping. Review privileges and lock budget.",
+      "recovery": "Stop deployment before consumers depend on the new fields; keep old fields available.",
+      "review_only": true,
+      "verification": "Rehearse DDL on a disposable database with representative data. Verify identity/sequence/default semantics."
+    },
+    {
+      "action": "Backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.",
+      "phase": "backfill",
+      "preconditions": "Prove mapping uniqueness, handle concurrent writes and define throttling. Numeric identifiers do not have a general UUID cast.",
+      "recovery": "Pause batches and preserve old data; restore from tested backup only under an approved recovery procedure.",
+      "review_only": true,
+      "verification": "Check mapping completeness, uniqueness, NULL rates and FK consistency under concurrent traffic."
+    },
+    {
+      "action": "Validate CHECK/FK constraints where NOT VALID is supported. Build concurrent indexes outside transaction blocks when appropriate.",
+      "phase": "validate",
+      "preconditions": "Confirm constraint support, partition restrictions, existing violations and resource budget. Concurrent index failure can leave an invalid index.",
+      "recovery": "Investigate failed validation or invalid indexes; repair/retry through separate authorized tooling.",
+      "review_only": true,
+      "verification": "Check constraint validation and pg_index.indisvalid/indisready, compare old/new results and observe lock waits."
+    },
+    {
+      "action": "Deploy compatible readers/writers and transition dependent FKs, views, functions, API/ORM contracts and downstream jobs.",
+      "phase": "transition",
+      "preconditions": "Obtain explicit consumer ownership and deployment-order evidence. Account for UNKNOWN and dynamic SQL paths.",
+      "recovery": "Revert application reads only while both representations remain consistent; otherwise prefer roll-forward.",
+      "review_only": true,
+      "verification": "Observe application errors and old-field usage through an agreed window. Static graph paths do not prove runtime coverage."
+    },
+    {
+      "action": "Remove legacy objects only after verified transition and a separate destructive-change review.",
+      "phase": "contract",
+      "preconditions": "Confirm no remaining consumers, validated keys, tested backups and signed-off CASCADE consequences. Schedule lock acquisition.",
+      "recovery": "Drops can lose data. Reverse DDL does not restore it; use tested recovery or roll-forward with an operator.",
+      "review_only": true,
+      "verification": "Reinspect schema, compare snapshots and run application integration checks. Do not promise zero downtime."
+    }
+  ],
+  "review_only": true,
+  "risk_level": "high",
+  "schema_version": "1.0.0"
+}
