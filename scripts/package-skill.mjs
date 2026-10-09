@@ -22,6 +22,7 @@ for (const name of [
   "SKILL.md",
   "README.md",
   "LICENSE",
+  "SECURITY.md",
   "THIRD_PARTY_NOTICES.md",
   "package.json",
   "pnpm-lock.yaml",

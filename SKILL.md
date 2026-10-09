@@ -3,7 +3,7 @@ name: database-dependency-migration
 description: Analyze PostgreSQL schema dependencies, explain table and column change impact, review SQL migration hazards, compare schema snapshots, and produce source-backed interactive dependency graphs and phased migration plans. Use for PostgreSQL migration review, downstream blast radius, rename/type-change analysis, or dependency exploration from DDL, SQL repositories and catalog snapshots. Analysis only; not a migration executor or a general query performance optimizer.
 license: MIT
 metadata:
-  version: "0.3.1"
+  version: "0.3.2"
   author: whetstone-dev
 ---
 
@@ -11,7 +11,7 @@ metadata:
 
 Use the bundled deterministic toolkit for factual dependency and migration claims. Keep artifacts in the user's workspace. The versioned `*.dbdep.json` model is the source of truth for HTML, Markdown and graph exports. Regenerate outputs instead of editing them.
 
-Resolve this skill's absolute directory as `<skill-dir>`. Install Node.js 22.18+ and pnpm 12.10.1, then run `pnpm install --prod --frozen-lockfile --ignore-workspace` inside the skill directory. Run `node "<skill-dir>/scripts/dbdep.mjs" ...` from the user's working directory, or installed `dbdep`. From a source checkout, `pnpm install --frozen-lockfile` installs the complete workspace and `pnpm dbdep <command>` runs the CLI. The engine uses PostgreSQL 18's real WebAssembly parser, Ajv and pg. Python is not required by the toolkit. Do not substitute regex extraction or invented catalog facts for the engine.
+Resolve this skill's absolute directory as `<skill-dir>`. Install Node.js 22.18+ and pnpm 12.10.1, then run `pnpm install --prod --frozen-lockfile --ignore-workspace --ignore-scripts` inside the skill directory. Run `node "<skill-dir>/scripts/dbdep.mjs" ...` from the user's working directory, or installed `dbdep`. From a source checkout, `pnpm install --frozen-lockfile` installs the complete workspace and `pnpm dbdep <command>` runs the CLI. The engine uses PostgreSQL 18's real WebAssembly parser, Ajv and pg. Python is not required by the toolkit. Do not substitute regex extraction or invented catalog facts for the engine.
 
 ## Route by task
 

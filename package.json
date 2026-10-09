@@ -1,6 +1,6 @@
 {
   "name": "database-dependency-migration",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Evidence-backed PostgreSQL dependencies and review-only migration analysis",
   "type": "module",
   "license": "MIT",
@@ -27,6 +27,7 @@
     "README.md",
     "pnpm-lock.yaml",
     "LICENSE",
+    "SECURITY.md",
     "THIRD_PARTY_NOTICES.md"
   ],
   "scripts": {
@@ -43,6 +44,8 @@
     "package:skill": "node scripts/package-skill.mjs",
     "package:site": "node scripts/package-site.mjs",
     "smoke:artifacts": "node scripts/smoke-artifacts.mjs",
+    "smoke:skills": "node scripts/smoke-skills-install.mjs",
+    "check:site": "node scripts/check-site-publication.mjs",
     "format": "prettier --write src/dbdep/*.mjs scripts/*.mjs tests/node/*.mjs tests/browser/*.mjs assets/viewer/*.{css,js,html}"
   },
   "dependencies": {
