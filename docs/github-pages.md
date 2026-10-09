@@ -1,6 +1,6 @@
 # GitHub Pages
 
-The website is a static React/Vite application. GitHub Pages publishes the built `site/dist` directory through the repository's [manual Pages workflow](../.github/workflows/pages.yml). Local builds and release archives do not deploy it. No public deployment is claimed for the pending v0.3.2 work.
+The website uses Next.js App Router with a static export. GitHub Pages publishes the built `site/out` directory through the repository's [manual Pages workflow](../.github/workflows/pages.yml). Local builds and release archives do not deploy it. No public deployment is claimed here.
 
 ## Repository setup
 
@@ -26,7 +26,7 @@ pnpm check:site
 pnpm preview
 ```
 
-Open the local Vite URL, the documentation at `/#/docs`, and all three standalone example reports. Check asset loading, English/Spanish controls, keyboard navigation and report JSON/SVG exports. Browser verification needs Chromium:
+Open the local preview URL, the documentation at `/docs/`, and all three standalone example reports. Check asset loading, English/Spanish controls, keyboard navigation and report JSON/SVG exports. Browser verification needs Chromium:
 
 ```sh
 pnpm exec playwright install chromium
@@ -37,18 +37,35 @@ pnpm test:browser
 
 ## Repository-path routing
 
-`site/vite.config.ts` uses `base: "./"`, so generated asset links resolve relative to the repository's Pages directory. Application documentation uses hash routes, including `/#/docs`, which support direct links and reloads without server-side route rewrites. Keep both behaviors when changing routing or asset URLs. [Vite's deployment guide](https://vite.dev/guide/static-deploy.html#github-pages) explains the relationship between the asset base and hosting path.
+`site/next.config.mjs` uses `output: "export"` and `trailingSlash: true`. Each documentation route has an `index.html`, so direct links and reloads need no server rewrite. The workflow runs `configure-pages` before building and passes its `base_path` to `NEXT_PUBLIC_BASE_PATH`. Next.js prefixes internal links and runtime bundles; the site's asset utility prefixes report and license URLs. The base path is fixed at build time. See Next.js's [static export guide](https://nextjs.org/docs/app/guides/static-exports) and [basePath reference](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath).
 
 For a project site, a documentation URL has this shape:
 
 ```text
-https://<owner>.github.io/<repository>/#/docs
+https://<owner>.github.io/<repository>/docs/
 ```
 
-Use the deployment environment's actual URL; a configured workflow or local preview does not establish that URL is live.
+Existing `/#/docs` bookmarks redirect to the new routes after JavaScript loads. English content is present in the exported HTML; translation, saved preferences and interactive controls require JavaScript. A custom domain or account site can use an empty base path.
+
+To reproduce the project path on PowerShell:
+
+```powershell
+$env:NEXT_PUBLIC_BASE_PATH = '/Database-Dependency-Migration-Visualizer'
+pnpm build
+Remove-Item Env:NEXT_PUBLIC_BASE_PATH
+pnpm check:site
+$env:DBDEP_SITE_URL = 'http://127.0.0.1:4173/Database-Dependency-Migration-Visualizer'
+pnpm test:browser
+Remove-Item Env:DBDEP_SITE_URL
+pnpm preview
+```
+
+On macOS/Linux, use `NEXT_PUBLIC_BASE_PATH=/Database-Dependency-Migration-Visualizer pnpm build` and `DBDEP_SITE_URL=http://127.0.0.1:4173/Database-Dependency-Migration-Visualizer pnpm test:browser`.
+
+The preview reads the built base path, serves directory indexes and returns a real HTTP 404 for missing files. It binds only to loopback and rejects paths or symlinks outside the export. Use the deployment environment's actual URL after publishing; a local preview does not establish that URL is live. Check direct topic reloads, assets, report exports and the deployed 404 page.
 
 ## Public contents and subsequent deployments
 
-Only `site/dist` is uploaded. The curated examples, their architecture identifiers, generated reports, copied README/SKILL and license notices become publicly accessible. Review these deliberate publication inputs before deployment. Local `out/`, `tmp/`, raw evaluations and the repository's `evals/` directory are not deployment artifacts. The site has no upload endpoint, credentials or live database connection.
+Only `site/out` is uploaded. The curated examples, their architecture identifiers, generated reports, copied README/SKILL and license notices become publicly accessible. The publication validator compares exported pages, route payloads and runtime bundles with their compiled sources and checks public inputs byte-for-byte. It rejects unexpected files, source maps and symlinks. Review these deliberate publication inputs before deployment. Private `site/.next`, root `out/`, `tmp/`, raw evaluations and the repository's `evals/` directory are not deployment artifacts. The site has no upload endpoint, credentials or live database connection.
 
 For an update, review and publish the intended source, rerun the checks, then manually run the workflow for that reviewed `main` revision. Keep release tags immutable. See the [security policy](../SECURITY.md), [audit](security-audit.md), and [release procedure](releases.md).
