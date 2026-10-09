@@ -1,0 +1,37 @@
+{
+  "measurements": [
+    {
+      "browser_visible_cap": 350,
+      "build_seconds": 0.0033206999996764353,
+      "edges": 99,
+      "html_bytes": 118746,
+      "impact_seconds": 0.0006447000005209702,
+      "nodes": 100,
+      "render_seconds": 0.02101189999939379,
+      "validation_seconds": 0.01982789999965462
+    },
+    {
+      "browser_visible_cap": 350,
+      "build_seconds": 0.01377649999994901,
+      "edges": 999,
+      "html_bytes": 996250,
+      "impact_seconds": 0.028076399999918067,
+      "nodes": 1000,
+      "render_seconds": 0.18526509999992413,
+      "validation_seconds": 0.17490920000000187
+    },
+    {
+      "browser_visible_cap": 350,
+      "build_seconds": 0.06384830000024522,
+      "edges": 4999,
+      "html_bytes": 4896252,
+      "impact_seconds": 0.8206444000006741,
+      "nodes": 5000,
+      "render_seconds": 0.9528253999997105,
+      "validation_seconds": 0.8901441999996678
+    }
+  ],
+  "platform": "Windows",
+  "python": "3.14.4",
+  "scope": "Synthetic linear graph CPU timings. No SQL, production performance or browser frame-rate guarantee."
+}
