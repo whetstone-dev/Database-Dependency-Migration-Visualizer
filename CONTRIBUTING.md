@@ -12,6 +12,8 @@ Public contributors can comment and submit reviews. Their approval does not repl
 
 ## Before opening a pull request
 
+The installed skill works from source files without Node.js or pnpm. The setup below is for repository development, toolkit tests and the website. For the optional production-only toolkit installation, see [the README](README.md#standalone-dbdep-toolkit).
+
 Use Node.js 22.18+ and pnpm 12.10.1 for the full workspace. The pinned Skills CLI install smoke needs Node.js 22.20+; current local checks use Node.js 24.
 
 ```sh
@@ -93,7 +95,7 @@ pnpm exec node scripts/smoke-skills-install.mjs --cli out/skills-cli/node_module
 
 `DBDEP_SKILLS_CLI` can supply the same cached entry point. The smoke installs a current worktree snapshot into a project outside the checkout, disables telemetry, checks archive/version/member hashes and sensitive filenames, installs frozen production dependencies, runs `doctor`, creates all three demos and strictly validates them. Its checked temporary directory is removed and its receipt is written under `dist/v<version>/`. This catches the installer excluding files named `metadata.json`; the active high-traffic input is `workload-profile.json`.
 
-The Skills CLI copies the root skill directory, including site/evaluation/development files. npm and `.skill` packaging use their own allowlists. Test their actual contents and preserve licenses. Rebuild the website after README or SKILL changes; site packaging rejects stale documentation copies. Development checks require the full workspace, while an installed skill uses `pnpm install --prod --frozen-lockfile --ignore-workspace --ignore-scripts`.
+The Skills CLI copies the root skill directory, including site/evaluation/development files. npm and `.skill` packaging use their own allowlists. Test their actual contents and preserve licenses. Rebuild the website after README or SKILL changes; site packaging rejects stale documentation copies. Development checks require the full workspace. An installed skill needs no package installation for source review; only its optional toolkit needs the production-only npm or frozen pnpm setup documented in the README.
 
 ## Style and commits
 

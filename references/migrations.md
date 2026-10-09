@@ -1,6 +1,8 @@
 # Migration review and rules
 
-All migration SQL is parsed locally and never executed. The baseline is not mutated or replayed. Findings add migration evidence to a copy of the baseline. Multiple operations can target the baseline object; references to objects introduced/renamed earlier in the proposal can remain unresolved. Plans are operator review material with explicit assumptions and recovery steps.
+In the optional toolkit, migration SQL is parsed locally and never executed. The baseline is not mutated or replayed. Findings add migration evidence to a copy of the baseline. Multiple operations can target the baseline object; references to objects introduced/renamed earlier in the proposal can remain unresolved. Plans are operator review material with explicit assumptions and recovery steps.
+
+For normal skill use, read sources directly and track explicit sequential operations in the [source-analysis ledger](source-analysis.md#track-sequential-state). Cite manual findings as SOURCE_READ and carry unsupported effects forward as UNKNOWN. This does not add stateful replay to the engine or establish backfill correctness. The rule table below documents engine rules; manual reviews may use the risk categories without claiming those rules ran.
 
 | Rule | Trigger | Interpretation |
 |---|---|---|

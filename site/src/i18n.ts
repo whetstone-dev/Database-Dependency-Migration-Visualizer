@@ -53,7 +53,7 @@ const en = {
     eyebrow: "01 / HOW IT WORKS",
     lead: "A schema change is",
     accent: "a dependency question.",
-    body: "Start with your sources. Build one validated model. Follow the impact, then produce artifacts for human review.",
+    body: "Ask your agent for a source-cited review with no runtime setup. When you need validated JSON or an interactive report, the optional toolkit follows this flow.",
     stages: [
       {
         key: "INSPECT",
@@ -120,29 +120,31 @@ const en = {
     eyebrow: "03 / YOUR WORKSPACE",
     lead: "Give your agent",
     accent: "the dependency map.",
-    body: "Use the repository as an Agent Skill or run the Node.js toolkit directly. Inputs and reports stay in your workspace.",
+    body: "Install the skill and ask your agent to review local sources. No Node.js, pnpm, package installation or database server is needed. The toolkit is optional for validated JSON and interactive reports.",
     steps: [
       {
-        title: "Get the repository.",
-        body: "Clone or download the checkout from GitHub.",
+        title: "Install the skill.",
+        body: "Clone or copy the skill into your agent's skill directory. The command shown installs it for a Codex project.",
       },
       {
-        title: "Install the toolkit.",
-        body: "Run the command from the repository root with Node 22.18+ and pnpm 12.10.1.",
+        title: "Reload your agent.",
+        body: "Keep SKILL.md, references and templates together. No dependency installation or build follows.",
       },
       {
-        title: "Connect your agent.",
-        body: "Copy or symlink the repository into your agent's skill directory, then reload the agent.",
+        title: "Point it at your sources.",
+        body: "Request a Markdown review of your schema, migration and SQL or ORM consumers. Findings include source evidence and unknowns.",
       },
     ],
     folders: "Skill folder locations",
     folderNote:
       "Project-level directories also work. See the README for setup details.",
-    root: "FROM THE REPOSITORY ROOT",
+    root: "FROM YOUR PROJECT ROOT",
     install: "INSTALL",
-    commands: "INSPECT → VALIDATE → RENDER",
-    copyInstall: "Copy pnpm install command",
-    copyCommands: "Copy inspect validate and render commands",
+    commands: "ASK YOUR AGENT",
+    copyInstall: "Copy skill installation command",
+    copyCommands: "Copy source review request",
+    prompt:
+      "Use database-dependency-migration to review schema.sql,\nmigrations/007.sql and src/. Write out/review.md with\naffected consumers, source lines, high-risk findings\nand unresolved dependencies. Do not execute SQL.",
     output: "OUTPUT",
   },
   copy: { idle: "Copy", done: "Copied", failed: "Select to copy" },
@@ -229,7 +231,7 @@ const es: Copy = {
     eyebrow: "01 / CÓMO FUNCIONA",
     lead: "Cambiar un esquema es",
     accent: "preguntar por sus dependencias.",
-    body: "Empieza con las fuentes. Construye un modelo validado. Rastrea el impacto y genera artefactos para revisión humana.",
+    body: "Pide a tu agente una revisión con citas de las fuentes sin configurar un runtime. Cuando necesites JSON validado o un informe interactivo, el toolkit opcional sigue este flujo.",
     stages: [
       {
         key: "INSPECCIONAR",
@@ -297,29 +299,31 @@ const es: Copy = {
     eyebrow: "03 / TU ESPACIO DE TRABAJO",
     lead: "Dale a tu agente",
     accent: "el mapa de dependencias.",
-    body: "Usa el repositorio como Agent Skill o ejecuta directamente el toolkit de Node.js. Tus fuentes e informes quedan en tu espacio de trabajo.",
+    body: "Instala la skill y pide a tu agente que revise las fuentes locales. No necesitas Node.js, pnpm, instalar paquetes ni un servidor de base de datos. El toolkit es opcional para JSON validado e informes interactivos.",
     steps: [
       {
-        title: "Obtén el repositorio.",
-        body: "Clona o descarga el repositorio desde GitHub.",
+        title: "Instala la skill.",
+        body: "Clona o copia la skill al directorio de skills de tu agente. El comando instala la skill para un proyecto de Codex.",
       },
       {
-        title: "Instala el toolkit.",
-        body: "Ejecuta el comando desde la raíz del repositorio con Node 22.18+ y pnpm 12.10.1.",
+        title: "Vuelve a cargar tu agente.",
+        body: "Conserva SKILL.md, las referencias y las plantillas juntas. No hace falta instalar dependencias ni compilar.",
       },
       {
-        title: "Conecta tu agente.",
-        body: "Copia o enlaza el repositorio al directorio de skills de tu agente y vuelve a cargarlo.",
+        title: "Indica tus archivos.",
+        body: "Pide una revisión en Markdown del esquema, la migración y los consumidores SQL u ORM. Incluye evidencia de las fuentes e incertidumbre.",
       },
     ],
     folders: "Ubicación de las carpetas de skills",
     folderNote:
       "También funcionan los directorios del proyecto. Consulta el README para la configuración.",
-    root: "DESDE LA RAÍZ DEL REPOSITORIO",
+    root: "DESDE LA RAÍZ DE TU PROYECTO",
     install: "INSTALAR",
-    commands: "INSPECCIONAR → VALIDAR → GENERAR",
-    copyInstall: "Copiar comando de instalación de pnpm",
-    copyCommands: "Copiar comandos de inspección, validación y generación",
+    commands: "PIDE LA REVISIÓN A TU AGENTE",
+    copyInstall: "Copiar comando de instalación de la skill",
+    copyCommands: "Copiar solicitud de revisión de fuentes",
+    prompt:
+      "Usa database-dependency-migration para revisar schema.sql,\nmigrations/007.sql y src/. Escribe out/review.md con\nconsumidores afectados, líneas de evidencia, riesgos altos\ny dependencias sin resolver. No ejecutes SQL.",
     output: "SALIDA",
   },
   copy: { idle: "Copiar", done: "Copiado", failed: "Selecciona para copiar" },

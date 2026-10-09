@@ -45,19 +45,23 @@ type DocsCopy = {
   topics: Record<TopicSlug, Topic>;
 };
 
-const install = "pnpm install --frozen-lockfile\npnpm dbdep doctor --json";
+const install =
+  "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration";
+const toolkitInstall =
+  "npm install --omit=dev --ignore-scripts --package-lock=false\nnode scripts/dbdep.mjs doctor --json";
 const inspect =
-  "pnpm dbdep inspect --ddl examples/ecommerce/schema.sql --repo examples/ecommerce/app --out out/schema.dbdep.json";
-const validate = "pnpm dbdep validate out/schema.dbdep.json --strict --json";
+  "node scripts/dbdep.mjs inspect --ddl examples/ecommerce/schema.sql --repo examples/ecommerce/app --out out/schema.dbdep.json";
+const validate =
+  "node scripts/dbdep.mjs validate out/schema.dbdep.json --strict --json";
 const render =
-  "pnpm dbdep render out/schema.dbdep.json --object public.customers.id --out out/dependencies.html";
+  "node scripts/dbdep.mjs render out/schema.dbdep.json --object public.customers.id --out out/dependencies.html";
 const review =
-  "pnpm dbdep review --baseline out/schema.dbdep.json --migration examples/ecommerce/migrations/003_contract_legacy_id.sql --out out/review --json";
+  "node scripts/dbdep.mjs review --baseline out/schema.dbdep.json --migration examples/ecommerce/migrations/003_contract_legacy_id.sql --out out/review --json";
 
 const en: DocsCopy = {
   title: "Documentation",
   eyebrow: "DATABASE DEPENDENCY MIGRATION",
-  body: "Build a dependency model from your PostgreSQL sources, trace a proposed change, and review the evidence before you migrate.",
+  body: "Review PostgreSQL migrations and application consumers with your agent, directly from source files. Use the optional toolkit for validated models and interactive reports.",
   browse: "Browse documentation",
   navigation: "Documentation navigation",
   overview: "Overview",
@@ -65,7 +69,7 @@ const en: DocsCopy = {
   topicsTitle: "Explore the documentation",
   startTitle: "Start with a real schema",
   startBody:
-    "The shipped ecommerce fixture is a complete offline first run. No database connection is required.",
+    "Ask your agent to review the shipped ecommerce sources. No runtime installation or database connection is required.",
   startLink: "Follow the quickstart",
   previous: "Previous",
   next: "Next",
@@ -84,12 +88,12 @@ const en: DocsCopy = {
         {
           title: "What dbdep does",
           paragraphs: [
-            "Database dependency migration is an Agent Skill and a Node.js toolkit for PostgreSQL schema analysis. Supply DDL, SQL repository files, or a catalog snapshot. The CLI builds a versioned .dbdep.json model with stable object identifiers, typed dependencies, source evidence, and explicit unknowns.",
-            "Use that model to explain potential downstream impact, review SQL migration hazards, compare snapshots, or generate standalone reports. Every migration plan is material for human review. The toolkit never applies it.",
+            "Database dependency migration is an Agent Skill for reviewing PostgreSQL migrations and SQL or ORM consumers directly from source files. Install the skill and request a source-cited Markdown review. No Node.js, pnpm, dependency installation, build or database server is required for this workflow.",
+            "The optional Node.js toolkit builds a versioned .dbdep.json model with stable identifiers, typed dependencies and source evidence. Use it for parser-backed analysis and standalone interactive reports. Every migration plan is material for human review. Neither workflow applies migrations.",
           ],
         },
         {
-          title: "One model, several artifacts",
+          title: "Optional toolkit artifacts",
           bullets: [
             "JSON retains the full model, evidence, coverage gaps, and stable identifiers.",
             "The standalone HTML explorer supports search, filters, dependency paths, findings, and a phased review plan. Its interface supports English and Spanish. Source evidence and analytical text retain their original language.",
@@ -109,17 +113,17 @@ const en: DocsCopy = {
     installation: {
       title: "Installation",
       description:
-        "Set up Node, pnpm, and the skill in your agent's workspace.",
+        "Install the skill and start reviewing sources without runtime setup.",
       reference: "README.md",
       sections: [
         {
-          title: "Requirements",
+          title: "Install and use the skill",
           paragraphs: [
-            "Use Node.js 22.18.0 or newer and pnpm 12.10.1, the version pinned by this repository. Clone or download the repository, then open a terminal at its root. The frozen lockfile installs the toolkit and website dependencies together.",
+            "You need an agent that supports SKILL.md and access to the files you want reviewed. No Node.js, pnpm, package installation, build or database server is needed. Clone or copy the skill into your agent's skill directory, reload the agent, and ask it to review your sources.",
           ],
           code: [
             {
-              label: "FROM THE REPOSITORY ROOT",
+              label: "FROM YOUR PROJECT ROOT",
               value: install,
               copyLabel: "Copy installation commands",
             },
@@ -128,7 +132,7 @@ const en: DocsCopy = {
         {
           title: "Connect your coding agent",
           paragraphs: [
-            "Copy or symlink the complete checkout into your agent's skill directory, then reload the agent. Keep the scripts, references, schemas, and installed dependencies available with SKILL.md. A copy of SKILL.md alone does not include the toolkit.",
+            "Keep SKILL.md, references and templates together. Scripts, schemas and viewer assets are optional toolkit resources. You can also install with npx skills@1.7.2 add whetstone-dev/Database-Dependency-Migration-Visualizer --skill database-dependency-migration --agent codex --copy. The Skills CLI itself needs Node.js 22.20+; manual copying or cloning does not. Neither route requires a follow-up pnpm install.",
           ],
           table: {
             headings: [
@@ -151,16 +155,15 @@ const en: DocsCopy = {
           },
         },
         {
-          title: "Run the toolkit directly",
+          title: "Optional toolkit setup",
           paragraphs: [
-            "The pnpm script runs the local CLI. You can also invoke its Node entry point. Run these examples from the repository root. An installed skill should resolve its own absolute directory and keep output in the user's workspace.",
+            "Only validated JSON and interactive HTML generation need the toolkit. Use Node.js 22.18+ and run the production-only npm command inside the installed skill directory or checkout root. This installs no website or development packages. Direct dependencies are pinned; npm resolves transitive versions. The README documents a frozen pnpm alternative.",
           ],
           code: [
             {
-              label: "DIRECT NODE ENTRY POINT",
-              value:
-                "node scripts/dbdep.mjs doctor --json\nnode scripts/dbdep.mjs inspect --ddl examples/ecommerce/schema.sql --out out/schema.dbdep.json",
-              copyLabel: "Copy Node commands",
+              label: "OPTIONAL RUNTIME ONLY",
+              value: toolkitInstall,
+              copyLabel: "Copy optional toolkit commands",
             },
           ],
         },
@@ -170,12 +173,12 @@ const en: DocsCopy = {
             {
               label: "LOCAL WEBSITE",
               value:
-                "pnpm dev\n# Build and preview the static site\npnpm build\npnpm preview",
+                "pnpm install --frozen-lockfile --ignore-scripts\npnpm dev\n# Build and preview the static site\npnpm build\npnpm preview",
               copyLabel: "Copy website commands",
             },
           ],
           paragraphs: [
-            "Open the localhost address printed by Next.js. The website explains the toolkit and opens the shipped reports. It has no database connection or upload flow.",
+            "This setup is for website development and is separate from skill installation. Open the localhost address printed by Next.js. The website has no database connection or upload workflow.",
           ],
         },
       ],
@@ -183,9 +186,25 @@ const en: DocsCopy = {
     quickstart: {
       title: "Quickstart",
       description:
-        "Inspect the shipped ecommerce schema and open an evidence-backed report.",
+        "Ask your agent for a source review, or optionally generate a toolkit report.",
       reference: "examples/README.md",
       sections: [
+        {
+          title: "Ask your agent, no setup required",
+          paragraphs: [
+            "After installing the skill, point your agent at your own files or the shipped ecommerce sources. It reads declarations and consumers, cites file lines, follows explicit sequential operations and reports unknowns. Manual text evidence is SOURCE_READ, not parser-backed PARSED evidence. It can inspect EF Core/C#, Prisma and TypeORM mappings when present.",
+          ],
+          code: [
+            {
+              label: "SOURCE REVIEW REQUEST",
+              value:
+                "Use database-dependency-migration to review examples/ecommerce/schema.sql,\nexamples/ecommerce/migrations/003_contract_legacy_id.sql and\nexamples/ecommerce/app. Write a Markdown review with affected consumers,\nsource lines, high-risk findings and unresolved dependencies. Do not execute SQL.",
+              copyLabel: "Copy source review request",
+            },
+          ],
+          callout:
+            "This source review needs no toolkit installation. The commands below are optional and require the toolkit runtime.",
+        },
         {
           title: "1. Inspect your sources",
           paragraphs: [
@@ -245,7 +264,7 @@ const en: DocsCopy = {
           code: [
             {
               label: "GENERATE DEMOS",
-              value: "pnpm dbdep demo out/demo",
+              value: "node scripts/dbdep.mjs demo out/demo",
               copyLabel: "Copy demo command",
             },
           ],
@@ -316,12 +335,12 @@ const en: DocsCopy = {
         {
           title: "CLI entry points",
           paragraphs: [
-            "Use pnpm dbdep <command> from the repository root. The equivalent direct entry point is node scripts/dbdep.mjs <command>. snapshot is an alias for inspect.",
+            "These commands are for the optional toolkit. Use node scripts/dbdep.mjs <command> from the checkout root, or resolve the installed skill's absolute entry point from another directory. pnpm dbdep <command> is a contributor shortcut. snapshot is an alias for inspect.",
           ],
           code: [
             {
               label: "INSPECT, VALIDATE, AND TRACE",
-              value: `${inspect}\n${validate}\npnpm dbdep impact out/schema.dbdep.json --object public.customers.id --operation alter-type --to uuid --json`,
+              value: `${inspect}\n${validate}\nnode scripts/dbdep.mjs impact out/schema.dbdep.json --object public.customers.id --operation alter-type --to uuid --json`,
               copyLabel: "Copy analysis commands",
             },
           ],
@@ -376,7 +395,7 @@ const en: DocsCopy = {
             {
               label: "REVIEW WITH A POLICY GATE",
               value:
-                "pnpm dbdep review --baseline out/schema.dbdep.json --migration examples/high-traffic/migrations/007.sql --transaction-mode single --metadata examples/high-traffic/workload-profile.json --out out/review --fail-on high --json",
+                "node scripts/dbdep.mjs review --baseline out/schema.dbdep.json --migration examples/high-traffic/migrations/007.sql --transaction-mode single --metadata examples/high-traffic/workload-profile.json --out out/review --fail-on high --json",
               copyLabel: "Copy policy review command",
             },
           ],
@@ -406,7 +425,7 @@ const en: DocsCopy = {
             {
               label: "READ-ONLY CATALOG CAPTURE",
               value:
-                "pnpm dbdep inspect --dsn-env DBDEP_DATABASE_URL --mode read-only --out out/live.dbdep.json --capture-out out/catalog.json",
+                "node scripts/dbdep.mjs inspect --dsn-env DBDEP_DATABASE_URL --mode read-only --out out/live.dbdep.json --capture-out out/catalog.json",
               copyLabel: "Copy catalog capture command",
             },
           ],
@@ -443,7 +462,7 @@ const en: DocsCopy = {
             ],
           },
           paragraphs: [
-            "Confidence values direct, conditional, and unknown describe how to interpret evidence. They are not probabilities. Source evidence records file locations and hashes or catalog addresses and capture context.",
+            "Normal source reviews label directly inspected text SOURCE_READ and cite file lines. That prose label is not part of canonical JSON and does not claim parser or runtime validation. The table describes the toolkit's evidence states. Confidence values direct, conditional, and unknown are interpretations, not probabilities.",
           ],
         },
         {
@@ -488,7 +507,7 @@ const en: DocsCopy = {
         {
           title: "Partial or unknown coverage",
           bullets: [
-            "DDL inputs describe declarations. They do not replay migration history or reconstruct the final target schema.",
+            "Toolkit DDL inputs describe declarations and do not replay migrations. The skill's manual ledger follows explicit operations while keeping unsupported effects and later dependent conclusions UNKNOWN.",
             "Routine bodies, dynamic SQL, host-language SQL, ORMs, nested column scopes, and ambiguous name resolution remain partial or UNKNOWN.",
             "DML and backfill semantics are outside the hazard engine. A plan cannot prove a data mapping, backfill completion, or deployment readiness.",
             "Possible rename diagnostics are not confirmed renames. Compare like capture modes and reconcile identities explicitly.",
@@ -518,7 +537,7 @@ const en: DocsCopy = {
 const es: DocsCopy = {
   title: "Documentación",
   eyebrow: "DEPENDENCIAS Y MIGRACIONES DE BASES DE DATOS",
-  body: "Construye un modelo con tus fuentes de PostgreSQL, rastrea un cambio propuesto y revisa la evidencia antes de migrar.",
+  body: "Revisa migraciones de PostgreSQL y consumidores con tu agente directamente desde los archivos. Usa el toolkit opcional para modelos validados e informes interactivos.",
   browse: "Explorar la documentación",
   navigation: "Navegación de documentación",
   overview: "Resumen",
@@ -526,7 +545,7 @@ const es: DocsCopy = {
   topicsTitle: "Explora la documentación",
   startTitle: "Empieza con un esquema real",
   startBody:
-    "El ejemplo de ecommerce permite una primera ejecución completa sin conexión. No requiere acceso a una base de datos.",
+    "Pide a tu agente que revise las fuentes del ejemplo de ecommerce. No requiere instalar un runtime ni conectarse a una base de datos.",
   startLink: "Seguir el inicio rápido",
   previous: "Anterior",
   next: "Siguiente",
@@ -545,12 +564,12 @@ const es: DocsCopy = {
         {
           title: "Qué hace dbdep",
           paragraphs: [
-            "Database dependency migration es una Agent Skill y un toolkit de Node.js para analizar esquemas de PostgreSQL. Proporciona DDL, archivos SQL del repositorio o una captura del catálogo. La CLI crea un modelo .dbdep.json versionado con identificadores estables, dependencias tipadas, evidencia e incertidumbre explícita.",
-            "Usa el modelo para explicar el impacto potencial, revisar riesgos de migración, comparar capturas o generar informes independientes. Los planes de migración son material para revisión humana. El toolkit nunca los ejecuta.",
+            "Database dependency migration es una Agent Skill para revisar migraciones de PostgreSQL y consumidores SQL u ORM directamente desde los archivos. Instala la skill y pide una revisión en Markdown con citas de las fuentes. No requiere Node.js, pnpm, instalar dependencias, compilar ni un servidor de base de datos.",
+            "El toolkit opcional de Node.js crea un modelo .dbdep.json versionado con identificadores estables, dependencias tipadas y evidencia. Úsalo para análisis con parser e informes interactivos. Los planes son material para revisión humana. Ninguno de los flujos ejecuta migraciones.",
           ],
         },
         {
-          title: "Un modelo, varios artefactos",
+          title: "Artefactos del toolkit opcional",
           bullets: [
             "JSON conserva el modelo completo, la evidencia, los límites de cobertura y los identificadores estables.",
             "El explorador HTML independiente permite buscar, filtrar y revisar rutas, hallazgos y un plan por fases. Su interfaz admite inglés y español. La evidencia y el texto analítico conservan su idioma original.",
@@ -570,17 +589,17 @@ const es: DocsCopy = {
     installation: {
       title: "Instalación",
       description:
-        "Configura Node, pnpm y la skill en el espacio de trabajo de tu agente.",
+        "Instala la skill y empieza a revisar archivos sin configurar un runtime.",
       reference: "README.md",
       sections: [
         {
-          title: "Requisitos",
+          title: "Instala y usa la skill",
           paragraphs: [
-            "Usa Node.js 22.18.0 o posterior y pnpm 12.10.1, la versión fijada por el repositorio. Clona o descarga el repositorio y abre una terminal en su raíz. El lockfile instala las dependencias del toolkit y de la web juntas sin modificarse.",
+            "Necesitas un agente compatible con SKILL.md y acceso a los archivos. No necesitas Node.js, pnpm, instalar paquetes, compilar ni un servidor de base de datos. Clona o copia la skill al directorio de skills de tu agente, vuelve a cargarlo y pide la revisión.",
           ],
           code: [
             {
-              label: "DESDE LA RAÍZ DEL REPOSITORIO",
+              label: "DESDE LA RAÍZ DE TU PROYECTO",
               value: install,
               copyLabel: "Copiar comandos de instalación",
             },
@@ -589,7 +608,7 @@ const es: DocsCopy = {
         {
           title: "Conecta tu agente",
           paragraphs: [
-            "Copia o enlaza el repositorio completo al directorio de skills de tu agente y vuelve a cargarlo. Conserva los scripts, referencias, esquemas y dependencias junto con SKILL.md. Copiar solo SKILL.md no incluye el toolkit.",
+            "Conserva SKILL.md, las referencias y las plantillas juntas. Scripts, esquemas y visor son recursos del toolkit opcional. También puedes instalar con npx skills@1.7.2 add whetstone-dev/Database-Dependency-Migration-Visualizer --skill database-dependency-migration --agent codex --copy. Skills CLI necesita Node.js 22.20+; copiar o clonar manualmente no. Ninguna opción requiere pnpm install después.",
           ],
           table: {
             headings: [
@@ -612,16 +631,15 @@ const es: DocsCopy = {
           },
         },
         {
-          title: "Ejecuta el toolkit directamente",
+          title: "Configuración del toolkit opcional",
           paragraphs: [
-            "El script de pnpm ejecuta la CLI local. También puedes usar su punto de entrada de Node. Ejecuta los ejemplos desde la raíz del repositorio. Una skill instalada debe resolver su directorio absoluto y guardar la salida en el espacio de trabajo del usuario.",
+            "Solo el JSON validado y los informes HTML interactivos requieren el toolkit. Usa Node.js 22.18+ y ejecuta el comando de npm en el directorio de la skill o la raíz del repositorio. No instala la web ni herramientas de desarrollo. Las dependencias directas están fijadas; npm resuelve las transitivas. El README explica la alternativa de pnpm con lockfile congelado.",
           ],
           code: [
             {
-              label: "PUNTO DE ENTRADA DE NODE",
-              value:
-                "node scripts/dbdep.mjs doctor --json\nnode scripts/dbdep.mjs inspect --ddl examples/ecommerce/schema.sql --out out/schema.dbdep.json",
-              copyLabel: "Copiar comandos de Node",
+              label: "SOLO RUNTIME OPCIONAL",
+              value: toolkitInstall,
+              copyLabel: "Copiar comandos del toolkit opcional",
             },
           ],
         },
@@ -631,12 +649,12 @@ const es: DocsCopy = {
             {
               label: "WEB LOCAL",
               value:
-                "pnpm dev\n# Compilar y previsualizar la web estática\npnpm build\npnpm preview",
+                "pnpm install --frozen-lockfile --ignore-scripts\npnpm dev\n# Compilar y previsualizar la web estática\npnpm build\npnpm preview",
               copyLabel: "Copiar comandos de la web",
             },
           ],
           paragraphs: [
-            "Abre la dirección local que imprime Next.js. La web explica el toolkit y abre los informes incluidos. No tiene conexión a bases de datos ni carga de archivos.",
+            "Esta configuración es para desarrollar la web y es independiente de instalar la skill. Abre la dirección local que imprime Next.js. La web no tiene conexión a bases de datos ni carga de archivos.",
           ],
         },
       ],
@@ -644,9 +662,25 @@ const es: DocsCopy = {
     quickstart: {
       title: "Inicio rápido",
       description:
-        "Inspecciona el esquema de ecommerce y abre un informe con evidencia.",
+        "Pide una revisión de fuentes a tu agente o genera un informe con el toolkit opcional.",
       reference: "examples/README.md",
       sections: [
+        {
+          title: "Pide la revisión a tu agente, sin configuración",
+          paragraphs: [
+            "Tras instalar la skill, indica tus archivos o las fuentes del ejemplo de ecommerce. El agente lee declaraciones y consumidores, cita líneas, sigue operaciones explícitas en orden y conserva la incertidumbre. La evidencia manual usa SOURCE_READ, no PARSED. Puede inspeccionar mapeos EF Core/C#, Prisma y TypeORM cuando estén presentes.",
+          ],
+          code: [
+            {
+              label: "SOLICITUD DE REVISIÓN DE FUENTES",
+              value:
+                "Usa database-dependency-migration para revisar examples/ecommerce/schema.sql,\nexamples/ecommerce/migrations/003_contract_legacy_id.sql y\nexamples/ecommerce/app. Escribe una revisión en Markdown con consumidores\nafectados, líneas de evidencia, riesgos altos y dependencias sin resolver. No ejecutes SQL.",
+              copyLabel: "Copiar solicitud de revisión de fuentes",
+            },
+          ],
+          callout:
+            "Esta revisión no necesita instalar el toolkit. Los comandos siguientes son opcionales y requieren su runtime.",
+        },
         {
           title: "1. Inspecciona las fuentes",
           paragraphs: [
@@ -706,7 +740,7 @@ const es: DocsCopy = {
           code: [
             {
               label: "GENERAR EJEMPLOS",
-              value: "pnpm dbdep demo out/demo",
+              value: "node scripts/dbdep.mjs demo out/demo",
               copyLabel: "Copiar comando de ejemplos",
             },
           ],
@@ -777,12 +811,12 @@ const es: DocsCopy = {
         {
           title: "Puntos de entrada",
           paragraphs: [
-            "Usa pnpm dbdep <comando> desde la raíz del repositorio. El punto de entrada directo equivalente es node scripts/dbdep.mjs <comando>. snapshot es un alias de inspect.",
+            "Estos comandos son del toolkit opcional. Usa node scripts/dbdep.mjs <comando> desde la raíz del repositorio o la ruta absoluta de la skill instalada desde otro directorio. pnpm dbdep <comando> es un atajo para contribuidores. snapshot es un alias de inspect.",
           ],
           code: [
             {
               label: "INSPECCIONAR, VALIDAR Y RASTREAR",
-              value: `${inspect}\n${validate}\npnpm dbdep impact out/schema.dbdep.json --object public.customers.id --operation alter-type --to uuid --json`,
+              value: `${inspect}\n${validate}\nnode scripts/dbdep.mjs impact out/schema.dbdep.json --object public.customers.id --operation alter-type --to uuid --json`,
               copyLabel: "Copiar comandos de análisis",
             },
           ],
@@ -837,7 +871,7 @@ const es: DocsCopy = {
             {
               label: "REVISIÓN CON POLÍTICA DE RIESGO",
               value:
-                "pnpm dbdep review --baseline out/schema.dbdep.json --migration examples/high-traffic/migrations/007.sql --transaction-mode single --metadata examples/high-traffic/workload-profile.json --out out/review --fail-on high --json",
+                "node scripts/dbdep.mjs review --baseline out/schema.dbdep.json --migration examples/high-traffic/migrations/007.sql --transaction-mode single --metadata examples/high-traffic/workload-profile.json --out out/review --fail-on high --json",
               copyLabel: "Copiar revisión con política",
             },
           ],
@@ -867,7 +901,7 @@ const es: DocsCopy = {
             {
               label: "CAPTURA DE CATÁLOGO DE SOLO LECTURA",
               value:
-                "pnpm dbdep inspect --dsn-env DBDEP_DATABASE_URL --mode read-only --out out/live.dbdep.json --capture-out out/catalog.json",
+                "node scripts/dbdep.mjs inspect --dsn-env DBDEP_DATABASE_URL --mode read-only --out out/live.dbdep.json --capture-out out/catalog.json",
               copyLabel: "Copiar captura del catálogo",
             },
           ],
@@ -904,7 +938,7 @@ const es: DocsCopy = {
             ],
           },
           paragraphs: [
-            "Los valores de confianza direct, conditional y unknown describen la interpretación de la evidencia. No son probabilidades. La evidencia registra líneas y hashes de archivos o direcciones y contexto del catálogo.",
+            "Las revisiones de fuentes usan SOURCE_READ para el texto inspeccionado y citan líneas. Esa etiqueta no forma parte del JSON canónico ni implica validación del parser o del runtime. La tabla describe estados del toolkit. Los valores direct, conditional y unknown son interpretaciones, no probabilidades.",
           ],
         },
         {
@@ -949,7 +983,7 @@ const es: DocsCopy = {
         {
           title: "Cobertura parcial o desconocida",
           bullets: [
-            "El DDL describe declaraciones. No reproduce el historial de migraciones ni reconstruye el esquema final.",
+            "El DDL del toolkit describe declaraciones y no reproduce migraciones. El registro manual de la skill sigue operaciones explícitas y conserva como UNKNOWN los efectos no soportados y las conclusiones posteriores que dependan de ellos.",
             "Rutinas, SQL dinámico, SQL de otros lenguajes, ORM, ámbitos anidados y nombres ambiguos conservan cobertura parcial o UNKNOWN.",
             "La semántica de DML y del relleno de datos queda fuera del motor. El plan no prueba un mapeo, la finalización del relleno ni la preparación del despliegue.",
             "Los posibles cambios de nombre no están confirmados. Compara el mismo modo de captura y reconcilia las identidades.",

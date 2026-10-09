@@ -1,4 +1,4 @@
 interface:
   display_name: "Database dependency migration"
   short_description: "Review PostgreSQL dependencies and migration risks"
-  default_prompt: "Use $database-dependency-migration to analyze my PostgreSQL schema and proposed migration with source evidence."
+  default_prompt: "Use $database-dependency-migration to review my PostgreSQL migration and SQL or ORM consumers directly from source files. Cite evidence, list affected objects and risks, and keep unresolved dependencies explicit."

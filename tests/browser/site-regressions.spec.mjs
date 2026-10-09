@@ -171,11 +171,13 @@ test("clipboard feedback and live reduced-motion changes work", async ({
 }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await page.goto(site);
-  const copy = page.getByRole("button", { name: "Copy pnpm install command" });
+  const copy = page.getByRole("button", {
+    name: "Copy skill installation command",
+  });
   await copy.click();
   await expect(copy).toContainText("Copied");
   expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(
-    "pnpm install --frozen-lockfile",
+    "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration",
   );
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(page.locator(".dot-grid--static")).toHaveCount(1);

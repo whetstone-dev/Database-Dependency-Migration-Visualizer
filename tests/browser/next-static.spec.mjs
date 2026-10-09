@@ -14,7 +14,7 @@ test("documentation exports readable HTML before JavaScript runs", async ({
       "Installation",
     );
     await expect(page.locator("main")).toContainText(
-      "pnpm install --frozen-lockfile",
+      "No Node.js, pnpm, package installation, build or database server is needed",
     );
     await expect(
       page

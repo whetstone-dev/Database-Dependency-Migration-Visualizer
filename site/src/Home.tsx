@@ -10,12 +10,8 @@ import { useReducedMotion } from "./useReducedMotion";
 import { useSitePreferences } from "./preferences-context";
 import Link from "next/link";
 
-const installCommand = "pnpm install --frozen-lockfile";
-const analyzeCommand = [
-  "pnpm dbdep inspect --ddl examples/ecommerce/schema.sql --repo examples/ecommerce/app --out out/schema.dbdep.json",
-  "pnpm dbdep validate out/schema.dbdep.json --strict --json",
-  "pnpm dbdep render out/schema.dbdep.json --object public.customers.id --out out/dependencies.html",
-].join("\n\n");
+const installCommand =
+  "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration";
 
 function MagneticAction({ children }: { children: ReactNode }) {
   const reduced = useReducedMotion();
@@ -181,7 +177,7 @@ export default function Home() {
           </div>
           <div className="terminal-block">
             <div className="code-label mono">
-              <span>{c.install.install} / NODE 22.18+</span>
+              <span>{c.install.install}</span>
               <CopyButton
                 text={installCommand}
                 label={c.install.copyInstall}
@@ -199,18 +195,18 @@ export default function Home() {
             <div className="code-label mono">
               <span>{c.install.commands}</span>
               <CopyButton
-                text={analyzeCommand}
+                text={c.install.prompt}
                 label={c.install.copyCommands}
                 c={c}
               />
             </div>
             <pre data-lenis-prevent>
-              <code>{analyzeCommand}</code>
+              <code>{c.install.prompt}</code>
             </pre>
           </div>
           <div className="terminal-footer mono">
             <i />
-            {c.install.output} / out/dependencies.html
+            {c.install.output} / out/review.md
           </div>
         </div>
       </section>

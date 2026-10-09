@@ -1,6 +1,8 @@
 # Troubleshooting
 
-Run `pnpm dbdep doctor --json`, `node scripts/dbdep.mjs doctor --json` or installed `dbdep doctor --json`. Node.js 22.18+ is required. `pnpm install --frozen-lockfile` installs the pinned workspace, including libpg-query, Ajv and pg. `pnpm exec playwright install chromium` installs browser test binaries. An unpacked skill uses `pnpm install --prod --frozen-lockfile --ignore-workspace` in its folder.
+Normal skill use needs no runtime. If Node.js, pnpm or toolkit packages are missing, use [source analysis](source-analysis.md) and deliver a source-cited review. Do not block that review on `doctor`, package installation or a build.
+
+For the optional toolkit, run `node scripts/dbdep.mjs doctor --json` or installed `dbdep doctor --json`. Node.js 22.18+ is required only for this path. See [toolkit setup](toolkit.md) for the production-only npm installation and frozen pnpm alternative. Contributors use the full workspace setup in [CONTRIBUTING.md](../CONTRIBUTING.md); browser binaries are for development tests.
 
 Exit 2 indicates invalid JSON/schema, unsupported capture version, missing dependency, malformed selector, ambiguous object, SQL syntax error or I/O failure. Fix the original source/model, then regenerate. Use stable node IDs for functions with overloads or constraints sharing names. SQL literals are excluded from parse errors; inspect the input locally for detail.
 

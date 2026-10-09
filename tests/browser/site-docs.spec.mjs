@@ -131,7 +131,7 @@ test("documentation index opens from the site and has seven usable topic cards",
     "Installation",
   );
   await expect(page.locator("main")).toContainText(
-    "pnpm install --frozen-lockfile",
+    "No Node.js, pnpm, package installation, build or database server is needed",
   );
 });
 
@@ -185,7 +185,7 @@ test("command reference uses the Node CLI and preserves review policy meanings",
 }) => {
   await page.goto(`${site}/docs/command-reference/`);
   const main = page.locator("main");
-  await expect(main).toContainText("pnpm dbdep inspect");
+  await expect(main).toContainText("node scripts/dbdep.mjs inspect");
   await expect(main).toContainText("node scripts/dbdep.mjs");
   await expect(main).toContainText("snapshot");
   await expect(main).toContainText("--transaction-mode single");
@@ -265,7 +265,9 @@ test("setup commands copy exactly and unknown topics provide a route back", asyn
       /\r\n/g,
       "\n",
     ),
-  ).toBe("pnpm install --frozen-lockfile\npnpm dbdep doctor --json");
+  ).toBe(
+    "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration",
+  );
   await page.goto(`${site}/docs/not-a-topic/`);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Page not found",
