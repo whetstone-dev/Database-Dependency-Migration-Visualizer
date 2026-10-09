@@ -1,6 +1,6 @@
 {
   "version": "0.3.1",
-  "recorded_at": "2026-10-09T19:46:47.369Z",
+  "recorded_at": "2026-10-09T19:48:23.618Z",
   "platform": "win32",
   "node": "24.15.0",
   "pnpm": "12.10.1",
@@ -156,7 +156,7 @@
     "Historical baseline bytecode cleanup was blocked by automatic approval review and is audited."
   ],
   "patch_scope": "v0.3.1 corrects the final built website documentation, adds a stale-copy packaging guard and exact packaged CLI version checks. v0.3.0 archives, receipt and annotated tag are retained.",
-  "source_hash_scope": "Committed application, schemas, viewer/site, tooling, tests, root README and skill instructions and dependency lockfiles. Generated webpage data is hashed separately. Documentation/evaluation receipts are separate and not self-hashed.",
+  "source_hash_scope": "Git-listed application, schemas, viewer/site, tooling, tests, root README and skill instructions and dependency lockfiles. Generated webpage data and ignored historical caches are hashed separately. Historical caches are not release inputs. Documentation/evaluation receipts are separate and not self-hashed.",
   "sources": [
     {
       "path": ".github/workflows/ci.yml",
@@ -387,46 +387,6 @@
       "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
     },
     {
-      "path": "src/dbdep/__pycache__/__init__.cpython-314.pyc",
-      "sha256": "b456d19aad956a31c19e68681c57eec9316326e047c62f3bb3b99e99650c6865"
-    },
-    {
-      "path": "src/dbdep/__pycache__/catalog.cpython-314.pyc",
-      "sha256": "2a5b595024c840c067164b72273034770fd1907428c613aa98465720a3f2f5c0"
-    },
-    {
-      "path": "src/dbdep/__pycache__/cli.cpython-314.pyc",
-      "sha256": "a2e7d7d250404b6190314d6cd7944a0cb29e6c7b92bc5f859a2c39058ed8155d"
-    },
-    {
-      "path": "src/dbdep/__pycache__/engine.cpython-314.pyc",
-      "sha256": "1d2ec74cc9a799bb77b006407910422451655df0df897bc2989038d87487abdc"
-    },
-    {
-      "path": "src/dbdep/__pycache__/graph.cpython-314.pyc",
-      "sha256": "64b6b01d4a35593913d231a6a65a316aa822b86e148995121add78dfffb78e9b"
-    },
-    {
-      "path": "src/dbdep/__pycache__/model.cpython-314.pyc",
-      "sha256": "4309803f300e9f978e915e4b10c5dffeb3ddcd1614f2a8c521a301311f0e5239"
-    },
-    {
-      "path": "src/dbdep/__pycache__/planning.cpython-314.pyc",
-      "sha256": "2f0b94d924c80a70b6cfdd86315895221fc7f15bb151f56c195f6effacdf46b6"
-    },
-    {
-      "path": "src/dbdep/__pycache__/reports.cpython-314.pyc",
-      "sha256": "9d7cd391637f07da7bafc6fdde82f3bd2c5463490df6dfae4eff822b1b19fe45"
-    },
-    {
-      "path": "src/dbdep/__pycache__/rules.cpython-314.pyc",
-      "sha256": "d2b39755e29743943b4e42a3030237e681c503ba96a2dff5fcc48fb6dfc2f904"
-    },
-    {
-      "path": "src/dbdep/__pycache__/sql.cpython-314.pyc",
-      "sha256": "d62c5479163122ec4ae1ba6363b6d6495688523ca162483947dfab053cb0bcab"
-    },
-    {
       "path": "src/dbdep/catalog.mjs",
       "sha256": "4a7891fdec3dccf58b457fa35c7762fdd1fe71bd932884a7501cf011ef6428ef"
     },
@@ -511,6 +471,48 @@
     {
       "path": "site/src/data/demos.json",
       "sha256": "a0858fb445453d3b7a7048179ac9554b00bef2e41f45fe0cf976c8182663d802"
+    }
+  ],
+  "historical_ignored_files": [
+    {
+      "path": "src/dbdep/__pycache__/__init__.cpython-314.pyc",
+      "sha256": "b456d19aad956a31c19e68681c57eec9316326e047c62f3bb3b99e99650c6865"
+    },
+    {
+      "path": "src/dbdep/__pycache__/catalog.cpython-314.pyc",
+      "sha256": "2a5b595024c840c067164b72273034770fd1907428c613aa98465720a3f2f5c0"
+    },
+    {
+      "path": "src/dbdep/__pycache__/cli.cpython-314.pyc",
+      "sha256": "a2e7d7d250404b6190314d6cd7944a0cb29e6c7b92bc5f859a2c39058ed8155d"
+    },
+    {
+      "path": "src/dbdep/__pycache__/engine.cpython-314.pyc",
+      "sha256": "1d2ec74cc9a799bb77b006407910422451655df0df897bc2989038d87487abdc"
+    },
+    {
+      "path": "src/dbdep/__pycache__/graph.cpython-314.pyc",
+      "sha256": "64b6b01d4a35593913d231a6a65a316aa822b86e148995121add78dfffb78e9b"
+    },
+    {
+      "path": "src/dbdep/__pycache__/model.cpython-314.pyc",
+      "sha256": "4309803f300e9f978e915e4b10c5dffeb3ddcd1614f2a8c521a301311f0e5239"
+    },
+    {
+      "path": "src/dbdep/__pycache__/planning.cpython-314.pyc",
+      "sha256": "2f0b94d924c80a70b6cfdd86315895221fc7f15bb151f56c195f6effacdf46b6"
+    },
+    {
+      "path": "src/dbdep/__pycache__/reports.cpython-314.pyc",
+      "sha256": "9d7cd391637f07da7bafc6fdde82f3bd2c5463490df6dfae4eff822b1b19fe45"
+    },
+    {
+      "path": "src/dbdep/__pycache__/rules.cpython-314.pyc",
+      "sha256": "d2b39755e29743943b4e42a3030237e681c503ba96a2dff5fcc48fb6dfc2f904"
+    },
+    {
+      "path": "src/dbdep/__pycache__/sql.cpython-314.pyc",
+      "sha256": "d62c5479163122ec4ae1ba6363b6d6495688523ca162483947dfab053cb0bcab"
     }
   ],
   "transcripts": [

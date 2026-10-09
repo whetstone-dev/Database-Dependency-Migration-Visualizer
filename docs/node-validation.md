@@ -1,6 +1,6 @@
 # Node migration validation
 
-The corrected v0.3.1 release is recorded in [release-validation.json](release-validation.json). Its static website includes the final source documentation, and the packager rejects stale copies. The v0.3.0 receipt and tag remain historical evidence. A generated website data file has a local content hash but is intentionally absent from Git; current receipts identify generated and committed files separately.
+The corrected v0.3.1 release is recorded in [release-validation.json](release-validation.json). Its static website includes the final source documentation, and the packager rejects stale copies. The v0.3.0 receipt and tag remain historical evidence. A generated website data file has a local content hash but is intentionally absent from Git. Current receipts use the Git file inventory to identify committed inputs; generated data and ignored historical Python caches have separate hashes. The caches are excluded from release packages.
 
 Version 0.3.0 replaces the Python engine, CLI, support scripts, automated tests and package metadata with Node.js ES modules and a single pnpm workspace. The canonical model stays at schema version 1.0.0. Historical v0.1.0/v0.2.0 records remain in their existing receipts and Git tags.
 
