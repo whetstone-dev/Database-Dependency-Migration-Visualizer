@@ -59,7 +59,7 @@ function check(entry, cwd, destination) {
   const doctor = JSON.parse(
     run(process.execPath, [entry, "doctor", "--json"], cwd),
   );
-  if (!doctor.ready || doctor.migration_execution)
+  if (!doctor.ready || doctor.migration_execution || doctor.version !== VERSION)
     throw new Error("Packaged toolkit is not ready");
   run(process.execPath, [entry, "demo", destination, "--json"], cwd);
   for (const name of ["ecommerce", "analytics", "high-traffic"]) {
@@ -82,7 +82,12 @@ function check(entry, cwd, destination) {
     )
       throw new Error("Packaged demo validation failed");
   }
-  return { doctor: true, demo_models_valid: 3, bundled_resources: "passed" };
+  return {
+    doctor: true,
+    version: doctor.version,
+    demo_models_valid: 3,
+    bundled_resources: "passed",
+  };
 }
 try {
   const installed = join(root, "installed"),

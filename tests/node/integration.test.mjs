@@ -183,7 +183,10 @@ test("doctor, snapshot alias, impact, diff work and apply is unavailable", () =>
     );
     assert.equal(cli("diff", path, path, "--out", join(dir, "diff")).status, 0);
     assert.equal(cli("apply", path).status, 2);
-    assert.equal(cli("--version").stdout.trim(), "0.3.0");
+    assert.equal(
+      cli("--version").stdout.trim(),
+      readJson(join(ROOT, "package.json")).version,
+    );
   }));
 test("invalid flag values and JSON never expose secrets", () =>
   temporary((dir) => {

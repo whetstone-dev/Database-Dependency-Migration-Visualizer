@@ -17,6 +17,19 @@ export const VERSION = JSON.parse(
 ).version;
 export const sha256 = (value) =>
   createHash("sha256").update(value).digest("hex");
+export function verify_built_docs(root, built) {
+  for (const name of ["README.md", "SKILL.md"]) {
+    if (
+      !readFileSync(join(root, name)).equals(
+        readFileSync(join(built, "docs", name)),
+      )
+    )
+      throw new Error(
+        "Built website documentation is stale; run pnpm build before packaging",
+      );
+  }
+  return 2;
+}
 export function files(directory) {
   return readdirSync(directory, { withFileTypes: true })
     .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
