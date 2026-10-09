@@ -55,30 +55,24 @@ def test_site_reports_keyboard_navigation_and_layout(site_url, viewport, reduced
         page.goto(site_url)
         expect(page.get_by_role("heading", level=1)).to_contain_text("Before you")
         assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
-        frame = page.frame_locator("iframe")
-        tabs = page.get_by_role("tab")
-        tabs.nth(0).scroll_into_view_if_needed()
+        expect(page.locator("iframe")).to_have_count(0)
+        links = page.locator("#examples").get_by_role("link", name="Open HTML report")
         for index, slug in enumerate(("ecommerce", "analytics", "high-traffic")):
-            if index:
-                tabs.nth(index - 1).press("ArrowRight")
-            expect(tabs.nth(index)).to_have_attribute("aria-selected", "true")
-            expect(page.locator("iframe")).to_have_attribute("src", f"./demos/{slug}/report.html")
+            assert links.nth(index).get_attribute("href") == f"./demos/{slug}/report.html"
+            report = context.new_page()
+            report.goto(site_url + f"/demos/{slug}/report.html")
             model = json.loads((ROOT / "examples/rendered" / slug / "model.dbdep.json").read_text())
-            expect(frame.locator(".node")).to_have_count(len(model["nodes"]))
-            expect(page.locator(".demo-toolbar")).to_contain_text(f"{len(model['nodes'])} OBJECTS")
-        frame.locator("[data-tab=findings]").click()
-        expect(frame.locator("#finding-list")).to_contain_text("DDM006")
-        frame.locator("[data-tab=sequence]").click()
-        expect(frame.locator(".phase")).to_have_count(5)
-        tabs.nth(2).press("Home")
-        expect(tabs.nth(0)).to_have_attribute("aria-selected", "true")
-        ecommerce = json.loads((ROOT / "examples/rendered/ecommerce/model.dbdep.json").read_text())
-        expect(frame.locator(".node")).to_have_count(len(ecommerce["nodes"]))
-        if viewport["width"] > 760:
-            with page.expect_download() as download:
-                frame.locator("#export-json").click()
-            assert json.loads(Path(download.value.path()).read_text()) == ecommerce
-        assert page.locator("iframe").get_attribute("sandbox") == "allow-scripts allow-downloads"
+            expect(report.locator(".node")).to_have_count(len(model["nodes"]))
+            if slug == "high-traffic":
+                report.locator("[data-tab=findings]").click()
+                expect(report.locator("#finding-list")).to_contain_text("DDM006")
+                report.locator("[data-tab=sequence]").click()
+                expect(report.locator(".phase")).to_have_count(5)
+            if slug == "ecommerce" and viewport["width"] > 760:
+                with report.expect_download() as download:
+                    report.locator("#export-json").click()
+                assert json.loads(Path(download.value.path()).read_text()) == model
+            report.close()
         assert all(url.startswith(site_url) for url in requests)
         if reduced == "reduce":
             assert not page.locator("html").evaluate("el => el.classList.contains('lenis')")
@@ -92,6 +86,70 @@ def test_site_reports_keyboard_navigation_and_layout(site_url, viewport, reduced
         else:
             assert page.locator("html").evaluate("el => el.classList.contains('lenis')")
         assert not errors
+        browser.close()
+
+
+def test_theme_and_language_preferences_persist(site_url):
+    from playwright.sync_api import expect, sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(color_scheme="light", reduced_motion="reduce")
+        page.goto(site_url)
+        expect(page.locator("html")).to_have_attribute("lang", "en")
+        expect(page.locator("html")).to_have_attribute("data-theme", "light")
+        page.get_by_role("button", name="Switch to dark mode").click()
+        expect(page.locator("html")).to_have_attribute("data-theme", "dark")
+        page.get_by_role("button", name="Español").click()
+        expect(page.locator("html")).to_have_attribute("lang", "es")
+        expect(page.get_by_role("heading", level=1)).to_contain_text("Antes de migrar")
+        expect(page.locator("header")).to_contain_text("Ejemplos")
+        page.reload()
+        expect(page.locator("html")).to_have_attribute("data-theme", "dark")
+        expect(page.locator("html")).to_have_attribute("lang", "es")
+        page.get_by_role("button", name="English").click()
+        expect(page.locator("html")).to_have_attribute("lang", "en")
+        page.get_by_role("button", name="Switch to light mode").click()
+        expect(page.locator("html")).to_have_attribute("data-theme", "light")
+        browser.close()
+
+
+def test_impact_hover_and_focus_highlight_the_corresponding_trace(site_url):
+    from playwright.sync_api import expect, sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(reduced_motion="reduce")
+        page.goto(site_url)
+        for index in range(3):
+            node = page.locator(".graph-node").nth(index)
+            node.hover()
+            expect(page.locator(".trace[data-active='true']")).to_have_count(1)
+            expect(page.locator(".trace").nth(index)).to_have_attribute("data-active", "true")
+            node.focus()
+            expect(page.locator(".trace").nth(index)).to_have_attribute("data-active", "true")
+        page.locator(".graph-root").focus()
+        expect(page.locator(".trace[data-active='true']")).to_have_count(3)
+        browser.close()
+
+
+def test_examples_open_reports_separately_and_workflow_explains_the_pipeline(site_url):
+    from playwright.sync_api import expect, sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(reduced_motion="reduce")
+        page.goto(site_url)
+        expect(page.locator("iframe")).to_have_count(0)
+        links = page.locator("#examples").get_by_role("link", name="Open HTML report")
+        expect(links).to_have_count(3)
+        for index, slug in enumerate(("ecommerce", "analytics", "high-traffic")):
+            assert links.nth(index).get_attribute("href") == f"./demos/{slug}/report.html"
+            response = page.request.get(f"{site_url}/demos/{slug}/report.html")
+            assert response.ok
+            assert "Content-Security-Policy" in response.text()
+        expect(page.locator(".flow-stage[data-on='true']")).to_have_count(4)
+        expect(page.get_by_role("button", name="Replay the flow")).to_be_visible()
         browser.close()
 
 
@@ -148,7 +206,9 @@ def test_keyboard_fragments_arrive_in_one_frame_with_hash_and_focus(site_url, re
         assert sample["hash"] == "#examples", sample
         assert sample["focused"] == "examples", sample
         page.keyboard.press("Tab")
-        expect(page.get_by_role("tab").first).to_be_focused()
+        expect(
+            page.locator("#examples").get_by_role("link", name="Open HTML report").first
+        ).to_be_focused()
         browser.close()
 
 
@@ -231,4 +291,174 @@ def test_built_site_retains_dependency_notices_and_licenses(site_url):
             response = page.request.get(f"{site_url}/licenses/{license_file.name}")
             assert response.ok
             assert response.body() == license_file.read_bytes()
+        browser.close()
+
+
+@pytest.mark.parametrize(
+    "locale,theme,width", [("en", "light", 320), ("es", "dark", 320), ("es", "light", 768)]
+)
+def test_localized_layout_and_touch_traces(site_url, locale, theme, width):
+    from playwright.sync_api import expect, sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(
+            viewport={"width": width, "height": 844}, has_touch=True, reduced_motion="reduce"
+        )
+        page.add_init_script(
+            f"localStorage.setItem('dbdep-locale', '{locale}'); localStorage.setItem('dbdep-theme', '{theme}');"
+        )
+        page.goto(site_url)
+        expect(page.locator("html")).to_have_attribute("lang", locale)
+        expect(page.locator("html")).to_have_attribute("data-theme", theme)
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        for control in page.locator(".preferences button").all():
+            box = control.bounding_box()
+            assert box["width"] >= 44 and box["height"] >= 44, box
+        page.locator(".graph-node").nth(1).tap()
+        expect(page.locator(".trace").nth(1)).to_have_attribute("data-active", "true")
+        expect(page.locator(".trace[data-active='true']")).to_have_count(1)
+        expect(page.locator(".trace-caption")).to_contain_text("addresses.customer_id")
+        assert page.locator(".graph-node").nth(1).get_attribute("aria-pressed") == "true"
+        browser.close()
+
+
+def test_preferences_survive_unavailable_storage_and_respect_system_theme(site_url):
+    from playwright.sync_api import expect, sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(color_scheme="dark", reduced_motion="reduce")
+        page.add_init_script(
+            "Storage.prototype.getItem = Storage.prototype.setItem = () => { throw new Error('blocked'); };"
+        )
+        errors = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        page.goto(site_url)
+        expect(page.locator("html")).to_have_attribute("data-theme", "dark")
+        expect(page.locator("html")).to_have_attribute("lang", "en")
+        page.get_by_role("button", name="Español").click()
+        page.get_by_role("button", name="Activar modo claro").click()
+        expect(page.locator("html")).to_have_attribute("data-theme", "light")
+        expect(page.locator("html")).to_have_attribute("lang", "es")
+        assert not errors
+        browser.close()
+
+
+def test_flow_pointer_replay_and_keyboard_navigation(site_url):
+    from playwright.sync_api import expect, sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(viewport={"width": 1440, "height": 1000})
+        page.goto(site_url)
+        page.locator("header").get_by_role("link", name="How it works").focus()
+        page.keyboard.press("Enter")
+        expect(page.locator(".flow-wrapper")).to_have_attribute("data-playing", "false")
+        expect(page.locator(".flow-stage[data-on='true']")).to_have_count(4)
+        replay = page.get_by_role("button", name="Replay the flow")
+        replay.click()
+        expect(page.locator(".flow-wrapper")).to_have_attribute("data-playing", "true")
+        expect(page.locator(".flow-stage[data-on='true']")).to_have_count(4)
+        expect(page.locator(".flow-wrapper")).to_have_attribute("data-playing", "false")
+        replay.focus()
+        replay.press("Enter")
+        expect(page.locator(".flow-wrapper")).to_have_attribute("data-playing", "false")
+        expect(page.locator(".flow-stage[data-on='true']")).to_have_count(4)
+        spanish = page.get_by_role("button", name="Español")
+        spanish.focus()
+        spanish.press("Enter")
+        expect(page.locator("html")).to_have_attribute("lang", "es")
+        assert (
+            page.locator("#workflow .section-head").evaluate("el => getComputedStyle(el).transform")
+            == "none"
+        )
+        browser.close()
+
+
+def test_native_keyboard_scrolling_does_not_animate_sections(site_url):
+    from playwright.sync_api import sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(viewport={"width": 1440, "height": 1000})
+        page.goto(site_url)
+        page.evaluate("document.fonts.ready")
+        page.evaluate("""() => {
+            window.keyboardMotion = [];
+            window.watchKeyboard = false;
+            const sample = () => {
+                if (window.watchKeyboard) for (const el of document.querySelectorAll('[data-reveal]')) {
+                    const box = el.getBoundingClientRect();
+                    if (box.top < innerHeight && box.bottom > 0 && Math.abs(new DOMMatrix(getComputedStyle(el).transform).m42) > 0.05)
+                        window.keyboardMotion.push(el.className);
+                }
+                requestAnimationFrame(sample);
+            };
+            requestAnimationFrame(sample);
+        }""")
+        page.keyboard.press("PageDown")
+        page.evaluate("window.watchKeyboard = true")
+        page.wait_for_timeout(500)
+        page.keyboard.press("PageDown")
+        page.wait_for_timeout(500)
+        assert not page.evaluate("window.keyboardMotion")
+        browser.close()
+
+
+@pytest.mark.parametrize("touch", [False, True])
+def test_dot_background_does_no_continuous_idle_or_offscreen_drawing(site_url, touch):
+    from playwright.sync_api import sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(
+            viewport={"width": 390 if touch else 1440, "height": 844}, has_touch=touch
+        )
+        page.add_init_script("""window.canvasDraws = 0;
+            const original = CanvasRenderingContext2D.prototype.clearRect;
+            CanvasRenderingContext2D.prototype.clearRect = function(...args) { window.canvasDraws++; return original.apply(this, args); };
+        """)
+        page.goto(site_url)
+        page.evaluate("document.fonts.ready")
+        page.wait_for_timeout(200)
+        page.evaluate("window.canvasDraws = 0")
+        page.wait_for_timeout(400)
+        assert page.evaluate("window.canvasDraws") <= 1
+        page.locator("header").get_by_role("link", name="Install", exact=True).focus()
+        page.keyboard.press("Enter")
+        page.wait_for_timeout(200)
+        page.evaluate("window.canvasDraws = 0")
+        page.wait_for_timeout(400)
+        assert page.evaluate("window.canvasDraws") == 0
+        if touch:
+            assert page.locator(".dot-grid--static").count() == 1
+        browser.close()
+
+
+@pytest.mark.parametrize("locale", ["en", "es"])
+def test_impact_diagram_grows_with_enlarged_text(site_url, locale):
+    from playwright.sync_api import sync_playwright
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        page = browser.new_page(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
+        page.add_init_script(f"localStorage.setItem('dbdep-locale', '{locale}');")
+        page.goto(site_url)
+        page.evaluate("document.documentElement.style.fontSize = '200%'")
+        page.evaluate("document.fonts.ready")
+        for node in page.locator(".graph-root, .graph-node").all():
+            graph_box = page.locator(".specimen").bounding_box()
+            node_box = node.bounding_box()
+            assert node_box["x"] >= graph_box["x"]
+            assert node_box["x"] + node_box["width"] <= graph_box["x"] + graph_box["width"]
+            result = node.evaluate("""el => {
+                const box = el.getBoundingClientRect();
+                return Array.from(el.querySelectorAll('strong, .node-kind, .node-meta')).map(child => {
+                    const text = child.getBoundingClientRect();
+                    return { inside: text.top >= box.top && text.bottom <= box.bottom && text.left >= box.left && text.right <= box.right, text: child.textContent };
+                });
+            }""")
+            assert all(item["inside"] for item in result), result
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
         browser.close()
