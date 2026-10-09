@@ -1,0 +1,17 @@
+# Canonical model
+
+Schema version 1.0.0 is validated by `schemas/dbdep.schema.json`, plus semantic checks in `src/dbdep/model.py`. Findings have `schemas/findings.schema.json`; review envelopes have `schemas/report.schema.json`.
+
+IDs use `postgresql:local/<schema>/<kind>/<parent>/<name>/<signature>`. Components are UTF-8 percent-encoded. Empty components remain significant. The input is one logical database; comparing different databases requires the operator to confirm intended scope. OIDs and class/subobject addresses are snapshot-local evidence, never stable keys. Routine input signatures use parser-normalized type names offline and catalog type identities in captures. Name aliases such as int8/bigint and quoted custom argument types can still differ across capture modes; compare like modes.
+
+Column nodes carry their relation name as parent. Constraint and trigger identities include their owning relation; indexes are schema objects. Unnamed offline constraints carry a content-hash signature, with occurrence suffixes for identical CHECK declarations. Generated names are labeled `name_inferred` and can differ from PostgreSQL collision handling. Catalog capture supplies actual names. Never infer physical sequence names for identity/serial defaults offline.
+
+JSON uses sorted object keys, ASCII escapes, two-space indentation and a final newline. Node, edge, evidence, finding and unknown arrays sort by ID. Ordered key columns/signatures retain order. Offline timestamps are null; catalog capture timestamps record actual capture time. File evidence hashes the complete UTF-8 source, not snippets. Libpg_query locations produce line ranges and optional `byte_start`/`byte_length` offsets into the normalized UTF-8 source. Offsets distinguish multiple statements on one line. Snapshot fingerprint hashes sorted source-path/query-ID and source-hash pairs plus engine version. Moving files can change query identity and evidence. Paths outside the current workspace display basename only; inspect a coherent workspace to avoid collisions.
+
+`validate --strict` checks canonical ordering as well as duplicate IDs, enums, edge endpoints, evidence IDs, hash formats, per-source hash consistency, counts and fingerprint. UNKNOWN coverage is valid and does not itself invalidate a graph. Validation checks internal evidence consistency; it does not prove that the original file or database still has the captured content. Sources need independent recapture/re-hashing for freshness.
+
+Repository text files use LF endings through `.gitattributes`, preventing Git's Windows checkout conversion from changing fixture hashes. External SQL preserves its supplied newlines; a UTF-8 BOM is removed before source hashing and parser byte-offset calculation. Equivalent files with different newline bytes can have different evidence fingerprints.
+
+Retained creator evaluation receipts/copies are exempt from Git newline conversion so their original byte hashes remain checkable on any platform.
+
+Diff matches stable IDs. Removed/added columns with the same owner/type produce UNKNOWN possible-renames. No similarity threshold confirms a rename. Catalog definition comparison is partial because full view/index/routine bodies are deliberately not captured.

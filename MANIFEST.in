@@ -1,0 +1,12 @@
+include SKILL.md LICENSE THIRD_PARTY_NOTICES.md README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md
+include .gitattributes
+recursive-include agents *.yaml
+recursive-include docs *.md *.json
+recursive-include templates *.md
+recursive-include scripts *.py
+recursive-include references *.md
+recursive-include schemas *.json
+recursive-include assets/viewer *.html *.css *.js
+recursive-include examples *.sql *.json *.html *.md *.mmd *.dot
+recursive-include tests *.py
+recursive-exclude * __pycache__ *.pyc

@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.woff2 binary
+*.zip binary
+*.whl binary
+*.skill binary
+# Retain byte-exact creator receipts and copied evaluation outputs.
+evals/results/** -text
+evals/review.html -text

@@ -1,0 +1,575 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:dbdep:1.0.0",
+  "title": "PostgreSQL dependency graph, source depends on target; reverse edges give impact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "engine",
+    "snapshot",
+    "coverage",
+    "nodes",
+    "edges",
+    "evidence",
+    "findings",
+    "unknowns"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "engine": {
+      "type": "object",
+      "required": [
+        "name",
+        "version",
+        "source_mode"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "postgresql"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+(?:[.][0-9]+)*$"
+        },
+        "source_mode": {
+          "enum": [
+            "offline_ddl",
+            "catalog_snapshot",
+            "live_read_only"
+          ]
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "created_at",
+        "source_fingerprint"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_fingerprint": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "catalog_available",
+        "repository_scan",
+        "exhaustive",
+        "unresolved",
+        "capabilities"
+      ],
+      "properties": {
+        "catalog_available": {
+          "type": "boolean"
+        },
+        "repository_scan": {
+          "type": "boolean"
+        },
+        "exhaustive": {
+          "const": false
+        },
+        "unresolved": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/unknown"
+      }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": [
+        "id",
+        "origin",
+        "status",
+        "confidence",
+        "evidence_ids",
+        "kind",
+        "schema",
+        "name",
+        "parent",
+        "signature",
+        "qualified_name",
+        "properties"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "postgres_catalog",
+            "sql_file",
+            "migration_diff",
+            "application_source",
+            "user_supplied",
+            "heuristic"
+          ]
+        },
+        "status": {
+          "enum": [
+            "OBSERVED",
+            "PARSED",
+            "INFERRED",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "direct",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "schema": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "qualified_name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "schema",
+            "table",
+            "partitioned_table",
+            "view",
+            "materialized_view",
+            "column",
+            "sequence",
+            "index",
+            "constraint",
+            "type",
+            "function",
+            "procedure",
+            "trigger",
+            "query",
+            "extension"
+          ]
+        },
+        "properties": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "required": [
+        "id",
+        "origin",
+        "status",
+        "confidence",
+        "evidence_ids",
+        "source",
+        "target",
+        "kind",
+        "explanation",
+        "properties"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "postgres_catalog",
+            "sql_file",
+            "migration_diff",
+            "application_source",
+            "user_supplied",
+            "heuristic"
+          ]
+        },
+        "status": {
+          "enum": [
+            "OBSERVED",
+            "PARSED",
+            "INFERRED",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "direct",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "explanation": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "contains",
+            "foreign_key",
+            "catalog_dependency",
+            "query_reference",
+            "trigger_association",
+            "type_reference",
+            "partition",
+            "inheritance",
+            "expression_reference",
+            "sequence_ownership"
+          ]
+        },
+        "properties": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "id",
+        "origin",
+        "status",
+        "confidence",
+        "source_hash",
+        "explanation"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "origin": {
+          "enum": [
+            "postgres_catalog",
+            "sql_file",
+            "migration_diff",
+            "application_source",
+            "user_supplied",
+            "heuristic"
+          ]
+        },
+        "status": {
+          "enum": [
+            "OBSERVED",
+            "PARSED",
+            "INFERRED",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "direct",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "source_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "explanation": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "line_start": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "line_end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "byte_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "byte_length": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "query_id": {
+          "type": "string"
+        },
+        "captured_at": {
+          "type": "string"
+        },
+        "catalog_address": {
+          "type": "string"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "path",
+            "line_start",
+            "line_end"
+          ]
+        },
+        {
+          "required": [
+            "query_id",
+            "captured_at"
+          ]
+        }
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "required": [
+        "id",
+        "origin",
+        "status",
+        "confidence",
+        "evidence_ids",
+        "rule_id",
+        "severity",
+        "risk_level",
+        "risk_dimensions",
+        "reason",
+        "remediation",
+        "evidence",
+        "object_ids"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "postgres_catalog",
+            "sql_file",
+            "migration_diff",
+            "application_source",
+            "user_supplied",
+            "heuristic"
+          ]
+        },
+        "status": {
+          "enum": [
+            "OBSERVED",
+            "PARSED",
+            "INFERRED",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "direct",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "rule_id": {
+          "type": "string",
+          "pattern": "^DDM00[1-9]$|^DDM01[0-5]$"
+        },
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ]
+        },
+        "risk_level": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "unknown"
+          ]
+        },
+        "risk_dimensions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "data_loss",
+              "locking",
+              "rewrite",
+              "compatibility",
+              "deployment_order",
+              "unresolved_dependencies"
+            ]
+          }
+        },
+        "reason": {
+          "type": "string"
+        },
+        "remediation": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "object_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "unknown": {
+      "type": "object",
+      "required": [
+        "id",
+        "origin",
+        "status",
+        "confidence",
+        "evidence_ids",
+        "explanation",
+        "object_id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "postgres_catalog",
+            "sql_file",
+            "migration_diff",
+            "application_source",
+            "user_supplied",
+            "heuristic"
+          ]
+        },
+        "status": {
+          "enum": [
+            "OBSERVED",
+            "PARSED",
+            "INFERRED",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "direct",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "explanation": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

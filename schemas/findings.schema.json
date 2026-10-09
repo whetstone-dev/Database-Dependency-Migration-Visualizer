@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "origin",
+      "status",
+      "confidence",
+      "evidence_ids",
+      "rule_id",
+      "severity",
+      "risk_level",
+      "risk_dimensions",
+      "reason",
+      "remediation",
+      "evidence",
+      "object_ids"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "origin": {
+        "enum": [
+          "postgres_catalog",
+          "sql_file",
+          "migration_diff",
+          "application_source",
+          "user_supplied",
+          "heuristic"
+        ]
+      },
+      "status": {
+        "enum": [
+          "OBSERVED",
+          "PARSED",
+          "INFERRED",
+          "UNKNOWN"
+        ]
+      },
+      "confidence": {
+        "enum": [
+          "direct",
+          "conditional",
+          "unknown"
+        ]
+      },
+      "evidence_ids": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "rule_id": {
+        "type": "string",
+        "pattern": "^DDM00[1-9]$|^DDM01[0-5]$"
+      },
+      "severity": {
+        "enum": [
+          "info",
+          "warning",
+          "error"
+        ]
+      },
+      "risk_level": {
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "unknown"
+        ]
+      },
+      "risk_dimensions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "enum": [
+            "data_loss",
+            "locking",
+            "rewrite",
+            "compatibility",
+            "deployment_order",
+            "unresolved_dependencies"
+          ]
+        }
+      },
+      "reason": {
+        "type": "string"
+      },
+      "remediation": {
+        "type": "string"
+      },
+      "evidence": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string"
+        }
+      },
+      "object_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}
