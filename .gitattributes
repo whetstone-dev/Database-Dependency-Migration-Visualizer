@@ -8,5 +8,7 @@
 *.skill binary
 # Retain byte-exact creator receipts and copied evaluation outputs.
 evals/results/** -text -whitespace
-evals/review.html -text -whitespace
-evals/review-node.html -text -whitespace
+evals/review.html -text -whitespace linguist-generated=true
+evals/review-node.html -text -whitespace linguist-generated=true
+# Keep generated viewers available without counting them as authored source.
+examples/rendered/** linguist-generated=true
