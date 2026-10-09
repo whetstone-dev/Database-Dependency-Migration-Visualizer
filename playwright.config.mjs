@@ -8,14 +8,14 @@ export default defineConfig({
   use: {
     headless: true,
     acceptDownloads: true,
-    baseURL: "http://127.0.0.1:4173",
+    baseURL: process.env.DBDEP_SITE_URL ?? "http://127.0.0.1:4173",
   },
   reporter: [["list"], ["json", { outputFile: "out/browser-results.json" }]],
   webServer: {
     command:
       "pnpm --filter database-dependency-migration-site preview --port 4173 --strictPort",
-    url: "http://127.0.0.1:4173",
-    reuseExistingServer: !process.env.CI,
+    url: process.env.DBDEP_SITE_URL ?? "http://127.0.0.1:4173",
+    reuseExistingServer: false,
     timeout: 30000,
   },
 });

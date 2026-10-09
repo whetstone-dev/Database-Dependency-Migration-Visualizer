@@ -1,47 +1,22 @@
 #!/usr/bin/env node
-import { createServer } from "node:http";
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
-import { join, resolve, relative, extname, sep, isAbsolute } from "node:path";
+import { join, resolve } from "node:path";
 import { chromium } from "@playwright/test";
 import { ROOT, save } from "./tooling.mjs";
-const built = join(ROOT, "site/dist"),
-  destination = join(ROOT, "site/screenshots");
+import { createPreviewServer } from "../site/scripts/preview.mjs";
+const built = join(ROOT, "site/out"),
+  destination = process.env.DBDEP_CAPTURE_DIR
+    ? resolve(process.env.DBDEP_CAPTURE_DIR)
+    : join(ROOT, "site/screenshots");
 if (!existsSync(join(built, "index.html")))
   throw new Error("Build the website before capturing it");
 mkdirSync(destination, { recursive: true });
-const server = createServer((request, response) => {
-  const path = resolve(
-      built,
-      "." +
-        decodeURIComponent(new URL(request.url, "http://localhost").pathname),
-    ),
-    rel = relative(built, path);
-  if (rel === ".." || rel.startsWith(`..${sep}`) || isAbsolute(rel)) {
-    response.writeHead(403);
-    response.end();
-    return;
-  }
-  const target =
-    existsSync(path) && extname(path) ? path : join(built, "index.html");
-  const mime =
-    {
-      ".html": "text/html",
-      ".js": "text/javascript",
-      ".css": "text/css",
-      ".json": "application/json",
-      ".woff2": "font/woff2",
-      ".png": "image/png",
-    }[extname(target)] ?? "text/plain";
-  try {
-    response.writeHead(200, { "Content-Type": mime });
-    response.end(readFileSync(target));
-  } catch {
-    response.writeHead(404);
-    response.end();
-  }
-});
+const basePath = JSON.parse(
+  readFileSync(join(built, "site-config.json"), "utf8"),
+).base_path;
+const server = createPreviewServer({ built, basePath });
 await new Promise((ok) => server.listen(0, "127.0.0.1", ok));
-const url = `http://127.0.0.1:${server.address().port}`,
+const url = `http://127.0.0.1:${server.address().port}${basePath}`,
   browser = await chromium.launch(),
   captured = [];
 try {
@@ -64,6 +39,12 @@ try {
     );
     await page.goto(url);
     await page.locator("h1").waitFor();
+    await page.waitForFunction(
+      ({ locale, theme }) =>
+        document.documentElement.lang === locale &&
+        document.documentElement.dataset.theme === theme,
+      { locale, theme },
+    );
     await page.evaluate(() => document.fonts.ready);
     if (
       await page.evaluate(
@@ -82,7 +63,7 @@ try {
       });
       captured.push(filename);
     }
-    await page.goto(url + "/#/docs");
+    await page.goto(url + "/docs/");
     await page.locator("h1").waitFor();
     await page.evaluate(() => document.fonts.ready);
     const filename = `${label}-docs.png`;
@@ -95,6 +76,7 @@ try {
   }
   save(join(ROOT, "out/site-captures.json"), {
     captured,
+    base_path: basePath,
     reduced_motion: true,
     self_hosted_fonts: true,
   });

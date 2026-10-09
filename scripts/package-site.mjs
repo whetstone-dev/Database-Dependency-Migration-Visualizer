@@ -11,7 +11,7 @@ import {
   verify_built_docs,
 } from "./tooling.mjs";
 const site = join(ROOT, "site"),
-  built = join(site, "dist");
+  built = join(site, "out");
 if (!existsSync(join(built, "index.html")))
   throw new Error("Build the webpage with pnpm build before packaging");
 verify_built_docs(ROOT, built);

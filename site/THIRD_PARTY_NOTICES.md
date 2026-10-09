@@ -18,6 +18,8 @@ Local adaptations use accessible text semantics, disable movement for reduced mo
 
 ## Runtime libraries and fonts
 
+Next.js 16.4.0 is MIT licensed. Its complete [license](licenses/next-LICENSE.md) is retained with this static export. Build-time prerendering does not add a hosted server to this website.
+
 | Dependency                         | Pinned version                     | License / retained notice                                                                                                                                             |
 | ---------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | React, React DOM                   | 19.3.0                             | MIT, [React license](licenses/react-LICENSE), [React DOM license](licenses/react-dom-LICENSE)                                                                         |
@@ -27,4 +29,4 @@ Local adaptations use accessible text semantics, disable movement for reduced mo
 | Archivo variable font              | @fontsource-variable/archivo 5.3.0 | SIL Open Font License 1.1, [license](licenses/archivo-LICENSE)                                                                                                        |
 | IBM Plex Mono font                 | @fontsource/ibm-plex-mono 5.3.0    | SIL Open Font License 1.1, [license](licenses/ibm-plex-mono-LICENSE)                                                                                                  |
 
-TypeScript and Vite are build dependencies and keep their upstream licenses in their npm packages. Exact dependency integrity and transitive versions are recorded in `package-lock.json`. Fonts and runtime assets are bundled locally, with no runtime CDN or external font request.
+TypeScript is a build dependency and retains its upstream license in its npm package. Exact dependency integrity and transitive versions are recorded in `pnpm-lock.yaml`. Fonts and runtime assets are bundled locally, with no runtime CDN or external font request.
