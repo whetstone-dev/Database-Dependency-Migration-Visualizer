@@ -1,7 +1,27 @@
 /** Every report is derived from a validated canonical snapshot. */
-import { readFileSync, mkdirSync, writeFileSync, existsSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { createHash } from "node:crypto";
+import {
+  readFileSync,
+  mkdirSync,
+  writeFileSync,
+  existsSync,
+  lstatSync,
+  realpathSync,
+  readdirSync,
+  openSync,
+  closeSync,
+  renameSync,
+  unlinkSync,
+} from "node:fs";
+import {
+  dirname,
+  join,
+  resolve,
+  parse,
+  relative,
+  sep,
+  extname,
+} from "node:path";
+import { createHash, randomUUID } from "node:crypto";
 import { canonical, resources, validate } from "./model.mjs";
 
 export function require_valid(model) {
@@ -101,11 +121,21 @@ export function embedded_state(document) {
 }
 export const md_safe = (value) =>
   String(value)
-    .replaceAll("|", "\\|")
-    .replaceAll("\n", " ")
+    .replaceAll("\\", "\\\\")
+    .replace(/[!*_\[\](){}#|]/g, (character) => `\\${character}`)
+    .replace(/[\r\n]/g, " ")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll("`", "&#96;");
+// CommonMark code spans preserve punctuation without interpreting links or HTML.
+// Choose a delimiter longer than any embedded backtick run, then pad both ends.
+export function md_code(value) {
+  const text = String(value).replace(/[\r\n]/g, " ");
+  const runs = text.match(/`+/g) ?? [];
+  const fence = "`".repeat(Math.max(0, ...runs.map((run) => run.length)) + 1);
+  const padding = /^ *$/.test(text) ? "" : " ";
+  return `${fence}${padding}${text}${padding}${fence}`;
+}
 export function markdown(model, review = null, changes = null) {
   require_valid(model);
   const s = summary(model);
@@ -114,7 +144,7 @@ export function markdown(model, review = null, changes = null) {
     "",
     "Analysis only. No SQL was executed by the analyzer.",
     "",
-    `Snapshot \`${model.snapshot.id}\`. PostgreSQL ${model.engine.version}, ${model.engine.source_mode}.`,
+    `Snapshot ${md_code(model.snapshot.id)}. PostgreSQL ${md_safe(model.engine.version)}, ${md_safe(model.engine.source_mode)}.`,
     `Nodes: ${s.nodes}. Edges: ${s.edges}. Evidence: ${s.evidence}. Findings: ${s.findings}. Unknowns: ${s.unknowns}.`,
     "",
     "Arrows mean source depends on/references target. Impact walks reverse edges. Paths describe potential impact; they do not prove runtime failure or complete consumer coverage.",
@@ -124,13 +154,13 @@ export function markdown(model, review = null, changes = null) {
   ];
   for (const f of model.findings)
     lines.push(
-      `### ${f.rule_id} (${f.severity}, ${f.risk_level}, ${f.status})`,
+      `### ${md_safe(f.rule_id)} (${md_safe(f.severity)}, ${md_safe(f.risk_level)}, ${md_safe(f.status)})`,
       "",
       md_safe(f.reason),
       "",
       md_safe(f.remediation),
       "",
-      `Finding ID: \`${f.id}\`. Dimensions: ${f.risk_dimensions.join(", ")}. Evidence: ${f.evidence_ids.join(", ")}.`,
+      `Finding ID: ${md_code(f.id)}. Dimensions: ${md_safe(f.risk_dimensions.join(", "))}. Evidence: ${md_safe(f.evidence_ids.join(", "))}.`,
       "",
     );
   lines.push(
@@ -141,27 +171,27 @@ export function markdown(model, review = null, changes = null) {
   );
   for (const u of model.unknowns)
     lines.push(
-      `- UNKNOWN: ${md_safe(u.explanation)} Evidence: ${u.evidence_ids.join(", ")}.`,
+      `- UNKNOWN: ${md_safe(u.explanation)} Evidence: ${md_safe(u.evidence_ids.join(", "))}.`,
     );
   if (review) {
     lines.push("", "## Migration sequence", "");
     for (const p of review.plan)
       lines.push(
-        `### ${p.phase}`,
+        `### ${md_safe(p.phase)}`,
         "",
-        p.action,
+        md_safe(p.action),
         "",
-        `Preconditions: ${p.preconditions}`,
+        `Preconditions: ${md_safe(p.preconditions)}`,
         "",
-        `Verification: ${p.verification}`,
+        `Verification: ${md_safe(p.verification)}`,
         "",
-        `Recovery: ${p.recovery}`,
+        `Recovery: ${md_safe(p.recovery)}`,
         "",
       );
     for (const i of review.impacts ?? []) {
-      lines.push(`Affected root: \`${i.root}\`.`, "");
+      lines.push(`Affected root: ${md_code(i.root)}.`, "");
       for (const n of i.affected)
-        lines.push(`- \`${n}\` via ${i.paths[n].join(", ")}`);
+        lines.push(`- ${md_code(n)} via ${md_safe(i.paths[n].join(", "))}`);
     }
   }
   if (changes)
@@ -182,7 +212,7 @@ export function markdown(model, review = null, changes = null) {
   );
   for (const n of model.nodes)
     lines.push(
-      `| ${n.id} | ${md_safe(n.qualified_name)} | ${n.kind} | ${n.status} | ${n.evidence_ids.join(", ")} |`,
+      `| ${md_safe(n.id)} | ${md_safe(n.qualified_name)} | ${md_safe(n.kind)} | ${md_safe(n.status)} | ${md_safe(n.evidence_ids.join(", "))} |`,
     );
   lines.push(
     "",
@@ -193,7 +223,7 @@ export function markdown(model, review = null, changes = null) {
   );
   for (const e of model.edges)
     lines.push(
-      `| ${e.id} | ${e.source} | ${e.target} | ${e.kind} | ${e.status} |`,
+      `| ${md_safe(e.id)} | ${md_safe(e.source)} | ${md_safe(e.target)} | ${md_safe(e.kind)} | ${md_safe(e.status)} |`,
     );
   lines.push(
     "",
@@ -208,7 +238,7 @@ export function markdown(model, review = null, changes = null) {
         ? `${e.path}:${e.line_start}-${e.line_end}`
         : `${e.query_id} at ${e.captured_at} (${e.catalog_address ?? ""})`;
     lines.push(
-      `| ${e.id} | ${e.origin} | ${md_safe(location)} | ${e.source_hash} |`,
+      `| ${md_safe(e.id)} | ${md_safe(e.origin)} | ${md_safe(location)} | ${md_safe(e.source_hash)} |`,
     );
   }
   return lines.join("\n") + "\n";
@@ -222,7 +252,7 @@ export function mermaid(model) {
       "  %% Source depends on target; traverse reverse for impact",
       ...model.nodes.map(
         (n) =>
-          `  ${ids.get(n.id)}["${html_escape(n.qualified_name).replaceAll("\n", " ")}"]`,
+          `  ${ids.get(n.id)}["${html_escape(n.qualified_name).replace(/[\r\n]/g, " ")}"]`,
       ),
       ...model.edges.map(
         (e) => `  ${ids.get(e.source)} -->|${e.kind}| ${ids.get(e.target)}`,
@@ -248,9 +278,110 @@ export function dot(model) {
     ].join("\n") + "\n"
   );
 }
+export const bundle_names = [
+  "model.dbdep.json",
+  "report.md",
+  "report.html",
+  "graph.mmd",
+  "graph.dot",
+  "review.json",
+  "diff.json",
+  "before.dbdep.json",
+  "after.dbdep.json",
+];
+
+function info(path) {
+  try {
+    return lstatSync(path);
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
+}
+export function check_output_path(path) {
+  const target = resolve(path),
+    root = parse(target).root;
+  let directory = root;
+  for (const component of relative(root, dirname(target))
+    .split(sep)
+    .filter(Boolean)) {
+    directory = join(directory, component);
+    let entry = info(directory);
+    if (!entry) {
+      try {
+        mkdirSync(directory, { mode: 0o700 });
+      } catch (error) {
+        if (error.code !== "EEXIST") throw error;
+      }
+      entry = lstatSync(directory);
+    }
+    if (entry.isSymbolicLink())
+      throw new Error("Output path contains a symbolic link or junction");
+    if (!entry.isDirectory())
+      throw new Error("Output parent is not a regular directory");
+  }
+  const entry = info(target);
+  if (entry?.isSymbolicLink())
+    throw new Error("Output file is a symbolic link or junction");
+  if (entry && !entry.isFile())
+    throw new Error("Output destination is not a regular file");
+  return target;
+}
+
+export function protect_inputs(outputs, inputs) {
+  const protectedPaths = new Set();
+  const pathKey = (path) =>
+    process.platform === "win32" ? path.toLowerCase() : path;
+  function collect(path, extensions) {
+    const entry = info(path);
+    if (!entry) return;
+    if (entry.isDirectory()) {
+      for (const child of readdirSync(path, { withFileTypes: true })) {
+        if (child.isSymbolicLink()) continue;
+        const full = join(path, child.name);
+        if (child.isDirectory() || extensions.includes(extname(full)))
+          collect(full, extensions);
+      }
+    } else protectedPaths.add(pathKey(realpathSync(path)));
+  }
+  for (const { path, extensions = [] } of inputs.filter(
+    (input) => input.path,
+  )) {
+    const absolute = resolve(path);
+    if (info(absolute)) collect(realpathSync(absolute), extensions);
+  }
+  const selected = new Set();
+  for (const path of outputs.filter(Boolean)) {
+    const absolute = check_output_path(path),
+      key = pathKey(existsSync(absolute) ? realpathSync(absolute) : absolute);
+    if (protectedPaths.has(key))
+      throw new Error(
+        "Output would overwrite an input source; choose a separate artifact path",
+      );
+    if (selected.has(key))
+      throw new Error("Requested artifacts must have separate output paths");
+    selected.add(key);
+  }
+}
+
 export function write(path, content) {
-  mkdirSync(dirname(resolve(path)), { recursive: true });
-  writeFileSync(path, content, "utf8");
+  const target = check_output_path(path),
+    temporary = join(dirname(target), `.dbdep-${randomUUID()}.tmp`);
+  let descriptor,
+    created = false;
+  try {
+    descriptor = openSync(temporary, "wx", 0o600);
+    created = true;
+    writeFileSync(descriptor, content, "utf8");
+    closeSync(descriptor);
+    descriptor = undefined;
+    check_output_path(target);
+    renameSync(temporary, target);
+    created = false;
+  } finally {
+    if (descriptor !== undefined) closeSync(descriptor);
+    if (created) unlinkSync(temporary);
+  }
 }
 export function bundle(
   directory,
@@ -261,6 +392,7 @@ export function bundle(
 ) {
   require_valid(model);
   const p = (name) => join(directory, name);
+  for (const name of bundle_names) check_output_path(p(name));
   write(p("model.dbdep.json"), canonical(model));
   write(p("report.md"), markdown(model, review, changes));
   write(p("report.html"), render(model, review, changes, root));

@@ -17,6 +17,9 @@ import {
   require_valid,
   summary,
   write,
+  bundle_names,
+  protect_inputs,
+  check_output_path,
 } from "./reports.mjs";
 
 const manifest = JSON.parse(
@@ -112,6 +115,31 @@ function installed_version(dependency) {
 }
 export async function run(args) {
   const command = args.command;
+  const inputs = [
+    "catalog",
+    "model",
+    "baseline",
+    "migration",
+    "metadata",
+    "before",
+    "after",
+  ].map((key) => ({ path: args[key] }));
+  inputs.push(
+    { path: args.ddl, extensions: [".sql"] },
+    {
+      path: args.repo,
+      extensions: [".sql", ".ts", ".js", ".py", ".cs", ".prisma", ".java"],
+    },
+  );
+  const outputs = ["review", "diff"].includes(command)
+    ? bundle_names.map((name) => join(args.out, name))
+    : command === "demo"
+      ? ["ecommerce", "analytics", "high-traffic"].flatMap((slug) =>
+          bundle_names.map((name) => join(args.out, slug, name)),
+        )
+      : [args.out, args.captureOut].filter(Boolean);
+  for (const path of outputs) check_output_path(path);
+  protect_inputs(outputs, inputs);
   if (command === "inspect" || command === "snapshot") {
     if ([args.ddl, args.catalog, args.dsnEnv].filter(Boolean).length !== 1)
       throw new Error("Choose exactly one of --ddl, --catalog or --dsn-env");
