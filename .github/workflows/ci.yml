@@ -26,6 +26,15 @@ jobs:
       - run: pnpm package:skill
       - run: pnpm package:site
       - run: pnpm smoke:artifacts
+      - name: build the GitHub Pages repository prefix
+        run: pnpm build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+      - run: pnpm check:site
+      - name: verify the repository prefix export
+        run: pnpm test:browser
+        env:
+          DBDEP_SITE_URL: http://127.0.0.1:4173/${{ github.event.repository.name }}
   catalog:
     name: catalog (${{ matrix.postgres }})
     runs-on: ubuntu-latest
