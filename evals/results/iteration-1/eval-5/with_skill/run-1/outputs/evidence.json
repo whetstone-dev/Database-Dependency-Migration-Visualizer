@@ -1,0 +1,284 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [
+    {
+      "path": "before.dbdep.json",
+      "original_format": "1.0.0",
+      "nodes": [
+        {
+          "id": "postgresql:local/public/column/customers/id/",
+          "kind": "column",
+          "label": "public.customers.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:f577cfb67e4934903fe588b0"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customers/name/",
+          "kind": "column",
+          "label": "public.customers.name",
+          "signature": "",
+          "evidence_ids": [
+            "ev:f577cfb67e4934903fe588b0"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "kind": "constraint",
+          "label": "public.customers.customers_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:f577cfb67e4934903fe588b0"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//customers/",
+          "kind": "table",
+          "label": "public.customers",
+          "signature": "",
+          "evidence_ids": [
+            "ev:f577cfb67e4934903fe588b0"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:410170d0fd582dcf85677e5e",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:f577cfb67e4934903fe588b0"
+          ]
+        },
+        {
+          "id": "edge:449d080bde5028b829fd281a",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/name/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:f577cfb67e4934903fe588b0"
+          ]
+        },
+        {
+          "id": "edge:4e1fa2807febdcd4d9200ce4",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:f577cfb67e4934903fe588b0"
+          ]
+        },
+        {
+          "id": "edge:80ea424e44ca67d3c85bc3c5",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/id/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:f577cfb67e4934903fe588b0"
+          ]
+        }
+      ],
+      "evidence": {
+        "ev:f577cfb67e4934903fe588b0": {
+          "confidence": "direct",
+          "id": "ev:f577cfb67e4934903fe588b0",
+          "line_end": 1,
+          "line_start": 1,
+          "origin": "sql_file",
+          "path": "diff/before.sql",
+          "source_hash": "sha256:4569fadad0be1b58f8b0dd15d292c052702bd28402a8ad9b8b473d27ffe2159a",
+          "status": "PARSED"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "ev:f577cfb67e4934903fe588b0",
+          "path": "diff/before.sql",
+          "line": 1,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [],
+      "findings": [],
+      "counts": null
+    },
+    {
+      "path": "after.dbdep.json",
+      "original_format": "1.0.0",
+      "nodes": [
+        {
+          "id": "postgresql:local/public/column/customers/display_name/",
+          "kind": "column",
+          "label": "public.customers.display_name",
+          "signature": "",
+          "evidence_ids": [
+            "ev:823301fea7388eefedb04d2d"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customers/id/",
+          "kind": "column",
+          "label": "public.customers.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:823301fea7388eefedb04d2d"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "kind": "constraint",
+          "label": "public.customers.customers_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:823301fea7388eefedb04d2d"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//customers/",
+          "kind": "table",
+          "label": "public.customers",
+          "signature": "",
+          "evidence_ids": [
+            "ev:823301fea7388eefedb04d2d"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:410170d0fd582dcf85677e5e",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:823301fea7388eefedb04d2d"
+          ]
+        },
+        {
+          "id": "edge:43ee8764438d9a11bbc2521e",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/display_name/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:823301fea7388eefedb04d2d"
+          ]
+        },
+        {
+          "id": "edge:4e1fa2807febdcd4d9200ce4",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:823301fea7388eefedb04d2d"
+          ]
+        },
+        {
+          "id": "edge:80ea424e44ca67d3c85bc3c5",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/id/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:823301fea7388eefedb04d2d"
+          ]
+        }
+      ],
+      "evidence": {
+        "ev:823301fea7388eefedb04d2d": {
+          "confidence": "direct",
+          "id": "ev:823301fea7388eefedb04d2d",
+          "line_end": 1,
+          "line_start": 1,
+          "origin": "sql_file",
+          "path": "diff/after.sql",
+          "source_hash": "sha256:b2bf74eda80fc93944df201742445d7f2def8c67b8dfbd4a0cb9482aacc3d82a",
+          "status": "PARSED"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "ev:823301fea7388eefedb04d2d",
+          "path": "diff/after.sql",
+          "line": 1,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [],
+      "findings": [],
+      "counts": null
+    }
+  ],
+  "html": {
+    "path": "report.html",
+    "bytes": 27741,
+    "has_html": true,
+    "has_svg": true,
+    "model_matches": true,
+    "external_resources": []
+  },
+  "recorded_commands": [
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py inspect --ddl diff/before.sql --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-5\\before.dbdep.json --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-5\\before.dbdep.json --strict --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py inspect --ddl diff/after.sql --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-5\\after.dbdep.json --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-5\\after.dbdep.json --strict --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py diff C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-5\\before.dbdep.json C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-5\\after.dbdep.json --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-5\\comparison --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-5\\comparison\\model.dbdep.json --strict --json"
+  ],
+  "recorded_exit_codes": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "offline_record": true,
+  "transcript_sha256": "a26709f5e22c2977578edebf5dc3658e100e402503aa5b7c7e4d06af3e6641cf",
+  "analysis": {
+    "added": [
+      "postgresql:local/public/column/customers/display_name/"
+    ],
+    "after": "snapshot:136a08ee93b6c5f22c3e8cb6",
+    "before": "snapshot:36823f74519e370ea89e1860",
+    "edges_added": [
+      "edge:43ee8764438d9a11bbc2521e"
+    ],
+    "edges_removed": [
+      "edge:449d080bde5028b829fd281a"
+    ],
+    "matched": [
+      "postgresql:local/public/column/customers/id/",
+      "postgresql:local/public/constraint/customers/customers_pkey/",
+      "postgresql:local/public/table//customers/"
+    ],
+    "modified": [
+      "postgresql:local/public/table//customers/"
+    ],
+    "removed": [
+      "postgresql:local/public/column/customers/name/"
+    ],
+    "rename_candidates": [
+      {
+        "added": "postgresql:local/public/column/customers/display_name/",
+        "explanation": "Possible rename; add/drop remains the observed change. Human confirmation required.",
+        "removed": "postgresql:local/public/column/customers/name/",
+        "status": "UNKNOWN"
+      }
+    ],
+    "schema_version": "1.0.0"
+  },
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "d4224e35ed42365bb8c353bbb00bd87523f0f6b82bc85811308cb05f5510a402",
+      "bytes": 1368
+    }
+  }
+}

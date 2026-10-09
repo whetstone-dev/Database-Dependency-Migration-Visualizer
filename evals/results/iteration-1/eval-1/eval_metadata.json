@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "customer-key-transition",
+  "prompt": "Analyze ecommerce/schema.sql and its app SQL. Offline only: what is affected if public.customers.id changes from bigint to uuid? Generate an interactive HTML graph, a canonical model and a staged migration review. Do not execute SQL.",
+  "assertions": [
+    "Identifies the orders customer FK",
+    "Identifies customer_summary view",
+    "Provides source evidence",
+    "Provides staged migration plan",
+    "Creates parseable canonical graph and offline HTML"
+  ]
+}

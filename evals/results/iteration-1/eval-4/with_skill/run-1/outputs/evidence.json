@@ -1,0 +1,293 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [
+    {
+      "path": "schema.dbdep.json",
+      "original_format": "1.0.0",
+      "nodes": [
+        {
+          "id": "postgresql:local/application/query//dynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3A1280366f3e8b0761c93b0020/",
+          "kind": "query",
+          "label": "application.\"dynamic-sql-unknown/app/static.sql:ev:1280366f3e8b0761c93b0020\"",
+          "signature": "",
+          "evidence_ids": [
+            "ev:1280366f3e8b0761c93b0020"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customers/email/",
+          "kind": "column",
+          "label": "public.customers.email",
+          "signature": "",
+          "evidence_ids": [
+            "ev:95b20bd1a7ca8ca2e6c0b8ef"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customers/id/",
+          "kind": "column",
+          "label": "public.customers.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:95b20bd1a7ca8ca2e6c0b8ef"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "kind": "constraint",
+          "label": "public.customers.customers_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:95b20bd1a7ca8ca2e6c0b8ef"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/function//lookup_customer/text",
+          "kind": "function",
+          "label": "public.lookup_customer",
+          "signature": "text",
+          "evidence_ids": [
+            "ev:997f1185c03c0bdb71674fab"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//customers/",
+          "kind": "table",
+          "label": "public.customers",
+          "signature": "",
+          "evidence_ids": [
+            "ev:95b20bd1a7ca8ca2e6c0b8ef"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:19400d9fa186c5c722505c85",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//dynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3A1280366f3e8b0761c93b0020/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:1280366f3e8b0761c93b0020"
+          ]
+        },
+        {
+          "id": "edge:410170d0fd582dcf85677e5e",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:95b20bd1a7ca8ca2e6c0b8ef"
+          ]
+        },
+        {
+          "id": "edge:44748c81a94abde3f9f756c1",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/email/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:95b20bd1a7ca8ca2e6c0b8ef"
+          ]
+        },
+        {
+          "id": "edge:4e1fa2807febdcd4d9200ce4",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:95b20bd1a7ca8ca2e6c0b8ef"
+          ]
+        },
+        {
+          "id": "edge:77d91654d5d6037fefe5452e",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//dynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3A1280366f3e8b0761c93b0020/",
+          "target": "postgresql:local/public/column/customers/email/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:1280366f3e8b0761c93b0020"
+          ]
+        },
+        {
+          "id": "edge:80ea424e44ca67d3c85bc3c5",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/id/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:95b20bd1a7ca8ca2e6c0b8ef"
+          ]
+        },
+        {
+          "id": "edge:a9c6b78c607a65b5cb6298a1",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//dynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3A1280366f3e8b0761c93b0020/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:1280366f3e8b0761c93b0020"
+          ]
+        }
+      ],
+      "evidence": {
+        "ev:1280366f3e8b0761c93b0020": {
+          "confidence": "direct",
+          "id": "ev:1280366f3e8b0761c93b0020",
+          "line_end": 1,
+          "line_start": 1,
+          "origin": "application_source",
+          "path": "dynamic-sql-unknown/app/static.sql",
+          "source_hash": "sha256:74a6e9b68586f7dbe8b68224ca852c37233cdcee49831ed6dff930e393446526",
+          "status": "PARSED"
+        },
+        "ev:95b20bd1a7ca8ca2e6c0b8ef": {
+          "confidence": "direct",
+          "id": "ev:95b20bd1a7ca8ca2e6c0b8ef",
+          "line_end": 1,
+          "line_start": 1,
+          "origin": "sql_file",
+          "path": "dynamic-sql-unknown/schema.sql",
+          "source_hash": "sha256:8b911d5a4da5b080313b97f870ce63b5c3eb71448f453bd37af34256a524bc8c",
+          "status": "PARSED"
+        },
+        "ev:997f1185c03c0bdb71674fab": {
+          "confidence": "direct",
+          "id": "ev:997f1185c03c0bdb71674fab",
+          "line_end": 8,
+          "line_start": 2,
+          "origin": "sql_file",
+          "path": "dynamic-sql-unknown/schema.sql",
+          "source_hash": "sha256:8b911d5a4da5b080313b97f870ce63b5c3eb71448f453bd37af34256a524bc8c",
+          "status": "PARSED"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "ev:1280366f3e8b0761c93b0020",
+          "path": "dynamic-sql-unknown/app/static.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:95b20bd1a7ca8ca2e6c0b8ef",
+          "path": "dynamic-sql-unknown/schema.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:997f1185c03c0bdb71674fab",
+          "path": "dynamic-sql-unknown/schema.sql",
+          "line": 2,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:d27c81073a62977a150f8f9e"
+          ],
+          "explanation": "Host-language SQL/ORM extraction is unsupported; dynamic paths remain UNKNOWN.",
+          "id": "unknown:6aa1697efddf1bbe33135735",
+          "object_id": null,
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:997f1185c03c0bdb71674fab"
+          ],
+          "explanation": "Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.",
+          "id": "unknown:cc874c03e71b209a5b15a494",
+          "object_id": "postgresql:local/public/function//lookup_customer/text",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        }
+      ],
+      "findings": [],
+      "counts": null
+    }
+  ],
+  "html": {
+    "path": "schema.html",
+    "bytes": 30346,
+    "has_html": true,
+    "has_svg": true,
+    "model_matches": true,
+    "external_resources": []
+  },
+  "recorded_commands": [
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py inspect --ddl dynamic-sql-unknown/schema.sql --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-4\\schema.dbdep.json --json --repo dynamic-sql-unknown/app",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-4\\schema.dbdep.json --strict --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py docs C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-4\\schema.dbdep.json --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-4\\schema.md",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py render C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-4\\schema.dbdep.json --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-4\\schema.html --object public.customers.email",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py impact C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-4\\schema.dbdep.json --object public.customers.email --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-4\\impact.json --json --operation drop-column"
+  ],
+  "recorded_exit_codes": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "offline_record": true,
+  "transcript_sha256": "5d8784dc30a0816f4a2267bc08f2fdc3cdf3eb626f31653e8f2af40925fb37ba",
+  "analysis": {
+    "affected": [
+      "postgresql:local/application/query//dynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3A1280366f3e8b0761c93b0020/"
+    ],
+    "categories": {
+      "inferred": [],
+      "recorded_catalog": [],
+      "static_reference": [
+        "postgresql:local/application/query//dynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3A1280366f3e8b0761c93b0020/"
+      ]
+    },
+    "direct": [
+      "postgresql:local/application/query//dynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3A1280366f3e8b0761c93b0020/"
+    ],
+    "explanation": "Reverse paths show potential impact. They do not prove execution failure or exhaustive runtime coverage.",
+    "operation": "drop-column",
+    "paths": {
+      "postgresql:local/application/query//dynamic-sql-unknown%2Fapp%2Fstatic.sql%3Aev%3A1280366f3e8b0761c93b0020/": [
+        "edge:77d91654d5d6037fefe5452e"
+      ]
+    },
+    "root": "postgresql:local/public/column/customers/email/",
+    "to": null,
+    "unknowns": [
+      {
+        "confidence": "unknown",
+        "evidence_ids": [
+          "ev:d27c81073a62977a150f8f9e"
+        ],
+        "explanation": "Host-language SQL/ORM extraction is unsupported; dynamic paths remain UNKNOWN.",
+        "id": "unknown:6aa1697efddf1bbe33135735",
+        "object_id": null,
+        "origin": "heuristic",
+        "status": "UNKNOWN"
+      },
+      {
+        "confidence": "unknown",
+        "evidence_ids": [
+          "ev:997f1185c03c0bdb71674fab"
+        ],
+        "explanation": "Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.",
+        "id": "unknown:cc874c03e71b209a5b15a494",
+        "object_id": "postgresql:local/public/function//lookup_customer/text",
+        "origin": "heuristic",
+        "status": "UNKNOWN"
+      }
+    ]
+  },
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "5f68c806c258d8baf1d6820161295efef112420ed265cd92620ff9e6f00c4449",
+      "bytes": 1657
+    }
+  }
+}

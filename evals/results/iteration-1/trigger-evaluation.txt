@@ -1,0 +1,101 @@
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+Warning: query failed: [WinError 10038] An operation was attempted on something that is not a socket
+{
+  "skill_name": "database-dependency-migration",
+  "description": "Analyze PostgreSQL schema dependencies, explain table and column change impact, review SQL migration hazards, compare schema snapshots, and produce source-backed interactive dependency graphs and phased migration plans. Use for PostgreSQL migration review, downstream blast radius, rename/type-change analysis, or dependency exploration from DDL, SQL repositories and catalog snapshots. Analysis only; not a migration executor or a general query performance optimizer.",
+  "results": [
+    {
+      "query": "What will break if I rename this Postgres column?",
+      "should_trigger": true,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": false
+    },
+    {
+      "query": "Review this PostgreSQL migration for lock and dependency hazards",
+      "should_trigger": true,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": false
+    },
+    {
+      "query": "Show all downstream consumers of sales.orders.total_amount from these catalog snapshots",
+      "should_trigger": true,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": false
+    },
+    {
+      "query": "Compare two Postgres schema snapshots and draw the dependency changes",
+      "should_trigger": true,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": false
+    },
+    {
+      "query": "Generate an offline PostgreSQL schema dependency graph with source evidence",
+      "should_trigger": true,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": false
+    },
+    {
+      "query": "Optimize this SELECT statement's runtime",
+      "should_trigger": false,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": true
+    },
+    {
+      "query": "Help me write a general ETL Python script",
+      "should_trigger": false,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": true
+    },
+    {
+      "query": "Explain what a foreign key is",
+      "should_trigger": false,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": true
+    },
+    {
+      "query": "Create a MySQL ER diagram",
+      "should_trigger": false,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": true
+    },
+    {
+      "query": "Design a Cisco network topology",
+      "should_trigger": false,
+      "trigger_rate": 0.0,
+      "triggers": 0,
+      "runs": 1,
+      "pass": true
+    }
+  ],
+  "summary": {
+    "total": 10,
+    "passed": 5,
+    "failed": 5
+  }
+}

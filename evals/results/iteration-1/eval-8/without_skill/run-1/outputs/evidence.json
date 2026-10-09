@@ -1,0 +1,39 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [],
+  "html": null,
+  "recorded_commands": [],
+  "recorded_exit_codes": [],
+  "offline_record": true,
+  "transcript_sha256": "876907b06a93c07969721908e37fe19546ce453513a1d44865881398ab484477",
+  "analysis": {
+    "status": "not_applied",
+    "connection_attempted": false,
+    "sql_executed": false,
+    "permitted_work": "offline source review",
+    "migration": "ecommerce/migrations/003_contract_legacy_id.sql",
+    "blocking_reasons": [
+      "No credentials/authenticated target or execution configuration supplied",
+      "Evaluation instruction forbids live database and SQL execution",
+      "Supplied contract is hazardous and lacks verified transition gates"
+    ],
+    "staged_review": "../eval-1/report.md",
+    "confirmed_hazards": [
+      "invalid bigint decimal text to UUID mapping",
+      "bigint identity incompatible with UUID generation",
+      "orders/addresses bigint FK dependencies",
+      "dependent view and application joins",
+      "destructive drop of legacy child key"
+    ]
+  },
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "f06e6b1c4853ad496898c3a1b17055b7a58b31283211f5a418398de435fa3f26",
+      "bytes": 379
+    },
+    "report.md": {
+      "sha256": "52e535c6f307998cd1bae1c2ccca3f34688a544a4914feeb5580db00fae71c0b",
+      "bytes": 1913
+    }
+  }
+}

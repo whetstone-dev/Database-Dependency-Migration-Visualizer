@@ -1,0 +1,1085 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [
+    {
+      "path": "analytics-catalog.dbdep.json",
+      "original_format": "1.0.0",
+      "nodes": [
+        {
+          "id": "postgresql:local/analytics/column/monthly_revenue/revenue/",
+          "kind": "column",
+          "label": "analytics.monthly_revenue.revenue",
+          "signature": "",
+          "evidence_ids": [
+            "ev:442d0a2ab0dbf759c4e059ad"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/column/order_summary/id/",
+          "kind": "column",
+          "label": "analytics.order_summary.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:1748ed07106108fef02f1aa9"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/column/order_summary/total_amount/",
+          "kind": "column",
+          "label": "analytics.order_summary.total_amount",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7fed850524f4e34f5a470680"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/schema//analytics/",
+          "kind": "schema",
+          "label": "analytics.analytics",
+          "signature": "",
+          "evidence_ids": [
+            "ev:cd0cc1af6a31b9a05c9b7820"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/type//_monthly_revenue/",
+          "kind": "type",
+          "label": "analytics._monthly_revenue",
+          "signature": "",
+          "evidence_ids": [
+            "ev:84287b5210d23dc019c5d8d9"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/type//_order_summary/",
+          "kind": "type",
+          "label": "analytics._order_summary",
+          "signature": "",
+          "evidence_ids": [
+            "ev:5cababa9d70bc05674b4d3e0"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/type//monthly_revenue/",
+          "kind": "type",
+          "label": "analytics.monthly_revenue",
+          "signature": "",
+          "evidence_ids": [
+            "ev:d9c66e209d54e216e51660bb"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/type//order_summary/",
+          "kind": "type",
+          "label": "analytics.order_summary",
+          "signature": "",
+          "evidence_ids": [
+            "ev:b9aaae1dd59d622151a70df9"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/view//monthly_revenue/",
+          "kind": "view",
+          "label": "analytics.monthly_revenue",
+          "signature": "",
+          "evidence_ids": [
+            "ev:e322c4f881e774d64030e288"
+          ]
+        },
+        {
+          "id": "postgresql:local/analytics/view//order_summary/",
+          "kind": "view",
+          "label": "analytics.order_summary",
+          "signature": "",
+          "evidence_ids": [
+            "ev:80e01790bfeedb840b29020a"
+          ]
+        },
+        {
+          "id": "postgresql:local/pg_catalog/extension//plpgsql/",
+          "kind": "extension",
+          "label": "pg_catalog.plpgsql",
+          "signature": "",
+          "evidence_ids": [
+            "ev:821bff62bb27a3578f5a3637"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/schema//public/",
+          "kind": "schema",
+          "label": "public.public",
+          "signature": "",
+          "evidence_ids": [
+            "ev:8e9c40af8eeca6ad31e4159f"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/column/orders/id/",
+          "kind": "column",
+          "label": "sales.orders.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:ce99906f580d01cda5aa7a57"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/column/orders/total_amount/",
+          "kind": "column",
+          "label": "sales.orders.total_amount",
+          "signature": "",
+          "evidence_ids": [
+            "ev:c66bad179919904f876ae491"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/constraint/orders/orders_id_not_null/",
+          "kind": "constraint",
+          "label": "sales.orders.orders_id_not_null",
+          "signature": "",
+          "evidence_ids": [
+            "ev:b982257db6ecc2a1a4c3f214"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/constraint/orders/orders_pkey/",
+          "kind": "constraint",
+          "label": "sales.orders.orders_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:da756f03af8988b13a863236"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/",
+          "kind": "constraint",
+          "label": "sales.orders.orders_total_amount_not_null",
+          "signature": "",
+          "evidence_ids": [
+            "ev:9256769cd8382d6a62e07b6c"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/index//orders_pkey/",
+          "kind": "index",
+          "label": "sales.orders_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:cce688abe1dd70f7d703d4bb"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/schema//sales/",
+          "kind": "schema",
+          "label": "sales.sales",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7381bfbe17cff3202e8b6742"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/table//orders/",
+          "kind": "table",
+          "label": "sales.orders",
+          "signature": "",
+          "evidence_ids": [
+            "ev:d31d31fed0ffbb4c836822b1"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/type//_orders/",
+          "kind": "type",
+          "label": "sales._orders",
+          "signature": "",
+          "evidence_ids": [
+            "ev:94804f5ad3e468120e9738fb"
+          ]
+        },
+        {
+          "id": "postgresql:local/sales/type//orders/",
+          "kind": "type",
+          "label": "sales.orders",
+          "signature": "",
+          "evidence_ids": [
+            "ev:3f0bcd06614d12b0053090ec"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:0a8c47aa37fc354f4b4568c2",
+          "kind": "contains",
+          "source": "postgresql:local/sales/index//orders_pkey/",
+          "target": "postgresql:local/sales/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a79db2a6ca9a21204a76613e"
+          ]
+        },
+        {
+          "id": "edge:14d779e293cca32ba6578e96",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/type//_order_summary/",
+          "target": "postgresql:local/analytics/type//order_summary/",
+          "properties": {
+            "catalog_address": "pg_type:16553:0->pg_type:16554:0",
+            "dependency_type": "i",
+            "via": "pg_type"
+          },
+          "evidence_ids": [
+            "ev:59de0db68c2b0eb11336cf08"
+          ]
+        },
+        {
+          "id": "edge:1a341f68865502677066c997",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/sales/type//orders/",
+          "target": "postgresql:local/sales/table//orders/",
+          "properties": {
+            "catalog_address": "pg_type:16547:0->pg_class:16545:0",
+            "dependency_type": "i",
+            "via": "pg_type"
+          },
+          "evidence_ids": [
+            "ev:fa6dd306a8316dfd0d7d4655"
+          ]
+        },
+        {
+          "id": "edge:28341067bebc62fd99b2d2fa",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/sales/table//orders/",
+          "target": "postgresql:local/sales/schema//sales/",
+          "properties": {
+            "catalog_address": "pg_class:16545:0->pg_namespace:16543:0",
+            "dependency_type": "n",
+            "via": "pg_class"
+          },
+          "evidence_ids": [
+            "ev:6bd3e53a417dc087c9a557f8"
+          ]
+        },
+        {
+          "id": "edge:339dfcf414a1fa02dcac1115",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/",
+          "target": "postgresql:local/sales/column/orders/total_amount/",
+          "properties": {
+            "catalog_address": "pg_constraint:16549:0->pg_class:16545:2",
+            "dependency_type": "a",
+            "via": "pg_constraint"
+          },
+          "evidence_ids": [
+            "ev:23bb677f20038f2d64d9ea77"
+          ]
+        },
+        {
+          "id": "edge:33adc274c68e8a9db5269838",
+          "kind": "expression_reference",
+          "source": "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/",
+          "target": "postgresql:local/sales/column/orders/total_amount/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:e68a235027a2de0088053c3c"
+          ]
+        },
+        {
+          "id": "edge:35bae3773f838c8920b3de56",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/view//order_summary/",
+          "target": "postgresql:local/analytics/schema//analytics/",
+          "properties": {
+            "catalog_address": "pg_class:16552:0->pg_namespace:16544:0",
+            "dependency_type": "n",
+            "via": "pg_class"
+          },
+          "evidence_ids": [
+            "ev:2daa2b298e96c5ee828d470d"
+          ]
+        },
+        {
+          "id": "edge:45a5b5418accd16a19a81275",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/view//order_summary/",
+          "target": "postgresql:local/sales/column/orders/id/",
+          "properties": {
+            "catalog_address": "pg_rewrite:16555:0->pg_class:16545:1",
+            "dependency_type": "n",
+            "via": "pg_rewrite"
+          },
+          "evidence_ids": [
+            "ev:75608e4f26027dd5a4508116"
+          ]
+        },
+        {
+          "id": "edge:46eea5bd97bf831a975c7342",
+          "kind": "contains",
+          "source": "postgresql:local/sales/constraint/orders/orders_id_not_null/",
+          "target": "postgresql:local/sales/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:e68a235027a2de0088053c3c"
+          ]
+        },
+        {
+          "id": "edge:47bed9606f23118970bc688a",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/view//monthly_revenue/",
+          "target": "postgresql:local/analytics/schema//analytics/",
+          "properties": {
+            "catalog_address": "pg_class:16556:0->pg_namespace:16544:0",
+            "dependency_type": "n",
+            "via": "pg_class"
+          },
+          "evidence_ids": [
+            "ev:db5e2b6febef75f50d19199d"
+          ]
+        },
+        {
+          "id": "edge:4841d8a193a99994185d9e3e",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/type//_monthly_revenue/",
+          "target": "postgresql:local/analytics/type//monthly_revenue/",
+          "properties": {
+            "catalog_address": "pg_type:16557:0->pg_type:16558:0",
+            "dependency_type": "i",
+            "via": "pg_type"
+          },
+          "evidence_ids": [
+            "ev:f49626e2987331ff957f390e"
+          ]
+        },
+        {
+          "id": "edge:585b66573bc42ab100b3a1dc",
+          "kind": "expression_reference",
+          "source": "postgresql:local/sales/index//orders_pkey/",
+          "target": "postgresql:local/sales/column/orders/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a79db2a6ca9a21204a76613e"
+          ]
+        },
+        {
+          "id": "edge:5d87702c438030d1f4dbaa52",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/view//monthly_revenue/",
+          "target": "postgresql:local/analytics/column/order_summary/total_amount/",
+          "properties": {
+            "catalog_address": "pg_rewrite:16559:0->pg_class:16552:2",
+            "dependency_type": "n",
+            "via": "pg_rewrite"
+          },
+          "evidence_ids": [
+            "ev:6b9e2fdf6b388016c5cad3d3"
+          ]
+        },
+        {
+          "id": "edge:6de9a81ca0690cfadea55519",
+          "kind": "expression_reference",
+          "source": "postgresql:local/sales/constraint/orders/orders_pkey/",
+          "target": "postgresql:local/sales/column/orders/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:e68a235027a2de0088053c3c"
+          ]
+        },
+        {
+          "id": "edge:6fcf8cf05ed26e18a77842ed",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/sales/type//_orders/",
+          "target": "postgresql:local/sales/type//orders/",
+          "properties": {
+            "catalog_address": "pg_type:16546:0->pg_type:16547:0",
+            "dependency_type": "i",
+            "via": "pg_type"
+          },
+          "evidence_ids": [
+            "ev:7e16bc70aea94d70f707a733"
+          ]
+        },
+        {
+          "id": "edge:701289145ee194c639823d4b",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/sales/constraint/orders/orders_id_not_null/",
+          "target": "postgresql:local/sales/column/orders/id/",
+          "properties": {
+            "catalog_address": "pg_constraint:16548:0->pg_class:16545:1",
+            "dependency_type": "a",
+            "via": "pg_constraint"
+          },
+          "evidence_ids": [
+            "ev:896095b946aa8852eaf859b1"
+          ]
+        },
+        {
+          "id": "edge:771055d894e652416ef43fdd",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/view//order_summary/",
+          "target": "postgresql:local/sales/column/orders/total_amount/",
+          "properties": {
+            "catalog_address": "pg_rewrite:16555:0->pg_class:16545:2",
+            "dependency_type": "n",
+            "via": "pg_rewrite"
+          },
+          "evidence_ids": [
+            "ev:16884693566118057874d5d4"
+          ]
+        },
+        {
+          "id": "edge:7858b9c356b9c5a469b9c6ed",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/sales/index//orders_pkey/",
+          "target": "postgresql:local/sales/constraint/orders/orders_pkey/",
+          "properties": {
+            "catalog_address": "pg_class:16550:0->pg_constraint:16551:0",
+            "dependency_type": "i",
+            "via": "pg_class"
+          },
+          "evidence_ids": [
+            "ev:70d353a1c18bc7ef93f97b7e"
+          ]
+        },
+        {
+          "id": "edge:7ebdd10f57fc90555437a0bc",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/type//order_summary/",
+          "target": "postgresql:local/analytics/view//order_summary/",
+          "properties": {
+            "catalog_address": "pg_type:16554:0->pg_class:16552:0",
+            "dependency_type": "i",
+            "via": "pg_type"
+          },
+          "evidence_ids": [
+            "ev:82f5b92c5decc002f290548b"
+          ]
+        },
+        {
+          "id": "edge:84f3b58a92a101d5ffe166bd",
+          "kind": "contains",
+          "source": "postgresql:local/sales/constraint/orders/orders_pkey/",
+          "target": "postgresql:local/sales/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:e68a235027a2de0088053c3c"
+          ]
+        },
+        {
+          "id": "edge:88287709ee258a2673402599",
+          "kind": "contains",
+          "source": "postgresql:local/analytics/column/order_summary/id/",
+          "target": "postgresql:local/analytics/view//order_summary/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:1748ed07106108fef02f1aa9"
+          ]
+        },
+        {
+          "id": "edge:8ee17f769a71eb691e4a955d",
+          "kind": "expression_reference",
+          "source": "postgresql:local/sales/constraint/orders/orders_id_not_null/",
+          "target": "postgresql:local/sales/column/orders/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:e68a235027a2de0088053c3c"
+          ]
+        },
+        {
+          "id": "edge:8fa19659c0a992517783b817",
+          "kind": "contains",
+          "source": "postgresql:local/sales/constraint/orders/orders_total_amount_not_null/",
+          "target": "postgresql:local/sales/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:e68a235027a2de0088053c3c"
+          ]
+        },
+        {
+          "id": "edge:9eda04c7290cb3524a6ba7dd",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/analytics/type//monthly_revenue/",
+          "target": "postgresql:local/analytics/view//monthly_revenue/",
+          "properties": {
+            "catalog_address": "pg_type:16558:0->pg_class:16556:0",
+            "dependency_type": "i",
+            "via": "pg_type"
+          },
+          "evidence_ids": [
+            "ev:572d7d06a6d8779544f0fecb"
+          ]
+        },
+        {
+          "id": "edge:9efce2644f223eca12a5d782",
+          "kind": "contains",
+          "source": "postgresql:local/analytics/column/order_summary/total_amount/",
+          "target": "postgresql:local/analytics/view//order_summary/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7fed850524f4e34f5a470680"
+          ]
+        },
+        {
+          "id": "edge:c980619568e864c98439e05f",
+          "kind": "contains",
+          "source": "postgresql:local/analytics/column/monthly_revenue/revenue/",
+          "target": "postgresql:local/analytics/view//monthly_revenue/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:442d0a2ab0dbf759c4e059ad"
+          ]
+        },
+        {
+          "id": "edge:e4981304a9018319416b1400",
+          "kind": "contains",
+          "source": "postgresql:local/sales/column/orders/id/",
+          "target": "postgresql:local/sales/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:ce99906f580d01cda5aa7a57"
+          ]
+        },
+        {
+          "id": "edge:f246ba2133a7afd0d6fa22e9",
+          "kind": "catalog_dependency",
+          "source": "postgresql:local/sales/constraint/orders/orders_pkey/",
+          "target": "postgresql:local/sales/column/orders/id/",
+          "properties": {
+            "catalog_address": "pg_constraint:16551:0->pg_class:16545:1",
+            "dependency_type": "a",
+            "via": "pg_constraint"
+          },
+          "evidence_ids": [
+            "ev:7687a1dcbc6e3d202fdad7c2"
+          ]
+        },
+        {
+          "id": "edge:fa90f9ab092de29493c87262",
+          "kind": "contains",
+          "source": "postgresql:local/sales/column/orders/total_amount/",
+          "target": "postgresql:local/sales/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:c66bad179919904f876ae491"
+          ]
+        }
+      ],
+      "evidence": {
+        "ev:442d0a2ab0dbf759c4e059ad": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16556:1",
+          "confidence": "direct",
+          "id": "ev:442d0a2ab0dbf759c4e059ad",
+          "origin": "postgres_catalog",
+          "query_id": "pg_attribute",
+          "source_hash": "sha256:25106bbc02cdcc9905699105bb1f4f8443c59493a12fd9f2a225b74557cc9bc4",
+          "status": "OBSERVED"
+        },
+        "ev:1748ed07106108fef02f1aa9": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16552:1",
+          "confidence": "direct",
+          "id": "ev:1748ed07106108fef02f1aa9",
+          "origin": "postgres_catalog",
+          "query_id": "pg_attribute",
+          "source_hash": "sha256:25106bbc02cdcc9905699105bb1f4f8443c59493a12fd9f2a225b74557cc9bc4",
+          "status": "OBSERVED"
+        },
+        "ev:7fed850524f4e34f5a470680": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16552:2",
+          "confidence": "direct",
+          "id": "ev:7fed850524f4e34f5a470680",
+          "origin": "postgres_catalog",
+          "query_id": "pg_attribute",
+          "source_hash": "sha256:25106bbc02cdcc9905699105bb1f4f8443c59493a12fd9f2a225b74557cc9bc4",
+          "status": "OBSERVED"
+        },
+        "ev:cd0cc1af6a31b9a05c9b7820": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_namespace:16544:0",
+          "confidence": "direct",
+          "id": "ev:cd0cc1af6a31b9a05c9b7820",
+          "origin": "postgres_catalog",
+          "query_id": "pg_namespace",
+          "source_hash": "sha256:4abcfb59f0828b41688a90552a1344deb410b409526e6502a8697dfb7769a924",
+          "status": "OBSERVED"
+        },
+        "ev:84287b5210d23dc019c5d8d9": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16557:0",
+          "confidence": "direct",
+          "id": "ev:84287b5210d23dc019c5d8d9",
+          "origin": "postgres_catalog",
+          "query_id": "pg_type",
+          "source_hash": "sha256:dd68cc9e34aa5c8e03dbf1558fbdb48af8c86acf226ab8831215e48a6588f0fe",
+          "status": "OBSERVED"
+        },
+        "ev:5cababa9d70bc05674b4d3e0": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16553:0",
+          "confidence": "direct",
+          "id": "ev:5cababa9d70bc05674b4d3e0",
+          "origin": "postgres_catalog",
+          "query_id": "pg_type",
+          "source_hash": "sha256:dd68cc9e34aa5c8e03dbf1558fbdb48af8c86acf226ab8831215e48a6588f0fe",
+          "status": "OBSERVED"
+        },
+        "ev:d9c66e209d54e216e51660bb": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16558:0",
+          "confidence": "direct",
+          "id": "ev:d9c66e209d54e216e51660bb",
+          "origin": "postgres_catalog",
+          "query_id": "pg_type",
+          "source_hash": "sha256:dd68cc9e34aa5c8e03dbf1558fbdb48af8c86acf226ab8831215e48a6588f0fe",
+          "status": "OBSERVED"
+        },
+        "ev:b9aaae1dd59d622151a70df9": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16554:0",
+          "confidence": "direct",
+          "id": "ev:b9aaae1dd59d622151a70df9",
+          "origin": "postgres_catalog",
+          "query_id": "pg_type",
+          "source_hash": "sha256:dd68cc9e34aa5c8e03dbf1558fbdb48af8c86acf226ab8831215e48a6588f0fe",
+          "status": "OBSERVED"
+        },
+        "ev:e322c4f881e774d64030e288": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16556:0",
+          "confidence": "direct",
+          "id": "ev:e322c4f881e774d64030e288",
+          "origin": "postgres_catalog",
+          "query_id": "pg_class",
+          "source_hash": "sha256:a3532d0b0ae99284fffe6b35e0cff58cd11e0cf6ec6e77be1d4b95b5bf83c540",
+          "status": "OBSERVED"
+        },
+        "ev:80e01790bfeedb840b29020a": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16552:0",
+          "confidence": "direct",
+          "id": "ev:80e01790bfeedb840b29020a",
+          "origin": "postgres_catalog",
+          "query_id": "pg_class",
+          "source_hash": "sha256:a3532d0b0ae99284fffe6b35e0cff58cd11e0cf6ec6e77be1d4b95b5bf83c540",
+          "status": "OBSERVED"
+        },
+        "ev:821bff62bb27a3578f5a3637": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_extension:15210:0",
+          "confidence": "direct",
+          "id": "ev:821bff62bb27a3578f5a3637",
+          "origin": "postgres_catalog",
+          "query_id": "pg_extension",
+          "source_hash": "sha256:e20869df2b51a80de931d27c03ff98f05bc37f29466b8103f3c782ee53127ec3",
+          "status": "OBSERVED"
+        },
+        "ev:8e9c40af8eeca6ad31e4159f": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_namespace:2200:0",
+          "confidence": "direct",
+          "id": "ev:8e9c40af8eeca6ad31e4159f",
+          "origin": "postgres_catalog",
+          "query_id": "pg_namespace",
+          "source_hash": "sha256:4abcfb59f0828b41688a90552a1344deb410b409526e6502a8697dfb7769a924",
+          "status": "OBSERVED"
+        },
+        "ev:ce99906f580d01cda5aa7a57": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16545:1",
+          "confidence": "direct",
+          "id": "ev:ce99906f580d01cda5aa7a57",
+          "origin": "postgres_catalog",
+          "query_id": "pg_attribute",
+          "source_hash": "sha256:25106bbc02cdcc9905699105bb1f4f8443c59493a12fd9f2a225b74557cc9bc4",
+          "status": "OBSERVED"
+        },
+        "ev:c66bad179919904f876ae491": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16545:2",
+          "confidence": "direct",
+          "id": "ev:c66bad179919904f876ae491",
+          "origin": "postgres_catalog",
+          "query_id": "pg_attribute",
+          "source_hash": "sha256:25106bbc02cdcc9905699105bb1f4f8443c59493a12fd9f2a225b74557cc9bc4",
+          "status": "OBSERVED"
+        },
+        "ev:b982257db6ecc2a1a4c3f214": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_constraint:16548:0",
+          "confidence": "direct",
+          "id": "ev:b982257db6ecc2a1a4c3f214",
+          "origin": "postgres_catalog",
+          "query_id": "pg_constraint",
+          "source_hash": "sha256:0d863cd26b3389f71f5b764a53b920916776dc85762f4dbaf2905d522080c99f",
+          "status": "OBSERVED"
+        },
+        "ev:da756f03af8988b13a863236": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_constraint:16551:0",
+          "confidence": "direct",
+          "id": "ev:da756f03af8988b13a863236",
+          "origin": "postgres_catalog",
+          "query_id": "pg_constraint",
+          "source_hash": "sha256:0d863cd26b3389f71f5b764a53b920916776dc85762f4dbaf2905d522080c99f",
+          "status": "OBSERVED"
+        },
+        "ev:9256769cd8382d6a62e07b6c": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_constraint:16549:0",
+          "confidence": "direct",
+          "id": "ev:9256769cd8382d6a62e07b6c",
+          "origin": "postgres_catalog",
+          "query_id": "pg_constraint",
+          "source_hash": "sha256:0d863cd26b3389f71f5b764a53b920916776dc85762f4dbaf2905d522080c99f",
+          "status": "OBSERVED"
+        },
+        "ev:cce688abe1dd70f7d703d4bb": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16550:0",
+          "confidence": "direct",
+          "id": "ev:cce688abe1dd70f7d703d4bb",
+          "origin": "postgres_catalog",
+          "query_id": "pg_class",
+          "source_hash": "sha256:a3532d0b0ae99284fffe6b35e0cff58cd11e0cf6ec6e77be1d4b95b5bf83c540",
+          "status": "OBSERVED"
+        },
+        "ev:7381bfbe17cff3202e8b6742": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_namespace:16543:0",
+          "confidence": "direct",
+          "id": "ev:7381bfbe17cff3202e8b6742",
+          "origin": "postgres_catalog",
+          "query_id": "pg_namespace",
+          "source_hash": "sha256:4abcfb59f0828b41688a90552a1344deb410b409526e6502a8697dfb7769a924",
+          "status": "OBSERVED"
+        },
+        "ev:d31d31fed0ffbb4c836822b1": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16545:0",
+          "confidence": "direct",
+          "id": "ev:d31d31fed0ffbb4c836822b1",
+          "origin": "postgres_catalog",
+          "query_id": "pg_class",
+          "source_hash": "sha256:a3532d0b0ae99284fffe6b35e0cff58cd11e0cf6ec6e77be1d4b95b5bf83c540",
+          "status": "OBSERVED"
+        },
+        "ev:94804f5ad3e468120e9738fb": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16546:0",
+          "confidence": "direct",
+          "id": "ev:94804f5ad3e468120e9738fb",
+          "origin": "postgres_catalog",
+          "query_id": "pg_type",
+          "source_hash": "sha256:dd68cc9e34aa5c8e03dbf1558fbdb48af8c86acf226ab8831215e48a6588f0fe",
+          "status": "OBSERVED"
+        },
+        "ev:3f0bcd06614d12b0053090ec": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16547:0",
+          "confidence": "direct",
+          "id": "ev:3f0bcd06614d12b0053090ec",
+          "origin": "postgres_catalog",
+          "query_id": "pg_type",
+          "source_hash": "sha256:dd68cc9e34aa5c8e03dbf1558fbdb48af8c86acf226ab8831215e48a6588f0fe",
+          "status": "OBSERVED"
+        },
+        "ev:a79db2a6ca9a21204a76613e": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "",
+          "confidence": "direct",
+          "id": "ev:a79db2a6ca9a21204a76613e",
+          "origin": "postgres_catalog",
+          "query_id": "pg_index",
+          "source_hash": "sha256:c06177d23eb66c20d0b6ec56d8f1c13a4188bef2b55c9b696b78fd2f60a32971",
+          "status": "OBSERVED"
+        },
+        "ev:59de0db68c2b0eb11336cf08": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16553:0->pg_type:16554:0",
+          "confidence": "direct",
+          "id": "ev:59de0db68c2b0eb11336cf08",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:fa6dd306a8316dfd0d7d4655": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16547:0->pg_class:16545:0",
+          "confidence": "direct",
+          "id": "ev:fa6dd306a8316dfd0d7d4655",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:6bd3e53a417dc087c9a557f8": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16545:0->pg_namespace:16543:0",
+          "confidence": "direct",
+          "id": "ev:6bd3e53a417dc087c9a557f8",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:23bb677f20038f2d64d9ea77": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_constraint:16549:0->pg_class:16545:2",
+          "confidence": "direct",
+          "id": "ev:23bb677f20038f2d64d9ea77",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:e68a235027a2de0088053c3c": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "",
+          "confidence": "direct",
+          "id": "ev:e68a235027a2de0088053c3c",
+          "origin": "postgres_catalog",
+          "query_id": "pg_constraint",
+          "source_hash": "sha256:0d863cd26b3389f71f5b764a53b920916776dc85762f4dbaf2905d522080c99f",
+          "status": "OBSERVED"
+        },
+        "ev:2daa2b298e96c5ee828d470d": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16552:0->pg_namespace:16544:0",
+          "confidence": "direct",
+          "id": "ev:2daa2b298e96c5ee828d470d",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:75608e4f26027dd5a4508116": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_rewrite:16555:0->pg_class:16545:1",
+          "confidence": "direct",
+          "id": "ev:75608e4f26027dd5a4508116",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:db5e2b6febef75f50d19199d": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16556:0->pg_namespace:16544:0",
+          "confidence": "direct",
+          "id": "ev:db5e2b6febef75f50d19199d",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:f49626e2987331ff957f390e": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16557:0->pg_type:16558:0",
+          "confidence": "direct",
+          "id": "ev:f49626e2987331ff957f390e",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:6b9e2fdf6b388016c5cad3d3": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_rewrite:16559:0->pg_class:16552:2",
+          "confidence": "direct",
+          "id": "ev:6b9e2fdf6b388016c5cad3d3",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:7e16bc70aea94d70f707a733": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16546:0->pg_type:16547:0",
+          "confidence": "direct",
+          "id": "ev:7e16bc70aea94d70f707a733",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:896095b946aa8852eaf859b1": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_constraint:16548:0->pg_class:16545:1",
+          "confidence": "direct",
+          "id": "ev:896095b946aa8852eaf859b1",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:16884693566118057874d5d4": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_rewrite:16555:0->pg_class:16545:2",
+          "confidence": "direct",
+          "id": "ev:16884693566118057874d5d4",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:70d353a1c18bc7ef93f97b7e": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_class:16550:0->pg_constraint:16551:0",
+          "confidence": "direct",
+          "id": "ev:70d353a1c18bc7ef93f97b7e",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:82f5b92c5decc002f290548b": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16554:0->pg_class:16552:0",
+          "confidence": "direct",
+          "id": "ev:82f5b92c5decc002f290548b",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:572d7d06a6d8779544f0fecb": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_type:16558:0->pg_class:16556:0",
+          "confidence": "direct",
+          "id": "ev:572d7d06a6d8779544f0fecb",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        },
+        "ev:7687a1dcbc6e3d202fdad7c2": {
+          "captured_at": "2026-10-09T16:10:28.084359+00:00",
+          "catalog_address": "pg_constraint:16551:0->pg_class:16545:1",
+          "confidence": "direct",
+          "id": "ev:7687a1dcbc6e3d202fdad7c2",
+          "origin": "postgres_catalog",
+          "query_id": "pg_depend",
+          "source_hash": "sha256:8db273e34d7c67eb4b59410d9be9c1cdddeb14c496658eb7ea62b0d3086a5c35",
+          "status": "OBSERVED"
+        }
+      },
+      "source_checks": [],
+      "unknowns": [
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:5dedcfc36d91b45e04515d37"
+          ],
+          "explanation": "Catalog dependencies cover recorded edges only; repository/runtime consumers and some object definitions are unavailable.",
+          "id": "unknown:98e9bd27751975f37b1565dc",
+          "object_id": null,
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        }
+      ],
+      "findings": [],
+      "counts": null
+    }
+  ],
+  "html": {
+    "path": "catalog.html",
+    "bytes": 75811,
+    "has_html": true,
+    "has_svg": true,
+    "model_matches": true,
+    "external_resources": []
+  },
+  "recorded_commands": [
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py inspect --ddl analytics/schema.sql --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-ddl.dbdep.json --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-ddl.dbdep.json --strict --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py inspect --catalog analytics/catalog.json --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-catalog.dbdep.json --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-catalog.dbdep.json --strict --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py docs C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-ddl.dbdep.json --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\ddl.md",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py render C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-ddl.dbdep.json --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\ddl.html --object sales.orders.total_amount",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py impact C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-ddl.dbdep.json --object sales.orders.total_amount --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\ddl-impact.json --json --operation drop-column",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py docs C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-catalog.dbdep.json --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\catalog.md",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py render C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-catalog.dbdep.json --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\catalog.html --object sales.orders.total_amount",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py impact C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-catalog.dbdep.json --object sales.orders.total_amount --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\catalog-impact.json --json --operation drop-column",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py review --baseline C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\analytics-catalog.dbdep.json --migration analytics/drop.sql --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\cascade-review --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-2\\cascade-review\\model.dbdep.json --strict --json"
+  ],
+  "recorded_exit_codes": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "offline_record": true,
+  "transcript_sha256": "258ced788e040e3ec7970f901c52fe2e3c70447fe69fb7ea069c0c3d77eac4b8",
+  "catalog_input_sha256": "5d3de0d23a444df4daad4008f77ad1f02feeb4fff415d3d97978a02cfa6e5b3b",
+  "catalog_target_rows": [
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "n",
+      "objid": 16555,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16545,
+      "refobjsubid": 1
+    },
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "n",
+      "objid": 16555,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16545,
+      "refobjsubid": 2
+    },
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "i",
+      "objid": 16555,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16552,
+      "refobjsubid": 0
+    },
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "n",
+      "objid": 16559,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16552,
+      "refobjsubid": 2
+    },
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "i",
+      "objid": 16559,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16556,
+      "refobjsubid": 0
+    },
+    {
+      "ev_class": 16552,
+      "oid": 16555,
+      "rulename": "_RETURN"
+    },
+    {
+      "ev_class": 16556,
+      "oid": 16559,
+      "rulename": "_RETURN"
+    }
+  ],
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "0a94fbd493c910eb5eb75a836821ffc804eaf2d57289cda4b605333af1e5a817",
+      "bytes": 2166
+    }
+  }
+}

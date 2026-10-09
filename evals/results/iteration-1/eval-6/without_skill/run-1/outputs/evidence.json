@@ -1,0 +1,1020 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [
+    {
+      "path": "multi-schema.model.json",
+      "original_format": "baseline.canonical.v1",
+      "nodes": [
+        {
+          "id": "column:7bb1ac4430ab91fd95743e0253571cff1c23f1fd0d8d9e5c3b8373d4ee13abdc",
+          "kind": "column",
+          "label": "public.orders.id",
+          "signature": [],
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "kind": "column",
+          "label": "sales.orders.id",
+          "signature": [],
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "constraint:433793a6e3597a9e95b1ed6c6133fed39893ec5f81f917794cce8a7eecd88a69",
+          "kind": "constraint",
+          "label": "public.orders.primary(id)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "constraint:e12d90a3d0e262fd8ad04c44fd914118f511e621e60572d31cd1de4f0ab92520",
+          "kind": "constraint",
+          "label": "sales.orders.primary(id)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "index:6c172ef99425d7d6b8b57dc3e2eb8d6c6ba1cf554bf66b4298e3e771410f2fd4",
+          "kind": "index",
+          "label": "public.orders.primary(id).supporting_index",
+          "signature": [],
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "index:9b23c3addd67bbc25a892e477e7658ddbe8aa5847e5a10d7c39bdf00c7ef45da",
+          "kind": "index",
+          "label": "sales.orders.primary(id).supporting_index",
+          "signature": [],
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "query:559346813d6a79f3c16e37f1c6fc76ebe6337f6be655b2d1e4120bd65cf71334",
+          "kind": "query",
+          "label": "multi-schema/schema.sql:4",
+          "signature": [],
+          "evidence_ids": [
+            "inline:7ae5ebd9d09cb713d8676db6"
+          ]
+        },
+        {
+          "id": "schema:9fc15c8dd025629eed1213c5650d5bdbc4288d392e9a06e8ca67907d6cfc8039",
+          "kind": "schema",
+          "label": "sales",
+          "signature": [],
+          "evidence_ids": [
+            "inline:60aa7db3f38a821d6ed61b24"
+          ]
+        },
+        {
+          "id": "schema:a565b2bc33a49fecc827b849707e057a1e2f3c965b1b7107ae4d2e247ea53b53",
+          "kind": "schema",
+          "label": "public",
+          "signature": [],
+          "evidence_ids": []
+        },
+        {
+          "id": "table:5a344c261272ebc78bf55b326f5c7b16b046ee7675504e15e384cd110fc26728",
+          "kind": "table",
+          "label": "public.orders",
+          "signature": [],
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "kind": "table",
+          "label": "sales.orders",
+          "signature": [],
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:03c8fc6c49cdf48f031a9c00ee0d84d2e3687187bb254a12a4156df3ea3dd141",
+          "kind": "implements_constraint",
+          "source": "index:9b23c3addd67bbc25a892e477e7658ddbe8aa5847e5a10d7c39bdf00c7ef45da",
+          "target": "constraint:e12d90a3d0e262fd8ad04c44fd914118f511e621e60572d31cd1de4f0ab92520",
+          "properties": {},
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "edge:26b5caa18c142b48dd5d68a8d28a22e4c97c940c6c32f4eae5e3719fcf0358f0",
+          "kind": "belongs_to",
+          "source": "constraint:433793a6e3597a9e95b1ed6c6133fed39893ec5f81f917794cce8a7eecd88a69",
+          "target": "table:5a344c261272ebc78bf55b326f5c7b16b046ee7675504e15e384cd110fc26728",
+          "properties": {},
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "edge:318e47502cc1149153b36237c3cd43c13ec498021091857c8ce50c219d46398f",
+          "kind": "in_schema",
+          "source": "table:5a344c261272ebc78bf55b326f5c7b16b046ee7675504e15e384cd110fc26728",
+          "target": "schema:a565b2bc33a49fecc827b849707e057a1e2f3c965b1b7107ae4d2e247ea53b53",
+          "properties": {},
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "edge:433e2023108f03ce23d07d57201e41906f1e600cc30de5be4d552b2494e10b59",
+          "kind": "indexes_column",
+          "source": "index:6c172ef99425d7d6b8b57dc3e2eb8d6c6ba1cf554bf66b4298e3e771410f2fd4",
+          "target": "column:7bb1ac4430ab91fd95743e0253571cff1c23f1fd0d8d9e5c3b8373d4ee13abdc",
+          "properties": {},
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "edge:67221c4a3a6699194c9ea42a5ec7c4bd3408f05e80040e168ebcdc73ce78e1c9",
+          "kind": "implements_constraint",
+          "source": "index:6c172ef99425d7d6b8b57dc3e2eb8d6c6ba1cf554bf66b4298e3e771410f2fd4",
+          "target": "constraint:433793a6e3597a9e95b1ed6c6133fed39893ec5f81f917794cce8a7eecd88a69",
+          "properties": {},
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "edge:a490ee63d70df4291c3fb5838e7099fc24967fc1f65a3386a489db6624c78c0c",
+          "kind": "indexes_column",
+          "source": "index:9b23c3addd67bbc25a892e477e7658ddbe8aa5847e5a10d7c39bdf00c7ef45da",
+          "target": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "properties": {},
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "edge:a852302e0cff3f77ade1342e0bf7323069544a91a51934d850cb6742edd8fd72",
+          "kind": "belongs_to",
+          "source": "constraint:e12d90a3d0e262fd8ad04c44fd914118f511e621e60572d31cd1de4f0ab92520",
+          "target": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "edge:a9b111c7b11ef19720ccaf84ba3d5069e23d9b0139f708911dc57865ab4328c0",
+          "kind": "belongs_to",
+          "source": "column:7bb1ac4430ab91fd95743e0253571cff1c23f1fd0d8d9e5c3b8373d4ee13abdc",
+          "target": "table:5a344c261272ebc78bf55b326f5c7b16b046ee7675504e15e384cd110fc26728",
+          "properties": {},
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        },
+        {
+          "id": "edge:b1f17411b84c586a32c0d0e2c050db2cff98457349bbdf5422a99667185fc0b9",
+          "kind": "belongs_to",
+          "source": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "target": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "edge:b7188fcd67c226b89d168ccf1d51bf1bf83172a5d269d0c6fdaf93650644d6f3",
+          "kind": "in_schema",
+          "source": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "target": "schema:9fc15c8dd025629eed1213c5650d5bdbc4288d392e9a06e8ca67907d6cfc8039",
+          "properties": {},
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "edge:c59d83e39d07ae5a1a316fbd0d8b002d7ad7d7885fadf27c31d6247e20a8ea1b",
+          "kind": "uses_column",
+          "source": "constraint:e12d90a3d0e262fd8ad04c44fd914118f511e621e60572d31cd1de4f0ab92520",
+          "target": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "properties": {},
+          "evidence_ids": [
+            "inline:55c41bf0fe5782a9dd2c72c3"
+          ]
+        },
+        {
+          "id": "edge:d54b29ee46f821c89d0751debe75e76b7a98c0f022943240ad9c79601a0d4213",
+          "kind": "uses_column",
+          "source": "constraint:433793a6e3597a9e95b1ed6c6133fed39893ec5f81f917794cce8a7eecd88a69",
+          "target": "column:7bb1ac4430ab91fd95743e0253571cff1c23f1fd0d8d9e5c3b8373d4ee13abdc",
+          "properties": {},
+          "evidence_ids": [
+            "inline:6a38e0aa3d1c481fb62c8cf2"
+          ]
+        }
+      ],
+      "evidence": {
+        "inline:6a38e0aa3d1c481fb62c8cf2": {
+          "file": "multi-schema/schema.sql",
+          "line": 2,
+          "ast_kind": "CreateStmt"
+        },
+        "inline:55c41bf0fe5782a9dd2c72c3": {
+          "file": "multi-schema/schema.sql",
+          "line": 3,
+          "ast_kind": "CreateStmt"
+        },
+        "inline:7ae5ebd9d09cb713d8676db6": {
+          "file": "multi-schema/schema.sql",
+          "line": 4,
+          "ast_kind": "SelectStmt"
+        },
+        "inline:60aa7db3f38a821d6ed61b24": {
+          "file": "multi-schema/schema.sql",
+          "line": 1,
+          "ast_kind": "CreateSchemaStmt"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "inline:6a38e0aa3d1c481fb62c8cf2",
+          "path": "multi-schema/schema.sql",
+          "line": 2,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:55c41bf0fe5782a9dd2c72c3",
+          "path": "multi-schema/schema.sql",
+          "line": 3,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:7ae5ebd9d09cb713d8676db6",
+          "path": "multi-schema/schema.sql",
+          "line": 4,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:60aa7db3f38a821d6ed61b24",
+          "path": "multi-schema/schema.sql",
+          "line": 1,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [
+        {
+          "kind": "unresolved_search_path",
+          "name": "orders",
+          "candidates": [
+            "table:5a344c261272ebc78bf55b326f5c7b16b046ee7675504e15e384cd110fc26728",
+            "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8"
+          ],
+          "reason": "No session search_path was supplied; no schema is guessed.",
+          "evidence": {
+            "file": "multi-schema/schema.sql",
+            "line": 4,
+            "statement": "SELECT id FROM orders",
+            "ast_kind": "SelectStmt"
+          }
+        },
+        {
+          "kind": "unresolved_column",
+          "parts": [
+            "id"
+          ],
+          "owner": "query:559346813d6a79f3c16e37f1c6fc76ebe6337f6be655b2d1e4120bd65cf71334",
+          "evidence": {
+            "file": "multi-schema/schema.sql",
+            "line": 4,
+            "statement": "SELECT id FROM orders",
+            "ast_kind": "SelectStmt"
+          }
+        }
+      ],
+      "findings": [],
+      "counts": {
+        "nodes": 11,
+        "edges": 12,
+        "by_kind": {
+          "column": 2,
+          "constraint": 2,
+          "index": 2,
+          "query": 1,
+          "schema": 2,
+          "table": 2
+        }
+      }
+    },
+    {
+      "path": "tricky-identifiers.model.json",
+      "original_format": "baseline.canonical.v1",
+      "nodes": [
+        {
+          "id": "column:439a0973f9b5ea4a995d9a1e909757597d6aca82a88166bc84ac9f8aa27d967a",
+          "kind": "column",
+          "label": "\"Commerce\".items.customer_id",
+          "signature": [],
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "column:462c4c65536fe73e7e00642e039342eb777092756058a1a70caa2a3a466d52e2",
+          "kind": "column",
+          "label": "\"Commerce\".\"Order\".status",
+          "signature": [],
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "column:8287897e447b3376706522d143e661992efcb09dafd3afc74dcb09ff79191198",
+          "kind": "column",
+          "label": "\"Commerce\".order_eu.\"CustomerID\"",
+          "signature": [],
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "column:8c7f1ea23b9ae7ea8350af24c87c7cca89eb7f7fe9082e63628b87c3620493bb",
+          "kind": "column",
+          "label": "\"Commerce\".order_eu.status",
+          "signature": [],
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "column:955d4204a274c7e85283213cf0c61f1b387e0be1c53c513acc8d1bc69ffda18e",
+          "kind": "column",
+          "label": "\"Commerce\".items.region",
+          "signature": [],
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "column:bc6d0301c44b85d745ee48564c2858f91568f1f94a6b5e5ec0741ffa26f77a87",
+          "kind": "column",
+          "label": "\"Commerce\".\"Order\".\"CustomerID\"",
+          "signature": [],
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "column:e65347467391081ffeeee36167216512e9ed2a0a98a4093ab19c562e609bcfc0",
+          "kind": "column",
+          "label": "\"Commerce\".\"Order\".region",
+          "signature": [],
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "column:ea525ec8d7393adde6dfba2e08ed8d1383cf3999701e4fb4dc001d341c1a4210",
+          "kind": "column",
+          "label": "\"Commerce\".order_eu.region",
+          "signature": [],
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "constraint:400ff829da1d66f07478b13438e7e2369e11319f71d72ef2dd7ca6b40b297886",
+          "kind": "constraint",
+          "label": "\"Commerce\".\"Order\".primary(\"CustomerID\",region)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "constraint:cee90ba9e9f98ee9dd18b37b12e98ad14d05f249640df45213e3814010e8a18b",
+          "kind": "constraint",
+          "label": "\"Commerce\".items.foreign(customer_id,region)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "function:ac16fbc382b9a33f987f39e3b3bb8af5decd6cd05bedf6c15f79541dcf077ffb",
+          "kind": "function",
+          "label": "\"Commerce\".label(pg_catalog.text)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:86eeece65ce840b03bdfbb36"
+          ]
+        },
+        {
+          "id": "function:e1b143da4f16874e952b175ee7f500155fa0f3fd941f781c43cd70283ca5e88a",
+          "kind": "function",
+          "label": "\"Commerce\".label(pg_catalog.int8)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:cc9526ef08422220d357bbde"
+          ]
+        },
+        {
+          "id": "index:dbc5be0f0ae02a3ba0c0bc08632097a7b53e9a87eeef5c8d2fec6823d7ad57cb",
+          "kind": "index",
+          "label": "\"Commerce\".\"Order\".primary(\"CustomerID\",region).supporting_index",
+          "signature": [],
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "partition:e60ea7c1c126b0727524438929d3cf17b75e10330f4cf5352dc5ca90703e5a63",
+          "kind": "partition",
+          "label": "\"Commerce\".order_eu",
+          "signature": [],
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "schema:7ef73383b12711b75463f2639c5f8f845033a80599ecbe8db73c8f1cd2a3179c",
+          "kind": "schema",
+          "label": "\"Commerce\"",
+          "signature": [],
+          "evidence_ids": [
+            "inline:561abaf0330fdcd4c0c44c2a"
+          ]
+        },
+        {
+          "id": "table:221e47cad377450de0411557bf40d7bd48757f2911aa869ac15732b11b42725a",
+          "kind": "table",
+          "label": "\"Commerce\".\"Order\"",
+          "signature": [],
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "table:22df2ea9fd1cc5f1ddecc64298bf59a4d05160426287bdb18e69acb8cb924477",
+          "kind": "table",
+          "label": "\"Commerce\".items",
+          "signature": [],
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "type:0b6b99612d1e64738d5c79ad7a88a8a2ab299c8b9cb074c60f8d3c619d3965a3",
+          "kind": "type",
+          "label": "\"Commerce\".state",
+          "signature": [],
+          "evidence_ids": [
+            "inline:a882e71856760e794e000773"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:01a0565f96ab295a34af6605fb80f2e60a406c56c14e106828e606d0884bd7ae",
+          "kind": "implements_constraint",
+          "source": "index:dbc5be0f0ae02a3ba0c0bc08632097a7b53e9a87eeef5c8d2fec6823d7ad57cb",
+          "target": "constraint:400ff829da1d66f07478b13438e7e2369e11319f71d72ef2dd7ca6b40b297886",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:09914555232027bd4784cb2caea2240d59f02789568965be1d87494bfb56a118",
+          "kind": "references_relation",
+          "source": "constraint:cee90ba9e9f98ee9dd18b37b12e98ad14d05f249640df45213e3814010e8a18b",
+          "target": "table:221e47cad377450de0411557bf40d7bd48757f2911aa869ac15732b11b42725a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:1606da531d7f4e7028600da9613339f9e9a7b704492fe5b349ee5b8adf0c9267",
+          "kind": "inherits_column",
+          "source": "column:8c7f1ea23b9ae7ea8350af24c87c7cca89eb7f7fe9082e63628b87c3620493bb",
+          "target": "column:462c4c65536fe73e7e00642e039342eb777092756058a1a70caa2a3a466d52e2",
+          "properties": {},
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "edge:1971e50901532ef9672a321f3b428d80eafb0ad20151a13e823ca67bbc8a937a",
+          "kind": "belongs_to",
+          "source": "column:955d4204a274c7e85283213cf0c61f1b387e0be1c53c513acc8d1bc69ffda18e",
+          "target": "table:22df2ea9fd1cc5f1ddecc64298bf59a4d05160426287bdb18e69acb8cb924477",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:22c82936235b27a8e0ec1509fa6b58f5ea1d72f494962e959cdd7f6b90e3af1d",
+          "kind": "belongs_to",
+          "source": "constraint:cee90ba9e9f98ee9dd18b37b12e98ad14d05f249640df45213e3814010e8a18b",
+          "target": "table:22df2ea9fd1cc5f1ddecc64298bf59a4d05160426287bdb18e69acb8cb924477",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:2f3ce5850b944f91dd4a8b2121ab055c2d8e8a680c235d16ce10688679e66cde",
+          "kind": "inherits_column",
+          "source": "column:ea525ec8d7393adde6dfba2e08ed8d1383cf3999701e4fb4dc001d341c1a4210",
+          "target": "column:e65347467391081ffeeee36167216512e9ed2a0a98a4093ab19c562e609bcfc0",
+          "properties": {},
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "edge:36643e25b671029285eda2d8560acd2dc2d43ce64a90255c042b7d26cbab9211",
+          "kind": "belongs_to",
+          "source": "constraint:400ff829da1d66f07478b13438e7e2369e11319f71d72ef2dd7ca6b40b297886",
+          "target": "table:221e47cad377450de0411557bf40d7bd48757f2911aa869ac15732b11b42725a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:3dfbff48b601404520373183419eec94a4e28f33dd6fcb03a35bfadd43fd0a7e",
+          "kind": "uses_column",
+          "source": "constraint:400ff829da1d66f07478b13438e7e2369e11319f71d72ef2dd7ca6b40b297886",
+          "target": "column:e65347467391081ffeeee36167216512e9ed2a0a98a4093ab19c562e609bcfc0",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:4d609c8098a88c8b0b269417860d14e61455b418bda679f640eb732461a962d7",
+          "kind": "uses_column",
+          "source": "constraint:cee90ba9e9f98ee9dd18b37b12e98ad14d05f249640df45213e3814010e8a18b",
+          "target": "column:439a0973f9b5ea4a995d9a1e909757597d6aca82a88166bc84ac9f8aa27d967a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:4e1c182336973c6a50a2913fef848d73bad8c853aea05a28914a151257be0fb0",
+          "kind": "indexes_column",
+          "source": "index:dbc5be0f0ae02a3ba0c0bc08632097a7b53e9a87eeef5c8d2fec6823d7ad57cb",
+          "target": "column:bc6d0301c44b85d745ee48564c2858f91568f1f94a6b5e5ec0741ffa26f77a87",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:552eede794342548f33ad23f3e9e35c145fd23b08f1c87ea8a8ca1c2b27eed07",
+          "kind": "foreign_key_column",
+          "source": "column:955d4204a274c7e85283213cf0c61f1b387e0be1c53c513acc8d1bc69ffda18e",
+          "target": "column:e65347467391081ffeeee36167216512e9ed2a0a98a4093ab19c562e609bcfc0",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:684fa444d09c981a13f991f737709a878e07f229b4bdd9bb589810ce09c271f4",
+          "kind": "in_schema",
+          "source": "partition:e60ea7c1c126b0727524438929d3cf17b75e10330f4cf5352dc5ca90703e5a63",
+          "target": "schema:7ef73383b12711b75463f2639c5f8f845033a80599ecbe8db73c8f1cd2a3179c",
+          "properties": {},
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "edge:73b6f454c75d1e4fcff40b2a28f59c4d7e7863f100f4339d34bcd4c954439196",
+          "kind": "references_column",
+          "source": "constraint:cee90ba9e9f98ee9dd18b37b12e98ad14d05f249640df45213e3814010e8a18b",
+          "target": "column:e65347467391081ffeeee36167216512e9ed2a0a98a4093ab19c562e609bcfc0",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:78f7f26ea7dbcf0c030d5136f12256bea8695f5e81188519e460a9fa7bdb5268",
+          "kind": "uses_column",
+          "source": "constraint:400ff829da1d66f07478b13438e7e2369e11319f71d72ef2dd7ca6b40b297886",
+          "target": "column:bc6d0301c44b85d745ee48564c2858f91568f1f94a6b5e5ec0741ffa26f77a87",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:7f97984fcd1f0aea4c856ce284fdbf8e09839e2bfd64abd5777be4792b9d44d2",
+          "kind": "belongs_to",
+          "source": "column:e65347467391081ffeeee36167216512e9ed2a0a98a4093ab19c562e609bcfc0",
+          "target": "table:221e47cad377450de0411557bf40d7bd48757f2911aa869ac15732b11b42725a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:810ff5f0eba7259103210ead38e4bb1b89514c6a9f8cae382f1c70a58dbb9fd6",
+          "kind": "belongs_to",
+          "source": "column:8c7f1ea23b9ae7ea8350af24c87c7cca89eb7f7fe9082e63628b87c3620493bb",
+          "target": "partition:e60ea7c1c126b0727524438929d3cf17b75e10330f4cf5352dc5ca90703e5a63",
+          "properties": {},
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "edge:857ec4608a0335349feee705073dd1dc555aa35fbe0ebab9a9bd995da4af855b",
+          "kind": "in_schema",
+          "source": "table:22df2ea9fd1cc5f1ddecc64298bf59a4d05160426287bdb18e69acb8cb924477",
+          "target": "schema:7ef73383b12711b75463f2639c5f8f845033a80599ecbe8db73c8f1cd2a3179c",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:8c3c47fa0ff150757d3b716ee97946ba42446e116de3d919825cf205545db029",
+          "kind": "in_schema",
+          "source": "table:221e47cad377450de0411557bf40d7bd48757f2911aa869ac15732b11b42725a",
+          "target": "schema:7ef73383b12711b75463f2639c5f8f845033a80599ecbe8db73c8f1cd2a3179c",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:99a0e451a8814fc1d15ca786b99978256a58b2c86cd15b942634e2ee3d1c0315",
+          "kind": "foreign_key_column",
+          "source": "column:439a0973f9b5ea4a995d9a1e909757597d6aca82a88166bc84ac9f8aa27d967a",
+          "target": "column:bc6d0301c44b85d745ee48564c2858f91568f1f94a6b5e5ec0741ffa26f77a87",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:a6fbaeedf91e209fc25be79a21c1a311b34b56fd1279f5ac488b1f4ef5fd2e66",
+          "kind": "indexes_column",
+          "source": "index:dbc5be0f0ae02a3ba0c0bc08632097a7b53e9a87eeef5c8d2fec6823d7ad57cb",
+          "target": "column:e65347467391081ffeeee36167216512e9ed2a0a98a4093ab19c562e609bcfc0",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:a79a7ff8c5ed98a43623d2aa7d21974b6ed4659365d8df8939b55749aac83aa8",
+          "kind": "belongs_to",
+          "source": "column:439a0973f9b5ea4a995d9a1e909757597d6aca82a88166bc84ac9f8aa27d967a",
+          "target": "table:22df2ea9fd1cc5f1ddecc64298bf59a4d05160426287bdb18e69acb8cb924477",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:aefd2e9ca218dcc9e76f2c47c14bf601d0e0d09e1533de3530c761235c473524",
+          "kind": "belongs_to",
+          "source": "column:ea525ec8d7393adde6dfba2e08ed8d1383cf3999701e4fb4dc001d341c1a4210",
+          "target": "partition:e60ea7c1c126b0727524438929d3cf17b75e10330f4cf5352dc5ca90703e5a63",
+          "properties": {},
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "edge:b3c906fddccdd9c5dcc6aa6b100485517eab172da1d1ac98db664e4484a92af8",
+          "kind": "belongs_to",
+          "source": "column:462c4c65536fe73e7e00642e039342eb777092756058a1a70caa2a3a466d52e2",
+          "target": "table:221e47cad377450de0411557bf40d7bd48757f2911aa869ac15732b11b42725a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:c1d0b3dfddb0ad6cfbf9df7c12e67aabf417fa4f235ebc6034300aba8ad28696",
+          "kind": "uses_column",
+          "source": "constraint:cee90ba9e9f98ee9dd18b37b12e98ad14d05f249640df45213e3814010e8a18b",
+          "target": "column:955d4204a274c7e85283213cf0c61f1b387e0be1c53c513acc8d1bc69ffda18e",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:d1cb40beac7aedb2f51aa91e8e902dd01e8015b0e8e8b466be838315d5f8d478",
+          "kind": "belongs_to",
+          "source": "column:8287897e447b3376706522d143e661992efcb09dafd3afc74dcb09ff79191198",
+          "target": "partition:e60ea7c1c126b0727524438929d3cf17b75e10330f4cf5352dc5ca90703e5a63",
+          "properties": {},
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "edge:d6ea52dabe0003ad311827104a10a35ca6690936a1c2dd3cfa42a9bdd1f70147",
+          "kind": "uses_type",
+          "source": "column:462c4c65536fe73e7e00642e039342eb777092756058a1a70caa2a3a466d52e2",
+          "target": "type:0b6b99612d1e64738d5c79ad7a88a8a2ab299c8b9cb074c60f8d3c619d3965a3",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:e2a7ab4bf5fe13ce9c594b7155656395c4379a64b615ea037d0b9eddd890267a",
+          "kind": "partition_of",
+          "source": "partition:e60ea7c1c126b0727524438929d3cf17b75e10330f4cf5352dc5ca90703e5a63",
+          "target": "table:221e47cad377450de0411557bf40d7bd48757f2911aa869ac15732b11b42725a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        },
+        {
+          "id": "edge:e81d0a1577e05ade46d92c95feb96defbb03834b3a4afcfa87275f932096f48e",
+          "kind": "belongs_to",
+          "source": "column:bc6d0301c44b85d745ee48564c2858f91568f1f94a6b5e5ec0741ffa26f77a87",
+          "target": "table:221e47cad377450de0411557bf40d7bd48757f2911aa869ac15732b11b42725a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:bcae5a4f18f62e9c4eda8ce0"
+          ]
+        },
+        {
+          "id": "edge:edc5cc44fb49ebc59f2634452d2777a1d677c5b4f9827a9aa29864be98929296",
+          "kind": "references_column",
+          "source": "constraint:cee90ba9e9f98ee9dd18b37b12e98ad14d05f249640df45213e3814010e8a18b",
+          "target": "column:bc6d0301c44b85d745ee48564c2858f91568f1f94a6b5e5ec0741ffa26f77a87",
+          "properties": {},
+          "evidence_ids": [
+            "inline:400636271bcacc32e7d28f78"
+          ]
+        },
+        {
+          "id": "edge:f1429dc872548cd662f10e75e6b8b38e08dfeb9225b381ef2e84d7db7efa6245",
+          "kind": "inherits_column",
+          "source": "column:8287897e447b3376706522d143e661992efcb09dafd3afc74dcb09ff79191198",
+          "target": "column:bc6d0301c44b85d745ee48564c2858f91568f1f94a6b5e5ec0741ffa26f77a87",
+          "properties": {},
+          "evidence_ids": [
+            "inline:920827b4add0ef908277fccc"
+          ]
+        }
+      ],
+      "evidence": {
+        "inline:400636271bcacc32e7d28f78": {
+          "file": "tricky-identifiers/schema.sql",
+          "line": 8,
+          "ast_kind": "CreateStmt"
+        },
+        "inline:bcae5a4f18f62e9c4eda8ce0": {
+          "file": "tricky-identifiers/schema.sql",
+          "line": 3,
+          "ast_kind": "CreateStmt"
+        },
+        "inline:920827b4add0ef908277fccc": {
+          "file": "tricky-identifiers/schema.sql",
+          "line": 7,
+          "ast_kind": "CreateStmt"
+        },
+        "inline:86eeece65ce840b03bdfbb36": {
+          "file": "tricky-identifiers/schema.sql",
+          "line": 13,
+          "ast_kind": "CreateFunctionStmt"
+        },
+        "inline:cc9526ef08422220d357bbde": {
+          "file": "tricky-identifiers/schema.sql",
+          "line": 12,
+          "ast_kind": "CreateFunctionStmt"
+        },
+        "inline:561abaf0330fdcd4c0c44c2a": {
+          "file": "tricky-identifiers/schema.sql",
+          "line": 1,
+          "ast_kind": "CreateSchemaStmt"
+        },
+        "inline:a882e71856760e794e000773": {
+          "file": "tricky-identifiers/schema.sql",
+          "line": 2,
+          "ast_kind": "CreateEnumStmt"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "inline:400636271bcacc32e7d28f78",
+          "path": "tricky-identifiers/schema.sql",
+          "line": 8,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:bcae5a4f18f62e9c4eda8ce0",
+          "path": "tricky-identifiers/schema.sql",
+          "line": 3,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:920827b4add0ef908277fccc",
+          "path": "tricky-identifiers/schema.sql",
+          "line": 7,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:86eeece65ce840b03bdfbb36",
+          "path": "tricky-identifiers/schema.sql",
+          "line": 13,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:cc9526ef08422220d357bbde",
+          "path": "tricky-identifiers/schema.sql",
+          "line": 12,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:561abaf0330fdcd4c0c44c2a",
+          "path": "tricky-identifiers/schema.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:a882e71856760e794e000773",
+          "path": "tricky-identifiers/schema.sql",
+          "line": 2,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [],
+      "findings": [],
+      "counts": {
+        "nodes": 18,
+        "edges": 30,
+        "by_kind": {
+          "column": 8,
+          "constraint": 2,
+          "function": 2,
+          "index": 1,
+          "partition": 1,
+          "schema": 1,
+          "table": 2,
+          "type": 1
+        }
+      }
+    }
+  ],
+  "html": {
+    "path": "review.html",
+    "bytes": 52388,
+    "has_html": true,
+    "has_svg": true,
+    "model_matches": true,
+    "external_resources": []
+  },
+  "recorded_commands": [],
+  "recorded_exit_codes": [],
+  "offline_record": true,
+  "transcript_sha256": "876907b06a93c07969721908e37fe19546ce453513a1d44865881398ab484477",
+  "analysis": {
+    "multi_schema_counts": {
+      "nodes": 11,
+      "edges": 12,
+      "by_kind": {
+        "column": 2,
+        "constraint": 2,
+        "index": 2,
+        "query": 1,
+        "schema": 2,
+        "table": 2
+      }
+    },
+    "tricky_counts": {
+      "nodes": 18,
+      "edges": 30,
+      "by_kind": {
+        "column": 8,
+        "constraint": 2,
+        "function": 2,
+        "index": 1,
+        "partition": 1,
+        "schema": 1,
+        "table": 2,
+        "type": 1
+      }
+    },
+    "multi_schema_uncertainties": [
+      {
+        "kind": "unresolved_search_path",
+        "name": "orders",
+        "candidates": [
+          "table:5a344c261272ebc78bf55b326f5c7b16b046ee7675504e15e384cd110fc26728",
+          "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8"
+        ],
+        "reason": "No session search_path was supplied; no schema is guessed.",
+        "evidence": {
+          "file": "multi-schema/schema.sql",
+          "line": 4,
+          "statement": "SELECT id FROM orders",
+          "ast_kind": "SelectStmt"
+        }
+      },
+      {
+        "kind": "unresolved_column",
+        "parts": [
+          "id"
+        ],
+        "owner": "query:559346813d6a79f3c16e37f1c6fc76ebe6337f6be655b2d1e4120bd65cf71334",
+        "evidence": {
+          "file": "multi-schema/schema.sql",
+          "line": 4,
+          "statement": "SELECT id FROM orders",
+          "ast_kind": "SelectStmt"
+        }
+      }
+    ],
+    "tricky_uncertainties": [],
+    "validation": {
+      "multi": {
+        "valid": true,
+        "errors": [],
+        "counts": {
+          "nodes": 11,
+          "edges": 12,
+          "by_kind": {
+            "column": 2,
+            "constraint": 2,
+            "index": 2,
+            "query": 1,
+            "schema": 2,
+            "table": 2
+          }
+        },
+        "checks": [
+          "Unique node and edge IDs",
+          "Deterministic IDs from kind and exact semantic identity",
+          "All edge endpoints exist",
+          "Each edge has source evidence",
+          "Declared object, relationship and kind counts equal actual arrays"
+        ]
+      },
+      "tricky": {
+        "valid": true,
+        "errors": [],
+        "counts": {
+          "nodes": 18,
+          "edges": 30,
+          "by_kind": {
+            "column": 8,
+            "constraint": 2,
+            "function": 2,
+            "index": 1,
+            "partition": 1,
+            "schema": 1,
+            "table": 2,
+            "type": 1
+          }
+        },
+        "checks": [
+          "Unique node and edge IDs",
+          "Deterministic IDs from kind and exact semantic identity",
+          "All edge endpoints exist",
+          "Each edge has source evidence",
+          "Declared object, relationship and kind counts equal actual arrays"
+        ]
+      }
+    },
+    "coverage_gap": "Implicit partition constraint/index physical names and runtime search_path are not source facts."
+  },
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "081b219a4a2c46832b7f89e494114644a69300a62a4c069d7d00c9b98a5f6b6f",
+      "bytes": 472
+    },
+    "report.md": {
+      "sha256": "41793e984649570519f400824271322eaa7d22234645d2ab6a2cf7056f4be7e6",
+      "bytes": 2607
+    }
+  }
+}

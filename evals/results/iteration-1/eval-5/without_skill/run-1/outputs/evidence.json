@@ -1,0 +1,448 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [
+    {
+      "path": "before.model.json",
+      "original_format": "baseline.canonical.v1",
+      "nodes": [
+        {
+          "id": "column:7701840b50fb13aabb080106b94287b62a0edbbfb719690662c3a033f9fb11bb",
+          "kind": "column",
+          "label": "public.customers.name",
+          "signature": [],
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "kind": "column",
+          "label": "public.customers.id",
+          "signature": [],
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "kind": "constraint",
+          "label": "public.customers.primary(id)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "kind": "index",
+          "label": "public.customers.primary(id).supporting_index",
+          "signature": [],
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "schema:a565b2bc33a49fecc827b849707e057a1e2f3c965b1b7107ae4d2e247ea53b53",
+          "kind": "schema",
+          "label": "public",
+          "signature": [],
+          "evidence_ids": []
+        },
+        {
+          "id": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "kind": "table",
+          "label": "public.customers",
+          "signature": [],
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:01b1b4996880a45e0feca548af2a693bf444a16a28280dce9c61ae1bb13e6398",
+          "kind": "indexes_column",
+          "source": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "target": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "edge:0e3ab46660d137bafea94e6e3c90690fcc6972a36dd406cc6851f4476659953f",
+          "kind": "uses_column",
+          "source": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "target": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "edge:489a5c92c65aa7f7f90580e9c5e33bd1e3e897d76599010c9adeea621a37b49c",
+          "kind": "belongs_to",
+          "source": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "edge:8416d62ae21424389a853a23e35851355507cfc9cba47f30c054c75c132e0d5c",
+          "kind": "in_schema",
+          "source": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "target": "schema:a565b2bc33a49fecc827b849707e057a1e2f3c965b1b7107ae4d2e247ea53b53",
+          "properties": {},
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "edge:a54b19c2574f51f88c4b5c7618a3fa0d3180fa690165ba522f739b395bc742f6",
+          "kind": "belongs_to",
+          "source": "column:7701840b50fb13aabb080106b94287b62a0edbbfb719690662c3a033f9fb11bb",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "edge:e93b1872b0ca9ad4bbef3ab7ee4603dd446dd493acfe438674b8a190eadca712",
+          "kind": "belongs_to",
+          "source": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        },
+        {
+          "id": "edge:f8dbef6fde19cf51f2e6ca6ba097226fa48339b11bc04963ad6359e6eb880e95",
+          "kind": "implements_constraint",
+          "source": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "target": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "properties": {},
+          "evidence_ids": [
+            "inline:42381e05d67a9f0d06352bd4"
+          ]
+        }
+      ],
+      "evidence": {
+        "inline:42381e05d67a9f0d06352bd4": {
+          "file": "diff/before.sql",
+          "line": 1,
+          "ast_kind": "CreateStmt"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "inline:42381e05d67a9f0d06352bd4",
+          "path": "diff/before.sql",
+          "line": 1,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [],
+      "findings": [],
+      "counts": {
+        "nodes": 6,
+        "edges": 7,
+        "by_kind": {
+          "column": 2,
+          "constraint": 1,
+          "index": 1,
+          "schema": 1,
+          "table": 1
+        }
+      }
+    },
+    {
+      "path": "after.model.json",
+      "original_format": "baseline.canonical.v1",
+      "nodes": [
+        {
+          "id": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "kind": "column",
+          "label": "public.customers.id",
+          "signature": [],
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "column:ec9e7eca2d233e56632c7424ff9acdf08ca816f2e00c7ff371d08d12d28ec4ca",
+          "kind": "column",
+          "label": "public.customers.display_name",
+          "signature": [],
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "kind": "constraint",
+          "label": "public.customers.primary(id)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "kind": "index",
+          "label": "public.customers.primary(id).supporting_index",
+          "signature": [],
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "schema:a565b2bc33a49fecc827b849707e057a1e2f3c965b1b7107ae4d2e247ea53b53",
+          "kind": "schema",
+          "label": "public",
+          "signature": [],
+          "evidence_ids": []
+        },
+        {
+          "id": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "kind": "table",
+          "label": "public.customers",
+          "signature": [],
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:01b1b4996880a45e0feca548af2a693bf444a16a28280dce9c61ae1bb13e6398",
+          "kind": "indexes_column",
+          "source": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "target": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "edge:0e3ab46660d137bafea94e6e3c90690fcc6972a36dd406cc6851f4476659953f",
+          "kind": "uses_column",
+          "source": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "target": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "edge:489a5c92c65aa7f7f90580e9c5e33bd1e3e897d76599010c9adeea621a37b49c",
+          "kind": "belongs_to",
+          "source": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "edge:8416d62ae21424389a853a23e35851355507cfc9cba47f30c054c75c132e0d5c",
+          "kind": "in_schema",
+          "source": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "target": "schema:a565b2bc33a49fecc827b849707e057a1e2f3c965b1b7107ae4d2e247ea53b53",
+          "properties": {},
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "edge:96f58590439a53d312343451043e75682c7c9e86da585ccb8b3b4c67dc64e4b5",
+          "kind": "belongs_to",
+          "source": "column:ec9e7eca2d233e56632c7424ff9acdf08ca816f2e00c7ff371d08d12d28ec4ca",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "edge:e93b1872b0ca9ad4bbef3ab7ee4603dd446dd493acfe438674b8a190eadca712",
+          "kind": "belongs_to",
+          "source": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        },
+        {
+          "id": "edge:f8dbef6fde19cf51f2e6ca6ba097226fa48339b11bc04963ad6359e6eb880e95",
+          "kind": "implements_constraint",
+          "source": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "target": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "properties": {},
+          "evidence_ids": [
+            "inline:1ed6d01269c9f435ae660c33"
+          ]
+        }
+      ],
+      "evidence": {
+        "inline:1ed6d01269c9f435ae660c33": {
+          "file": "diff/after.sql",
+          "line": 1,
+          "ast_kind": "CreateStmt"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "inline:1ed6d01269c9f435ae660c33",
+          "path": "diff/after.sql",
+          "line": 1,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [],
+      "findings": [],
+      "counts": {
+        "nodes": 6,
+        "edges": 7,
+        "by_kind": {
+          "column": 2,
+          "constraint": 1,
+          "index": 1,
+          "schema": 1,
+          "table": 1
+        }
+      }
+    }
+  ],
+  "html": {
+    "path": "review.html",
+    "bytes": 16454,
+    "has_html": true,
+    "has_svg": true,
+    "model_matches": true,
+    "external_resources": []
+  },
+  "recorded_commands": [],
+  "recorded_exit_codes": [],
+  "offline_record": true,
+  "transcript_sha256": "876907b06a93c07969721908e37fe19546ce453513a1d44865881398ab484477",
+  "analysis": {
+    "format": "baseline.comparison.v1",
+    "added": [
+      {
+        "id": "column:ec9e7eca2d233e56632c7424ff9acdf08ca816f2e00c7ff371d08d12d28ec4ca",
+        "kind": "column",
+        "identity": [
+          "public",
+          "customers",
+          "display_name"
+        ],
+        "label": "public.customers.display_name",
+        "table": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+        "schema": "public",
+        "relation": "customers",
+        "name": "display_name",
+        "data_type": "pg_catalog.text",
+        "nullable": true,
+        "identity_generation": null,
+        "default": null,
+        "evidence": [
+          {
+            "file": "diff/after.sql",
+            "line": 1,
+            "statement": "CREATE TABLE public.customers (id bigint PRIMARY KEY, display_name text)",
+            "ast_kind": "CreateStmt"
+          }
+        ]
+      }
+    ],
+    "removed": [
+      {
+        "id": "column:7701840b50fb13aabb080106b94287b62a0edbbfb719690662c3a033f9fb11bb",
+        "kind": "column",
+        "identity": [
+          "public",
+          "customers",
+          "name"
+        ],
+        "label": "public.customers.name",
+        "table": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+        "schema": "public",
+        "relation": "customers",
+        "name": "name",
+        "data_type": "pg_catalog.text",
+        "nullable": true,
+        "identity_generation": null,
+        "default": null,
+        "evidence": [
+          {
+            "file": "diff/before.sql",
+            "line": 1,
+            "statement": "CREATE TABLE public.customers (id bigint PRIMARY KEY, name text)",
+            "ast_kind": "CreateStmt"
+          }
+        ]
+      }
+    ],
+    "changed": [],
+    "ambiguous": [
+      {
+        "kind": "possible_rename",
+        "before": "public.customers.name",
+        "after": "public.customers.display_name",
+        "certainty": "unproven",
+        "reason": "Same table and type, but snapshots do not establish intent or data preservation. Treat as remove/add until a reviewed rename mapping is supplied."
+      }
+    ],
+    "destructive": [
+      {
+        "kind": "column_removed",
+        "object": "public.customers.name",
+        "risk": "Dropping the column would destroy stored name data and break unseen consumers.",
+        "certainty": "structural removal in source snapshots; actual production DDL and data effect unexecuted"
+      }
+    ],
+    "execution": false,
+    "counts": {
+      "before": {
+        "nodes": 6,
+        "edges": 7,
+        "by_kind": {
+          "column": 2,
+          "constraint": 1,
+          "index": 1,
+          "schema": 1,
+          "table": 1
+        }
+      },
+      "after": {
+        "nodes": 6,
+        "edges": 7,
+        "by_kind": {
+          "column": 2,
+          "constraint": 1,
+          "index": 1,
+          "schema": 1,
+          "table": 1
+        }
+      },
+      "added": 1,
+      "removed": 1,
+      "changed": 0
+    }
+  },
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "066357d622018300f476a35315e4e26aefd49d3773a75439e90ad4ecf628fa90",
+      "bytes": 321
+    },
+    "report.md": {
+      "sha256": "8f1c392b995cfcec371238ecc9abbbedb1a54ae8aa0d2c2163584b9ee9b77541",
+      "bytes": 1328
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies the orders customer FK",
+      "passed": true,
+      "evidence": "Graph contains a source-backed foreign-key path from public.orders.customer_id to public.customers.id; response/report identifies that relationship."
+    },
+    {
+      "text": "Identifies customer_summary view",
+      "passed": true,
+      "evidence": "Graph path connects public.customer_summary to public.customers.id; response/report explains the view's join/output impact."
+    },
+    {
+      "text": "Provides source evidence",
+      "passed": true,
+      "evidence": "Checked 12 referenced SQL evidence records against copied input paths, lines and recorded hashes or statement contents. All match."
+    },
+    {
+      "text": "Provides staged migration plan",
+      "passed": true,
+      "evidence": "staged-migration-review.md or report.md gives expand, bounded backfill, validation, consumer transition, contract gates and retained-data/recovery conditions; an integer-to-UUID mapping is required."
+    },
+    {
+      "text": "Creates parseable canonical graph and offline HTML",
+      "passed": true,
+      "evidence": "Parsed graph has 66 unique nodes and 144 valid evidence-backed edges. Actual HTML embeds identical model JSON, SVG graph and no external script/link/image resources. Format baseline.canonical.v1 is accepted on its own declared contract."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Generated dependency models have valid graph identifiers and no dangling edges",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Independent compact-graph checks verify unique node/edge IDs, existing endpoints and resolved nonempty edge evidence. This verifies graph integrity, not exhaustive runtime dependency coverage."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "One paired sample; timing/token telemetry unavailable; human qualitative review pending."
+    ],
+    "needs_review": [
+      "Read the actual response and report in the static review viewer."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "A staged narrative can pass while the saved backfill reviewer returns low risk and zero operations. Add a specific unsupported-DML risk assertion."
+      }
+    ],
+    "overall": "Grade only the declared assertions. Separate known implementation gaps from paired assertion results."
+  },
+  "measurement_availability": {
+    "time_seconds": "unavailable",
+    "tokens": "unavailable",
+    "tool_calls": "unavailable"
+  }
+}

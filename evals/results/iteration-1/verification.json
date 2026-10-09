@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "static_viewer_runs": 16,
+  "graded_assertions": 50,
+  "source_output_files_verified_unchanged": 221,
+  "input_manifests_identical": true,
+  "actual_responses_present": 16,
+  "complete_formal_grades_present": true,
+  "missing_telemetry_is_null": true,
+  "creator_aggregate_exit_code": 0,
+  "creator_viewer_exit_code": 0,
+  "viewer_javascript_syntax_exit_code": 0,
+  "trigger_failed_queries_excluded": 10,
+  "browser_interactions_for_review_viewer": "not independently tested"
+}

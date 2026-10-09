@@ -1,0 +1,51 @@
+{
+  "expectations": [
+    {
+      "text": "Explicitly reports dynamic UNKNOWN coverage",
+      "passed": true,
+      "evidence": "The actual outputs retain two unresolved dynamic sites: lookup_customer(field_name) and app/query.ts column interpolation. Neither is promoted to a confirmed email dependency."
+    },
+    {
+      "text": "Retains static SQL evidence",
+      "passed": true,
+      "evidence": "app/static.sql line 1 is retained as checked source evidence, with an actual grounded query-to-public.customers.email edge."
+    },
+    {
+      "text": "Does not claim exhaustive consumer discovery",
+      "passed": true,
+      "evidence": "response/report explicitly limits discovery to supplied grounded/static sources and says complete runtime consumer discovery cannot be established."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Generated dependency models have valid graph identifiers and no dangling edges",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Independent compact-graph checks verify unique node/edge IDs, existing endpoints and resolved nonempty edge evidence. This verifies graph integrity, not exhaustive runtime dependency coverage."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "One paired sample; timing/token telemetry unavailable; human qualitative review pending."
+    ],
+    "needs_review": [
+      "Read the actual response and report in the static review viewer."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Grade only the declared assertions. Separate known implementation gaps from paired assertion results."
+  },
+  "measurement_availability": {
+    "time_seconds": "unavailable",
+    "tokens": "unavailable",
+    "tool_calls": "unavailable"
+  }
+}

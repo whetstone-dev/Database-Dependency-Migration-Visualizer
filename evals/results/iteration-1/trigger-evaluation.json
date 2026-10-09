@@ -1,0 +1,19 @@
+{
+  "status": "unavailable",
+  "date": "2026-10-09",
+  "command": "python -m scripts.run_eval --eval-set C:/Users/josed/Desktop/Jose/whetstone-dev/Database-Dependency-Migration-Visualizer/evals/trigger-queries.json --skill-path C:/Users/josed/Desktop/Jose/whetstone-dev/Database-Dependency-Migration-Visualizer --runs-per-query 1 --num-workers 1 --timeout 20",
+  "cwd": "C:/Users/josed/.agents/skills/skill-creator",
+  "captured_command_exit_code": 0,
+  "command_exit_note": "The process returned zero despite every query failing; it does not indicate a successful trigger evaluation.",
+  "attempted_queries": 10,
+  "successful_queries": 0,
+  "failed_queries": 10,
+  "error": "[WinError 10038] An operation was attempted on something that is not a socket",
+  "cause_evidence": "Installed scripts/run_eval.py starts subprocess.Popen with stdout=PIPE and calls select.select([process.stdout], [], [], 1.0) at line 108; Windows select does not support these subprocess pipes.",
+  "raw_output": "trigger-evaluation.txt",
+  "raw_output_sha256": "95b392ac1c61c3f75de67764ceba38bd53fe82a194258c77a28d46efa0bdac6d",
+  "raw_scores_excluded": true,
+  "trigger_accuracy": null,
+  "description_optimization_performed": false,
+  "note": "Raw output includes spurious 5/10 passes from failed queries being treated as non-triggering. These scores are excluded from the benchmark."
+}

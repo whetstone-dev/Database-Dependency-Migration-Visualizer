@@ -1,0 +1,9 @@
+The two inputs were analyzed separately. Strict validation passed for both canonical models.
+
+`multi-schema/schema.sql` preserves separate stable IDs for `public.orders`, `sales.orders`, their id columns and their primary keys. The unqualified `SELECT id FROM orders` at line 4 remains UNKNOWN because the relation is ambiguous and no search_path was supplied. The toolkit creates no invented query-reference edge to either table. This model has 8 nodes, 6 edges and 2 UNKNOWN gaps.
+
+`tricky-identifiers/schema.sql` preserves the case and quoting of `"Commerce"."Order"."CustomerID"`, the custom type `"Commerce".state`, and both `"Commerce".label` overloads. Their stable IDs end in `/label/int8` and `/label/text`; bigint is parser-normalized to int8. The composite FK retains local order `[customer_id, region]` and grounded column pairs to `[CustomerID, region]`. `order_eu` has a PARSED partition edge to the partitioned `"Order"` parent. This model has 14 nodes, 19 edges and 3 UNKNOWN gaps.
+
+The routine bodies are UNKNOWN. The child partition's inherited column definitions and partition bounds are not expanded offline, and implicit constraint names are inferred rather than actual catalog names. One extra parser limitation is visible: the composite primary-key columns have `nullable: true` in their column properties even though the primary-key constraint implies PostgreSQL non-nullability. Do not treat those offline flags as observed catalog nullability.
+
+Artifacts: [multi-schema model](multi-schema.dbdep.json), [multi-schema HTML](multi-schema.html), [multi-schema Markdown](multi-schema.md), [identifier model](tricky-identifiers.dbdep.json), [identifier HTML](tricky-identifiers.html), [identifier Markdown](tricky-identifiers.md), and the adjacent `*-validation.json` files. Evidence retains source lines, hashes, edge kinds and quoted names. No SQL, catalog discovery, overload-call binding or browser checks were performed.

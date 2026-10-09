@@ -1,0 +1,2103 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [
+    {
+      "path": "review-statements/model.dbdep.json",
+      "original_format": "1.0.0",
+      "nodes": [
+        {
+          "id": "postgresql:local/application/query//ecommerce%2Fapp%2Fcustomers.sql%3Aev%3A59c52565934305e43d53c223/",
+          "kind": "query",
+          "label": "application.\"ecommerce/app/customers.sql:ev:59c52565934305e43d53c223\"",
+          "signature": "",
+          "evidence_ids": [
+            "ev:59c52565934305e43d53c223"
+          ]
+        },
+        {
+          "id": "postgresql:local/application/query//ecommerce%2Fapp%2Forders.sql%3Aev%3A6edae884e8be4a6f33f3a9b8/",
+          "kind": "query",
+          "label": "application.\"ecommerce/app/orders.sql:ev:6edae884e8be4a6f33f3a9b8\"",
+          "signature": "",
+          "evidence_ids": [
+            "ev:6edae884e8be4a6f33f3a9b8"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/addresses/city/",
+          "kind": "column",
+          "label": "public.addresses.city",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/addresses/customer_id/",
+          "kind": "column",
+          "label": "public.addresses.customer_id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/addresses/id/",
+          "kind": "column",
+          "label": "public.addresses.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customer_summary/email/",
+          "kind": "column",
+          "label": "public.customer_summary.email",
+          "signature": "",
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customer_summary/id/",
+          "kind": "column",
+          "label": "public.customer_summary.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customer_summary/order_count/",
+          "kind": "column",
+          "label": "public.customer_summary.order_count",
+          "signature": "",
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customers/email/",
+          "kind": "column",
+          "label": "public.customers.email",
+          "signature": "",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customers/id/",
+          "kind": "column",
+          "label": "public.customers.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customers/name/",
+          "kind": "column",
+          "label": "public.customers.name",
+          "signature": "",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/customers/updated_at/",
+          "kind": "column",
+          "label": "public.customers.updated_at",
+          "signature": "",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/order_items/order_id/",
+          "kind": "column",
+          "label": "public.order_items.order_id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/order_items/product_id/",
+          "kind": "column",
+          "label": "public.order_items.product_id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/order_items/quantity/",
+          "kind": "column",
+          "label": "public.order_items.quantity",
+          "signature": "",
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/orders/created_at/",
+          "kind": "column",
+          "label": "public.orders.created_at",
+          "signature": "",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/orders/customer_id/",
+          "kind": "column",
+          "label": "public.orders.customer_id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/orders/id/",
+          "kind": "column",
+          "label": "public.orders.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/orders/total_amount/",
+          "kind": "column",
+          "label": "public.orders.total_amount",
+          "signature": "",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/payments/amount/",
+          "kind": "column",
+          "label": "public.payments.amount",
+          "signature": "",
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/payments/id/",
+          "kind": "column",
+          "label": "public.payments.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/payments/order_id/",
+          "kind": "column",
+          "label": "public.payments.order_id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/products/id/",
+          "kind": "column",
+          "label": "public.products.id",
+          "signature": "",
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/products/price/",
+          "kind": "column",
+          "label": "public.products.price",
+          "signature": "",
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/column/products/sku/",
+          "kind": "column",
+          "label": "public.products.sku",
+          "signature": "",
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/",
+          "kind": "constraint",
+          "label": "public.addresses.addresses_customer_id_fkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/addresses/addresses_pkey/",
+          "kind": "constraint",
+          "label": "public.addresses.addresses_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/customers/customers_email_key/",
+          "kind": "constraint",
+          "label": "public.customers.customers_email_key",
+          "signature": "",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "kind": "constraint",
+          "label": "public.customers.customers_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/",
+          "kind": "constraint",
+          "label": "public.order_items.order_items_order_id_fkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/order_items/order_items_pkey/",
+          "kind": "constraint",
+          "label": "public.order_items.order_items_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/",
+          "kind": "constraint",
+          "label": "public.order_items.order_items_product_id_fkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/order_items/order_items_quantity_check/",
+          "kind": "constraint",
+          "label": "public.order_items.order_items_quantity_check",
+          "signature": "",
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/",
+          "kind": "constraint",
+          "label": "public.orders.orders_customer_id_fkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/orders/orders_pkey/",
+          "kind": "constraint",
+          "label": "public.orders.orders_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/orders/orders_total_amount_check/",
+          "kind": "constraint",
+          "label": "public.orders.orders_total_amount_check",
+          "signature": "",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/payments/payments_amount_check/",
+          "kind": "constraint",
+          "label": "public.payments.payments_amount_check",
+          "signature": "",
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/payments/payments_order_id_fkey/",
+          "kind": "constraint",
+          "label": "public.payments.payments_order_id_fkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/payments/payments_pkey/",
+          "kind": "constraint",
+          "label": "public.payments.payments_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/products/products_pkey/",
+          "kind": "constraint",
+          "label": "public.products.products_pkey",
+          "signature": "",
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/products/products_price_check/",
+          "kind": "constraint",
+          "label": "public.products.products_price_check",
+          "signature": "",
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/constraint/products/products_sku_key/",
+          "kind": "constraint",
+          "label": "public.products.products_sku_key",
+          "signature": "",
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/function//touch_customer/",
+          "kind": "function",
+          "label": "public.touch_customer",
+          "signature": "",
+          "evidence_ids": [
+            "ev:4f69437ac7f5c8cbda748786"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/index//orders_customer_idx/",
+          "kind": "index",
+          "label": "public.orders_customer_idx",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7bb702d26adaca873647463c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//addresses/",
+          "kind": "table",
+          "label": "public.addresses",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//customers/",
+          "kind": "table",
+          "label": "public.customers",
+          "signature": "",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//order_items/",
+          "kind": "table",
+          "label": "public.order_items",
+          "signature": "",
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//orders/",
+          "kind": "table",
+          "label": "public.orders",
+          "signature": "",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//payments/",
+          "kind": "table",
+          "label": "public.payments",
+          "signature": "",
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/table//products/",
+          "kind": "table",
+          "label": "public.products",
+          "signature": "",
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/trigger/customers/customers_touch/",
+          "kind": "trigger",
+          "label": "public.customers.customers_touch",
+          "signature": "",
+          "evidence_ids": [
+            "ev:7a1ea50bf852541dd6d15641"
+          ]
+        },
+        {
+          "id": "postgresql:local/public/view//customer_summary/",
+          "kind": "view",
+          "label": "public.customer_summary",
+          "signature": "",
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:014fb6369ba96ca9ec2ffb6e",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/index//orders_customer_idx/",
+          "target": "postgresql:local/public/column/orders/customer_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7bb702d26adaca873647463c"
+          ]
+        },
+        {
+          "id": "edge:039c1476ad83adcfbec11173",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/",
+          "target": "postgresql:local/public/table//addresses/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:045ea7837245d780f6bd9784",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/payments/payments_pkey/",
+          "target": "postgresql:local/public/table//payments/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:0851ad8fe0585c76f9094d56",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Fcustomers.sql%3Aev%3A59c52565934305e43d53c223/",
+          "target": "postgresql:local/public/column/customers/email/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:59c52565934305e43d53c223"
+          ]
+        },
+        {
+          "id": "edge:0881ca904c09bb6d69c5346a",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Forders.sql%3Aev%3A6edae884e8be4a6f33f3a9b8/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:6edae884e8be4a6f33f3a9b8"
+          ]
+        },
+        {
+          "id": "edge:0fb0d5ae6ad1a8a9b4656dd8",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/products/products_sku_key/",
+          "target": "postgresql:local/public/table//products/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:122fa6ad729c390103dc691f",
+          "kind": "contains",
+          "source": "postgresql:local/public/index//orders_customer_idx/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7bb702d26adaca873647463c"
+          ]
+        },
+        {
+          "id": "edge:15a98650d36329127ed2f187",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Fcustomers.sql%3Aev%3A59c52565934305e43d53c223/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:59c52565934305e43d53c223"
+          ]
+        },
+        {
+          "id": "edge:161c9f0a16b2a00134172398",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/customers/customers_email_key/",
+          "target": "postgresql:local/public/column/customers/email/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "edge:18a94627aae399dfc7524ec3",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/orders/id/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:1a413343114cc7a6e07d44c2",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/updated_at/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "edge:1aa24304fac7db22fadbc3a2",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/addresses/customer_id/",
+          "target": "postgresql:local/public/table//addresses/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:1bcd6e24900e51e656e6f21b",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/table//order_items/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {
+            "columns": [
+              "order_id"
+            ],
+            "constraint": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:232653f444b6a70b4d96a2df",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/addresses/addresses_pkey/",
+          "target": "postgresql:local/public/column/addresses/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:24a25eea6c256af13096b2d4",
+          "kind": "query_reference",
+          "source": "postgresql:local/public/view//customer_summary/",
+          "target": "postgresql:local/public/column/customers/email/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "edge:2b4a327b2a480706c0fa842d",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/addresses/id/",
+          "target": "postgresql:local/public/table//addresses/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:2eddcbe6246a409f53fb05a8",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/addresses/city/",
+          "target": "postgresql:local/public/table//addresses/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:2fc82a466cea94afdf966e07",
+          "kind": "trigger_association",
+          "source": "postgresql:local/public/trigger/customers/customers_touch/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7a1ea50bf852541dd6d15641"
+          ]
+        },
+        {
+          "id": "edge:31b516307eef6dd0a3d257d6",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/order_items/order_id/",
+          "target": "postgresql:local/public/table//order_items/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:3634c280e7bd58ba878b4bd5",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/table//order_items/",
+          "target": "postgresql:local/public/table//products/",
+          "properties": {
+            "columns": [
+              "product_id"
+            ],
+            "constraint": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:3b289f427a95423bbd406239",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/",
+          "target": "postgresql:local/public/table//products/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:3dbcb28a598d1287c610d195",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/column/order_items/product_id/",
+          "target": "postgresql:local/public/column/products/id/",
+          "properties": {
+            "constraint": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:401ee37fdb3bbf4a5528011c",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/",
+          "target": "postgresql:local/public/table//order_items/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:40d02f1c57f8f8758fd3a0ad",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/column/payments/order_id/",
+          "target": "postgresql:local/public/column/orders/id/",
+          "properties": {
+            "constraint": "postgresql:local/public/constraint/payments/payments_order_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:410170d0fd582dcf85677e5e",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "edge:42b516772ae0c490fc62e11c",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/payments/amount/",
+          "target": "postgresql:local/public/table//payments/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:44748c81a94abde3f9f756c1",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/email/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "edge:449d080bde5028b829fd281a",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/name/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "edge:44d66a7aff316bf5ae5422bb",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/column/orders/customer_id/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {
+            "constraint": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:4580eea6c42deda00031cb1b",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Forders.sql%3Aev%3A6edae884e8be4a6f33f3a9b8/",
+          "target": "postgresql:local/public/column/customers/email/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:6edae884e8be4a6f33f3a9b8"
+          ]
+        },
+        {
+          "id": "edge:48a79b124fd8f5501294bd59",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/table//addresses/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {
+            "columns": [
+              "customer_id"
+            ],
+            "constraint": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:4a7033277226f1e9e08179aa",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/order_items/order_items_pkey/",
+          "target": "postgresql:local/public/column/order_items/product_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:4ce9f3570cb6485f20a2dbcd",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/order_items/order_items_quantity_check/",
+          "target": "postgresql:local/public/table//order_items/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:4e1fa2807febdcd4d9200ce4",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/customers/customers_pkey/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "edge:5402d78cd2ee1aefae55d740",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/orders/created_at/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:5854677188c6ab1c841f33ed",
+          "kind": "query_reference",
+          "source": "postgresql:local/public/view//customer_summary/",
+          "target": "postgresql:local/public/column/orders/customer_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "edge:60ad7cd6bb923381214b28e2",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:62a5bb71cf88a0ebc61e744d",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/payments/order_id/",
+          "target": "postgresql:local/public/table//payments/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:6645cd6495ff6c86c67b7735",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/column/order_items/order_id/",
+          "target": "postgresql:local/public/column/orders/id/",
+          "properties": {
+            "constraint": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:677ae00d0c7a9c0da989d521",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/",
+          "target": "postgresql:local/public/table//order_items/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:6b2841bdbb86b76035041220",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/products/products_sku_key/",
+          "target": "postgresql:local/public/column/products/sku/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:6e209e98877452de8f04385b",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customer_summary/email/",
+          "target": "postgresql:local/public/view//customer_summary/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "edge:70b99d9fe922a3c18f4c8af6",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/payments/payments_pkey/",
+          "target": "postgresql:local/public/column/payments/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:72e4dbea2868d0edf6d75617",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Fcustomers.sql%3Aev%3A59c52565934305e43d53c223/",
+          "target": "postgresql:local/public/column/customers/name/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:59c52565934305e43d53c223"
+          ]
+        },
+        {
+          "id": "edge:736cfb70616ad64e5fea8a64",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/payments/payments_order_id_fkey/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:7837858bd3df10a567f8cbaf",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:798bf1495a9616dfc44da35f",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:7c3d95829ec97237d73cd2b0",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Forders.sql%3Aev%3A6edae884e8be4a6f33f3a9b8/",
+          "target": "postgresql:local/public/column/orders/customer_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:6edae884e8be4a6f33f3a9b8"
+          ]
+        },
+        {
+          "id": "edge:7caee1f2d00ec61a20734f19",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:80ea424e44ca67d3c85bc3c5",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customers/id/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "edge:84fd02626281052b4b8da601",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Forders.sql%3Aev%3A6edae884e8be4a6f33f3a9b8/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:6edae884e8be4a6f33f3a9b8"
+          ]
+        },
+        {
+          "id": "edge:874d99945657054a80df9f02",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/payments/id/",
+          "target": "postgresql:local/public/table//payments/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:888273ce7767cc3e55291871",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/orders/total_amount/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:8d3c400eda2590da824c965e",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customer_summary/id/",
+          "target": "postgresql:local/public/view//customer_summary/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "edge:9001b115d6c5c48b4b5718ff",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/order_items/quantity/",
+          "target": "postgresql:local/public/table//order_items/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:915dbd09bf68bffded0ae047",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:92770579ce3614224de617f8",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/orders/orders_total_amount_check/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:934317bef6bd0d8b64b07de8",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/orders/orders_pkey/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:9d307aea5e208abba7504fb0",
+          "kind": "trigger_association",
+          "source": "postgresql:local/public/trigger/customers/customers_touch/",
+          "target": "postgresql:local/public/function//touch_customer/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7a1ea50bf852541dd6d15641"
+          ]
+        },
+        {
+          "id": "edge:a015479748dd21cd60fd8a0a",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/",
+          "target": "postgresql:local/public/column/products/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:a1124830e48944670a024eb4",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/addresses/addresses_pkey/",
+          "target": "postgresql:local/public/table//addresses/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:a18f0d0aad42f66fd28f2f7e",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Forders.sql%3Aev%3A6edae884e8be4a6f33f3a9b8/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:6edae884e8be4a6f33f3a9b8"
+          ]
+        },
+        {
+          "id": "edge:a8578a71397a160629502a5d",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/orders/customer_id/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:a8bea9311b58d34372ee5943",
+          "kind": "query_reference",
+          "source": "postgresql:local/public/view//customer_summary/",
+          "target": "postgresql:local/public/column/orders/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "edge:aa1d9857feb03fc467ed1835",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/customer_summary/order_count/",
+          "target": "postgresql:local/public/view//customer_summary/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "edge:aa9343ef5c72a1e514641dc7",
+          "kind": "query_reference",
+          "source": "postgresql:local/public/view//customer_summary/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "edge:ab57c32d1ca5e49471c0e69f",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/products/products_pkey/",
+          "target": "postgresql:local/public/table//products/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:b46c6771af0c7cce8c703439",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/payments/payments_amount_check/",
+          "target": "postgresql:local/public/column/payments/amount/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:b56c1afd0a396b95aa250d46",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/order_items/order_items_pkey/",
+          "target": "postgresql:local/public/table//order_items/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:b5a2dd9e0a0aee2e73b67645",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/orders/orders_pkey/",
+          "target": "postgresql:local/public/column/orders/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:b9350e018d2b83935b43f8e5",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/customers/customers_email_key/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ]
+        },
+        {
+          "id": "edge:bd76b231209c7ac5dfb5d135",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/",
+          "target": "postgresql:local/public/column/orders/customer_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:bd8703a71aa20f06a188f31a",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/order_items/product_id/",
+          "target": "postgresql:local/public/table//order_items/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:bfbd70b18088be5067d31392",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/order_items/order_items_pkey/",
+          "target": "postgresql:local/public/column/order_items/order_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:c16f4cfd54106b6c8e8dc4c4",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/payments/payments_order_id_fkey/",
+          "target": "postgresql:local/public/column/payments/order_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:c2786e69f27a2cd6be074dd2",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/column/addresses/customer_id/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {
+            "constraint": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:c304e3f1ec10a8522807ed02",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:c6db438473e1dc0ad23a61c5",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/products/products_price_check/",
+          "target": "postgresql:local/public/column/products/price/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:c948f07dc01014d3fd85a52f",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Forders.sql%3Aev%3A6edae884e8be4a6f33f3a9b8/",
+          "target": "postgresql:local/public/column/orders/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:6edae884e8be4a6f33f3a9b8"
+          ]
+        },
+        {
+          "id": "edge:cc78273a87fe1c6a12f06cc1",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/table//payments/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {
+            "columns": [
+              "order_id"
+            ],
+            "constraint": "postgresql:local/public/constraint/payments/payments_order_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:cca075e9467576ace56005b6",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/orders/orders_total_amount_check/",
+          "target": "postgresql:local/public/column/orders/total_amount/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:d2eaa63d8161d39cbc653547",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/order_items/order_items_product_id_fkey/",
+          "target": "postgresql:local/public/column/order_items/product_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:d6d65fcf67cce94975a45ea3",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/payments/payments_order_id_fkey/",
+          "target": "postgresql:local/public/column/orders/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:da05ef9838f3b40e481aa89b",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/products/price/",
+          "target": "postgresql:local/public/table//products/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:da43cc551d6ebd2502680372",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/products/id/",
+          "target": "postgresql:local/public/table//products/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:db4d1de881c14419de3a5da1",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/",
+          "target": "postgresql:local/public/column/order_items/order_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:dd41ab75e8f6f830dc31f0a4",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/order_items/order_items_quantity_check/",
+          "target": "postgresql:local/public/column/order_items/quantity/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:e247fcd60cd703bd273870d3",
+          "kind": "contains",
+          "source": "postgresql:local/public/column/products/sku/",
+          "target": "postgresql:local/public/table//products/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:e3c80c6f9a40402c0639859b",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/table//orders/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {
+            "columns": [
+              "customer_id"
+            ],
+            "constraint": "postgresql:local/public/constraint/orders/orders_customer_id_fkey/"
+          },
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ]
+        },
+        {
+          "id": "edge:e521ca969a90e606c97ee566",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/products/products_price_check/",
+          "target": "postgresql:local/public/table//products/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:e7c5867b3ce8bcd2b069bdf6",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/",
+          "target": "postgresql:local/public/column/addresses/customer_id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ]
+        },
+        {
+          "id": "edge:e9d97ad7f9c6fc87b4876e0d",
+          "kind": "foreign_key",
+          "source": "postgresql:local/public/constraint/order_items/order_items_order_id_fkey/",
+          "target": "postgresql:local/public/column/orders/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:951337081d567c90d0f07f91"
+          ]
+        },
+        {
+          "id": "edge:f11cb6fd65b5939a87c57062",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/payments/payments_amount_check/",
+          "target": "postgresql:local/public/table//payments/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:f23585bc075e6bd84fb1a091",
+          "kind": "query_reference",
+          "source": "postgresql:local/public/view//customer_summary/",
+          "target": "postgresql:local/public/table//orders/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        },
+        {
+          "id": "edge:f2c7e8b20cdac58ce5452310",
+          "kind": "expression_reference",
+          "source": "postgresql:local/public/constraint/products/products_pkey/",
+          "target": "postgresql:local/public/column/products/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ]
+        },
+        {
+          "id": "edge:f5b2743a929e3c7b4735b66b",
+          "kind": "query_reference",
+          "source": "postgresql:local/application/query//ecommerce%2Fapp%2Fcustomers.sql%3Aev%3A59c52565934305e43d53c223/",
+          "target": "postgresql:local/public/column/customers/id/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:59c52565934305e43d53c223"
+          ]
+        },
+        {
+          "id": "edge:f7c786367780958842099671",
+          "kind": "contains",
+          "source": "postgresql:local/public/constraint/payments/payments_order_id_fkey/",
+          "target": "postgresql:local/public/table//payments/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ]
+        },
+        {
+          "id": "edge:ffb83430132bc8b5e521cc1e",
+          "kind": "query_reference",
+          "source": "postgresql:local/public/view//customer_summary/",
+          "target": "postgresql:local/public/table//customers/",
+          "properties": {},
+          "evidence_ids": [
+            "ev:4bbbbb8d872ccb4247160475"
+          ]
+        }
+      ],
+      "evidence": {
+        "ev:59c52565934305e43d53c223": {
+          "confidence": "direct",
+          "id": "ev:59c52565934305e43d53c223",
+          "line_end": 1,
+          "line_start": 1,
+          "origin": "application_source",
+          "path": "ecommerce/app/customers.sql",
+          "source_hash": "sha256:a415aaea7a68344c4f8c3e93fc4233772176a54a53c14c74541c2e512be81470",
+          "status": "PARSED"
+        },
+        "ev:6edae884e8be4a6f33f3a9b8": {
+          "confidence": "direct",
+          "id": "ev:6edae884e8be4a6f33f3a9b8",
+          "line_end": 2,
+          "line_start": 1,
+          "origin": "application_source",
+          "path": "ecommerce/app/orders.sql",
+          "source_hash": "sha256:07ed8c193824ea5e25844e2be152acec7d04492c5b3d5ca9fbc55d2ee4e1421e",
+          "status": "PARSED"
+        },
+        "ev:7e155552e9cab38a926a994c": {
+          "confidence": "direct",
+          "id": "ev:7e155552e9cab38a926a994c",
+          "line_end": 11,
+          "line_start": 7,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:4bbbbb8d872ccb4247160475": {
+          "confidence": "direct",
+          "id": "ev:4bbbbb8d872ccb4247160475",
+          "line_end": 38,
+          "line_start": 35,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:9892ccf180b3b170b70ac607": {
+          "confidence": "direct",
+          "id": "ev:9892ccf180b3b170b70ac607",
+          "line_end": 6,
+          "line_start": 1,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:951337081d567c90d0f07f91": {
+          "confidence": "direct",
+          "id": "ev:951337081d567c90d0f07f91",
+          "line_end": 28,
+          "line_start": 23,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:df833391c79cdcc28673e697": {
+          "confidence": "direct",
+          "id": "ev:df833391c79cdcc28673e697",
+          "line_end": 22,
+          "line_start": 17,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:3949734689a3e42779b3e74a": {
+          "confidence": "direct",
+          "id": "ev:3949734689a3e42779b3e74a",
+          "line_end": 33,
+          "line_start": 29,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:a6badb49294176a6dce11d6c": {
+          "confidence": "direct",
+          "id": "ev:a6badb49294176a6dce11d6c",
+          "line_end": 16,
+          "line_start": 12,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:4f69437ac7f5c8cbda748786": {
+          "confidence": "direct",
+          "id": "ev:4f69437ac7f5c8cbda748786",
+          "line_end": 44,
+          "line_start": 39,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:7bb702d26adaca873647463c": {
+          "confidence": "direct",
+          "id": "ev:7bb702d26adaca873647463c",
+          "line_end": 34,
+          "line_start": 34,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        },
+        "ev:7a1ea50bf852541dd6d15641": {
+          "confidence": "direct",
+          "id": "ev:7a1ea50bf852541dd6d15641",
+          "line_end": 46,
+          "line_start": 45,
+          "origin": "sql_file",
+          "path": "ecommerce/schema.sql",
+          "source_hash": "sha256:613c7315ca18c17eace15b1baab2cb6c2a3fc1a6b355702acda1fa3ff181922d",
+          "status": "PARSED"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "ev:59c52565934305e43d53c223",
+          "path": "ecommerce/app/customers.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:6edae884e8be4a6f33f3a9b8",
+          "path": "ecommerce/app/orders.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:7e155552e9cab38a926a994c",
+          "path": "ecommerce/schema.sql",
+          "line": 7,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:4bbbbb8d872ccb4247160475",
+          "path": "ecommerce/schema.sql",
+          "line": 35,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:9892ccf180b3b170b70ac607",
+          "path": "ecommerce/schema.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:951337081d567c90d0f07f91",
+          "path": "ecommerce/schema.sql",
+          "line": 23,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:df833391c79cdcc28673e697",
+          "path": "ecommerce/schema.sql",
+          "line": 17,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:3949734689a3e42779b3e74a",
+          "path": "ecommerce/schema.sql",
+          "line": 29,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:a6badb49294176a6dce11d6c",
+          "path": "ecommerce/schema.sql",
+          "line": 12,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:4f69437ac7f5c8cbda748786",
+          "path": "ecommerce/schema.sql",
+          "line": 39,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:7bb702d26adaca873647463c",
+          "path": "ecommerce/schema.sql",
+          "line": 34,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "ev:7a1ea50bf852541dd6d15641",
+          "path": "ecommerce/schema.sql",
+          "line": 45,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:10fd48b97b9b547c534c665b",
+          "object_id": "postgresql:local/public/column/orders/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:4f69437ac7f5c8cbda748786"
+          ],
+          "explanation": "Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.",
+          "id": "unknown:30e9b0c3a208a37fcb0e146a",
+          "object_id": "postgresql:local/public/function//touch_customer/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ],
+          "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+          "id": "unknown:4051262501d3e96e63b7320f",
+          "object_id": "postgresql:local/public/column/customers/updated_at/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:9892ccf180b3b170b70ac607"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:5b1ed1b4a5267bc7af6f05b9",
+          "object_id": "postgresql:local/public/column/customers/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:3949734689a3e42779b3e74a"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:618aa548d388cd4494e514c9",
+          "object_id": "postgresql:local/public/column/payments/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:7e155552e9cab38a926a994c"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:6eccea38195fa64747daab5e",
+          "object_id": "postgresql:local/public/column/addresses/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:a6badb49294176a6dce11d6c"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:9318c4aa0556ede7dde16dae",
+          "object_id": "postgresql:local/public/column/products/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:df833391c79cdcc28673e697"
+          ],
+          "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+          "id": "unknown:ff31736639565ca515346968",
+          "object_id": "postgresql:local/public/column/orders/created_at/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        }
+      ],
+      "findings": [
+        {
+          "confidence": "conditional",
+          "evidence": [
+            "ev:3cd14a027173cf7c947f4264"
+          ],
+          "evidence_ids": [
+            "ev:3cd14a027173cf7c947f4264"
+          ],
+          "id": "finding:5c8cf591c9b48688988fb836",
+          "object_ids": [
+            "postgresql:local/public/constraint/orders/orders_total_amount_check/"
+          ],
+          "origin": "migration_diff",
+          "reason": "Constraints/indexes/column-specific triggers depend on the changed object via the displayed edge kinds.",
+          "remediation": "Rebuild or transition affected objects with verified order and constraint validation.",
+          "risk_dimensions": [
+            "compatibility",
+            "deployment_order"
+          ],
+          "risk_level": "high",
+          "rule_id": "DDM014",
+          "severity": "error",
+          "status": "PARSED"
+        },
+        {
+          "confidence": "conditional",
+          "evidence": [
+            "ev:3cd14a027173cf7c947f4264"
+          ],
+          "evidence_ids": [
+            "ev:3cd14a027173cf7c947f4264"
+          ],
+          "id": "finding:a215fd850526a78eb986838d",
+          "object_ids": [
+            "postgresql:local/public/column/orders/total_amount/"
+          ],
+          "origin": "migration_diff",
+          "reason": "Type transition numeric(12,2) to float8. Conversion compatibility requires type/cast and data verification. PostgreSQL 18 ALTER COLUMN TYPE generally takes ACCESS EXCLUSIVE; rewrite/index rebuild depends on cast, typmod and USING expression. Rewrite and lock duration are conditional.",
+          "remediation": "Design and verify a mapping/replacement column. Check USING, defaults, FKs, views, indexes and actual cast support in a disposable database.",
+          "risk_dimensions": [
+            "compatibility",
+            "locking",
+            "rewrite"
+          ],
+          "risk_level": "high",
+          "rule_id": "DDM002",
+          "severity": "error",
+          "status": "PARSED"
+        },
+        {
+          "confidence": "conditional",
+          "evidence": [
+            "ev:71ba3cbcc2afba1ea1fb0d59"
+          ],
+          "evidence_ids": [
+            "ev:71ba3cbcc2afba1ea1fb0d59"
+          ],
+          "id": "finding:aee40206303025c883ddd58d",
+          "object_ids": [
+            "postgresql:local/public/table//orders/"
+          ],
+          "origin": "migration_diff",
+          "reason": "Regular CREATE INDEX takes SHARE lock and blocks writes. Impact depends on table size, workload and lock waits; no duration is predicted.",
+          "remediation": "Consider CREATE INDEX CONCURRENTLY outside transaction blocks; check version/partition restrictions and invalid indexes.",
+          "risk_dimensions": [
+            "locking"
+          ],
+          "risk_level": "medium",
+          "rule_id": "DDM005",
+          "severity": "warning",
+          "status": "PARSED"
+        },
+        {
+          "confidence": "direct",
+          "evidence": [
+            "ev:36ed9459e092b9661b8b0527"
+          ],
+          "evidence_ids": [
+            "ev:36ed9459e092b9661b8b0527"
+          ],
+          "id": "finding:b3a1f8485c626dd78a0bb780",
+          "object_ids": [],
+          "origin": "migration_diff",
+          "reason": "CREATE INDEX CONCURRENTLY is forbidden inside a transaction block, including an externally declared single-transaction runner.",
+          "remediation": "Run the reviewed concurrent index operation outside transaction blocks; inspect invalid-index aftermath on failure.",
+          "risk_dimensions": [
+            "deployment_order",
+            "locking"
+          ],
+          "risk_level": "high",
+          "rule_id": "DDM006",
+          "severity": "error",
+          "status": "PARSED"
+        }
+      ],
+      "counts": null
+    }
+  ],
+  "html": {
+    "path": "report.html",
+    "bytes": 129265,
+    "has_html": true,
+    "has_svg": true,
+    "model_matches": true,
+    "external_resources": []
+  },
+  "recorded_commands": [
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py inspect --ddl ecommerce/schema.sql --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-3\\baseline.dbdep.json --json --repo ecommerce/app",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-3\\baseline.dbdep.json --strict --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py review --baseline C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-3\\baseline.dbdep.json --migration high-traffic/migrations/007.sql --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-3\\review-statements --json --metadata high-traffic/metadata.json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py review --baseline C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-3\\baseline.dbdep.json --migration high-traffic/migrations/007.sql --out C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-3\\review-single-transaction --json --metadata high-traffic/metadata.json --transaction-mode single",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-3\\review-statements\\model.dbdep.json --strict --json",
+    "C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\scripts\\dbdep.py validate C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\eval-3\\review-single-transaction\\model.dbdep.json --strict --json",
+    "\"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe\" \"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\run_evaluations.py\"",
+    "\"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe\" \"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\summarize_actual.py\"",
+    "\"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe\" \"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\verify_artifacts.py\"",
+    "\"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe\" \"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\browser_smoke.py\"",
+    "\"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\.venv\\Scripts\\python.exe\" \"C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\database-dependency-migration-workspace\\iteration-1\\with_skill\\outputs\\write_responses.py\""
+  ],
+  "recorded_exit_codes": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "offline_record": true,
+  "transcript_sha256": "3dd90d3c9fb5e93bb07a54c8d88e9427c9865ff48410852ab7c5a5f23d4477b6",
+  "analysis": {
+    "impacts": [
+      {
+        "affected": [
+          "postgresql:local/public/constraint/orders/orders_total_amount_check/"
+        ],
+        "categories": {
+          "inferred": [],
+          "recorded_catalog": [],
+          "static_reference": [
+            "postgresql:local/public/constraint/orders/orders_total_amount_check/"
+          ]
+        },
+        "direct": [
+          "postgresql:local/public/constraint/orders/orders_total_amount_check/"
+        ],
+        "explanation": "Reverse paths show potential impact. They do not prove execution failure or exhaustive runtime coverage.",
+        "operation": "AT_AlterColumnType",
+        "paths": {
+          "postgresql:local/public/constraint/orders/orders_total_amount_check/": [
+            "edge:cca075e9467576ace56005b6"
+          ]
+        },
+        "root": "postgresql:local/public/column/orders/total_amount/",
+        "to": null,
+        "unknowns": [
+          {
+            "confidence": "unknown",
+            "evidence_ids": [
+              "ev:df833391c79cdcc28673e697"
+            ],
+            "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+            "id": "unknown:10fd48b97b9b547c534c665b",
+            "object_id": "postgresql:local/public/column/orders/id/",
+            "origin": "heuristic",
+            "status": "UNKNOWN"
+          },
+          {
+            "confidence": "unknown",
+            "evidence_ids": [
+              "ev:4f69437ac7f5c8cbda748786"
+            ],
+            "explanation": "Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.",
+            "id": "unknown:30e9b0c3a208a37fcb0e146a",
+            "object_id": "postgresql:local/public/function//touch_customer/",
+            "origin": "heuristic",
+            "status": "UNKNOWN"
+          },
+          {
+            "confidence": "unknown",
+            "evidence_ids": [
+              "ev:9892ccf180b3b170b70ac607"
+            ],
+            "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+            "id": "unknown:4051262501d3e96e63b7320f",
+            "object_id": "postgresql:local/public/column/customers/updated_at/",
+            "origin": "heuristic",
+            "status": "UNKNOWN"
+          },
+          {
+            "confidence": "unknown",
+            "evidence_ids": [
+              "ev:9892ccf180b3b170b70ac607"
+            ],
+            "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+            "id": "unknown:5b1ed1b4a5267bc7af6f05b9",
+            "object_id": "postgresql:local/public/column/customers/id/",
+            "origin": "heuristic",
+            "status": "UNKNOWN"
+          },
+          {
+            "confidence": "unknown",
+            "evidence_ids": [
+              "ev:3949734689a3e42779b3e74a"
+            ],
+            "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+            "id": "unknown:618aa548d388cd4494e514c9",
+            "object_id": "postgresql:local/public/column/payments/id/",
+            "origin": "heuristic",
+            "status": "UNKNOWN"
+          },
+          {
+            "confidence": "unknown",
+            "evidence_ids": [
+              "ev:7e155552e9cab38a926a994c"
+            ],
+            "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+            "id": "unknown:6eccea38195fa64747daab5e",
+            "object_id": "postgresql:local/public/column/addresses/id/",
+            "origin": "heuristic",
+            "status": "UNKNOWN"
+          },
+          {
+            "confidence": "unknown",
+            "evidence_ids": [
+              "ev:a6badb49294176a6dce11d6c"
+            ],
+            "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+            "id": "unknown:9318c4aa0556ede7dde16dae",
+            "object_id": "postgresql:local/public/column/products/id/",
+            "origin": "heuristic",
+            "status": "UNKNOWN"
+          },
+          {
+            "confidence": "unknown",
+            "evidence_ids": [
+              "ev:df833391c79cdcc28673e697"
+            ],
+            "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+            "id": "unknown:ff31736639565ca515346968",
+            "object_id": "postgresql:local/public/column/orders/created_at/",
+            "origin": "heuristic",
+            "status": "UNKNOWN"
+          }
+        ]
+      }
+    ],
+    "limitations": [
+      "SQL is never executed. Baseline is not replayed into a target schema.",
+      "Runtime consumers, table statistics and deployment completion require independent evidence."
+    ],
+    "metadata": {
+      "origin": "user_supplied",
+      "tables": {
+        "public.orders": {
+          "explanation": "Scenario inputs supplied by the user, not discovered measurements.",
+          "origin": "user_supplied",
+          "size_bytes": 8000000000,
+          "traffic": "high"
+        }
+      }
+    },
+    "operations": [
+      {
+        "evidence_ids": [
+          "ev:3cd14a027173cf7c947f4264"
+        ],
+        "object_id": "postgresql:local/public/column/orders/total_amount/",
+        "operation": "AT_AlterColumnType"
+      }
+    ],
+    "plan": [
+      {
+        "action": "Add nullable replacement columns or compatible interfaces; design UUID mapping and new keys before changing identifier types.",
+        "phase": "expand",
+        "preconditions": "Confirm PostgreSQL version, backups, ownership, consumers and feasible mapping. Review privileges and lock budget.",
+        "recovery": "Stop deployment before consumers depend on the new fields; keep old fields available.",
+        "review_only": true,
+        "verification": "Rehearse DDL on a disposable database with representative data. Verify identity/sequence/default semantics."
+      },
+      {
+        "action": "Backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.",
+        "phase": "backfill",
+        "preconditions": "Prove mapping uniqueness, handle concurrent writes and define throttling. Numeric identifiers do not have a general UUID cast.",
+        "recovery": "Pause batches and preserve old data; restore from tested backup only under an approved recovery procedure.",
+        "review_only": true,
+        "verification": "Check mapping completeness, uniqueness, NULL rates and FK consistency under concurrent traffic."
+      },
+      {
+        "action": "Validate CHECK/FK constraints where NOT VALID is supported. Build concurrent indexes outside transaction blocks when appropriate.",
+        "phase": "validate",
+        "preconditions": "Confirm constraint support, partition restrictions, existing violations and resource budget. Concurrent index failure can leave an invalid index.",
+        "recovery": "Investigate failed validation or invalid indexes; repair/retry through separate authorized tooling.",
+        "review_only": true,
+        "verification": "Check constraint validation and pg_index.indisvalid/indisready, compare old/new results and observe lock waits."
+      },
+      {
+        "action": "Deploy compatible readers/writers and transition dependent FKs, views, functions, API/ORM contracts and downstream jobs.",
+        "phase": "transition",
+        "preconditions": "Obtain explicit consumer ownership and deployment-order evidence. Account for UNKNOWN and dynamic SQL paths.",
+        "recovery": "Revert application reads only while both representations remain consistent; otherwise prefer roll-forward.",
+        "review_only": true,
+        "verification": "Observe application errors and old-field usage through an agreed window. Static graph paths do not prove runtime coverage."
+      },
+      {
+        "action": "Remove legacy objects only after verified transition and a separate destructive-change review.",
+        "phase": "contract",
+        "preconditions": "Confirm no remaining consumers, validated keys, tested backups and signed-off CASCADE consequences. Schedule lock acquisition.",
+        "recovery": "Drops can lose data. Reverse DDL does not restore it; use tested recovery or roll-forward with an operator.",
+        "review_only": true,
+        "verification": "Reinspect schema, compare snapshots and run application integration checks. Do not promise zero downtime."
+      }
+    ],
+    "review_only": true,
+    "risk_level": "high",
+    "schema_version": "1.0.0"
+  },
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "7a92bbd20b2cb13579c908b2d1a08a38077be3f20182bba51962918937ed2634",
+      "bytes": 2530
+    }
+  }
+}

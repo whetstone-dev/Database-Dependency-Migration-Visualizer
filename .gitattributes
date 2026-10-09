@@ -7,5 +7,5 @@
 *.whl binary
 *.skill binary
 # Retain byte-exact creator receipts and copied evaluation outputs.
-evals/results/** -text
-evals/review.html -text
+evals/results/** -text -whitespace
+evals/review.html -text -whitespace

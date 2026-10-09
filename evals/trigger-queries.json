@@ -1,0 +1,12 @@
+[
+  {"query": "What will break if I rename this Postgres column?", "should_trigger": true},
+  {"query": "Review this PostgreSQL migration for lock and dependency hazards", "should_trigger": true},
+  {"query": "Show all downstream consumers of sales.orders.total_amount from these catalog snapshots", "should_trigger": true},
+  {"query": "Compare two Postgres schema snapshots and draw the dependency changes", "should_trigger": true},
+  {"query": "Generate an offline PostgreSQL schema dependency graph with source evidence", "should_trigger": true},
+  {"query": "Optimize this SELECT statement's runtime", "should_trigger": false},
+  {"query": "Help me write a general ETL Python script", "should_trigger": false},
+  {"query": "Explain what a foreign key is", "should_trigger": false},
+  {"query": "Create a MySQL ER diagram", "should_trigger": false},
+  {"query": "Design a Cisco network topology", "should_trigger": false}
+]

@@ -1,0 +1,9 @@
+{
+  "eval_id": 5,
+  "eval_name": "ambiguous-snapshot-rename",
+  "prompt": "Compare diff/before.sql and diff/after.sql. Produce before/after models and comparison JSON/HTML. Distinguish destructive and ambiguous changes.",
+  "assertions": [
+    "Reports add/drop and ambiguous rename",
+    "Creates comparison artifact"
+  ]
+}

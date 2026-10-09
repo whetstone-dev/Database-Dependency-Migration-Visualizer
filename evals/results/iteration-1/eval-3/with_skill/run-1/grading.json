@@ -1,0 +1,56 @@
+{
+  "expectations": [
+    {
+      "text": "Rejects concurrent index transaction context",
+      "passed": true,
+      "evidence": "response/report identifies BEGIN before CREATE INDEX CONCURRENTLY and the forbidden transaction block; an outer runner transaction also remains a hazard."
+    },
+    {
+      "text": "Explains conditional rewrite and unknown lock duration",
+      "passed": true,
+      "evidence": "response/report and saved review/analysis JSON separate SHARE/ACCESS EXCLUSIVE lock semantics and type-conversion/rewrite concerns from unmeasured waits, duration, data, server and runner conditions. The baseline analysis.json states physical conversion/rewrite for this regular numeric-to-float8 table and conditional duration/data effects. No downtime number is promised."
+    },
+    {
+      "text": "Labels user metadata",
+      "passed": true,
+      "evidence": "Actual review/analysis metadata marks the 8,000,000,000-byte/high-traffic scenario user_supplied; the response distinguishes it from discovered production measurements."
+    },
+    {
+      "text": "Creates review HTML",
+      "passed": true,
+      "evidence": "Actual standalone review HTML exists, embeds its saved review/baseline model and has no external script/link/image resources. Saved browser records additionally exercised local reports."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Generated dependency models have valid graph identifiers and no dangling edges",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Independent compact-graph checks verify unique node/edge IDs, existing endpoints and resolved nonempty edge evidence. This verifies graph integrity, not exhaustive runtime dependency coverage."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "One paired sample; timing/token telemetry unavailable; human qualitative review pending."
+    ],
+    "needs_review": [
+      "Read the actual response and report in the static review viewer."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Grade only the declared assertions. Separate known implementation gaps from paired assertion results."
+  },
+  "measurement_availability": {
+    "time_seconds": "unavailable",
+    "tokens": "unavailable",
+    "tool_calls": "unavailable"
+  }
+}

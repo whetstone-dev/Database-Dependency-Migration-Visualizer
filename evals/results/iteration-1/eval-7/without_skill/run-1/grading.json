@@ -1,0 +1,51 @@
+{
+  "expectations": [
+    {
+      "text": "Generates canonical model with no dangling edges",
+      "passed": true,
+      "evidence": "Independently checked 64 unique node IDs, 134 unique edge IDs, all existing endpoints and evidence references. Declared canonical format baseline.canonical.v1 is accepted without requiring the skill's schema for the baseline."
+    },
+    {
+      "text": "HTML embedded model matches JSON",
+      "passed": true,
+      "evidence": "Parsed the actual HTML application/json script and compared the embedded model object to the actual saved JSON; they are equal."
+    },
+    {
+      "text": "Markdown includes model IDs",
+      "passed": false,
+      "evidence": "Searched the complete original Markdown for exact saved model identifiers: 0 of 64 node IDs and 0 of 134 edge IDs occur. report.md supplies counts/narrative but no model IDs; the assertion fails."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 1,
+    "total": 3,
+    "pass_rate": 0.6666666666666666
+  },
+  "claims": [
+    {
+      "claim": "Generated dependency models have valid graph identifiers and no dangling edges",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Independent compact-graph checks verify unique node/edge IDs, existing endpoints and resolved nonempty edge evidence. This verifies graph integrity, not exhaustive runtime dependency coverage."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "One paired sample; timing/token telemetry unavailable; human qualitative review pending."
+    ],
+    "needs_review": [
+      "Read the actual response and report in the static review viewer."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Grade only the declared assertions. Separate known implementation gaps from paired assertion results."
+  },
+  "measurement_availability": {
+    "time_seconds": "unavailable",
+    "tokens": "unavailable",
+    "tool_calls": "unavailable"
+  }
+}

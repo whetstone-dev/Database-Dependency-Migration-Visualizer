@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Reports add/drop and ambiguous rename",
+      "passed": true,
+      "evidence": "Actual comparison JSON separates removed customers.name and added customers.display_name and marks a possible rename UNKNOWN/unproven. response/report explains conditional data loss from DROP plus ADD."
+    },
+    {
+      "text": "Creates comparison artifact",
+      "passed": true,
+      "evidence": "Actual before/after models parse with valid endpoints; comparison JSON has add/remove/rename fields and the standalone comparison HTML embeds its saved model."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 0,
+    "total": 2,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Generated dependency models have valid graph identifiers and no dangling edges",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Independent compact-graph checks verify unique node/edge IDs, existing endpoints and resolved nonempty edge evidence. This verifies graph integrity, not exhaustive runtime dependency coverage."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "One paired sample; timing/token telemetry unavailable; human qualitative review pending."
+    ],
+    "needs_review": [
+      "Read the actual response and report in the static review viewer."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Grade only the declared assertions. Separate known implementation gaps from paired assertion results."
+  },
+  "measurement_availability": {
+    "time_seconds": "unavailable",
+    "tokens": "unavailable",
+    "tool_calls": "unavailable"
+  }
+}

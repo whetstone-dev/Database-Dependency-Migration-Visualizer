@@ -1,0 +1,722 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [
+    {
+      "path": "model.json",
+      "original_format": "baseline.canonical.v1",
+      "nodes": [
+        {
+          "id": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+          "kind": "column",
+          "label": "analytics.order_summary.total_amount",
+          "signature": [],
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "column:4f844098aec1b42d91137f1cab16433fe8cbb74b07bd3ad68399427b676686c1",
+          "kind": "column",
+          "label": "analytics.order_summary.id",
+          "signature": [],
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "column:86709a69dbec3aae4796e38c45df5df3826188b13f14c990e98c6bf9f6d7ac73",
+          "kind": "column",
+          "label": "sales.orders.total_amount",
+          "signature": [],
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "kind": "column",
+          "label": "sales.orders.id",
+          "signature": [],
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "column:de98c1af16bb936c093a9dbd4e632fecc484ee51742c7eae51c124ee171560c5",
+          "kind": "column",
+          "label": "analytics.monthly_revenue.revenue",
+          "signature": [],
+          "evidence_ids": [
+            "inline:2e637860981c5ab9405a4eb3"
+          ]
+        },
+        {
+          "id": "constraint:e12d90a3d0e262fd8ad04c44fd914118f511e621e60572d31cd1de4f0ab92520",
+          "kind": "constraint",
+          "label": "sales.orders.primary(id)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "index:9b23c3addd67bbc25a892e477e7658ddbe8aa5847e5a10d7c39bdf00c7ef45da",
+          "kind": "index",
+          "label": "sales.orders.primary(id).supporting_index",
+          "signature": [],
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "schema:9fc15c8dd025629eed1213c5650d5bdbc4288d392e9a06e8ca67907d6cfc8039",
+          "kind": "schema",
+          "label": "sales",
+          "signature": [],
+          "evidence_ids": [
+            "inline:c21d9b2ea8b589d0a4919af5"
+          ]
+        },
+        {
+          "id": "schema:abc5c7753467a0309559d0116b5ebc9775131a31d08d6ffbeda0161a4c2d575e",
+          "kind": "schema",
+          "label": "analytics",
+          "signature": [],
+          "evidence_ids": [
+            "inline:f51c8836c8fa7b99d57d8ce0"
+          ]
+        },
+        {
+          "id": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "kind": "table",
+          "label": "sales.orders",
+          "signature": [],
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+          "kind": "view",
+          "label": "analytics.order_summary",
+          "signature": [],
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "view:ecc937ba6aa5181a63d0e47cc4e2a41abd43a880e41a3b5766b28a22fd5e35cc",
+          "kind": "view",
+          "label": "analytics.monthly_revenue",
+          "signature": [],
+          "evidence_ids": [
+            "inline:2e637860981c5ab9405a4eb3"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:03c8fc6c49cdf48f031a9c00ee0d84d2e3687187bb254a12a4156df3ea3dd141",
+          "kind": "implements_constraint",
+          "source": "index:9b23c3addd67bbc25a892e477e7658ddbe8aa5847e5a10d7c39bdf00c7ef45da",
+          "target": "constraint:e12d90a3d0e262fd8ad04c44fd914118f511e621e60572d31cd1de4f0ab92520",
+          "properties": {},
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "edge:044c124fd04659ea132ef949b25bfc5a0bc3088fc69b9213a3d5aa4cb858f2b6",
+          "kind": "reads_relation",
+          "source": "column:de98c1af16bb936c093a9dbd4e632fecc484ee51742c7eae51c124ee171560c5",
+          "target": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+          "properties": {},
+          "evidence_ids": [
+            "inline:2e637860981c5ab9405a4eb3"
+          ]
+        },
+        {
+          "id": "edge:09459db58f969cbbcdc6d4576aa13d3cebdf16a4d2aa3b4ab7b99c2ab7b4cfc4",
+          "kind": "reads_relation",
+          "source": "column:4f844098aec1b42d91137f1cab16433fe8cbb74b07bd3ad68399427b676686c1",
+          "target": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:13573e7c582092c30362118a3ab961b6bc25cba6b6eb9fb94879351432948829",
+          "kind": "reads_relation",
+          "source": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+          "target": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:2b37fe496327dd797cb92d775a2aea7a3570f5960c79f6aea09c0cdedacdab40",
+          "kind": "reads_column",
+          "source": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+          "target": "column:86709a69dbec3aae4796e38c45df5df3826188b13f14c990e98c6bf9f6d7ac73",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:49f72b51e2eb151571b430e4552f51cdcd472843edf3f80d6f4289ce9688e328",
+          "kind": "belongs_to",
+          "source": "column:4f844098aec1b42d91137f1cab16433fe8cbb74b07bd3ad68399427b676686c1",
+          "target": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:4b5f6dc06adc227037aaaa16148a623bbe4d13d48378bd2948e6e4ea4663657b",
+          "kind": "reads_relation",
+          "source": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+          "target": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:5b44a61df3dc6617b07191ebcab4e5fffc74359f7d051a1e293e92eb92a20d02",
+          "kind": "belongs_to",
+          "source": "column:de98c1af16bb936c093a9dbd4e632fecc484ee51742c7eae51c124ee171560c5",
+          "target": "view:ecc937ba6aa5181a63d0e47cc4e2a41abd43a880e41a3b5766b28a22fd5e35cc",
+          "properties": {},
+          "evidence_ids": [
+            "inline:2e637860981c5ab9405a4eb3"
+          ]
+        },
+        {
+          "id": "edge:5f8f3e13566aa2be325e7cd53583eaf34611c898688bc9b1f4166f91045da2bb",
+          "kind": "derived_from_column",
+          "source": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+          "target": "column:86709a69dbec3aae4796e38c45df5df3826188b13f14c990e98c6bf9f6d7ac73",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:63d690aedd4f3c1970976e0a56b099e28af57c0dbbbda2a333f09148bdf66a97",
+          "kind": "reads_column",
+          "source": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+          "target": "column:86709a69dbec3aae4796e38c45df5df3826188b13f14c990e98c6bf9f6d7ac73",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:63de9a1d7c330da58f46c1da07b93f20af0b985fc021b6a9a2b39aca8d649d15",
+          "kind": "derived_from_column",
+          "source": "column:4f844098aec1b42d91137f1cab16433fe8cbb74b07bd3ad68399427b676686c1",
+          "target": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:643f77136af63cde95475a849b3f044c8c5e7811aa70f2e70a3a26938439fb6a",
+          "kind": "reads_column",
+          "source": "column:de98c1af16bb936c093a9dbd4e632fecc484ee51742c7eae51c124ee171560c5",
+          "target": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:2e637860981c5ab9405a4eb3"
+          ]
+        },
+        {
+          "id": "edge:7b242fe77ba2228d171553a21d51828bad985e0e034032e8e67745bd6431430a",
+          "kind": "belongs_to",
+          "source": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+          "target": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:800124bd6cca6f2a0779c44e7be599085538838b010acb9d7ede4bc85f2a001d",
+          "kind": "reads_relation",
+          "source": "view:ecc937ba6aa5181a63d0e47cc4e2a41abd43a880e41a3b5766b28a22fd5e35cc",
+          "target": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+          "properties": {},
+          "evidence_ids": [
+            "inline:2e637860981c5ab9405a4eb3"
+          ]
+        },
+        {
+          "id": "edge:896e735c15ab32d356be702e2fb25fda67e672d3ac4289257c7179416318f306",
+          "kind": "derived_from_column",
+          "source": "column:de98c1af16bb936c093a9dbd4e632fecc484ee51742c7eae51c124ee171560c5",
+          "target": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:2e637860981c5ab9405a4eb3"
+          ]
+        },
+        {
+          "id": "edge:a490ee63d70df4291c3fb5838e7099fc24967fc1f65a3386a489db6624c78c0c",
+          "kind": "indexes_column",
+          "source": "index:9b23c3addd67bbc25a892e477e7658ddbe8aa5847e5a10d7c39bdf00c7ef45da",
+          "target": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "properties": {},
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "edge:a852302e0cff3f77ade1342e0bf7323069544a91a51934d850cb6742edd8fd72",
+          "kind": "belongs_to",
+          "source": "constraint:e12d90a3d0e262fd8ad04c44fd914118f511e621e60572d31cd1de4f0ab92520",
+          "target": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "edge:afc3e1028dbc6075fa2cd14cc4d31ad5f2e10978adcfd9efee40dd3103c701ca",
+          "kind": "reads_column",
+          "source": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+          "target": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:b1f17411b84c586a32c0d0e2c050db2cff98457349bbdf5422a99667185fc0b9",
+          "kind": "belongs_to",
+          "source": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "target": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "edge:b7188fcd67c226b89d168ccf1d51bf1bf83172a5d269d0c6fdaf93650644d6f3",
+          "kind": "in_schema",
+          "source": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "target": "schema:9fc15c8dd025629eed1213c5650d5bdbc4288d392e9a06e8ca67907d6cfc8039",
+          "properties": {},
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "edge:c59d83e39d07ae5a1a316fbd0d8b002d7ad7d7885fadf27c31d6247e20a8ea1b",
+          "kind": "uses_column",
+          "source": "constraint:e12d90a3d0e262fd8ad04c44fd914118f511e621e60572d31cd1de4f0ab92520",
+          "target": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "properties": {},
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "edge:c8598a29c6e61e4b51ddf2195a10c197cd6435169b3761b8a2d0afffe9f253b6",
+          "kind": "belongs_to",
+          "source": "column:86709a69dbec3aae4796e38c45df5df3826188b13f14c990e98c6bf9f6d7ac73",
+          "target": "table:64d774fa9449eebd6b64e7a7038774c96a5acdf44ca5452d04be9126e6dfa7b8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:83d434e668a5604797275d78"
+          ]
+        },
+        {
+          "id": "edge:cd908b24b83bf58e9422243c7a1a018b6772328329c823feb1ab14e662fd2f5a",
+          "kind": "reads_column",
+          "source": "column:4f844098aec1b42d91137f1cab16433fe8cbb74b07bd3ad68399427b676686c1",
+          "target": "column:bf4fb952750df41d5fb88726e43f634ad5de844e47c5a34430a5249eb4da7e7b",
+          "properties": {},
+          "evidence_ids": [
+            "inline:86026b8a2d2281e9b48099ac"
+          ]
+        },
+        {
+          "id": "edge:fd5985948deed7934d96955c99b236ab7df71c9c1616fb1462506ec927df0f80",
+          "kind": "reads_column",
+          "source": "view:ecc937ba6aa5181a63d0e47cc4e2a41abd43a880e41a3b5766b28a22fd5e35cc",
+          "target": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+          "properties": {},
+          "evidence_ids": [
+            "inline:2e637860981c5ab9405a4eb3"
+          ]
+        }
+      ],
+      "evidence": {
+        "inline:86026b8a2d2281e9b48099ac": {
+          "file": "analytics/schema.sql",
+          "line": 4,
+          "ast_kind": "ViewStmt"
+        },
+        "inline:83d434e668a5604797275d78": {
+          "file": "analytics/schema.sql",
+          "line": 3,
+          "ast_kind": "CreateStmt"
+        },
+        "inline:2e637860981c5ab9405a4eb3": {
+          "file": "analytics/schema.sql",
+          "line": 5,
+          "ast_kind": "ViewStmt"
+        },
+        "inline:c21d9b2ea8b589d0a4919af5": {
+          "file": "analytics/schema.sql",
+          "line": 1,
+          "ast_kind": "CreateSchemaStmt"
+        },
+        "inline:f51c8836c8fa7b99d57d8ce0": {
+          "file": "analytics/schema.sql",
+          "line": 2,
+          "ast_kind": "CreateSchemaStmt"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "inline:86026b8a2d2281e9b48099ac",
+          "path": "analytics/schema.sql",
+          "line": 4,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:83d434e668a5604797275d78",
+          "path": "analytics/schema.sql",
+          "line": 3,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:2e637860981c5ab9405a4eb3",
+          "path": "analytics/schema.sql",
+          "line": 5,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:c21d9b2ea8b589d0a4919af5",
+          "path": "analytics/schema.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:f51c8836c8fa7b99d57d8ce0",
+          "path": "analytics/schema.sql",
+          "line": 2,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [],
+      "findings": [],
+      "counts": {
+        "nodes": 12,
+        "edges": 24,
+        "by_kind": {
+          "column": 5,
+          "constraint": 1,
+          "index": 1,
+          "schema": 2,
+          "table": 1,
+          "view": 2
+        }
+      }
+    }
+  ],
+  "html": {
+    "path": "review.html",
+    "bytes": 32212,
+    "has_html": true,
+    "has_svg": true,
+    "model_matches": true,
+    "external_resources": []
+  },
+  "recorded_commands": [],
+  "recorded_exit_codes": [],
+  "offline_record": true,
+  "transcript_sha256": "876907b06a93c07969721908e37fe19546ce453513a1d44865881398ab484477",
+  "analysis": {
+    "target": "column:86709a69dbec3aae4796e38c45df5df3826188b13f14c990e98c6bf9f6d7ac73",
+    "target_label": "sales.orders.total_amount",
+    "affected": [
+      {
+        "id": "column:12e4688bfe65adc6b8f2894f8c8699b050bec11330ecc97232a194849a608e5a",
+        "label": "analytics.order_summary.total_amount",
+        "kind": "column",
+        "path": [
+          {
+            "provider": "sales.orders.total_amount",
+            "consumer": "analytics.order_summary.total_amount",
+            "kind": "reads_column"
+          }
+        ]
+      },
+      {
+        "id": "column:de98c1af16bb936c093a9dbd4e632fecc484ee51742c7eae51c124ee171560c5",
+        "label": "analytics.monthly_revenue.revenue",
+        "kind": "column",
+        "path": [
+          {
+            "provider": "sales.orders.total_amount",
+            "consumer": "analytics.order_summary.total_amount",
+            "kind": "reads_column"
+          },
+          {
+            "provider": "analytics.order_summary.total_amount",
+            "consumer": "analytics.monthly_revenue.revenue",
+            "kind": "reads_column"
+          }
+        ]
+      },
+      {
+        "id": "view:28b31df38d561c0d07726bc3822af18988c4c68b079644bf0ea8254aad72c271",
+        "label": "analytics.order_summary",
+        "kind": "view",
+        "path": [
+          {
+            "provider": "sales.orders.total_amount",
+            "consumer": "analytics.order_summary",
+            "kind": "reads_column"
+          }
+        ]
+      },
+      {
+        "id": "view:ecc937ba6aa5181a63d0e47cc4e2a41abd43a880e41a3b5766b28a22fd5e35cc",
+        "label": "analytics.monthly_revenue",
+        "kind": "view",
+        "path": [
+          {
+            "provider": "sales.orders.total_amount",
+            "consumer": "analytics.order_summary.total_amount",
+            "kind": "reads_column"
+          },
+          {
+            "provider": "analytics.order_summary.total_amount",
+            "consumer": "analytics.monthly_revenue",
+            "kind": "reads_column"
+          }
+        ]
+      }
+    ],
+    "direction": "provider to consumers for impact traversal; stored edges are consumer to provider",
+    "caveat": "Reachability means review scope, not proof that every reachable object must be dropped or changes its own identifier type.",
+    "catalog_evidence": [
+      {
+        "owner": "analytics.order_summary",
+        "referenced": "sales.orders.id",
+        "rewrite": {
+          "ev_class": 16552,
+          "oid": 16555,
+          "rulename": "_RETURN"
+        },
+        "dependency": {
+          "class_name": "pg_rewrite",
+          "deptype": "n",
+          "objid": 16555,
+          "objsubid": 0,
+          "refclass_name": "pg_class",
+          "refobjid": 16545,
+          "refobjsubid": 1
+        }
+      },
+      {
+        "owner": "analytics.order_summary",
+        "referenced": "sales.orders.total_amount",
+        "rewrite": {
+          "ev_class": 16552,
+          "oid": 16555,
+          "rulename": "_RETURN"
+        },
+        "dependency": {
+          "class_name": "pg_rewrite",
+          "deptype": "n",
+          "objid": 16555,
+          "objsubid": 0,
+          "refclass_name": "pg_class",
+          "refobjid": 16545,
+          "refobjsubid": 2
+        }
+      },
+      {
+        "owner": "analytics.order_summary",
+        "referenced": "analytics.order_summary",
+        "rewrite": {
+          "ev_class": 16552,
+          "oid": 16555,
+          "rulename": "_RETURN"
+        },
+        "dependency": {
+          "class_name": "pg_rewrite",
+          "deptype": "i",
+          "objid": 16555,
+          "objsubid": 0,
+          "refclass_name": "pg_class",
+          "refobjid": 16552,
+          "refobjsubid": 0
+        }
+      },
+      {
+        "owner": "analytics.monthly_revenue",
+        "referenced": "analytics.order_summary.total_amount",
+        "rewrite": {
+          "ev_class": 16556,
+          "oid": 16559,
+          "rulename": "_RETURN"
+        },
+        "dependency": {
+          "class_name": "pg_rewrite",
+          "deptype": "n",
+          "objid": 16559,
+          "objsubid": 0,
+          "refclass_name": "pg_class",
+          "refobjid": 16552,
+          "refobjsubid": 2
+        }
+      },
+      {
+        "owner": "analytics.monthly_revenue",
+        "referenced": "analytics.monthly_revenue",
+        "rewrite": {
+          "ev_class": 16556,
+          "oid": 16559,
+          "rulename": "_RETURN"
+        },
+        "dependency": {
+          "class_name": "pg_rewrite",
+          "deptype": "i",
+          "objid": 16559,
+          "objsubid": 0,
+          "refclass_name": "pg_class",
+          "refobjid": 16556,
+          "refobjsubid": 0
+        }
+      }
+    ],
+    "catalog_target": {
+      "relation_oid": 16545,
+      "attnum": 2
+    },
+    "catalog_available_queries": [
+      "pg_attrdef",
+      "pg_attribute",
+      "pg_class",
+      "pg_constraint",
+      "pg_depend",
+      "pg_extension",
+      "pg_index",
+      "pg_inherits",
+      "pg_namespace",
+      "pg_proc",
+      "pg_rewrite",
+      "pg_trigger",
+      "pg_type",
+      "server_version"
+    ],
+    "catalog_version": [
+      {
+        "version": "180003"
+      }
+    ],
+    "normal_drop_dependents": [
+      "analytics.order_summary",
+      "analytics.monthly_revenue"
+    ],
+    "auto_drop_dependents": [
+      {
+        "confkey": null,
+        "confrelid": 0,
+        "conindid": 0,
+        "conkey": [
+          2
+        ],
+        "conname": "orders_total_amount_not_null",
+        "conrelid": 16545,
+        "contype": "n",
+        "convalidated": true,
+        "nspname": "sales",
+        "oid": 16549
+      }
+    ],
+    "drop_semantics": {
+      "RESTRICT": "Refuses the column drop while order_summary has a normal rewrite-rule dependency. monthly_revenue is a transitive dependent.",
+      "CASCADE": "Drops both dependent views recursively. Drops column-local automatic constraints as applicable. It does not drop sales.orders, its id column, or the id primary key.",
+      "ALTER_TYPE": "DROP CASCADE behavior is not a method for applying ALTER COLUMN TYPE. View replacement and type-compatible contracts require a separate design."
+    }
+  },
+  "catalog_input_sha256": "5d3de0d23a444df4daad4008f77ad1f02feeb4fff415d3d97978a02cfa6e5b3b",
+  "catalog_target_rows": [
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "n",
+      "objid": 16555,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16545,
+      "refobjsubid": 1
+    },
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "n",
+      "objid": 16555,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16545,
+      "refobjsubid": 2
+    },
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "i",
+      "objid": 16555,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16552,
+      "refobjsubid": 0
+    },
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "n",
+      "objid": 16559,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16552,
+      "refobjsubid": 2
+    },
+    {
+      "class_name": "pg_rewrite",
+      "deptype": "i",
+      "objid": 16559,
+      "objsubid": 0,
+      "refclass_name": "pg_class",
+      "refobjid": 16556,
+      "refobjsubid": 0
+    },
+    {
+      "ev_class": 16552,
+      "oid": 16555,
+      "rulename": "_RETURN"
+    },
+    {
+      "ev_class": 16556,
+      "oid": 16559,
+      "rulename": "_RETURN"
+    }
+  ],
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "97a774b679543e30305e223d431b3296ab3c66a92e1b7e1cd83cbd95a2715b16",
+      "bytes": 406
+    },
+    "report.md": {
+      "sha256": "a826a072f0117a008d76f66b63514826a97ea5015a56e95deedf742299500739",
+      "bytes": 2266
+    }
+  }
+}

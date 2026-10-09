@@ -1,0 +1,12 @@
+{
+  "with_skill": {
+    "passed": 25,
+    "failed": 0,
+    "total": 25
+  },
+  "without_skill": {
+    "passed": 24,
+    "failed": 1,
+    "total": 25
+  }
+}

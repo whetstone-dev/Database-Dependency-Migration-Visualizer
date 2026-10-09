@@ -1,0 +1,368 @@
+{
+  "note": "Compact extracts from actual saved outputs. These are not regenerated canonical artifacts.",
+  "models": [
+    {
+      "path": "model.json",
+      "original_format": "baseline.canonical.v1",
+      "nodes": [
+        {
+          "id": "app_query:0240d14eeb86c154798a93557825b99bdd64ab086280e244290266f2627ab2ec",
+          "kind": "app_query",
+          "label": "dynamic-sql-unknown/app/query.ts:lookup",
+          "signature": [],
+          "evidence_ids": [
+            "inline:2d1a9e579bdec15d3649f55f"
+          ]
+        },
+        {
+          "id": "app_query:11ac463212a4d212cdadc26d7a01cb559e4ee8c33dfe8e04fc15d45811d2faf9",
+          "kind": "app_query",
+          "label": "dynamic-sql-unknown/app/static.sql:1",
+          "signature": [],
+          "evidence_ids": [
+            "inline:70445c2f027e65ef8bebed7d"
+          ]
+        },
+        {
+          "id": "column:bdb4d78038a18e26cd6f0cb088fa76d6a1c5385ff0ab4aed823a639323e17105",
+          "kind": "column",
+          "label": "public.customers.email",
+          "signature": [],
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "kind": "column",
+          "label": "public.customers.id",
+          "signature": [],
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "kind": "constraint",
+          "label": "public.customers.primary(id)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "function:71c9e3a40f551fb8a7e75a8aadd82feb11641527830dc44dae8da7a0f014c0f7",
+          "kind": "function",
+          "label": "public.lookup_customer(pg_catalog.text)",
+          "signature": [],
+          "evidence_ids": [
+            "inline:6bb0469283c0df32c8cf3005"
+          ]
+        },
+        {
+          "id": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "kind": "index",
+          "label": "public.customers.primary(id).supporting_index",
+          "signature": [],
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "schema:a565b2bc33a49fecc827b849707e057a1e2f3c965b1b7107ae4d2e247ea53b53",
+          "kind": "schema",
+          "label": "public",
+          "signature": [],
+          "evidence_ids": []
+        },
+        {
+          "id": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "kind": "table",
+          "label": "public.customers",
+          "signature": [],
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge:01b1b4996880a45e0feca548af2a693bf444a16a28280dce9c61ae1bb13e6398",
+          "kind": "indexes_column",
+          "source": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "target": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "edge:0877062afdd7cb0451282a0cc0b0abfda01fce9cefe05fb5ac11d1bb8aea7660",
+          "kind": "belongs_to",
+          "source": "column:bdb4d78038a18e26cd6f0cb088fa76d6a1c5385ff0ab4aed823a639323e17105",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "edge:0e3ab46660d137bafea94e6e3c90690fcc6972a36dd406cc6851f4476659953f",
+          "kind": "uses_column",
+          "source": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "target": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "edge:489a5c92c65aa7f7f90580e9c5e33bd1e3e897d76599010c9adeea621a37b49c",
+          "kind": "belongs_to",
+          "source": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "edge:6aaca887fb96227e11de3c543b1760e5b2d5404c5d710cff9fdfd8864ead8488",
+          "kind": "reads_column",
+          "source": "app_query:11ac463212a4d212cdadc26d7a01cb559e4ee8c33dfe8e04fc15d45811d2faf9",
+          "target": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "properties": {},
+          "evidence_ids": [
+            "inline:70445c2f027e65ef8bebed7d"
+          ]
+        },
+        {
+          "id": "edge:7e91fcc7550e6bc7afb27c69b908dc3fccf8dca2417ad74db1aea9133f4dda51",
+          "kind": "dynamic_relation_hint",
+          "source": "function:71c9e3a40f551fb8a7e75a8aadd82feb11641527830dc44dae8da7a0f014c0f7",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:6bb0469283c0df32c8cf3005"
+          ]
+        },
+        {
+          "id": "edge:8416d62ae21424389a853a23e35851355507cfc9cba47f30c054c75c132e0d5c",
+          "kind": "in_schema",
+          "source": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "target": "schema:a565b2bc33a49fecc827b849707e057a1e2f3c965b1b7107ae4d2e247ea53b53",
+          "properties": {},
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "edge:9fb4ec1a38c5acd5db82c2cddbc12c159a87890d86bf5babcdac23e11e14bcc7",
+          "kind": "reads_column",
+          "source": "app_query:11ac463212a4d212cdadc26d7a01cb559e4ee8c33dfe8e04fc15d45811d2faf9",
+          "target": "column:bdb4d78038a18e26cd6f0cb088fa76d6a1c5385ff0ab4aed823a639323e17105",
+          "properties": {},
+          "evidence_ids": [
+            "inline:70445c2f027e65ef8bebed7d"
+          ]
+        },
+        {
+          "id": "edge:b1f20b1f2c3524897226506257d8781c4a07a8200e14b13ed65741261fe51fc7",
+          "kind": "dynamic_relation_hint",
+          "source": "app_query:0240d14eeb86c154798a93557825b99bdd64ab086280e244290266f2627ab2ec",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:2d1a9e579bdec15d3649f55f"
+          ]
+        },
+        {
+          "id": "edge:c887a0fbf07b1bf4c1e0d153f3d85ab0bf94ccb694e4474427e88329b0a6f6b2",
+          "kind": "reads_relation",
+          "source": "app_query:11ac463212a4d212cdadc26d7a01cb559e4ee8c33dfe8e04fc15d45811d2faf9",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:70445c2f027e65ef8bebed7d"
+          ]
+        },
+        {
+          "id": "edge:e93b1872b0ca9ad4bbef3ab7ee4603dd446dd493acfe438674b8a190eadca712",
+          "kind": "belongs_to",
+          "source": "column:e5bb6fb5e8452a6997244b61e1cea1014d1b0aa159d5eaf0422e9ff403d362e8",
+          "target": "table:87cd10b784f47a96f55212d00c16542e742ac58a7910b78e634101ff745fdb07",
+          "properties": {},
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        },
+        {
+          "id": "edge:f8dbef6fde19cf51f2e6ca6ba097226fa48339b11bc04963ad6359e6eb880e95",
+          "kind": "implements_constraint",
+          "source": "index:21002346322a6652a3dbb1d46d665c7713d6fe9de709cd0971c29e264ae2ec1b",
+          "target": "constraint:24f76269059867024a656caab7f3cb958f54087697bfc66969ac20308de44faf",
+          "properties": {},
+          "evidence_ids": [
+            "inline:b63f997172dd7afe4f61a1dd"
+          ]
+        }
+      ],
+      "evidence": {
+        "inline:2d1a9e579bdec15d3649f55f": {
+          "file": "dynamic-sql-unknown/app/query.ts",
+          "line": 2,
+          "ast_kind": "host_template"
+        },
+        "inline:70445c2f027e65ef8bebed7d": {
+          "file": "dynamic-sql-unknown/app/static.sql",
+          "line": 1,
+          "ast_kind": "SelectStmt"
+        },
+        "inline:b63f997172dd7afe4f61a1dd": {
+          "file": "dynamic-sql-unknown/schema.sql",
+          "line": 1,
+          "ast_kind": "CreateStmt"
+        },
+        "inline:6bb0469283c0df32c8cf3005": {
+          "file": "dynamic-sql-unknown/schema.sql",
+          "line": 2,
+          "ast_kind": "CreateFunctionStmt"
+        }
+      },
+      "source_checks": [
+        {
+          "evidence_id": "inline:2d1a9e579bdec15d3649f55f",
+          "path": "dynamic-sql-unknown/app/query.ts",
+          "line": 2,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:70445c2f027e65ef8bebed7d",
+          "path": "dynamic-sql-unknown/app/static.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:b63f997172dd7afe4f61a1dd",
+          "path": "dynamic-sql-unknown/schema.sql",
+          "line": 1,
+          "matches_input": true
+        },
+        {
+          "evidence_id": "inline:6bb0469283c0df32c8cf3005",
+          "path": "dynamic-sql-unknown/schema.sql",
+          "line": 2,
+          "matches_input": true
+        }
+      ],
+      "unknowns": [
+        {
+          "kind": "dynamic_sql",
+          "owner": "function:71c9e3a40f551fb8a7e75a8aadd82feb11641527830dc44dae8da7a0f014c0f7",
+          "reason": "Column name is supplied at runtime. No column dependency is asserted. Literal relation text is a grounded table hint, not a resolved query.",
+          "evidence": {
+            "file": "dynamic-sql-unknown/schema.sql",
+            "line": 2,
+            "statement": "CREATE FUNCTION public.lookup_customer(field_name text) RETURNS text LANGUAGE plpgsql AS $$\nDECLARE result text;\nBEGIN\n  EXECUTE 'SELECT ' || quote_ident(field_name) || ' FROM public.customers LIMIT 1' INTO result;\n  RETURN result;\nEND\n$$",
+            "ast_kind": "CreateFunctionStmt"
+          }
+        },
+        {
+          "kind": "host_dynamic_sql",
+          "owner": "app_query:0240d14eeb86c154798a93557825b99bdd64ab086280e244290266f2627ab2ec",
+          "reason": "${column} is a runtime expression; no email column dependency can be grounded. Literal public.customers relation is only a text hint.",
+          "evidence": {
+            "file": "dynamic-sql-unknown/app/query.ts",
+            "line": 2,
+            "statement": "export const lookup = (column: string) => `SELECT ${column} FROM public.customers`;",
+            "ast_kind": "host_template"
+          }
+        }
+      ],
+      "findings": [],
+      "counts": {
+        "nodes": 9,
+        "edges": 12,
+        "by_kind": {
+          "app_query": 2,
+          "column": 2,
+          "constraint": 1,
+          "function": 1,
+          "index": 1,
+          "schema": 1,
+          "table": 1
+        }
+      }
+    }
+  ],
+  "html": {
+    "path": "review.html",
+    "bytes": 21755,
+    "has_html": true,
+    "has_svg": true,
+    "model_matches": true,
+    "external_resources": []
+  },
+  "recorded_commands": [],
+  "recorded_exit_codes": [],
+  "offline_record": true,
+  "transcript_sha256": "876907b06a93c07969721908e37fe19546ce453513a1d44865881398ab484477",
+  "analysis": {
+    "target": "column:bdb4d78038a18e26cd6f0cb088fa76d6a1c5385ff0ab4aed823a639323e17105",
+    "target_label": "public.customers.email",
+    "affected": [
+      {
+        "id": "app_query:11ac463212a4d212cdadc26d7a01cb559e4ee8c33dfe8e04fc15d45811d2faf9",
+        "label": "dynamic-sql-unknown/app/static.sql:1",
+        "kind": "app_query",
+        "path": [
+          {
+            "provider": "public.customers.email",
+            "consumer": "dynamic-sql-unknown/app/static.sql:1",
+            "kind": "reads_column"
+          }
+        ]
+      }
+    ],
+    "direction": "provider to consumers for impact traversal; stored edges are consumer to provider",
+    "caveat": "Reachability means review scope, not proof that every reachable object must be dropped or changes its own identifier type.",
+    "unresolved_consumers": [
+      {
+        "object": "public.lookup_customer(pg_catalog.text)",
+        "selection": "field_name supplied at runtime",
+        "relation_hint": "public.customers",
+        "email_dependency": "unknown"
+      },
+      {
+        "object": "app/query.ts lookup",
+        "selection": "column interpolated at runtime",
+        "relation_hint": "public.customers",
+        "email_dependency": "unknown"
+      }
+    ],
+    "coverage": {
+      "known_consumers": [
+        "app/static.sql:1"
+      ],
+      "unknown_dynamic_sites": 2,
+      "claim": "Every grounded consumer in supplied sources is listed. Cannot claim every runtime consumer of email was found.",
+      "not_inspected": [
+        "runtime field_name/column values",
+        "application callsites outside supplied files",
+        "runtime query logs",
+        "live catalog",
+        "external consumers"
+      ]
+    }
+  },
+  "copied_output_hashes": {
+    "response.md": {
+      "sha256": "c918d8140870e5200c20c5194cbd3d5346212a99e3484ef2e711e40308e6abcb",
+      "bytes": 362
+    },
+    "report.md": {
+      "sha256": "a67622365bc5adb8004618b226bb6beb4d80f677ef5efdd5465f13bf1b72b72c",
+      "bytes": 1662
+    }
+  }
+}

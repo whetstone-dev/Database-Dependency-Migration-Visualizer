@@ -1,0 +1,51 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies both downstream views",
+      "passed": true,
+      "evidence": "Actual graph has direct/transitive paths from analytics.order_summary and analytics.monthly_revenue to sales.orders.total_amount; response/report names both views."
+    },
+    {
+      "text": "Uses catalog evidence",
+      "passed": true,
+      "evidence": "Output retains pg_rewrite 16555 -> pg_class 16545/2 and pg_rewrite 16559 -> pg_class 16552/2, with normal dependency semantics and owning-view identities. Supplied catalog input has its own retained SHA-256."
+    },
+    {
+      "text": "Qualifies CASCADE",
+      "passed": true,
+      "evidence": "response/report says RESTRICT blocks normal dependent views and CASCADE recursively removes recorded view dependents. It distinguishes automatic/internal objects and limits offline/runtime coverage, without executing DROP."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Generated dependency models have valid graph identifiers and no dangling edges",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Independent compact-graph checks verify unique node/edge IDs, existing endpoints and resolved nonempty edge evidence. This verifies graph integrity, not exhaustive runtime dependency coverage."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "One paired sample; timing/token telemetry unavailable; human qualitative review pending."
+    ],
+    "needs_review": [
+      "Read the actual response and report in the static review viewer."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Grade only the declared assertions. Separate known implementation gaps from paired assertion results."
+  },
+  "measurement_availability": {
+    "time_seconds": "unavailable",
+    "tokens": "unavailable",
+    "tool_calls": "unavailable"
+  }
+}

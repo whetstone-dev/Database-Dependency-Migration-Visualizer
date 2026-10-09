@@ -1,0 +1,10 @@
+{
+  "eval_id": 7,
+  "eval_name": "artifact-integrity",
+  "prompt": "Generate a canonical dependency model, Markdown and standalone HTML from ecommerce/schema.sql. Validate graph integrity and consistency of stable identifiers and counts across outputs.",
+  "assertions": [
+    "Generates canonical model with no dangling edges",
+    "HTML embedded model matches JSON",
+    "Markdown includes model IDs"
+  ]
+}

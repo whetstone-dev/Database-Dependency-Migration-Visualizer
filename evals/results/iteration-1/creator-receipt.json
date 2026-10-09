@@ -1,0 +1,12 @@
+{
+  "aggregate_command": "C:\\Python314\\python.exe -m scripts.aggregate_benchmark C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\evals\\results\\iteration-1 --skill-name database-dependency-migration --skill-path C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer",
+  "cwd": "C:\\Users\\josed\\.agents\\skills\\skill-creator",
+  "aggregate_exit_code": 0,
+  "aggregate_stdout": "Generated: C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\evals\\results\\iteration-1\\benchmark.json\nGenerated: C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\evals\\results\\iteration-1\\benchmark.md\n\nSummary:\n  With Skill: 100.0% pass rate\n  Without Skill: 95.8% pass rate\n  Delta:         +0.04\n",
+  "aggregate_stderr": "",
+  "normalization": "Installed creator uses zero defaults for missing telemetry and hardcodes three runs. After successful aggregation, replace unavailable metrics with null and runs_per_configuration with 1. Preserve pass-rate calculations.",
+  "viewer_command": "C:\\Python314\\python.exe C:\\Users\\josed\\.agents\\skills\\skill-creator\\eval-viewer\\generate_review.py C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\evals\\results\\iteration-1 --skill-name database-dependency-migration --benchmark C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\evals\\results\\iteration-1\\benchmark.json --static C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\evals\\review.html",
+  "viewer_exit_code": 0,
+  "viewer_stdout": "\n  Static viewer written to: C:\\Users\\josed\\Desktop\\Jose\\whetstone-dev\\Database-Dependency-Migration-Visualizer\\evals\\review.html\n\n",
+  "viewer_stderr": ""
+}

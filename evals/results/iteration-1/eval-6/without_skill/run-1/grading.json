@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "Does not merge public.orders and sales.orders",
+      "passed": true,
+      "evidence": "multi-schema model preserves two different table IDs for public.orders and sales.orders."
+    },
+    {
+      "text": "Preserves quoted CustomerID and function overloads",
+      "passed": true,
+      "evidence": "tricky-identifiers model preserves the exact quoted Commerce.Order.CustomerID identity and two different label function IDs with int8/text signatures."
+    },
+    {
+      "text": "Reports unqualified ambiguity",
+      "passed": true,
+      "evidence": "Actual model and response/report retain unqualified orders resolution uncertainty without a supplied search_path; no guessed binding is claimed."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Generated dependency models have valid graph identifiers and no dangling edges",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Independent compact-graph checks verify unique node/edge IDs, existing endpoints and resolved nonempty edge evidence. This verifies graph integrity, not exhaustive runtime dependency coverage."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "One paired sample; timing/token telemetry unavailable; human qualitative review pending."
+    ],
+    "needs_review": [
+      "Read the actual response and report in the static review viewer."
+    ],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "Current assertions do not check composite-PK implied NOT NULL flags, FK ordering or partition fidelity. The with-skill response acknowledges wrong composite-PK nullability in this evaluated version."
+      }
+    ],
+    "overall": "Grade only the declared assertions. Separate known implementation gaps from paired assertion results."
+  },
+  "measurement_availability": {
+    "time_seconds": "unavailable",
+    "tokens": "unavailable",
+    "tool_calls": "unavailable"
+  }
+}
