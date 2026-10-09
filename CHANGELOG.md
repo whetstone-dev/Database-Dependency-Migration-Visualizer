@@ -4,7 +4,7 @@
 
 Find npm in both official Windows and POSIX Node installation layouts during artifact installation checks. Resolve prerequisites before creating a temporary workspace. The first remote Linux CI run exposed this portability bug after all engine/browser/build checks passed.
 
-Pull the same PostgreSQL fixture releases from Docker Official Images on Amazon ECR Public, pinned to verified Linux amd64 manifest digests, after Docker Hub rate-limited the first matrix run. Preserve required check names and let all matrix versions complete independently. Main now requires a pull request, maintainer code-owner approval and passing CI checks for contributions.
+Pull the same PostgreSQL fixture releases from Docker Official Images on Amazon ECR Public, pinned to verified Linux amd64 manifest digests, after Docker Hub rate-limited the first matrix run. Preserve required check names and let all matrix versions complete independently. Quote the container health command for the Actions process argument parser. Main now requires a pull request, maintainer code-owner approval and passing CI checks for contributions.
 
 Mark generated evaluation viewers and rendered examples for GitHub Linguist. Retain the files and authored HTML templates while excluding generated output from source-language statistics.
 
