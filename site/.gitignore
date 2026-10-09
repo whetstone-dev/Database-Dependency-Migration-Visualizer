@@ -1,0 +1,7 @@
+node_modules/
+dist/
+public/demos/
+public/docs/
+src/data/demos.json
+public/licenses/
+public/THIRD_PARTY_NOTICES.md
