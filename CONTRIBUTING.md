@@ -6,7 +6,7 @@ Keep dependency claims grounded in source evidence, preserve explicit unknowns, 
 
 Anyone can fork this public repository, create a branch in their fork, and open a pull request targeting `main`. Repository write access is not needed. Describe the problem, resulting behavior and checks performed, and follow the commit format below.
 
-The [code owners](.github/CODEOWNERS) are `@JoseDFlorez` and `@Juanfrxz`. A pull request requires an approval from at least one of them, passing required CI checks and resolved review conversations before merging. New changes invalidate earlier approvals. Maintainers also use pull requests; the author cannot approve their own request and the latest push needs another maintainer's approval.
+The [code owners](.github/CODEOWNERS) are `@JoseDFlorez` and `@Juanfrxz`. They use pull requests and may merge without a separate review approval through their explicit review exemption. The normal contributor path requires approval from at least one code owner; new changes invalidate earlier approvals and the latest push needs another maintainer's approval. Every pull request must pass required CI checks and resolve review conversations before merging.
 
 Public contributors can comment and submit reviews. Their approval does not replace the required code-owner approval. Keep vulnerabilities and private database artifacts out of public pull requests; follow [SECURITY.md](SECURITY.md).
 
@@ -41,7 +41,7 @@ Use `pnpm exec prettier --check` with the files you changed. Describe checks act
 | Catalog capture or normalization   | `src/dbdep/catalog.mjs`, fixed-query contract, catalog guidance, isolated live tests and sanitized provenance                      |
 | Hazard rules or phase guidance     | `src/dbdep/rules.mjs`, `planning.mjs`, migration guidance, positive/negative and UNKNOWN regressions                               |
 | Reports or viewer                  | `src/dbdep/reports.mjs`, `assets/viewer/`, schemas as needed, browser checks and regenerated examples                              |
-| CLI or installation                | `src/dbdep/cli.mjs`, `SKILL.md`, README, site command docs, CLI and real-install smoke checks                                      |
+| CLI or installation                | `src/dbdep/cli.mjs`, `skills/database-dependency-migration/SKILL.md`, README, distribution sync and real-install smoke checks      |
 | Website                            | `site/src/`, bilingual copy/accessibility, site tests and retained license notices                                                 |
 
 Add an observable failing regression before changing graph semantics, hazards or safety boundaries. Preserve stable IDs, deterministic ordering, UTF-8 source locations, hashes and evidence states. Unsupported or ambiguous resolution must remain UNKNOWN. The current canonical contract is 1.0.0; explain incompatible changes explicitly.
@@ -81,6 +81,8 @@ Build and package the current local version, then test both npm/unpacked skill a
 pnpm build
 pnpm check:site
 pnpm pack --pack-destination dist/v0.3.2
+pnpm sync:skill
+pnpm check:skill
 pnpm package:skill
 pnpm package:site
 pnpm smoke:artifacts
@@ -95,7 +97,9 @@ pnpm exec node scripts/smoke-skills-install.mjs --cli out/skills-cli/node_module
 
 `DBDEP_SKILLS_CLI` can supply the same cached entry point. The smoke installs a current worktree snapshot into a project outside the checkout, disables telemetry, checks archive/version/member hashes and sensitive filenames, installs frozen production dependencies, runs `doctor`, creates all three demos and strictly validates them. Its checked temporary directory is removed and its receipt is written under `dist/v<version>/`. This catches the installer excluding files named `metadata.json`; the active high-traffic input is `workload-profile.json`.
 
-The Skills CLI copies the root skill directory, including site/evaluation/development files. npm and `.skill` packaging use their own allowlists. Test their actual contents and preserve licenses. Rebuild the website after README or SKILL changes; site packaging rejects stale documentation copies. Development checks require the full workspace. An installed skill needs no package installation for source review; only its optional toolkit needs the production-only npm or frozen pnpm setup documented in the README.
+The Skills CLI installs only `skills/database-dependency-migration/`. Its canonical `SKILL.md` and installation README are authored there; `pnpm sync:skill` refreshes the other committed files from an explicit root-source allowlist. After changing toolkit sources, references, templates, metadata, examples, manifests, lockfiles or licenses, run the sync and include its changes in the same commit. `pnpm check:skill` rejects stale or unexpected files, and CI runs it before tests. Do not edit the generated copies directly.
+
+The `.skill` archive uses that same checked payload. npm retains its separate toolkit file allowlist. The real installer smoke compares installation member hashes against the dedicated directory, rejects website/evaluation/development files and reports installed bytes. Test actual contents and preserve licenses. Rebuild the website after README or skill-entry changes; site packaging rejects stale documentation copies. Development checks require the full workspace. Source review needs no package installation; only the optional toolkit needs the production-only npm or frozen pnpm setup documented in the README.
 
 ## Style and commits
 
@@ -113,7 +117,7 @@ Examples are `🐛 fix: preserve metadata in skills installs` and `📝 docs: ex
 
 ## Releases and deployment
 
-Follow [SemVer](https://semver.org/) and [docs/releases.md](docs/releases.md). Update root/site package versions, `SKILL.md` metadata, the lockfile and changelog together. The pending local release is v0.3.2; historical v0.3.0/v0.3.1 receipts and frozen evaluations remain historical.
+Follow [SemVer](https://semver.org/) and [docs/releases.md](docs/releases.md). Update root/site package versions, `skills/database-dependency-migration/SKILL.md` metadata, the lockfile and changelog together, then sync the dedicated skill directory. The pending local release is v0.3.2; historical v0.3.0/v0.3.1 receipts and frozen evaluations remain historical.
 
 Complete relevant checks and artifact/hash comparisons on final `main` before creating an annotated `v<version>` tag. Never move or replace an existing release tag. Local commit/tag creation, remote push, GitHub release assets, npm publication and Pages deployment are distinct actions; perform publication only when authorized.
 

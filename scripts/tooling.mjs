@@ -13,6 +13,7 @@ import { createHash } from "node:crypto";
 import { zipSync, unzipSync } from "fflate";
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+export const SKILL_PATH = "skills/database-dependency-migration/SKILL.md";
 export const VERSION = JSON.parse(
   readFileSync(join(ROOT, "package.json"), "utf8"),
 ).version;
@@ -30,7 +31,7 @@ export function resolve_npm_cli(executable = process.execPath) {
 export function verify_built_docs(root, built) {
   for (const name of ["README.md", "SKILL.md"]) {
     if (
-      !readFileSync(join(root, name)).equals(
+      !readFileSync(join(root, name === "SKILL.md" ? SKILL_PATH : name)).equals(
         readFileSync(join(built, "docs", name)),
       )
     )

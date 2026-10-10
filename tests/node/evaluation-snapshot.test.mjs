@@ -9,7 +9,7 @@ import {
 } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
-import { ROOT, checked_remove } from "../../scripts/tooling.mjs";
+import { ROOT, SKILL_PATH, checked_remove } from "../../scripts/tooling.mjs";
 
 test("fresh baseline snapshots honor workspace/ref and cannot replace frozen source", () => {
   mkdirSync(join(ROOT, "tmp"), { recursive: true });
@@ -41,7 +41,7 @@ test("fresh baseline snapshots honor workspace/ref and cannot replace frozen sou
       "utf8",
     );
     assert.equal(JSON.parse(before).baseline.tag, "HEAD");
-    assert.ok(existsSync(join(directory, "old-skill-snapshot/SKILL.md")));
+    assert.ok(existsSync(join(directory, "old-skill-snapshot", SKILL_PATH)));
     assert.notEqual(run("HEAD").status, 0);
     assert.equal(
       readFileSync(join(directory, "source-manifest.json"), "utf8"),

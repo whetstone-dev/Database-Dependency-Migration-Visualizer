@@ -1,0 +1,152 @@
+flowchart LR
+  %% Source depends on target; traverse reverse for impact
+  n0["application.&quot;examples/ecommerce/app/customers.sql:ev:e4dc7c3f3bcbc60c845f14b5&quot;"]
+  n1["application.&quot;examples/ecommerce/app/orders.sql:ev:f8c7e18154ef774049bc8694&quot;"]
+  n2["public.addresses.city"]
+  n3["public.addresses.customer_id"]
+  n4["public.addresses.id"]
+  n5["public.customer_summary.email"]
+  n6["public.customer_summary.id"]
+  n7["public.customer_summary.order_count"]
+  n8["public.customers.email"]
+  n9["public.customers.id"]
+  n10["public.customers.name"]
+  n11["public.customers.updated_at"]
+  n12["public.order_items.order_id"]
+  n13["public.order_items.product_id"]
+  n14["public.order_items.quantity"]
+  n15["public.orders.created_at"]
+  n16["public.orders.customer_id"]
+  n17["public.orders.id"]
+  n18["public.orders.total_amount"]
+  n19["public.payments.amount"]
+  n20["public.payments.id"]
+  n21["public.payments.order_id"]
+  n22["public.products.id"]
+  n23["public.products.price"]
+  n24["public.products.sku"]
+  n25["public.addresses.addresses_customer_id_fkey"]
+  n26["public.addresses.addresses_pkey"]
+  n27["public.customers.customers_email_key"]
+  n28["public.customers.customers_pkey"]
+  n29["public.order_items.order_items_order_id_fkey"]
+  n30["public.order_items.order_items_pkey"]
+  n31["public.order_items.order_items_product_id_fkey"]
+  n32["public.order_items.order_items_quantity_check__485b310e0371"]
+  n33["public.orders.orders_customer_id_fkey"]
+  n34["public.orders.orders_pkey"]
+  n35["public.orders.orders_total_amount_check__8c94b42a7e78"]
+  n36["public.payments.payments_amount_check__2fbbb5aae972"]
+  n37["public.payments.payments_order_id_fkey"]
+  n38["public.payments.payments_pkey"]
+  n39["public.products.products_pkey"]
+  n40["public.products.products_price_check__a1bdfb6cc254"]
+  n41["public.products.products_sku_key"]
+  n42["public.touch_customer"]
+  n43["public.orders_customer_idx"]
+  n44["public.addresses"]
+  n45["public.customers"]
+  n46["public.order_items"]
+  n47["public.orders"]
+  n48["public.payments"]
+  n49["public.products"]
+  n50["public.customers.customers_touch"]
+  n51["public.customer_summary"]
+  n43 -->|expression_reference| n16
+  n0 -->|query_reference| n10
+  n32 -->|expression_reference| n14
+  n43 -->|contains| n47
+  n17 -->|contains| n47
+  n11 -->|contains| n45
+  n3 -->|contains| n44
+  n30 -->|expression_reference| n13
+  n26 -->|contains| n44
+  n51 -->|query_reference| n8
+  n4 -->|contains| n44
+  n31 -->|expression_reference| n13
+  n2 -->|contains| n44
+  n33 -->|expression_reference| n16
+  n50 -->|trigger_association| n45
+  n12 -->|contains| n46
+  n1 -->|query_reference| n47
+  n25 -->|expression_reference| n3
+  n27 -->|contains| n45
+  n38 -->|expression_reference| n20
+  n19 -->|contains| n48
+  n8 -->|contains| n45
+  n10 -->|contains| n45
+  n12 -->|foreign_key| n17
+  n35 -->|contains| n47
+  n31 -->|foreign_key| n22
+  n37 -->|contains| n48
+  n15 -->|contains| n47
+  n36 -->|expression_reference| n19
+  n36 -->|contains| n48
+  n51 -->|query_reference| n16
+  n37 -->|foreign_key| n47
+  n29 -->|expression_reference| n12
+  n21 -->|contains| n48
+  n46 -->|foreign_key| n47
+  n25 -->|foreign_key| n9
+  n3 -->|foreign_key| n9
+  n5 -->|contains| n51
+  n1 -->|query_reference| n17
+  n37 -->|expression_reference| n21
+  n28 -->|contains| n45
+  n31 -->|foreign_key| n49
+  n9 -->|contains| n45
+  n28 -->|expression_reference| n9
+  n20 -->|contains| n48
+  n18 -->|contains| n47
+  n1 -->|query_reference| n16
+  n40 -->|contains| n49
+  n6 -->|contains| n51
+  n14 -->|contains| n46
+  n40 -->|expression_reference| n23
+  n48 -->|foreign_key| n47
+  n29 -->|foreign_key| n47
+  n50 -->|trigger_association| n42
+  n46 -->|foreign_key| n49
+  n33 -->|foreign_key| n45
+  n16 -->|contains| n47
+  n51 -->|query_reference| n17
+  n0 -->|query_reference| n9
+  n7 -->|contains| n51
+  n51 -->|query_reference| n9
+  n29 -->|contains| n46
+  n39 -->|contains| n49
+  n32 -->|contains| n46
+  n25 -->|contains| n44
+  n35 -->|expression_reference| n18
+  n13 -->|contains| n46
+  n13 -->|foreign_key| n22
+  n26 -->|expression_reference| n4
+  n1 -->|query_reference| n9
+  n25 -->|foreign_key| n45
+  n37 -->|foreign_key| n17
+  n31 -->|contains| n46
+  n34 -->|contains| n47
+  n21 -->|foreign_key| n17
+  n30 -->|expression_reference| n12
+  n41 -->|contains| n49
+  n0 -->|query_reference| n8
+  n41 -->|expression_reference| n24
+  n30 -->|contains| n46
+  n34 -->|expression_reference| n17
+  n23 -->|contains| n49
+  n22 -->|contains| n49
+  n0 -->|query_reference| n45
+  n47 -->|foreign_key| n45
+  n24 -->|contains| n49
+  n44 -->|foreign_key| n45
+  n1 -->|query_reference| n8
+  n39 -->|expression_reference| n22
+  n38 -->|contains| n48
+  n29 -->|foreign_key| n17
+  n51 -->|query_reference| n47
+  n27 -->|expression_reference| n8
+  n33 -->|foreign_key| n9
+  n1 -->|query_reference| n45
+  n16 -->|foreign_key| n9
+  n33 -->|contains| n47
+  n51 -->|query_reference| n45

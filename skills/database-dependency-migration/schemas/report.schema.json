@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Review-only migration report envelope; canonical model is a separate artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "review_only",
+    "operations",
+    "impacts",
+    "plan",
+    "risk_level",
+    "metadata",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "review_only": {
+      "const": true
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "operation",
+          "object_id",
+          "evidence_ids"
+        ],
+        "properties": {
+          "operation": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "impacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "root",
+          "direct",
+          "affected",
+          "paths",
+          "categories",
+          "unknowns",
+          "explanation"
+        ]
+      }
+    },
+    "plan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "phase",
+          "action",
+          "preconditions",
+          "verification",
+          "recovery",
+          "review_only"
+        ],
+        "properties": {
+          "phase": {
+            "enum": [
+              "expand",
+              "backfill",
+              "validate",
+              "transition",
+              "contract"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preconditions": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification": {
+            "type": "string",
+            "minLength": 1
+          },
+          "recovery": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_only": {
+            "const": true
+          }
+        }
+      }
+    },
+    "risk_level": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "origin",
+        "status",
+        "evidence_ids",
+        "tables"
+      ],
+      "properties": {
+        "origin": {
+          "const": "user_supplied"
+        },
+        "status": {
+          "const": "INFERRED"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tables": {
+          "type": "object"
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

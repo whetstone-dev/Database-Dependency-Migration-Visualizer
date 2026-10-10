@@ -4,7 +4,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { unzipSync } from "fflate";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, dirname } from "node:path";
 import * as tooling from "../../scripts/tooling.mjs";
 
 test("the skill archive declares no required runtime and carries source-review references", () => {
@@ -25,6 +25,23 @@ test("the skill archive declares no required runtime and carries source-review r
       readFileSync(join(directory, "database-dependency-migration.skill")),
     );
     const skillRoot = "database-dependency-migration/";
+    const distribution = join(
+      tooling.ROOT,
+      "skills/database-dependency-migration",
+    );
+    const members = tooling
+      .files(distribution)
+      .map((path) => path.slice(distribution.length + 1).replaceAll("\\", "/"));
+    assert.deepEqual(
+      Object.keys(archive).sort(),
+      members.map((name) => skillRoot + name).sort(),
+    );
+    for (const name of members)
+      assert.deepEqual(
+        Buffer.from(archive[skillRoot + name]),
+        readFileSync(join(distribution, name)),
+        `Archive differs from Skills CLI payload: ${name}`,
+      );
     for (const name of [
       "SKILL.md",
       "references/source-analysis.md",
@@ -61,10 +78,12 @@ test("website release rejects documentation copied before the final source chang
     mkdirSync(source);
     mkdirSync(join(built, "docs"), { recursive: true });
     for (const name of ["README.md", "SKILL.md"]) {
-      writeFileSync(
-        join(source, name),
-        "Current UTF-8 documentation: Español\n",
+      const sourcePath = join(
+        source,
+        name === "SKILL.md" ? tooling.SKILL_PATH : name,
       );
+      mkdirSync(dirname(sourcePath), { recursive: true });
+      writeFileSync(sourcePath, "Current UTF-8 documentation: Español\n");
       writeFileSync(
         join(built, "docs", name),
         "Current UTF-8 documentation: Español\n",
@@ -72,7 +91,7 @@ test("website release rejects documentation copied before the final source chang
     }
     assert.equal(tooling.verify_built_docs(source, built), 2);
     writeFileSync(
-      join(source, "SKILL.md"),
+      join(source, tooling.SKILL_PATH),
       "Updated provenance instructions\n",
     );
     assert.throws(

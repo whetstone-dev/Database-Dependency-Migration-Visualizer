@@ -21,6 +21,7 @@ import {
   save,
   sha256,
 } from "./tooling.mjs";
+import { SKILL_DIRECTORY, check_skill } from "./skill-distribution.mjs";
 
 const SKILLS_VERSION = "1.7.2";
 const { values } = parseArgs({
@@ -92,6 +93,7 @@ function sensitive(name) {
 }
 
 try {
+  receipt.distribution = check_skill();
   const location = relative(ROOT, temporary);
   if (
     !isAbsolute(location) &&
@@ -156,16 +158,31 @@ try {
   const copied = files(installed).map((path) =>
     relative(installed, path).replaceAll("\\", "/"),
   );
-  const missing = Object.keys(payloads).filter(
+  const distributionPrefix = SKILL_DIRECTORY + "/";
+  const expected = Object.fromEntries(
+    Object.entries(payloads)
+      .filter(([name]) => name.startsWith(distributionPrefix))
+      .map(([name, data]) => [name.slice(distributionPrefix.length), data]),
+  );
+  const missing = Object.keys(expected).filter(
     (name) => !copied.includes(name),
   );
   const changed = copied.filter(
     (name) =>
-      !payloads[name] ||
-      sha256(readFileSync(join(installed, name))) !== sha256(payloads[name]),
+      !expected[name] ||
+      sha256(readFileSync(join(installed, name))) !== sha256(expected[name]),
   );
   receipt.installed_contents = {
     members: copied.length,
+    bytes: copied.reduce(
+      (sum, name) => sum + readFileSync(join(installed, name)).length,
+      0,
+    ),
+    developer_files: copied.filter(
+      (name) =>
+        /^(site|evals|tests|\.github)\//.test(name) ||
+        (name.startsWith("scripts/") && name !== "scripts/dbdep.mjs"),
+    ),
     missing,
     changed,
     sensitive: copied.filter(sensitive),
@@ -173,6 +190,7 @@ try {
   if (
     missing.length ||
     changed.length ||
+    receipt.installed_contents.developer_files.length ||
     receipt.installed_contents.sensitive.length
   )
     throw new Error(

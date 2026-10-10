@@ -14,6 +14,7 @@ jobs:
           node-version: "24"
       - run: npm install --global pnpm@12.10.1 --ignore-scripts
       - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: pnpm check:skill
       - run: pnpm audit --audit-level=low
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test
@@ -26,6 +27,8 @@ jobs:
       - run: pnpm package:skill
       - run: pnpm package:site
       - run: pnpm smoke:artifacts
+      - run: npm install --prefix out/skills-cli --ignore-scripts --no-audit --no-fund skills@1.7.2
+      - run: pnpm smoke:skills --cli out/skills-cli/node_modules/skills/bin/cli.mjs
       - name: build the GitHub Pages repository prefix
         run: pnpm build
         env:

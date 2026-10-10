@@ -1,0 +1,406 @@
+{
+  "impacts": [
+    {
+      "affected": [
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+        "postgresql:local/public/column/addresses/customer_id/",
+        "postgresql:local/public/column/customer_summary/email/",
+        "postgresql:local/public/column/customer_summary/id/",
+        "postgresql:local/public/column/customer_summary/order_count/",
+        "postgresql:local/public/column/orders/customer_id/",
+        "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422",
+        "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/index//orders_customer_idx/",
+        "postgresql:local/public/view//customer_summary/"
+      ],
+      "categories": {
+        "inferred": [],
+        "recorded_catalog": [],
+        "static_reference": [
+          "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+          "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+          "postgresql:local/public/column/addresses/customer_id/",
+          "postgresql:local/public/column/customer_summary/email/",
+          "postgresql:local/public/column/customer_summary/id/",
+          "postgresql:local/public/column/customer_summary/order_count/",
+          "postgresql:local/public/column/orders/customer_id/",
+          "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+          "postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422",
+          "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+          "postgresql:local/public/index//orders_customer_idx/",
+          "postgresql:local/public/view//customer_summary/"
+        ]
+      },
+      "direct": [
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/",
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+        "postgresql:local/public/column/addresses/customer_id/",
+        "postgresql:local/public/column/orders/customer_id/",
+        "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422",
+        "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/view//customer_summary/"
+      ],
+      "explanation": "Reverse paths show potential impact. They do not prove execution failure or exhaustive runtime coverage.",
+      "operation": "AT_AlterColumnType",
+      "paths": {
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Fcustomers.sql%3Aev%3Ae4dc7c3f3bcbc60c845f14b5/": [
+          "edge:a9189d507b83265b33fafc29"
+        ],
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/": [
+          "edge:c0e890722d6fafc386c0e426"
+        ],
+        "postgresql:local/public/column/addresses/customer_id/": [
+          "edge:6c3f2ed8788f2720c5aff75f"
+        ],
+        "postgresql:local/public/column/customer_summary/email/": [
+          "edge:6e209e98877452de8f04385b",
+          "edge:aa9343ef5c72a1e514641dc7"
+        ],
+        "postgresql:local/public/column/customer_summary/id/": [
+          "edge:8d3c400eda2590da824c965e",
+          "edge:aa9343ef5c72a1e514641dc7"
+        ],
+        "postgresql:local/public/column/customer_summary/order_count/": [
+          "edge:aa1d9857feb03fc467ed1835",
+          "edge:aa9343ef5c72a1e514641dc7"
+        ],
+        "postgresql:local/public/column/orders/customer_id/": [
+          "edge:fbc21659908e0ae2a5cd46ea"
+        ],
+        "postgresql:local/public/constraint/addresses/addresses_customer_id_fkey/884466556956c633a5c8fcd4": [
+          "edge:6b337fb6d4bfa4f999a1cc86"
+        ],
+        "postgresql:local/public/constraint/customers/customers_pkey/62676e56159a610040517422": [
+          "edge:84d30a74505bc15546505d27"
+        ],
+        "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4": [
+          "edge:f4ce6b8bb9138d13271b58f2"
+        ],
+        "postgresql:local/public/index//orders_customer_idx/": [
+          "edge:014fb6369ba96ca9ec2ffb6e",
+          "edge:fbc21659908e0ae2a5cd46ea"
+        ],
+        "postgresql:local/public/view//customer_summary/": [
+          "edge:aa9343ef5c72a1e514641dc7"
+        ]
+      },
+      "root": "postgresql:local/public/column/customers/id/",
+      "to": null,
+      "unknowns": [
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:7de9792a75dda688bf1f738f"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:18505c245f165e4c93c709f8",
+          "object_id": "postgresql:local/public/column/orders/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:8dadc8fc9c511aafd4803a87"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:5afc9281a8cd153100e8eb4f",
+          "object_id": "postgresql:local/public/column/products/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:4f849d665202a664e7893d4a"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:5ff30f718f152d8ea851b944",
+          "object_id": "postgresql:local/public/column/addresses/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:e9af3cfadad5d8900305d336"
+          ],
+          "explanation": "Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.",
+          "id": "unknown:69ffcfe1e4e57e6481af7368",
+          "object_id": "postgresql:local/public/function//touch_customer/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:40680f826d95f1ec183340ed"
+          ],
+          "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+          "id": "unknown:8bea11811025af9e17a96a8e",
+          "object_id": "postgresql:local/public/column/customers/updated_at/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:40680f826d95f1ec183340ed"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:9e847561e1fbe07255d98720",
+          "object_id": "postgresql:local/public/column/customers/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:e3fa1e6bfbfed48ae579bc40"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:eacbb533e2808e73f27dbf47",
+          "object_id": "postgresql:local/public/column/payments/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:7de9792a75dda688bf1f738f"
+          ],
+          "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+          "id": "unknown:f16dbb53af3ad137ed449c36",
+          "object_id": "postgresql:local/public/column/orders/created_at/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "affected": [
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+        "postgresql:local/public/column/customer_summary/email/",
+        "postgresql:local/public/column/customer_summary/id/",
+        "postgresql:local/public/column/customer_summary/order_count/",
+        "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/index//orders_customer_idx/",
+        "postgresql:local/public/view//customer_summary/"
+      ],
+      "categories": {
+        "inferred": [],
+        "recorded_catalog": [],
+        "static_reference": [
+          "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+          "postgresql:local/public/column/customer_summary/email/",
+          "postgresql:local/public/column/customer_summary/id/",
+          "postgresql:local/public/column/customer_summary/order_count/",
+          "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+          "postgresql:local/public/index//orders_customer_idx/",
+          "postgresql:local/public/view//customer_summary/"
+        ]
+      },
+      "direct": [
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/",
+        "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4",
+        "postgresql:local/public/index//orders_customer_idx/",
+        "postgresql:local/public/view//customer_summary/"
+      ],
+      "explanation": "Reverse paths show potential impact. They do not prove execution failure or exhaustive runtime coverage.",
+      "operation": "AT_DropColumn",
+      "paths": {
+        "postgresql:local/application/query//examples%2Fecommerce%2Fapp%2Forders.sql%3Aev%3Af8c7e18154ef774049bc8694/": [
+          "edge:898dfc1b3549f6fe9e1041ce"
+        ],
+        "postgresql:local/public/column/customer_summary/email/": [
+          "edge:6e209e98877452de8f04385b",
+          "edge:5854677188c6ab1c841f33ed"
+        ],
+        "postgresql:local/public/column/customer_summary/id/": [
+          "edge:8d3c400eda2590da824c965e",
+          "edge:5854677188c6ab1c841f33ed"
+        ],
+        "postgresql:local/public/column/customer_summary/order_count/": [
+          "edge:aa1d9857feb03fc467ed1835",
+          "edge:5854677188c6ab1c841f33ed"
+        ],
+        "postgresql:local/public/constraint/orders/orders_customer_id_fkey/884466556956c633a5c8fcd4": [
+          "edge:2f87c0839429a4ab70f6577b"
+        ],
+        "postgresql:local/public/index//orders_customer_idx/": [
+          "edge:014fb6369ba96ca9ec2ffb6e"
+        ],
+        "postgresql:local/public/view//customer_summary/": [
+          "edge:5854677188c6ab1c841f33ed"
+        ]
+      },
+      "root": "postgresql:local/public/column/orders/customer_id/",
+      "to": null,
+      "unknowns": [
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:7de9792a75dda688bf1f738f"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:18505c245f165e4c93c709f8",
+          "object_id": "postgresql:local/public/column/orders/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:8dadc8fc9c511aafd4803a87"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:5afc9281a8cd153100e8eb4f",
+          "object_id": "postgresql:local/public/column/products/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:4f849d665202a664e7893d4a"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:5ff30f718f152d8ea851b944",
+          "object_id": "postgresql:local/public/column/addresses/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:e9af3cfadad5d8900305d336"
+          ],
+          "explanation": "Routine body/runtime references are not exhaustively analyzed offline, including dynamic SQL.",
+          "id": "unknown:69ffcfe1e4e57e6481af7368",
+          "object_id": "postgresql:local/public/function//touch_customer/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:40680f826d95f1ec183340ed"
+          ],
+          "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+          "id": "unknown:8bea11811025af9e17a96a8e",
+          "object_id": "postgresql:local/public/column/customers/updated_at/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:40680f826d95f1ec183340ed"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:9e847561e1fbe07255d98720",
+          "object_id": "postgresql:local/public/column/customers/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:e3fa1e6bfbfed48ae579bc40"
+          ],
+          "explanation": "Identity sequence exists but its actual name/OID needs catalog metadata.",
+          "id": "unknown:eacbb533e2808e73f27dbf47",
+          "object_id": "postgresql:local/public/column/payments/id/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        },
+        {
+          "confidence": "unknown",
+          "evidence_ids": [
+            "ev:7de9792a75dda688bf1f738f"
+          ],
+          "explanation": "Default/generated function and sequence expression targets need catalog resolution.",
+          "id": "unknown:f16dbb53af3ad137ed449c36",
+          "object_id": "postgresql:local/public/column/orders/created_at/",
+          "origin": "heuristic",
+          "status": "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "SQL is never executed. Baseline is not replayed into a target schema.",
+    "Runtime consumers, table statistics and deployment completion require independent evidence.",
+    "Phases are a review checklist, not target-specific executable migrations. Apply relevant phases to the supplied change and verify operational prerequisites."
+  ],
+  "metadata": {
+    "evidence_ids": [],
+    "origin": "user_supplied",
+    "status": "INFERRED",
+    "tables": {}
+  },
+  "operations": [
+    {
+      "evidence_ids": [
+        "ev:e9b2533c0430764b4a894410"
+      ],
+      "object_id": "postgresql:local/public/column/customers/id/",
+      "operation": "AT_AlterColumnType"
+    },
+    {
+      "evidence_ids": [
+        "ev:932595bbd8475c83626294de"
+      ],
+      "object_id": "postgresql:local/public/column/orders/customer_id/",
+      "operation": "AT_DropColumn"
+    }
+  ],
+  "plan": [
+    {
+      "action": "Where a replacement is needed, add nullable columns or compatible interfaces. Define the replacement representation and any identifier mapping before changing keys.",
+      "phase": "expand",
+      "preconditions": "Confirm PostgreSQL version, backups, ownership, consumers and feasible mapping. Review privileges and lock budget.",
+      "recovery": "Stop deployment before consumers depend on the new fields; keep old fields available.",
+      "review_only": true,
+      "verification": "Rehearse DDL on a disposable database with representative data. Verify identity/sequence/default semantics."
+    },
+    {
+      "action": "If stored data needs a representation change, backfill bounded, resumable batches using reviewed transformation logic and coordinated dual writers.",
+      "phase": "backfill",
+      "preconditions": "Validate transformation semantics and mapping uniqueness where identifiers change. Handle concurrent writes and define throttling.",
+      "recovery": "Pause batches and preserve old data; restore from tested backup only under an approved recovery procedure.",
+      "review_only": true,
+      "verification": "Check transformation results, applicable mapping completeness and uniqueness, NULL rates and FK consistency under concurrent traffic."
+    },
+    {
+      "action": "Validate CHECK/FK constraints where NOT VALID is supported. Build concurrent indexes outside transaction blocks when appropriate.",
+      "phase": "validate",
+      "preconditions": "Confirm constraint support, partition restrictions, existing violations and resource budget. Concurrent index failure can leave an invalid index.",
+      "recovery": "Investigate failed validation or invalid indexes; repair/retry through separate authorized tooling.",
+      "review_only": true,
+      "verification": "Check constraint validation and pg_index.indisvalid/indisready, compare old/new results and observe lock waits."
+    },
+    {
+      "action": "Deploy compatible readers/writers and transition dependent FKs, views, functions, API/ORM contracts and downstream jobs.",
+      "phase": "transition",
+      "preconditions": "Obtain explicit consumer ownership and deployment-order evidence. Account for UNKNOWN and dynamic SQL paths.",
+      "recovery": "Revert application reads only while both representations remain consistent; otherwise prefer roll-forward.",
+      "review_only": true,
+      "verification": "Observe application errors and old-field usage through an agreed window. Static graph paths do not prove runtime coverage."
+    },
+    {
+      "action": "Remove legacy objects only after verified transition and a separate destructive-change review.",
+      "phase": "contract",
+      "preconditions": "Confirm no remaining consumers, validated keys, tested backups and signed-off CASCADE consequences. Schedule lock acquisition.",
+      "recovery": "Drops can lose data. Reverse DDL does not restore it; use tested recovery or roll-forward with an operator.",
+      "review_only": true,
+      "verification": "Reinspect schema, compare snapshots and run application integration checks. Do not promise zero downtime."
+    }
+  ],
+  "review_only": true,
+  "risk_level": "high",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="__CSP__" />
+    <title>PostgreSQL dependency explorer</title>
+    <!-- prettier-ignore -->
+    <script>__BOOTSTRAP__</script>
+    <!-- Bundled font licenses: __FONT_LICENSES__ -->
+    <!-- prettier-ignore -->
+    <style>__CSS__</style>
+  </head>
+  <body>
+    <a class="skip-link" href="#report" data-i18n="skip">Skip to report</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <svg
+            class="brand-mark"
+            viewBox="0 0 36 36"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect
+              x="2"
+              y="4"
+              width="11"
+              height="11"
+              rx="3"
+              fill="currentColor"
+            ></rect>
+            <rect
+              x="22"
+              y="21"
+              width="11"
+              height="11"
+              rx="3"
+              fill="currentColor"
+            ></rect>
+            <path
+              d="M13 9h14v12M7 15v12h15"
+              stroke="currentColor"
+              stroke-width="1.5"
+            ></path>
+          </svg>
+          <strong>Whetstone</strong><span class="brand-divider">/</span
+          ><span data-i18n="brand">Dependency report</span>
+        </div>
+        <span class="stamp mono" data-i18n="stamp"
+          >LOCAL ANALYSIS · REVIEW ONLY</span
+        >
+        <div class="preferences">
+          <div
+            class="language-control"
+            role="group"
+            aria-label="Language"
+            data-i18n-aria="language"
+          >
+            <button
+              type="button"
+              id="locale-en"
+              lang="en"
+              aria-label="English"
+              aria-pressed="true"
+            >
+              ENG
+            </button>
+            <button
+              type="button"
+              id="locale-es"
+              lang="es"
+              aria-label="Español"
+              aria-pressed="false"
+            >
+              ESP
+            </button>
+          </div>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="theme-control"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                id="theme-moon"
+                d="M20.6 13.5A8.5 8.5 0 0 1 10.5 3.4 8.5 8.5 0 1 0 20.6 13.5Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              ></path>
+              <g id="theme-sun" hidden>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                ></circle>
+                <path
+                  d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                ></path>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="report" tabindex="-1">
+      <section class="intro">
+        <div class="intro-copy">
+          <p class="eyebrow mono">
+            <i aria-hidden="true"></i
+            ><span data-i18n="eyebrow">POSTGRESQL / DEPENDENCY REPORT</span>
+          </p>
+          <h1>
+            <span data-i18n="headline">Know what breaks</span><br /><span
+              class="hero-accent"
+              data-i18n="headlineAccent"
+              >before you migrate.</span
+            >
+          </h1>
+          <p class="subtitle" data-i18n="subtitle">
+            Trace dependencies back to their evidence. Review changes before
+            deployment.
+          </p>
+        </div>
+        <div id="stats" class="stats"></div>
+      </section>
+      <p
+        id="original-text-note"
+        class="original-text-note"
+        hidden
+        data-i18n="originalText"
+      >
+        Evidence, findings, and migration plan text remain in their original
+        English.
+      </p>
+      <nav class="tabs" aria-label="Report views" data-i18n-aria="reportViews">
+        <button
+          type="button"
+          data-tab="explorer"
+          aria-pressed="true"
+          data-i18n="explorer"
+        >
+          01 / Explorer
+        </button>
+        <button
+          type="button"
+          data-tab="findings"
+          aria-pressed="false"
+          data-i18n="findings"
+        >
+          02 / Change review
+        </button>
+        <button
+          type="button"
+          data-tab="sequence"
+          aria-pressed="false"
+          data-i18n="sequence"
+        >
+          03 / Migration sequence
+        </button>
+      </nav>
+      <section id="explorer">
+        <div class="toolbar">
+          <label
+            ><span data-i18n="findObject">Find an object</span
+            ><input
+              id="search"
+              type="search"
+              placeholder="schema.table.column"
+              data-i18n-placeholder="searchPlaceholder"
+          /></label>
+          <label
+            ><span data-i18n="schema">Schema</span
+            ><select id="schema">
+              <option value="" data-i18n="allSchemas">All schemas</option>
+            </select></label
+          >
+          <label
+            ><span data-i18n="kind">Kind</span
+            ><select id="kind">
+              <option value="" data-i18n="allKinds">All kinds</option>
+            </select></label
+          >
+          <label
+            ><span data-i18n="evidence">Evidence</span
+            ><select id="status">
+              <option value="" data-i18n="allStatuses">All statuses</option>
+            </select></label
+          >
+          <label
+            ><span data-i18n="impact">Impact</span
+            ><select id="depth">
+              <option value="all" data-i18n="allObjects">All objects</option>
+              <option value="direct" data-i18n="directDependents">
+                Direct dependents
+              </option>
+              <option value="transitive" data-i18n="transitiveDependents">
+                Transitive dependents
+              </option>
+            </select></label
+          >
+        </div>
+        <div class="workspace">
+          <div class="canvas-wrap">
+            <div class="canvas-tools">
+              <div
+                class="zoom-tools"
+                role="group"
+                aria-label="Graph viewport"
+                data-i18n-aria="viewport"
+              >
+                <button
+                  type="button"
+                  id="zoom-in"
+                  aria-label="Zoom in"
+                  data-i18n-aria="zoomIn"
+                >
+                  +
+                </button>
+                <button
+                  type="button"
+                  id="zoom-out"
+                  aria-label="Zoom out"
+                  data-i18n-aria="zoomOut"
+                >
+                  −
+                </button>
+                <button type="button" id="reset" data-i18n="reset">
+                  Reset view
+                </button>
+              </div>
+              <div class="export-tools">
+                <button type="button" id="export-svg" data-i18n="exportSvg">
+                  Export SVG
+                </button>
+                <button type="button" id="export-json" data-i18n="exportJson">
+                  Export JSON
+                </button>
+              </div>
+            </div>
+            <p id="cap" role="status" aria-live="polite"></p>
+            <svg
+              id="graph"
+              role="group"
+              aria-label="Dependency graph. Use Tab to select nodes; Enter to inspect. Arrow keys pan, plus and minus zoom."
+              data-i18n-aria="graph"
+              tabindex="0"
+              viewBox="0 0 1300 780"
+            >
+              <defs>
+                <marker
+                  id="arrow"
+                  markerWidth="8"
+                  markerHeight="8"
+                  refX="7"
+                  refY="4"
+                  orient="auto"
+                >
+                  <path d="M0,0 L8,4 L0,8" fill="currentColor"></path>
+                </marker>
+              </defs>
+              <g id="scene"></g>
+            </svg>
+            <div class="legend">
+              <span class="hard" data-i18n="catalogLegend">Solid: catalog</span
+              ><span class="parsed" data-i18n="parsedLegend"
+                >Dashed: parsed reference</span
+              ><span class="fk" data-i18n="fkLegend"
+                >Dotted: foreign key relationship</span
+              ><span class="legend-direction" data-i18n="arrowLegend"
+                >Arrow = source depends on target. Impact follows reverse
+                arrows.</span
+              >
+            </div>
+          </div>
+          <aside id="detail" aria-live="polite">
+            <p class="eyebrow mono" data-i18n="inspector">EVIDENCE INSPECTOR</p>
+            <h2 data-i18n="selectObject">Select an object</h2>
+            <p data-i18n="selectHint">
+              Inspect direct and transitive consumers, explanatory paths, and
+              source provenance.
+            </p>
+          </aside>
+        </div>
+      </section>
+      <section id="findings" hidden>
+        <div class="review-toolbar">
+          <label
+            ><span data-i18n="riskLevel">Risk level</span
+            ><select id="risk">
+              <option value="" data-i18n="allRisks">All risks</option>
+              <option value="high" data-value-type="risk">high</option>
+              <option value="medium" data-value-type="risk">medium</option>
+              <option value="low" data-value-type="risk">low</option>
+              <option value="unknown" data-value-type="risk">unknown</option>
+            </select></label
+          >
+        </div>
+        <div id="change-list"></div>
+        <div id="finding-list"></div>
+        <h2 class="coverage-title" data-i18n="unknownCoverage">
+          Unknown coverage
+        </h2>
+        <div id="unknown-list"></div>
+      </section>
+      <section id="sequence" hidden>
+        <p class="subtitle" data-i18n="sequenceHint">
+          Review each phase, its preconditions, verification, and recovery. This
+          report never runs SQL.
+        </p>
+        <div id="phase-list"></div>
+      </section>
+      <noscript><p>__FALLBACK__</p></noscript>
+      <footer>
+        <p data-i18n="evidenceDefinitions">
+          OBSERVED = catalog metadata · PARSED = syntax evidence · INFERRED =
+          unproven · UNKNOWN = unavailable.
+        </p>
+        <p data-i18n="limitations">
+          Graph paths show potential impact. Runtime coverage and lock duration
+          require separate evidence.
+        </p>
+      </footer>
+    </main>
+    <!-- prettier-ignore -->
+    <script id="dbdep-state" type="application/json">__STATE__</script>
+    <!-- prettier-ignore -->
+    <script>__JS__</script>
+  </body>
+</html>

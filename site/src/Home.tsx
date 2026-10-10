@@ -11,7 +11,7 @@ import { useSitePreferences } from "./preferences-context";
 import Link from "next/link";
 
 const installCommand =
-  "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration";
+  "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git dbdep-skill-source\nmkdir -p .agents/skills\ncp -R dbdep-skill-source/skills/database-dependency-migration .agents/skills/";
 
 function MagneticAction({ children }: { children: ReactNode }) {
   const reduced = useReducedMotion();

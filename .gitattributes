@@ -12,3 +12,7 @@ evals/review.html -text -whitespace linguist-generated=true
 evals/review-node.html -text -whitespace linguist-generated=true
 # Keep generated viewers available without counting them as authored source.
 examples/rendered/** linguist-generated=true
+# Committed copies keep Skills CLI installation independent of contributor setup.
+skills/database-dependency-migration/** linguist-generated=true
+skills/database-dependency-migration/SKILL.md linguist-generated=false
+skills/database-dependency-migration/README.md linguist-generated=false

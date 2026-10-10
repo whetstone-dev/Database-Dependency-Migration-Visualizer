@@ -25,27 +25,32 @@ You need an agent that supports `SKILL.md`, such as Codex or Claude Code, and ac
 
 ### Manual installation without Node.js
 
-Copy or symlink this checkout, or unpack the `.skill` archive, into your agent's skill directory. Keep `SKILL.md`, `references/` and `templates/` together. The scripts, schemas and viewer are optional toolkit resources. Reload your agent and use the skill immediately.
+Copy or symlink [skills/database-dependency-migration](https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer/tree/main/skills/database-dependency-migration), or unpack the `.skill` archive, into your agent's skill directory. Keep its `SKILL.md`, references and templates together. The scripts, schemas and viewer are optional toolkit resources. Reload your agent and use the skill immediately.
 
-Alternatively, clone from your project root:
+For a project installation on macOS/Linux, clone the repository and copy its distributable directory:
 
 ```sh
-git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration
+git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git dbdep-skill-source
+mkdir -p .agents/skills
+cp -R dbdep-skill-source/skills/database-dependency-migration .agents/skills/
 ```
 
 For a personal Codex skill on macOS/Linux:
 
 ```sh
-git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git ~/.agents/skills/database-dependency-migration
+mkdir -p ~/.agents/skills
+cp -R dbdep-skill-source/skills/database-dependency-migration ~/.agents/skills/
 ```
 
 On Windows PowerShell:
 
 ```powershell
-git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git "$HOME/.agents/skills/database-dependency-migration"
+git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git dbdep-skill-source
+New-Item -ItemType Directory -Path .agents/skills -Force
+Copy-Item -LiteralPath ./dbdep-skill-source/skills/database-dependency-migration -Destination .agents/skills/database-dependency-migration -Recurse
 ```
 
-For Claude Code, use `.claude/skills/database-dependency-migration` in a project or `~/.claude/skills/database-dependency-migration` personally. No package installation is needed.
+For a personal Windows installation, use `$HOME/.agents/skills` as the destination parent. For Claude Code, use `.claude/skills/database-dependency-migration` in a project or `~/.claude/skills/database-dependency-migration` personally. No package installation is needed.
 
 ### Skills CLI
 
@@ -57,7 +62,7 @@ npx skills@1.7.2 add whetstone-dev/Database-Dependency-Migration-Visualizer --sk
 
 This installs into `.agents/skills/database-dependency-migration` in the current project. Replace `codex` with `claude-code`, or add `--global` for a personal installation. Reload your agent and use the skill; there is no follow-up `pnpm install` step. The installer itself requires Node.js 22.20+; manual copying/cloning does not.
 
-Skills CLI copies the repository directory containing the root `SKILL.md`, including development files, website and evaluations. The `.skill` archive excludes the website and evaluation records. Neither installation needs those development files to run a source review.
+Skills CLI discovers `skills/database-dependency-migration/` and copies only that directory. It includes the skill guidance, optional toolkit, examples and licenses, while excluding the website, evaluation records, tests and development scripts. The `.skill` archive uses the same checked payload. No contributor build or dependency installation is needed to install or use the skill.
 
 ### Updating
 
@@ -65,8 +70,8 @@ Skills CLI copies the repository directory containing the root `SKILL.md`, inclu
 npx skills@1.7.2 update database-dependency-migration --project
 # Personal Skills CLI installation:
 npx skills@1.7.2 update database-dependency-migration --global
-# Manual Git project installation:
-git -C .agents/skills/database-dependency-migration pull --ff-only
+# Manual installation: update the source checkout, then copy its skill directory again.
+git -C dbdep-skill-source pull --ff-only
 ```
 
 For a personal/manual installation, use its actual directory with `git -C`; replace copied files with the updated skill when not using Git. Reload the agent. Only users of the optional toolkit need to refresh runtime dependencies after updating. Keep inputs and reports in the user's workspace, outside the installed skill directory.
@@ -114,7 +119,7 @@ node scripts/dbdep.mjs inspect --catalog examples/analytics/catalog.json --out o
 node scripts/dbdep.mjs demo out/demo --json
 ```
 
-`pnpm dbdep <command>` runs the same entry point. From another working directory, use `node "<skill-directory>/scripts/dbdep.mjs" ...`. A local npm tarball can expose `dbdep` through `npm install -g <package.tgz>`; no published npm package is assumed.
+`pnpm dbdep <command>` runs the same entry point. From another working directory, use `node "<skill-directory>/scripts/dbdep.mjs" ...`. A local npm tarball can expose `dbdep` through `npm install -g <package.tgz>`; no published npm package is assumed. The npm tarball supplies the standalone toolkit. Install the complete agent skill through Skills CLI, manual copying or the `.skill` archive.
 
 `snapshot` aliases `inspect`. A schema directory contains declarations; it does not replay migrations. Review without a baseline is explicitly partial. Exit **0** means analysis completed, **2** means invalid input/prerequisites, and **3** means a requested policy gate failed. A successful analysis may contain high-risk findings; failed risk gates still write review artifacts.
 
@@ -156,11 +161,12 @@ Open the localhost URL printed by the preview. GitHub Pages deployment is a manu
 
 | Path                                    | Contents                                                                              |
 | --------------------------------------- | ------------------------------------------------------------------------------------- |
-| `SKILL.md`, `agents/`                   | Agent entry point, task routing and display metadata                                  |
+| `skills/database-dependency-migration/` | Discoverable skill entry point and complete, checked installation payload             |
+| `agents/`, `references/`, `templates/`  | Source guidance and metadata copied into the distributable skill                      |
 | `src/dbdep/`                            | Independent model, parser, graph, catalog, hazard, planning, reporting and CLI engine |
 | `scripts/dbdep.mjs`                     | Standalone CLI entry point                                                            |
 | `scripts/`                              | Fixture, packaging, install-smoke and evaluation development tools                    |
-| `schemas/`, `references/`, `templates/` | Canonical schemas, evidence semantics, safety guidance and report template            |
+| `schemas/`                              | Canonical model, findings and review schemas                                          |
 | `assets/viewer/`                        | Offline report viewer and embedded licensed fonts                                     |
 | `examples/`                             | Curated inputs, authentic sanitized capture and generated reports                     |
 | `tests/`                                | Node, browser and isolated live regressions                                           |

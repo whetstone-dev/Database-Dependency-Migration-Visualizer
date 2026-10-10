@@ -46,7 +46,7 @@ type DocsCopy = {
 };
 
 const install =
-  "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration";
+  "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git dbdep-skill-source\nmkdir -p .agents/skills\ncp -R dbdep-skill-source/skills/database-dependency-migration .agents/skills/";
 const toolkitInstall =
   "npm install --omit=dev --ignore-scripts --package-lock=false\nnode scripts/dbdep.mjs doctor --json";
 const inspect =
@@ -119,7 +119,7 @@ const en: DocsCopy = {
         {
           title: "Install and use the skill",
           paragraphs: [
-            "You need an agent that supports SKILL.md and access to the files you want reviewed. No Node.js, pnpm, package installation, build or database server is needed. Clone or copy the skill into your agent's skill directory, reload the agent, and ask it to review your sources.",
+            "You need an agent that supports SKILL.md and access to the files you want reviewed. No Node.js, pnpm, package installation, build or database server is needed. Copy the repository's skills/database-dependency-migration directory into your agent's skill directory, reload the agent, and ask it to review your sources.",
           ],
           code: [
             {
@@ -132,7 +132,7 @@ const en: DocsCopy = {
         {
           title: "Connect your coding agent",
           paragraphs: [
-            "Keep SKILL.md, references and templates together. Scripts, schemas and viewer assets are optional toolkit resources. You can also install with npx skills@1.7.2 add whetstone-dev/Database-Dependency-Migration-Visualizer --skill database-dependency-migration --agent codex --copy. The Skills CLI itself needs Node.js 22.20+; manual copying or cloning does not. Neither route requires a follow-up pnpm install.",
+            "Keep SKILL.md, references and templates together. Scripts, schemas and viewer assets are optional toolkit resources. You can also install with npx skills@1.7.2 add whetstone-dev/Database-Dependency-Migration-Visualizer --skill database-dependency-migration --agent codex --copy. It installs only the dedicated skill directory, without website, evaluation or development files. The Skills CLI itself needs Node.js 22.20+; manual copying does not. Neither route requires a follow-up pnpm install.",
           ],
           table: {
             headings: [
@@ -595,7 +595,7 @@ const es: DocsCopy = {
         {
           title: "Instala y usa la skill",
           paragraphs: [
-            "Necesitas un agente compatible con SKILL.md y acceso a los archivos. No necesitas Node.js, pnpm, instalar paquetes, compilar ni un servidor de base de datos. Clona o copia la skill al directorio de skills de tu agente, vuelve a cargarlo y pide la revisión.",
+            "Necesitas un agente compatible con SKILL.md y acceso a los archivos. No necesitas Node.js, pnpm, instalar paquetes, compilar ni un servidor de base de datos. Copia skills/database-dependency-migration desde el repositorio al directorio de skills de tu agente, vuelve a cargarlo y pide la revisión.",
           ],
           code: [
             {
@@ -608,7 +608,7 @@ const es: DocsCopy = {
         {
           title: "Conecta tu agente",
           paragraphs: [
-            "Conserva SKILL.md, las referencias y las plantillas juntas. Scripts, esquemas y visor son recursos del toolkit opcional. También puedes instalar con npx skills@1.7.2 add whetstone-dev/Database-Dependency-Migration-Visualizer --skill database-dependency-migration --agent codex --copy. Skills CLI necesita Node.js 22.20+; copiar o clonar manualmente no. Ninguna opción requiere pnpm install después.",
+            "Conserva SKILL.md, las referencias y las plantillas juntas. Scripts, esquemas y visor son recursos del toolkit opcional. También puedes instalar con npx skills@1.7.2 add whetstone-dev/Database-Dependency-Migration-Visualizer --skill database-dependency-migration --agent codex --copy. Solo instala el directorio dedicado de la skill, sin el sitio web, evaluaciones ni archivos de desarrollo. Skills CLI necesita Node.js 22.20+; copiar manualmente no. Ninguna opción requiere pnpm install después.",
           ],
           table: {
             headings: [
