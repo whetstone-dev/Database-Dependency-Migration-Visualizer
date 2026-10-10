@@ -176,8 +176,13 @@ test("clipboard feedback and live reduced-motion changes work", async ({
   });
   await copy.click();
   await expect(copy).toContainText("Copied");
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(
-    "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration",
+  expect(
+    (await page.evaluate(() => navigator.clipboard.readText())).replace(
+      /\r\n/g,
+      "\n",
+    ),
+  ).toBe(
+    "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git dbdep-skill-source\nmkdir -p .agents/skills\ncp -R dbdep-skill-source/skills/database-dependency-migration .agents/skills/",
   );
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(page.locator(".dot-grid--static")).toHaveCount(1);

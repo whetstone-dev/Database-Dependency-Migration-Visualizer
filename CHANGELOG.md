@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+Move the discoverable skill into `skills/database-dependency-migration/`. Generate its committed toolkit/resources with a shared distribution allowlist, exclude website/evaluation/development files and use the same payload for `.skill` archives. Add stale-copy checks, installed-link regressions and a real Skills CLI smoke in CI. Update manual-copy instructions and website documentation paths.
+
 Make source-cited migration review the default skill workflow without Node.js, pnpm, installed packages, builds or a database server. Add manual EF Core/C#, Prisma and TypeORM mapping guidance, sequential schema ledgers and PR-ready summaries. Keep parser-backed models and interactive reports in the optional toolkit, with a production-only npm installation path. Update the README, troubleshooting, report outline, agent prompt and English/Spanish website installation and quickstart guidance. Record broader automation and independent accuracy testing as future work.
 
 Find npm in both official Windows and POSIX Node installation layouts during artifact installation checks. Resolve prerequisites before creating a temporary workspace. The first remote Linux CI run exposed this portability bug after all engine/browser/build checks passed.

@@ -1,0 +1,53 @@
+flowchart LR
+  %% Source depends on target; traverse reverse for impact
+  n0["analytics.monthly_revenue.revenue"]
+  n1["analytics.order_summary.id"]
+  n2["analytics.order_summary.total_amount"]
+  n3["analytics.analytics"]
+  n4["analytics._monthly_revenue"]
+  n5["analytics._order_summary"]
+  n6["analytics.monthly_revenue"]
+  n7["analytics.order_summary"]
+  n8["analytics.monthly_revenue"]
+  n9["analytics.order_summary"]
+  n10["pg_catalog.plpgsql"]
+  n11["public.public"]
+  n12["sales.orders.id"]
+  n13["sales.orders.total_amount"]
+  n14["sales.orders.orders_id_not_null"]
+  n15["sales.orders.orders_pkey"]
+  n16["sales.orders.orders_total_amount_not_null"]
+  n17["sales.orders_pkey"]
+  n18["sales.sales"]
+  n19["sales.orders"]
+  n20["sales._orders"]
+  n21["sales.orders"]
+  n9 -->|catalog_dependency| n3
+  n17 -->|contains| n19
+  n8 -->|catalog_dependency| n3
+  n16 -->|expression_reference| n13
+  n20 -->|catalog_dependency| n21
+  n14 -->|contains| n19
+  n15 -->|catalog_dependency| n12
+  n5 -->|catalog_dependency| n7
+  n8 -->|catalog_dependency| n2
+  n4 -->|catalog_dependency| n6
+  n17 -->|expression_reference| n12
+  n9 -->|catalog_dependency| n12
+  n15 -->|expression_reference| n12
+  n9 -->|catalog_dependency| n13
+  n19 -->|catalog_dependency| n18
+  n6 -->|catalog_dependency| n8
+  n15 -->|contains| n19
+  n1 -->|contains| n9
+  n14 -->|expression_reference| n12
+  n16 -->|contains| n19
+  n2 -->|contains| n9
+  n17 -->|catalog_dependency| n15
+  n7 -->|catalog_dependency| n9
+  n0 -->|contains| n8
+  n14 -->|catalog_dependency| n12
+  n21 -->|catalog_dependency| n19
+  n12 -->|contains| n19
+  n16 -->|catalog_dependency| n13
+  n13 -->|contains| n19

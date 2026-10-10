@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtempSync, mkdirSync, writeFileSync, symlinkSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
-import { checked_remove } from "../../scripts/tooling.mjs";
+import { checked_remove, SKILL_PATH } from "../../scripts/tooling.mjs";
 import * as publication from "../../scripts/check-site-publication.mjs";
 
 function fixture(work) {
@@ -15,7 +15,10 @@ function fixture(work) {
     writeFileSync(path, text);
   };
   for (const name of ["README.md", "SKILL.md"]) {
-    put(join(root, name), "Public documentation");
+    put(
+      join(root, name === "SKILL.md" ? SKILL_PATH : name),
+      "Public documentation",
+    );
     put(join(built, "docs", name), "Public documentation");
   }
   put(join(root, "site/public/favicon.svg"), "<svg/>");

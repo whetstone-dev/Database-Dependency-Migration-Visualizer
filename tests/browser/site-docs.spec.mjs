@@ -266,7 +266,7 @@ test("setup commands copy exactly and unknown topics provide a route back", asyn
       "\n",
     ),
   ).toBe(
-    "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git .agents/skills/database-dependency-migration",
+    "git clone https://github.com/whetstone-dev/Database-Dependency-Migration-Visualizer.git dbdep-skill-source\nmkdir -p .agents/skills\ncp -R dbdep-skill-source/skills/database-dependency-migration .agents/skills/",
   );
   await page.goto(`${site}/docs/not-a-topic/`);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(

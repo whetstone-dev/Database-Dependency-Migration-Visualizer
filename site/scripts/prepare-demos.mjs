@@ -142,7 +142,12 @@ await writeFile(
 await mkdir(resolve(site, "public/docs"), { recursive: true });
 for (const filename of ["README.md", "SKILL.md"]) {
   await copyFile(
-    resolve(root, filename),
+    resolve(
+      root,
+      filename === "SKILL.md"
+        ? "skills/database-dependency-migration/SKILL.md"
+        : filename,
+    ),
     resolve(site, "public/docs", filename),
   );
 }

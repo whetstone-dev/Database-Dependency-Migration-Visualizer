@@ -3,7 +3,14 @@
 import { readdirSync, readFileSync, lstatSync } from "node:fs";
 import { join, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { ROOT, files, sha256, save, verify_built_docs } from "./tooling.mjs";
+import {
+  ROOT,
+  SKILL_PATH,
+  files,
+  sha256,
+  save,
+  verify_built_docs,
+} from "./tooling.mjs";
 
 export function check_site_publication(
   root = ROOT,
@@ -12,7 +19,7 @@ export function check_site_publication(
   verify_built_docs(root, built);
   const copies = new Map([
     ["docs/README.md", join(root, "README.md")],
-    ["docs/SKILL.md", join(root, "SKILL.md")],
+    ["docs/SKILL.md", join(root, SKILL_PATH)],
     ["favicon.svg", join(root, "site/public/favicon.svg")],
     [".nojekyll", join(root, "site/public/.nojekyll")],
     ["THIRD_PARTY_NOTICES.md", join(root, "site/THIRD_PARTY_NOTICES.md")],
